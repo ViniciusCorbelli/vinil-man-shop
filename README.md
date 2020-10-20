@@ -25,9 +25,9 @@ Scrum Master:
 
 ### Primeira utilização
 
-- Entre na pasta onde irá guardar o projeto: cd /caminho/para/a/pasta
+- Entre na pasta onde irá guardar o projeto: `cd /caminho/para/a/pasta`
 - Clone o repositório: git clone [<link-para-o-repositorio>](https://github.com/viniman/vinil-man-shop)
-- Entre na pasta criada pelo comando clone: cd /caminho/para/a/pasta/nova
+- Entre na pasta criada pelo comando clone: `cd vinil-man-shop`
 - Crie sua branch usando como o padrão o nome da feature que você está a desenvolver: `git checkout -b view-painel-adm`
 
 
@@ -44,11 +44,11 @@ Scrum Master:
 ### Ao final da sprint, estando tudo certo, faça o merge
 
 - Espere a confirmação do seu SCRUM para fazer o Merge
-- Depois de solicitado pelo Scrum Master, faça o merge entre sua branch e a master:
+- Depois de solicitado pelo Scrum Master, faça o merge entre sua branch e a main:
 - Certifique-se de estar na sua branch usando: `git status`
   - Se não estiver na sua branch, vole para ela: `git checkout suabranch`
-- Mescle o conteúdo da master na sua branch: `git merge master`
+- Mescle o conteúdo da main na sua branch: `git merge main`
 - Confirme o merge enviando para o servidor do GitHub: `git push origin suabranch`
-- Vá para a master: `git checkout master`
-- Atualize a master: `git pull`
-- Faça o merge das alterações de sua branch com a master: `git merge suabranch`
+- Vá para a main: `git checkout main`
+- Atualize a main: `git pull`
+- Faça o merge das alterações de sua branch com a main: `git merge suabranch`
