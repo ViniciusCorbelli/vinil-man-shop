@@ -1,6 +1,6 @@
 # Vinil Man Shop
 
-Projeto desenvolvido para o Trainee da [Code Jr](https://codejr.com.br/).
+Projeto desenvolvido para o Trainee da [Code Jr](https://codejr.com.br/). Consiste em uma loja de discos de vinil.
 - Desenvolvimento:
   - Front-end: HTML, CSS e JavaScript
   - Back-end: PHP e SQL
