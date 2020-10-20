@@ -1,0 +1,54 @@
+# Vinil Man Shop
+
+Projeto desenvolvido para o Trainee da [Code Jr](https://codejr.com.br/).
+- Desenvolvimento:
+  - Front-end: HTML, CSS e JavaScript
+  - Back-end: PHP e SQL
+
+
+## Projeto Trainee, Code Jr, Grupo 3, 2020.2
+
+Desenvolvedores:
+- Gabriel Cabanez
+- Leonardo Never
+- Pedro Alexandre
+- Renan Nunes
+- Vinicius Corbelli
+
+
+Scrum Master:
+
+- [Vinicius](http://viniman.github.io/)
+
+
+## Tutorial de uso do repositório
+
+### Primeira utilização
+
+- Entre na pasta onde irá guardar o projeto: cd /caminho/para/a/pasta
+- Clone o repositório: git clone [<link-para-o-repositorio>](https://github.com/viniman/vinil-man-shop)
+- Entre na pasta criada pelo comando clone: cd /caminho/para/a/pasta/nova
+- Crie sua branch usando como o padrão o nome da feature que você está a desenvolver: `git checkout -b view-painel-adm`
+
+
+### Rotina
+
+- Cheque em qual branch está e quais alterações foram adicionadas: git status
+- Certifique-se de estar na sua branch usando: `git status`
+  - Se não estiver na sua branch, vole para ela: `git checkout suabranch`
+- Adicione as alterações feitas na sua branch: `git add .`
+- Dê um commit com uma mensagem especificando as alterações realizadas: `git commit -m "mensagem especificando o que foi feito"`
+- Envie o commit feito para sua branch no GitHub: `git push origin suabranch`
+
+
+### Ao final da sprint, estando tudo certo, faça o merge
+
+- Espere a confirmação do seu SCRUM para fazer o Merge
+- Depois de solicitado pelo Scrum Master, faça o merge entre sua branch e a master:
+- Certifique-se de estar na sua branch usando: `git status`
+  - Se não estiver na sua branch, vole para ela: `git checkout suabranch`
+- Mescle o conteúdo da master na sua branch: `git merge master`
+- Confirme o merge enviando para o servidor do GitHub: `git push origin suabranch`
+- Vá para a master: `git checkout master`
+- Atualize a master: `git pull`
+- Faça o merge das alterações de sua branch com a master: `git merge suabranch`
