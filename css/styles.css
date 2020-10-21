@@ -46,8 +46,12 @@ body {
     color: #1496d2;
 }
 
+.quem-somos-historia p {
+    margin-bottom: 30px;
+}
+
 .quem-somos-historia img {
-    width: 100%;
+    width: 90%;
     height: auto;
 }
 
@@ -85,10 +89,34 @@ body {
     font-size: 16px;
 }
 
+.quem-somos-equipe {
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: justify;
+
+    animation-name: quem-somos-efeito;
+	animation-duration: 6s;
+}
+
+.quem-somos-equipe h1 {
+    color: #1496d2;
+}
+
+.quem-somos-equipe p {
+    margin-bottom: 30px;
+}
+
+.quem-somos-equipe img {
+    width: 70%;
+    height: auto;
+}
+
 .quem-somos-time {
     margin-left: 300px;
     margin-right: 300px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     text-align: center;
     
     animation-name: quem-somos-efeito;
@@ -106,29 +134,10 @@ body {
     font-size: 20px;
 }
 
+
 .quem-somos-time img {
     height: 100px;
     border-radius: 100px;
-}
-
-.quem-somos-equipe {
-    margin-left: 120px;
-    margin-right: 120px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    text-align: justify;
-
-    animation-name: quem-somos-efeito;
-	animation-duration: 6s;
-}
-
-.quem-somos-equipe h1 {
-    color: #1496d2;
-}
-
-.quem-somos-equipe img {
-    width: 100%;
-    height: auto;
 }
 
 @media (max-width: 1000px) {
@@ -183,6 +192,21 @@ body {
         font-size: 12px;
     }
     
+    .quem-somos-equipe {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: unset;
+    }
+    
+    .quem-somos-equipe img {
+        width: 60%;
+        height: auto;
+        margin: 10px auto 20px;
+        display: block;
+    }
+
     .quem-somos-time {
         margin-left: 30px;
         margin-right: 30px;
@@ -202,21 +226,6 @@ body {
     .quem-somos-time img {
         height: 70px;
         border-radius: 70px;
-    }
-    
-    .quem-somos-equipe {
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        text-align: unset;
-    }
-    
-    .quem-somos-equipe img {
-        width: 60%;
-        height: auto;
-        margin: 10px auto 20px;
-        display: block;
     }
 }
 
