@@ -26,9 +26,12 @@ Scrum Master:
 ### Primeira utilização
 
 - Entre na pasta onde irá guardar o projeto: `cd /caminho/para/a/pasta`
-- Clone o repositório: git clone [<link-para-o-repositorio>](https://github.com/viniman/vinil-man-shop)
+- Clone o repositório: `git clone https://github.com/viniman/vinil-man-shop`
 - Entre na pasta criada pelo comando clone: `cd vinil-man-shop`
-- Crie sua branch usando como o padrão o nome da feature que você está a desenvolver: `git checkout -b view-painel-adm`
+- Crie sua branch usando como o padrão o nome da feature que você está a desenvolver
+- Exemplo de criação de branch de uma view do painel administrativo
+  - Crie a branch da funcionalidade a ser implementada: `git checkout -b view-painel-adm`
+  - Envie a sua branch para o repositório remoto do github: `git push origin view-painel-adm`
 
 
 ### Rotina
