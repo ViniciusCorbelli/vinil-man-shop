@@ -51,9 +51,29 @@ body {
 }
 
 .quem-somos-historia img {
-    width: 90%;
+    width: 75%;
     height: auto;
 }
+
+.quem-somos-icones {
+    margin-top: 100px;
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-bottom: 40px;
+    text-align: center;
+
+    animation-name: quem-somos-efeito;
+	animation-duration: 2s;
+}
+
+.quem-somos-icones h1 {
+    color: #1496d2;
+}
+
+.quem-somos-icones i {
+    font-size: 38px;
+}
+
 
 .quem-somos-numeros {
     background-color: #1496d2;
@@ -66,7 +86,7 @@ body {
 
     
     animation-name: quem-somos-efeito;
-	animation-duration: 4s;
+	animation-duration: 2s;
 }
 
 .quem-somos-numeros h1 {
@@ -97,7 +117,7 @@ body {
     text-align: justify;
 
     animation-name: quem-somos-efeito;
-	animation-duration: 6s;
+	animation-duration: 2s;
 }
 
 .quem-somos-equipe h1 {
@@ -109,7 +129,7 @@ body {
 }
 
 .quem-somos-equipe img {
-    width: 70%;
+    width: 60%;
     height: auto;
 }
 
@@ -120,11 +140,11 @@ body {
     text-align: center;
     
     animation-name: quem-somos-efeito;
-	animation-duration: 8s;
+	animation-duration: 2s;
 }
 
 .quem-somos-integrates {
-    margin-left: 10px;
+    margin-left: 50px;
 }
 
 .quem-somos-time h1 {
@@ -196,6 +216,13 @@ body {
         height: auto;
         margin: 10px auto 20px;
         display: block;
+    }
+
+    .quem-somos-icones {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 40px;
+        margin-bottom: 20px;
     }
 
     .quem-somos-numeros {
