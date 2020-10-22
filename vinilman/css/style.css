@@ -1,6 +1,22 @@
 html,body{
     margin: 0;
     padding: 0;
+    background-color: #e7e7e7;
+}
+
+#slogan h4{
+    color: #1496d2;
+}
+
+#sobre h4{
+    color: #1496d2;
+}
+
+#sobre img{
+    margin-left: 35%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
 }
 
 /**
@@ -146,6 +162,33 @@ html,body{
     color: #fbb72c;
 }
 
-@media(max-width: 1000px){
+@media(max-width: 767px){
+    #sobre img {
+        margin-left: 20%;
+        margin-bottom: 5%;
+    }
 
+    #animation {
+        display: none;
+    }
+}
+
+@media(max-width: 1000px)
+{
+    #sobre img {
+        margin-left: 20%;
+        margin-bottom: 5%;
+    }
+
+    .disco {
+        left: 80px;
+    }
+    
+    .vitrola-base{
+        left: 80px;
+    }
+    
+    .furo {
+        left: 150px;
+    }
 }
