@@ -264,6 +264,10 @@ body {
         display: block;
     }
 
+    .quem-somos-integrates {
+        margin-left: 0px;
+    }
+
     .quem-somos-time {
         margin-left: 30px;
         margin-right: 30px;
