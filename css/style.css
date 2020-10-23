@@ -21,6 +21,22 @@ html,body{
     border-radius: 50%;
 }
 
+#carouselExampleIndicators figcaption{
+    margin-top: 1%;
+    margin-right: 10%;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 20px;
+    color: #1496d2;
+}
+
+@media(max-width: 680px)
+{
+    #icon-carousel{
+        display: none;
+    }
+}
+
 /**
     Animação da vitrola
 */
