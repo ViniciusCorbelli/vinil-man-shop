@@ -1,8 +1,9 @@
-#footer{    
+footer{    
     background: #000000;
     position:absolute;
     margin-bottom:0; 
     width:100%;
+    height: 350px;
     max-height: 170px;
     display: grid;
     justify-content: center;
@@ -44,6 +45,16 @@
     align-items: center;
     justify-content: center;
     color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.contato i {
+    margin-top: 2px;
+    color: #747474;
+}
+
+.contato a {
+    color: #9e9e9e;
 }
 
 .redes-sociais {
@@ -58,7 +69,7 @@
 
 .redes-sociais h1 {
     color: #ffffff;
-    font-size: 24px;
+    font-size: 25px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -66,20 +77,29 @@
 
 .redes-sociais img {
     display: inline-block;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     margin-top: 3px;
     margin-left: 3%;
 }
 
-.icones {
+.redes-sociais i {
+    color: #747474;
     margin-top: auto;
     margin-bottom: auto;
     padding: 0;
+    align-items: center;
     text-align: center;
+    margin-left: 5px;
 }
 
-@media (max-width: 400px) {
+i:hover {
+    transition: 1s;
+    color: #1496d2;
+}
+
+@media (max-width: 710px) {
+
     .map-adress {
         margin-top: auto;
         margin-bottom: auto;
@@ -127,10 +147,5 @@
         align-items: center;
         text-align: center;
     }
-    
-    .icones img {
-        display: inline-block;
-        width: 30px;
-        height: 30px;
-    }
+
 }
