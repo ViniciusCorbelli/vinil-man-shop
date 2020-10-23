@@ -36,8 +36,8 @@ body {
     margin-left: 120px;
     margin-right: 120px;
     margin-bottom: 40px;
-    text-align: justify;
-
+    text-align: center;
+    vertical-align: middle;
     
     animation-name: quem-somos-efeito;
 	animation-duration: 2s;
@@ -45,10 +45,12 @@ body {
 
 .quem-somos-historia h1 {
     color: #1496d2;
+    text-align: justify;
 }
 
 .quem-somos-historia p {
     margin-bottom: 30px;
+    text-align: justify;
 }
 
 .quem-somos-historia img {
@@ -115,7 +117,7 @@ body {
     margin-right: 120px;
     margin-top: 40px;
     margin-bottom: 40px;
-    text-align: justify;
+    text-align: center;
 
     animation-name: quem-somos-efeito;
 	animation-duration: 2s;
@@ -123,15 +125,18 @@ body {
 
 .quem-somos-equipe h1 {
     color: #1496d2;
+    text-align: justify;
 }
 
 .quem-somos-equipe p {
     margin-bottom: 30px;
+    text-align: justify;
 }
 
 .quem-somos-equipe img {
     width: 60%;
     height: auto;
+    vertical-align: middle;
 }
 
 .quem-somos-time {
