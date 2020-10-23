@@ -1,26 +1,25 @@
-/* Gerais */
-body {
-    font-family: 'Montserrat', sans-serif;
-}
 
 /* BARRA DE NAVEGAÇAO */
 .navbar {
     background-color: #1496d2;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #logo {
     width: 100px;
+    margin: 10px 5px;
 }
 
-/* .search-bar {
-    width: 20% !important;
-}  */
+.search-bar {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}  
 
 .nav-link {
-    color: black !important;
+    color: white !important;
     font-size: 18px;
     /* margin-left: 0px; */
-    margin-right: 50px;
+    margin-right: 40px;
 }
 
 .nav-link:hover {
