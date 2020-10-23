@@ -291,6 +291,6 @@ body {
 
 @keyframes quem-somos-efeito {
     0% {opacity: 0; transform: translate(0px,60px)}
-	50% {opacity: 8; transform: translate(0px,20px)}
+	50% {opacity: 0.8; transform: translate(0px,20px)}
 	100% {opacity: 1; transform: translate(0px,0px)}
 } 
