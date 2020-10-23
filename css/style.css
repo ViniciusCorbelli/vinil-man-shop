@@ -2,10 +2,12 @@ html,body{
     margin: 0;
     padding: 0;
     background-color: #e7e7e7;
+    font-family: 'Poppins', sans-serif;
 }
 
-#slogan h4{
+#slogan h3{
     color: #1496d2;
+    font-family: 'Miniver', cursive;
 }
 
 #sobre h4{
