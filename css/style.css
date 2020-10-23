@@ -8,6 +8,7 @@
     justify-content: center;
     grid-template-columns: 32% 32% 32%;
     align-items: center;
+    font-family: poppins;
 }
 
 .map-adress {
