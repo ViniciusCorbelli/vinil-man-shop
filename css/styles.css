@@ -1,0 +1,53 @@
+body {
+	background-color: #747474;
+	color: white;
+	font-family: 'Poppins', sans-serif;
+	}
+
+
+
+form {
+  width: 95%;
+  padding: 25px 50px 25px 50px;
+
+   
+}
+.form-group {
+	background-color: #747474;
+	color: white;
+	font-size: 40px;
+	text-align: center;
+}
+ textarea {
+ 	
+ 	display: block;  
+ 	width: 85%;
+ 	font-size: 20px;
+ 	margin-left: 7%;
+ 	
+ }
+
+.contato1 {
+	background-color: #747474;
+	color: white;
+	text-align: center;
+
+
+}
+
+.mapa {
+	background-color: #747474;
+	color: white;
+	display: block;
+	text-align: center;
+}
+
+.form-contact {
+	background-color:#000000;
+}
+
+img {
+	font-size: 200px;
+}
+
+
