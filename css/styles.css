@@ -2,26 +2,58 @@
 /* BARRA DE NAVEGAÇAO */
 .navbar {
     background-color: #1496d2;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 #logo {
-    width: 100px;
-    margin: 10px 5px;
+    width: 150px;
 }
 
-.search-bar {
+.barra-navegacao {
     margin-top: 10px;
     margin-bottom: 10px;
 }  
 
-.nav-link {
+.form-navbar {
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+
+.item-navbar {
     color: white !important;
     font-size: 18px;
-    /* margin-left: 0px; */
     margin-right: 40px;
 }
 
-.nav-link:hover {
-    color: rgb(33, 99, 173) !important;
+.item-navbar:hover {
+    color: black !important;
+}
+
+@media only screen and (max-width: 991px) {
+    .item-navbar{ 
+        margin-left: 20px; 
+    }
+}
+@media(min-width:992px) and (max-width:1087px) {
+    .barra-navegacao{
+        margin-left: 20px;
+    }
+    .item-navbar{ 
+        font-size: 16px; 
+    }
+    #logo {
+        width: 110px;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    #logo {
+        width: 180px;
+    }
+    .barra-pesquisa{
+        width: 30%!important;
+    }
+    .form-navbar{
+        padding-left: 30px;
+    }
 }
