@@ -3,10 +3,6 @@ body {
 	color: white;
 	font-family: 'Poppins', sans-serif;
 	width: 100%;
-	 
-
- 	
-
 	}
 
 
@@ -41,11 +37,12 @@ background: url("../img/vinil-fundo.jpg") no-repeat center center fixed;
 
  	
 }
- textarea {
+ .digitos {
  	
  	display: block;  
  	width: 94%;
- 	font-size: 20px;
+	 font-size: 20px;
+	 margin: auto;
  }
 
 .contato1 {
@@ -68,7 +65,9 @@ iframe {
 	height: 60%;
 }
 
-
+label {
+	font-size: 15px;
+}
 
 i {
 	color: #000000;
