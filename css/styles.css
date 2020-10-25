@@ -16,19 +16,14 @@ form {
   padding: 25px 50px 25px 50px;
  
 }
+
 .contato {
-	background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQKB1Vi2sekigy1qdEMrqzORU0hYG2ypbArng&usqp=CAU");
-	background-repeat: no-repeat;
-	background-size: cover;
-	width: 100%;
-	height :100%;
-}
-.contato {
-	width: 100%;
-	height :100%;
-	background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQKB1Vi2sekigy1qdEMrqzORU0hYG2ypbArng&usqp=CAU");
-	background-repeat: no-repeat;
-	background-size: cover;
+	
+background: url("/img/vinil-fundo.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 	
 }
 .form-group {
@@ -36,13 +31,11 @@ form {
 	color: #1496d2;
 	font-size: 40px;
 	text-align: center;
-	
-	
-
+	margin: auto;
 }
 .form-contact{
 	 color: #1496d2;
-	 background-image: url("https://static.vecteezy.com/system/resources/previews/000/540/081/non_2x/vinyl-records-music-background-vector-illustration.jpg");
+	 
 	 width: 100%;
 	 height :100%;
 
@@ -53,24 +46,26 @@ form {
  	display: block;  
  	width: 94%;
  	font-size: 20px;
- 	
- 	
- 	
  }
 
 .contato1 {
 	
 	color: #1496d2;
 	text-align: center;
-
-
 }
 
 .mapa {
 	color: #1496d2;
-	display: block;
+	background-color;
 	display: block;
 	text-align: center;
+	justify-content: center;
+	margin-bottom: 20px;
+	height: 600px;
+}
+iframe {
+	width: 65%;
+	height: 60%;
 }
 
 
@@ -86,35 +81,53 @@ h1 {
 	
 }
 h2 {
-	color: #000000;
+	color: white;
 	border-bottom: 3px solid;
+	padding-bottom: 30px;
 
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (max-width: 480px) {
 form {
   width: 77%;
   padding: 25px 0px 25px 0px;
   margin-left: 13%;
   margin-right: 10%;
 }
+.contato {
+	
+  background-size:100% 100%;
+}
 
-@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (max-width: 768px) {
 form {
-  width: 93%;
+  width: 80%;
   padding: 25px 50px 25px 50px;
   margin: auto;
 }
+.contato {
+	
+	background-size:100% 100%;
+	
+}
 
-@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (max-width: 992px) {
+
 form {
   width: 87%;
   padding: 25px 50px 25px 50px;
   margin: auto;
 }
-
-
-
+.contato {
+	
+	background-size:100% 100%;
+	
 }
 
+}
 
