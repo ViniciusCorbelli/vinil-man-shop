@@ -12,6 +12,7 @@
 .barra-navegacao {
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-left: 15px;
 }  
 
 .form-navbar {
@@ -29,9 +30,18 @@
     color: black !important;
 }
 
+
 @media only screen and (max-width: 991px) {
     .item-navbar{ 
         margin-left: 20px; 
+    }
+
+    .barra-navegacao {
+        margin-left: 0;
+    } 
+
+    .menu-suspenso {
+        position: absolute!important;
     }
 }
 @media(min-width:992px) and (max-width:1087px) {
