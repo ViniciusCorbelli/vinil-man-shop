@@ -518,7 +518,6 @@
         margin-bottom: 0;
         width: 100%;
         height: 350px;
-        max-height: 170px;
         display: grid;
         justify-content: center;
         grid-template-columns: 32% 32% 32%;
@@ -665,7 +664,7 @@
             background-color: #1496d2;
         }
         #logo {
-            width: 150px;
+            width: 100px!important;
         }
         .barra-navegacao {
             margin-top: 10px;
@@ -703,12 +702,12 @@
                 font-size: 16px;
             }
             #logo {
-                width: 110px;
+                width: 100px;
             }
         }
         @media only screen and (min-width: 1300px) {
             #logo {
-                width: 180px;
+                width: 100px;
             }
             .barra-pesquisa {
                 width: 30%!important;
@@ -726,7 +725,7 @@
     }
     
     #logo {
-        width: 150px;
+        width: 100px;
     }
     
     .barra-navegacao {
@@ -745,7 +744,6 @@
         font-size: 18px;
         margin-right: 40px;
     }
-<<<<<<< HEAD
     
     .item-navbar:hover {
         color: black !important;
@@ -786,7 +784,6 @@
             padding-left: 30px;
         }
     }
-=======
 }
 
 footer{    
@@ -890,6 +887,10 @@ i:hover {
 }
 
 @media (max-width: 710px) {
+
+    footer {
+        max-height: 200px;
+    }
 
     .map-adress-footer {
         margin-top: auto;
@@ -1012,4 +1013,3 @@ i:hover {
         padding-left: 30px;
     }
 }
->>>>>>> 1f5842a6a487b95a08584dad59c5c42d517e6374
