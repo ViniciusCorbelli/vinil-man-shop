@@ -1,215 +1,228 @@
-body {
-    background-color: #e7e7e7;
-    font-family: 'Poppins', sans-serif;
-}
-
-.produtos-main {
-    margin-left: 120px;
-    margin-right: 120px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
-.produtos-cabecalho {
-    position: relative;
-    text-align: center;
-    color: white;
-}
-
-.produtos-cabecalho img {
-    width: 100%;
-    height: 350px;
-}
-
-.produtos-titulo h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 48px;
-}
-
-.produtos-main h1 {
-    font-size: 30px;
-    text-transform: uppercase;
-}
-
-.produto-config {
-    display: inline-block;
-}
-
-.produto-config-celular {
-    display: none;
-}
-
-.produto-config:hover {
-    cursor: pointer;
-}
-
-.produtos-carrosel {
-    width: 100%;
-    height: 350px;
-    animation-name: produtos-efeito;
-    animation-duration: 2s;
-}
-
-.produtos-buscador {
-    animation-name: produtos-efeito;
-    animation-duration: 2s;
-}
-
-.produtos-buscador h1 {
-    font-size: 24px;
-    margin-bottom: 40px;
-}
-
-.produtos-buscador h2 {
-    font-size: 14px;
-    margin-bottom: 20px;
-}
-
-.produtos-buscador h3 {
-    font-size: 14px;
-    color: #777474;
-}
-
-.produtos-buscador h4 {
-    font-size: 20px;
-}
-
-.produtos-buscador h6 {
-    font-size: 24px;
-    margin-top: 30px;
-}
-
-.produto-config-computador a {
-    display: block;
-}
-
-.produtos-relevantes {
-    font-size: 14px;
-    margin-bottom: 20px;
-}
-
-.produtos-relevantes-background {
-    background-color: #e7e7e7!important;
-    color: black!important;
-}
-
-.produtos-buscador-categorias {
-    color: #1496d2;
-}
-
-.produtos-buscador a {
-    text-decoration: none;
-    color: #777474;
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-
-.produtos-cards {
-    padding: 2px;
-    border-radius: 3px;
-    transition: .2s all;
-    animation-name: produtos-efeito;
-    animation-duration: 2s;
-}
-
-.produtos-cards:hover {
-    filter: blur(3px);
-    opacity: .5;
-    transform: scale(.98);
-    box-shadow: none;
-}
-
-.produtos-cards:hover {
-    transform: scale(1);
-    filter: blur(0px);
-    opacity: 1;
-    box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125);
-}
-
-.produtos-cards-titulo {
-    color: #1496d2;
-}
-
-.card-animation:hover {
-    height: 450px;
-    width: 750px;
-}
-
-.card-img {
-    height: 100%;
-    width: 100%;
-}
-
-.produtos-paginas a {
-    background-color: #e7e7e7!important;
-    color: #777474!important;
-    margin-right: 5px;
-    margin-left: 5px;
-    transition: .2s all;
-}
-
-.produtos-paginas-clicado a {
-    background-color: #d1d0d0!important;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-.produtos-navigation {
-    margin-top: 50px;
-    animation-name: produtos-efeito;
-    animation-duration: 2s;
-}
-
-@media (max-width: 1000px) {
-    .produtos-carrosel {
-        height: 300px;
-    }
-    .produtos-titulo h1 {
-        font-size: 32px;
-    }
-    .produtos-relevantes {
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-    .produtos-relevantes {
-        margin-right: 2px;
-        margin-left: 2px;
-    }
-    .produto-config-celular {
-        display: inline-flex;
-        text-align: left;
-    }
-    .produto-config-computador {
-        display: none;
-    }
-    .produtos-engrenagem {
-        font-size: 20px;
-    }
-    .produtos-main {
-        margin-left: 20px;
-        margin-right: 20px;
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
-    .produtos-navigation {
-        margin-top: 40px;
-    }
-}
-
-@keyframes produtos-efeito {
-    0% {
-        opacity: 0;
-        transform: translate(0px, 60px)
-    }
-    50% {
-        opacity: 0.8;
-        transform: translate(0px, 20px)
-    }
-    100% {
-        opacity: 1;
-        transform: translate(0px, 0px)
-    }
-}
+            body {
+                background-color: #e7e7e7;
+                font-family: 'Poppins', sans-serif;
+            }
+            
+            .visualizar-produto-main {
+                margin-right: 120px;
+                margin-left: 120px;
+            }
+            
+            .visualizar-produto-nav a {
+                background-color: #e7e7e7!important;
+            }
+            
+            .visualizar-produto-voltar {
+                background-color: #e7e7e7!important;
+                color: black!important;
+            }
+            
+            .visualizar-produto-pagina {
+                background-color: #ffffff;
+            }
+            
+            .visualizar-produto-img {
+                text-align: center;
+                margin-top: 50px;
+                animation-name: visualizar-produto-efeito;
+                animation-duration: 2s;
+            }
+            
+            .visualizar-produto-img-principal {
+                width: 80%;
+                height: 400px;
+            }
+            
+            .visualizar-produto-img h2 {
+                text-align: left;
+                margin-top: 30px;
+                font-size: 25px;
+            }
+            
+            .visualizar-produto-inf {
+                animation-name: visualizar-produto-efeito;
+                animation-duration: 2s;
+            }
+            
+            .visualizar-produto-inf h1 {
+                font-size: 28px;
+                color: #1496d2;
+            }
+            
+            .visualizar-produto-inf h2 {
+                font-size: 40px;
+            }
+            
+            .visualizar-produto-inf h3 {
+                font-size: 16px;
+                margin-bottom: 50px;
+            }
+            
+            .visualizar-produto-inf h4 {
+                font-size: 16px;
+            }
+            
+            .visualizar-produto-inf h5 {
+                font-size: 16px;
+                margin-bottom: 50px;
+            }
+            
+            .visualizar-produto-inf h6 {
+                font-size: 12px;
+                color: #777474;
+                margin-bottom: 30px;
+                margin-top: 10px;
+            }
+            
+            .visualizar-produto-inf {
+                margin-top: 40px;
+                transform: scale(1);
+                filter: blur(0px);
+                opacity: 1;
+                box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125);
+            }
+            
+            .visualizar-produto-relacionados {
+                margin-left: 50px;
+                margin-right: 50px;
+                animation-name: visualizar-produto-efeito;
+                animation-duration: 2s;
+            }
+            
+            .visualizar-produto-cards {
+                padding: 2px;
+                border-radius: 3px;
+                transition: .2s all;
+                animation-name: produtos-efeito;
+                animation-duration: 2s;
+            }
+            
+            .visualizar-produto-cards:hover {
+                filter: blur(3px);
+                opacity: .5;
+                transform: scale(.98);
+                box-shadow: none;
+            }
+            
+            .visualizar-produto-cards:hover {
+                transform: scale(1);
+                filter: blur(0px);
+                opacity: 1;
+                box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125);
+            }
+            
+            .visualizar-produto-cards-titulo {
+                color: #1496d2;
+            }
+            
+            .visualizar-produto-estrela {
+                margin-bottom: 30px;
+            }
+            
+            .visualizar-produto-caracteristicas {
+                margin: 50px;
+                padding-right: 300px;
+            }
+            
+            .visualizar-produto-button-comprar {
+                margin-bottom: 5px;
+                background-color: #1496d2;
+                width: 100%;
+            }
+            
+            .visualizar-produto-button-carrinho {
+                background-color: #e7e7e7;
+                color: #1496d2;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            .visualizar-produto-button-comprar:hover {
+                background-color: #139fe0;
+            }
+            
+            .visualizar-produto-button-carrinho:hover {
+                background-color: #dfd9d9;
+                color: #1496d2;
+            }
+            
+            .visualizar-produto-caracteristicas {
+                text-align: justify;
+                animation-name: visualizar-produto-efeito;
+                animation-duration: 2s;
+            }
+            
+            .visualizar-produto-caracteristicas h1 {
+                font-size: 26px;
+            }
+            
+            .visualizar-produto-caracteristicas h2 {
+                font-size: 26px;
+            }
+            
+            .visualizar-produto-caracteristicas p {
+                font-size: 18px;
+            }
+            
+            @media (max-width: 1000px) {
+                .visualizar-produto-main {
+                    margin-right: 20px;
+                    margin-left: 20px;
+                }
+                .visualizar-produto-img-principal {
+                    width: 95%;
+                    height: 320px;
+                }
+                .visualizar-produto-inf h1 {
+                    font-size: 28px;
+                    color: #1496d2;
+                }
+                .visualizar-produto-inf h2 {
+                    font-size: 23px;
+                }
+                .visualizar-produto-inf h3 {
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                }
+                .visualizar-produto-inf h4 {
+                    font-size: 14px;
+                }
+                .visualizar-produto-inf h5 {
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                }
+                .visualizar-produto-inf h6 {
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                    margin-top: 5px;
+                }
+                .visualizar-produto-estrela {
+                    font-size: 16px;
+                }
+                .visualizar-produto-button-comprar {
+                    font-size: 16px;
+                }
+                .visualizar-produto-relacionados h1 {
+                    font-size: 24px;
+                }
+                .visualizar-produto-caracteristicas {
+                    margin: 30px;
+                    padding-right: 10px;
+                    text-align: left;
+                }
+            }
+            
+            @keyframes visualizar-produto-efeito {
+                0% {
+                    opacity: 0;
+                    transform: translate(0px, 60px)
+                }
+                50% {
+                    opacity: 0.8;
+                    transform: translate(0px, 20px)
+                }
+                100% {
+                    opacity: 1;
+                    transform: translate(0px, 0px)
+                }
+            }
