@@ -142,7 +142,7 @@
     }
     /*Cartões*/
     
-    .card {
+    .index-card {
         width: 250px;
         height: 550px;
         position: relative;
@@ -225,7 +225,7 @@
     }
     
     @media(min-width: 992px) and (max-width: 1200px) {
-        .card {
+        .index-card {
             width: 210px;
         }
     }
