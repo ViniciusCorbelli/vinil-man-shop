@@ -109,6 +109,11 @@ body {
     margin-bottom: 8px;
 }
 
+.produto-listagem-margin {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
 .produtos-cards {
     padding: 2px;
     border-radius: 3px;
