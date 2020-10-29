@@ -1,31 +1,39 @@
-#navbar-adm{
-    background-color: #747474;
+html,
+body {
+    background-color: #e7e7e7;
+    font-family: 'Poppins', sans-serif;
 }
 
-#logo-adm {
+#logo-adm{
     width: 100px;
-    margin-left: 20%;
 }
 
-#layoutSidenav{
-    display: flex;
-    width: 100%;
-    align-items: stretch;
+.sticky-top{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
 }
 
-#sidebar{
-    width: 225px;
-    height: 100vh;
-    z-index: 1038;
+.sidebar{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
 
-.sidenav{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    flex-wrap: nowrap;
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 84px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto; 
 }
 
-.sidenav-color{
-    background-color: #808080;
+.pt-4, .py-3 {
+    padding-top: 1rem!important;
 }
