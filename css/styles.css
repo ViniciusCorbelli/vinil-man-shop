@@ -121,5 +121,22 @@ button:hover {
         align-items: center;
         justify-content: center;
         text-align: center;
+        margin-right: 10%;
     }
+}
+
+@media only screen and (max-width: 575px) {
+
+    .boas-vindas{
+    border-right: #1496d2 0px solid;
+    }
+
+    .form {
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+
+
+
+
 }
