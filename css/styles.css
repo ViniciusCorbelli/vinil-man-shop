@@ -2,6 +2,23 @@ body{
     font: 'Poppins','sans serif';
 }
 
+.color{
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.color:hover{
+    color: rgba(9, 110, 204, 0.856)
+}
+
+.table-title{
+    background:  rgba(122, 110, 110, 0.856);
+    margin-left: 0;
+    color: #fff;
+    padding: 16px 30px;
+    width: 1431px;
+    border-radius: 3px 3px 0 0
+}
+
 #layoutSidenav {
     display: flex;
   }
@@ -64,7 +81,6 @@ body{
   }
   .sb-nav-fixed #layoutSidenav #layoutSidenav_nav {
     width: 225px;
-    height: 100vh;
     z-index: 1038;
   }
   .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
