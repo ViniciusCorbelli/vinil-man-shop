@@ -241,3 +241,33 @@ body{
   .sb-sidenav-light .sb-sidenav-footer {
     background-color: #e9ecef;
   }
+
+  /* Home adm */
+
+.cartao {
+  /* background-color: red;  */
+  margin: 35px 0px 10px 0px;
+  box-shadow: 3px 1px 7px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+} 
+
+.card-title {
+  padding: 15px 0px 20px 0px;
+}
+
+.card-icon {
+  margin-right: 10px;
+}
+
+.card-text {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 832px) {
+  .cartao {
+    margin: 15px 0px 10px 0px;
+    box-shadow: 3px 2px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  } 
+}
+/* Fim home adm */

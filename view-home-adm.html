@@ -9,11 +9,15 @@
     <script src="https://kit.fontawesome.com/f74eef7211.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <!-- apagar -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- ^ -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body id="view-category" class="sb-nav-fixed">
+    <!-- NAV -->
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Vinilman Shop</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle"><i class="fas fa-bars fa-x-lg"></i></button>
@@ -27,8 +31,9 @@
                 </div>
             </li>
         </ul>
-    </nav>
-
+    </nav> <!-- fim nav -->
+    
+    <!-- SideNav -->
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -55,17 +60,55 @@
                 </div>
             </nav>
         </div>
+        <!-- conteudo -->
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Bem-vindo Viniman</h1>
-
-                   
-
-                    
-                        
+                    <div class="row">
+                        <div class="col s12">
+                            <h1 class="mt-4">Bem-vindo Vinilman</h1>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea inventore quam, porro corporis reiciendis consectetur? Illo blanditiis, sunt eius deleniti voluptate praesentium et nihil voluptatibus, id itaque quos, non recusandae?</p>
+                        </div>
+                    </div>
+                    <!-- Cards -->
+                    <div class="row">
+                        <div class="col-sm-6">
+                          <div class="card cartao">
+                            <div class="card-body">
+                              <h5 class="card-title"><i class="fas fa-compact-disc card-icon"></i>Produtos</h5>
+                              <p class="card-text">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae in faucibus.</p>
+                              <a href="#" class="btn btn-dark">Ir para Produtos</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="card cartao">
+                            <div class="card-body">
+                              <h5 class="card-title"><i class="fas fa-bars card-icon"></i>Categorias</h5>
+                              <p class="card-text">Aenean tempus malesuada mi interdum volutpat. Ut maximus libero lorem, sit amet rutrum.</p>
+                              <a href="#" class="btn btn-dark">Ir para Categorias</a>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- ---Segunda Row de cards--- -->
+                    <div class="row">
+                        <div class="col-sm-6">
+                          <div class="card cartao">
+                            <div class="card-body">
+                              <h5 class="card-title"><i class="fas fa-users card-icon"></i>Usuários</h5>
+                              <p class="card-text">Donec aliquam, magna vehicula aliquam porta.</p>
+                              <a href="#" class="btn btn-dark">Ir para Usuários</a>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- Fim cards -->
                 </div>
+                <!-- Fim container fluid -->
+        
             </main>
+
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
                     <div class="d-flex align-items-center justify-content-between small">
@@ -167,7 +210,7 @@
     </div>
 
      <!--MODAL PARA EDIÇÃO-->
-     <div id="edit" class="modal" tabindex="-1" role="dialog">
+    <div id="edit" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -211,7 +254,7 @@
             </div>
           </div>
         </div>
-      </div>
+    </div>
 
 
     <!-- Optional JavaScript -->
