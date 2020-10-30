@@ -112,9 +112,36 @@ body {
     margin-bottom: 8px;
 }
 
+.produtos-carrosel-margin {
+    padding: 2px;
+    border-radius: 3px;
+    transition: .2s all;
+    animation-name: produtos-efeito;
+    animation-duration: 2s;
+    border-radius: 2px;
+}
+
+.produtos-carrosel-margin img {
+    border-radius: 5px;
+}
+
+.produtos-carrosel-margin:hover {
+    filter: blur(3px);
+    opacity: .5;
+    transform: scale(.98);
+    box-shadow: none;
+}
+
+.produtos-carrosel-margin:hover {
+    transform: scale(1);
+    filter: blur(0px);
+    opacity: 1;
+    box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125);
+}
+
 .produto-listagem-margin {
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: -1px;
+    margin-right: -1px;
 }
 
 .produtos-cards {
