@@ -20,3 +20,7 @@
         $("body").toggleClass("sb-sidenav-toggled");
     });
 })(jQuery);
+
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+})

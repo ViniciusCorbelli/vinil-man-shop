@@ -1,13 +1,33 @@
 body{
-    font: 'Poppins','sans serif';
+    font: 'Poppins';
 }
 
-.color{
-    color: rgba(255, 255, 255, 0.25);
+#view-category{
+    font-size: 18px;
 }
 
-.color:hover{
-    color: rgba(9, 110, 204, 0.856)
+.fa-trash{
+    color: rgba(226, 8, 8, 0.856);
+}
+
+.fa-trash:hover{
+    color: rgba(5, 121, 216, 0.856);
+}
+
+.fa-edit{
+    color: rgb(250, 227, 24);
+}
+
+.fa-edit:hover{
+    color: rgba(5, 121, 216, 0.856);
+}
+
+.fa-eye{
+    color: rgba(16, 233, 34, 0.856);
+}
+
+.fa-eye:hover{
+    color: rgba(5, 121, 216, 0.856);
 }
 
 .table-title{
@@ -84,7 +104,7 @@ body{
     z-index: 1038;
   }
   .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
-    padding-top: 20px;
+    padding-top: 0;
   }
   .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
     overflow-y: auto;
@@ -105,6 +125,11 @@ body{
     padding-left: 1rem;
     padding-right: 1rem;
     margin: 0;
+  }
+
+  .navbar-brand{
+    font-family: 'Monoton',cursive;
+    font-size: large;
   }
   .sb-topnav.navbar-dark #sidebarToggle {
     color: rgba(255, 255, 255, 0.5);
