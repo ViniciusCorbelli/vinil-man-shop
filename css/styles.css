@@ -50,7 +50,7 @@ body{
 .cool-link:after{
     content: '';
     display: block;
-    height: 1px;
+    height: 2px;
     width: 0;
     background-color: var(--white-color);
     transition: width .3s;
