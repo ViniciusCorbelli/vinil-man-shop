@@ -4,11 +4,11 @@
 /*==== VARIABLES CSS =====*/
 :root{
     /*==== COLORS ====*/
-    --white-color: #ffffff;
-    --black-color: #000000;
-    --first-blue-color: #1496d2;
+    --white-color: #ffffff; /*Cor Original do Cliente*/
+    --black-color: #000000; /*Cor Original do Cliente*/
+    --first-blue-color: #1496d2; /*Cor Original do Cliente*/
+    --first-grey-color: #747474; /*Cor Original do Cliente*/
     --second-blue-color: #027db6;
-    --first-grey-color: #747474;
     --second-grey-color: #e7e7e7;
     --red-color: #ff0000;
     --yellow-color: #ffff00;
@@ -50,7 +50,7 @@ body{
 .cool-link:after{
     content: '';
     display: block;
-    height: 1px;
+    height: 2px;
     width: 0;
     background-color: var(--white-color);
     transition: width .3s;
@@ -67,12 +67,22 @@ body{
 }
 
 #navbar img{
-    width: 90px;
-}
+    width: 45px !important;
+    height: 45px;
+}      
 
 /*===== MAIN ADMINISTRATIVO =====*/
 .wrapper{
     display:  flex;
+}
+
+.non-space{
+    text-overflow: ellipsis!important; 
+    white-space:nowrap;
+}
+
+.card{
+    overflow: hidden;
 }
 
 /*==== TABELA ADMINISTRATIVO =====*/
@@ -88,9 +98,15 @@ body{
     color: var(--yellow-color);
 }
 
-
 /*==== AJUSTE DE TAMANHO DAS COLUNAS =====*/
 td {
-    width: 20%;
+    max-width: 200px;
     text-align: center;
+}
+
+/*==== MEDIA ====*/
+@media screen{
+    #main{
+        overflow: hidden;
+    }
 }

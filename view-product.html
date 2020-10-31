@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         
-        <title>Vinilman - admin</title>
+        <title>Vinilman - Administração de Produtos</title>
         <link rel="icon" type="image/png" href="img/logo.png">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,8 +24,8 @@
                 <i class="fas fa-bars"></i>
             </button>
 
-            <button  class="btn mb-2 ml-auto mr-3">
-                <i class="fas fa-sign-out-alt fa-2x"></i>
+            <button id="sign-out"  class="btn mb-2 ml-auto mr-3">
+                <i class="fas fa-sign-out-alt fa-lg"></i>
             </button>
         </nav>
 
@@ -52,25 +52,19 @@
     
             <div id="main" class="container-fluid">
                 <main>
-                    <h1 class="mt-4 mx-auto">Bem Vindo {{nome do usuário}}</h1>
+                    <h1 class="mt-4 mx-auto non-space">Bem Vindo {{nome do usuário}}</h1>
                     
-                    <button class="mt-4 mb-4 btn btn-warning btn-lg">Adicionar novo produto</button>
+                    <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Adicionar novo produto</button>
 
-                    <div class="card mb-4">
+                    <div class="card mb-4 w-auto">
                         <div class="card-header">
                             <div class="row mb-1">
-                                <div class="col-7">
-                                    <h4 class="ml-2">Produtos</h4>
-                                </div>
-                                <div class="col-5 ml-auto" >
-                                    <div class="form-inline">
-                                        <label style="font-size: larger;" for="">Seach</label>
-                                        <input type="text" class="ml-3 mt-1 mb-1 form-control form-control w-75">
-                                    </div>
+                                <div class="col-sm-12">
+                                    <h4 class="ml-2 non-space">Categorias</h4>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-4">
+                            <div id="second-line" class="row">
+                                <div class="col-sm-4">
                                     <form class="form-inline">
                                         <label style="font-size: larger;" for="">Exibir</label>
                                         <select class="ml-2 custom-select custom-select">
@@ -78,12 +72,18 @@
                                         </select>
                                     </form>
                                 </div>
+                                <div class="col-sm-8" >
+                                    <div class="form-inline">
+                                        <label style="font-size: larger;" for="">Search</label>
+                                        <input type="text" class="ml-3 mt-1 mb-1 form-control form-control w-75">
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered no-space" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Nome</th>
@@ -119,12 +119,11 @@
                                             <td>100</td>
                                             <td>70</td>
                                             <td>25</td>
-                                            <td>75</td>
                                             <td>45</td>
+                                            <td>30</td>
                                             <td>R$2000,00</td>
                                             <td>R$1350,00</td>
                                             <td>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
                                             </td>
@@ -135,12 +134,11 @@
                                             <td>100</td>
                                             <td>70</td>
                                             <td>25</td>
-                                            <td>75</td>
                                             <td>45</td>
+                                            <td>30</td>
                                             <td>R$2000,00</td>
                                             <td>R$1350,00</td>
                                             <td>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
                                             </td>
@@ -151,12 +149,11 @@
                                             <td>100</td>
                                             <td>70</td>
                                             <td>25</td>
-                                            <td>75</td>
                                             <td>45</td>
+                                            <td>30</td>
                                             <td>R$2000,00</td>
                                             <td>R$1350,00</td>
                                             <td>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
                                             </td>
@@ -167,12 +164,11 @@
                                             <td>100</td>
                                             <td>70</td>
                                             <td>25</td>
-                                            <td>75</td>
                                             <td>45</td>
+                                            <td>30</td>
                                             <td>R$2000,00</td>
                                             <td>R$1350,00</td>
                                             <td>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
                                             </td>
@@ -183,12 +179,11 @@
                                             <td>100</td>
                                             <td>70</td>
                                             <td>25</td>
-                                            <td>75</td>
                                             <td>45</td>
+                                            <td>30</td>
                                             <td>R$2000,00</td>
                                             <td>R$1350,00</td>
                                             <td>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
                                             </td>
@@ -199,12 +194,11 @@
                                             <td>100</td>
                                             <td>70</td>
                                             <td>25</td>
-                                            <td>75</td>
                                             <td>45</td>
+                                            <td>30</td>
                                             <td>R$2000,00</td>
                                             <td>R$1350,00</td>
                                             <td>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
                                             </td>
@@ -215,12 +209,11 @@
                                             <td>100</td>
                                             <td>70</td>
                                             <td>25</td>
-                                            <td>75</td>
                                             <td>45</td>
+                                            <td>30</td>
                                             <td>R$2000,00</td>
                                             <td>R$1350,00</td>
                                             <td>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
                                             </td>
@@ -244,6 +237,7 @@
         </div>
        
         <!--MODAIS DO BOOTSTRAP-->
+        <!--deletar-->
         <div class="modal" id="delete" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
@@ -254,12 +248,104 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p>Você confirma que deseja deletar {{código do produto}}</p>
+                  <p>Você confirma que deseja deletar o produto {{Código do produto}}</p>
                   <p>Esta ação é irrevessível</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                   <button type="button" class="btn btn-danger">Confirmar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!--criar novo-->
+        <div class="modal" id="new" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Criando novo produto</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Insira o nome do produto</label>
+                        <input type="text" class="form-control" placeholder="nome do produto">
+                      </div>
+                      <div class="form-group">
+                        <label>Insira o código do produto</label>
+                        <input type="text" class="form-control" placeholder="código do produto">
+                      </div>
+                      <div class="form-group">
+                        <label>Insira a quantidade comprada do produto</label>
+                        <input type="text" class="form-control" placeholder="quantidade inicial do produto">
+                      </div>
+                      <div class="form-group">
+                        <label>Insira o gasto com o produto</label>
+                        <input type="text" class="form-control" placeholder="investimento no produto">
+                      </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <button type="button" class="btn btn-success">Criar novo</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!--Edit-->
+        <div class="modal" id="edit" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Editar Produto</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Nome do produto</label>
+                        <input type="text" class="form-control" placeholder="Nome do produto">
+                    </div>
+                    <div class="form-group">
+                        <label>Código do produto</label>
+                        <input type="text" class="form-control" placeholder="Código do produto #">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantidade inicial</label>
+                        <input type="text" class="form-control" placeholder="Quantidade comprada">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantidade vendida</label>
+                        <input type="text" class="form-control" placeholder="Quantidade vendida">
+                    </div>
+                    <div class="form-group">
+                        <label>Aguardando pagamento</label>
+                        <input type="text" class="form-control" placeholder="Quantos ainda não confirmaram pagamento">
+                    </div>
+                    <div class="form-group">
+                        <label>Pagamento confirmado</label>
+                        <input type="text" class="form-control" placeholder="Quantos já finalizaram a compra">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantidade em estoque</label>
+                        <input type="text" class="form-control" placeholder="Quantos ainda têm">
+                    </div>
+                    <div class="form-group">
+                        <label>Gasto</label>
+                        <input type="text" class="form-control" placeholder="Quanto foi investido no produto">
+                    </div>
+                    <div class="form-group">
+                        <label>Faturamento</label>
+                        <input type="text" class="form-control" placeholder="Quanto de lucro esse produto rendeu">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <button type="button" class="btn btn-success">Editar</button>
                 </div>
               </div>
             </div>
