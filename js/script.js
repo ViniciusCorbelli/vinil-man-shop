@@ -27,7 +27,7 @@ function toggleButton() {
         navbar.style.marginLeft = "0";
         main.style.marginLeft = "0";
         singOut.style.display = 'block';
-        secondLine.style.display = 'inline-block';
+        secondLine.style.display = 'inline';
    
     }
 }

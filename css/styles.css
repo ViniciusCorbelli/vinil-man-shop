@@ -98,6 +98,18 @@ body{
     color: var(--yellow-color);
 }
 
+
+/*==== AJUSTE MODAL DE VIEW DO PRODUTO*/
+.view-product-container{
+    height: 50vh;
+    width: auto;
+    display: inline-block;
+}
+
+.view-product-container img {
+    width: 400px;
+}
+
 /*==== AJUSTE DE TAMANHO DAS COLUNAS =====*/
 td {
     max-width: 200px;
