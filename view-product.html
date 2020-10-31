@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <title>Vinilman - admin</title>
+        <link rel="icon" type="image/png" href="img/logo.png">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="https://kit.fontawesome.com/f74eef7211.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+
+        <nav id="navbar" class="nav navbar-fixed-top navbar-expand-sm navbar-color-bg shadow">
+            <a class="navbrand ml-3" href="#">
+                <img src="img/logo.png" alt="logo">
+            </a>
+            
+            <button class="btn mb-2 mr-auto ml-3" type="button" onclick="toggleButton()">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <button  class="btn mb-2 ml-auto mr-3">
+                <i class="fas fa-sign-out-alt fa-2x"></i>
+            </button>
+        </nav>
+
+        <div class="wrapper">
+            <div id="sidenav" class="sidenav">
+    
+                <a class="cool-link mb-2" href="#">
+                    <i class="fas fa-home"></i>
+                    <span class="ml-1">Home</span>
+                </a>
+                <a class="cool-link mb-2" href="#">
+                    <i class="fas fa-users"></i>
+                    <span class="ml-1">Usuários</span>
+                </a>
+                <a class="cool-link mb-2" href="#">
+                    <i class="fas fa-table"></i>
+                    <span class="ml-1">Categorias</span>
+                </a>
+                <a class="cool-link mb-2" href="#">
+                    <i class="fas fa-record-vinyl"></i>
+                    <span class="ml-1">Produtos</span>
+                </a>
+            </div>
+    
+            <div id="main" class="container-fluid">
+                <main>
+                    <h1 class="mt-4 mx-auto">Bem Vindo {{nome do usuário}}</h1>
+                    
+                    <button class="mt-4 mb-4 btn btn-warning btn-lg">Adicionar novo produto</button>
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <div class="row mb-1">
+                                <div class="col-7">
+                                    <h4 class="ml-2">Produtos</h4>
+                                </div>
+                                <div class="col-5 ml-auto" >
+                                    <div class="form-inline">
+                                        <label style="font-size: larger;" for="">Seach</label>
+                                        <input type="text" class="ml-3 mt-1 mb-1 form-control form-control w-75">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <form class="form-inline">
+                                        <label style="font-size: larger;" for="">Exibir</label>
+                                        <select class="ml-2 custom-select custom-select">
+                                            <option selected>Seven</option>
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>Código do produto</th>
+                                            <th>Quantidade inicial</th>
+                                            <th>Quantidade vendida</th>
+                                            <th>Aguardando pagamento</th>
+                                            <th>Pagamento confirmado</th>
+                                            <th>Quantidade em estoque</th>
+                                            <th>Gasto</th>
+                                            <th>Faturamento</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>Código do produto</th>
+                                            <th>Quantidade inicial</th>
+                                            <th>Quantidade vendida</th>
+                                            <th>Aguardando pagamento</th>
+                                            <th>Pagamento confirmado</th>
+                                            <th>Quantidade em estoque</th>
+                                            <th>Gasto</th>
+                                            <th>Faturamento</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>Product-1</td>
+                                            <td>#00000</td>
+                                            <td>100</td>
+                                            <td>70</td>
+                                            <td>25</td>
+                                            <td>75</td>
+                                            <td>45</td>
+                                            <td>R$2000,00</td>
+                                            <td>R$1350,00</td>
+                                            <td>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Product-1</td>
+                                            <td>#00000</td>
+                                            <td>100</td>
+                                            <td>70</td>
+                                            <td>25</td>
+                                            <td>75</td>
+                                            <td>45</td>
+                                            <td>R$2000,00</td>
+                                            <td>R$1350,00</td>
+                                            <td>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Product-1</td>
+                                            <td>#00000</td>
+                                            <td>100</td>
+                                            <td>70</td>
+                                            <td>25</td>
+                                            <td>75</td>
+                                            <td>45</td>
+                                            <td>R$2000,00</td>
+                                            <td>R$1350,00</td>
+                                            <td>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Product-1</td>
+                                            <td>#00000</td>
+                                            <td>100</td>
+                                            <td>70</td>
+                                            <td>25</td>
+                                            <td>75</td>
+                                            <td>45</td>
+                                            <td>R$2000,00</td>
+                                            <td>R$1350,00</td>
+                                            <td>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Product-1</td>
+                                            <td>#00000</td>
+                                            <td>100</td>
+                                            <td>70</td>
+                                            <td>25</td>
+                                            <td>75</td>
+                                            <td>45</td>
+                                            <td>R$2000,00</td>
+                                            <td>R$1350,00</td>
+                                            <td>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Product-1</td>
+                                            <td>#00000</td>
+                                            <td>100</td>
+                                            <td>70</td>
+                                            <td>25</td>
+                                            <td>75</td>
+                                            <td>45</td>
+                                            <td>R$2000,00</td>
+                                            <td>R$1350,00</td>
+                                            <td>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Product-1</td>
+                                            <td>#00000</td>
+                                            <td>100</td>
+                                            <td>70</td>
+                                            <td>25</td>
+                                            <td>75</td>
+                                            <td>45</td>
+                                            <td>R$2000,00</td>
+                                            <td>R$1350,00</td>
+                                            <td>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
+                                                <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <nav class="nav justify-content-end">
+                                    <ul class="pagination">
+                                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    </ul>
+                                  </nav>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+       
+        <!--MODAIS DO BOOTSTRAP-->
+        <div class="modal" id="delete" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Confirmação para deletar</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Você confirma que deseja deletar {{código do produto}}</p>
+                  <p>Esta ação é irrevessível</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <button type="button" class="btn btn-danger">Confirmar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    </body>
+</html>
