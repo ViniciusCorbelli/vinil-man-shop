@@ -81,6 +81,10 @@ body{
     white-space:nowrap;
 }
 
+.card{
+    overflow: hidden;
+}
+
 /*==== TABELA ADMINISTRATIVO =====*/
 .fa-trash:hover{
     color: var(--red-color);
