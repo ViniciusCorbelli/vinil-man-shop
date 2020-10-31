@@ -1,103 +1,104 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinilman - admin</title>
-    <link rel="icon" type="image/png" href="img/logo.png">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <title>Vinilman - admin</title>
+        <link rel="icon" type="image/png" href="img/logo.png">
 
-    <script src="https://kit.fontawesome.com/f74eef7211.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<body id="view-category" class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Vinilman Shop</a>
-        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle"><i class="fas fa-bars fa-x-lg"></i></button>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">Settings</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login.html">Logout</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
+        <script src="https://kit.fontawesome.com/f74eef7211.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
 
-    <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                    <div class="nav">
-                        <div class="sb-sidenav-menu-heading">vinilman shop</div>
-                        <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon mr-3"><i class="fas fa-home"></i></div>
-                            Home
-                        </a>
-                        <a class="nav-link" href="charts.html">
-                            <div class="sb-nav-link-icon  mr-3"><i class="fas fa-users"></i></div>
-                            Usuários
-                        </a>
-                        <a class="nav-link" href="tables.html">
-                            <div class="sb-nav-link-icon  mr-3"><i class="fas fa-table"></i></div>
-                            Categorias
-                        </a>
-                        <a class="nav-link" href="tables.html">
-                            <div class="sb-nav-link-icon  mr-3"><i class="fas fa-record-vinyl"></i></div>
-                            Produtos
-                        </a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid">
-                    <h1 class="mt-4">Bem-vindo Viniman</h1>
+        <nav id="navbar" class="nav navbar-fixed-top navbar-expand-sm navbar-color-bg shadow">
+            <a class="navbrand ml-3" href="#">
+                <img src="img/logo.png" alt="logo">
+            </a>
+            
+            <button class="btn mb-2 mr-auto ml-3" type="button" onclick="toggleButton()">
+                <i class="fas fa-bars"></i>
+            </button>
 
-                    <div class="mt-3 mb-3">
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#newCategory">
-                            <div class="m-2">
-                                <i class="fas fa-plus-circle"></i>
-                                <span class="ml-2">nova categoria</span>
-                            </div>
-                        </button>
-                    </div>
+            <button  class="btn mb-2 ml-auto mr-3">
+                <i class="fas fa-sign-out-alt fa-2x"></i>
+            </button>
+        </nav>
+
+        <div class="wrapper">
+            <div id="sidenav" class="sidenav">
+    
+                <a class="cool-link mb-2" href="#">
+                    <i class="fas fa-home"></i>
+                    <span class="ml-1">Home</span>
+                </a>
+                <a class="cool-link mb-2" href="#">
+                    <i class="fas fa-users"></i>
+                    <span class="ml-1">Usuários</span>
+                </a>
+                <a class="cool-link mb-2" href="#">
+                    <i class="fas fa-table"></i>
+                    <span class="ml-1">Categorias</span>
+                </a>
+                <a class="cool-link mb-2" href="#">
+                    <i class="fas fa-record-vinyl"></i>
+                    <span class="ml-1">Produtos</span>
+                </a>
+            </div>
+    
+            <div id="main" class="container-fluid">
+                <main>
+                    <h1 class="mt-4 mx-auto">Bem Vindo {{nome do usuário}}</h1>
+                    
+                    <button class="mt-4 mb-4 btn btn-warning btn-lg">criar nova categoria</button>
 
                     <div class="card mb-4">
                         <div class="card-header">
-                            <i></i>
-                            <span class="ml-2">Categorias</span>
+                            <div class="row mb-1">
+                                <div class="col-7">
+                                    <h4 class="ml-2">Categorias</h4>
+                                </div>
+                                <div class="col-5 ml-auto" >
+                                    <div class="form-inline">
+                                        <label style="font-size: larger;" for="">Seach</label>
+                                        <input type="text" class="ml-3 mt-1 mb-1 form-control form-control w-75">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <form class="form-inline">
+                                        <label style="font-size: larger;" for="">Exibir</label>
+                                        <select class="ml-2 custom-select custom-select">
+                                            <option selected>Seven</option>
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Nome</th>
-                                            <th>Abreviatura</th>
-                                            <th>Quantidade</th>
                                             <th>Ação</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>Nome</th>
-                                            <th>Abreviatura</th>
-                                            <th>Quantidade</th>
                                             <th>Ação</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <tr>
                                             <td>Musica Popular Brasileira</td>
-                                            <td>MPB</td>
-                                            <td>20</td>
                                             <td>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
@@ -106,8 +107,6 @@
                                         </tr>
                                         <tr>
                                             <td>Rock</td>
-                                            <td>rock</td>
-                                            <td>50</td>
                                             <td>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
@@ -116,8 +115,6 @@
                                         </tr>
                                         <tr>
                                             <td>Sertanejo</td>
-                                            <td>sert</td>
-                                            <td>30</td>
                                             <td>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
@@ -126,8 +123,6 @@
                                         </tr>
                                         <tr>
                                             <td>Forró</td>
-                                            <td>forró</td>
-                                            <td>35</td>
                                             <td>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
@@ -136,8 +131,6 @@
                                         </tr>
                                         <tr>
                                             <td>Funk</td>
-                                            <td>funk</td>
-                                            <td>12</td>
                                             <td>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
@@ -146,8 +139,6 @@
                                         </tr>
                                         <tr>
                                             <td>Pop</td>
-                                            <td>pop</td>
-                                            <td>42</td>
                                             <td>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
@@ -156,8 +147,6 @@
                                         </tr>
                                         <tr>
                                             <td>Pagode</td>
-                                            <td>pag</td>
-                                            <td>7</td>
                                             <td>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#ver"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
@@ -166,157 +155,43 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <nav class="nav justify-content-end">
+                                    <ul class="pagination">
+                                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    </ul>
+                                  </nav>
                             </div>
                         </div>
                     </div>
-            </main>
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; code.jr 2020</div>
-                    </div>
-                </div>
-            </footer>
+                </main>
+            </div>
         </div>
-    </div>
-
-    <!--MODAL PARA DELETAR-->
-    <div id="delete" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Deletar Categoria</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Você confirma que deseja deletar esta categoria?</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger">Sim</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+       
+        <!--MODAIS DO BOOTSTRAP-->
+        <div class="modal" id="delete" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Confirmação para deletar</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Você confirma que deseja deletar a {{nome da categoria}}</p>
+                  <p>Esta ação é irrevessível</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  <button type="button" class="btn btn-danger">Confirmar</button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!--MODAL PARA NOVA CATEGORIA-->
-      <div id="newCategory" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Criar nova categoria</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="nome">Nome</span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="abreviacao">Abreviação</span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="preço">Preço</span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-
-                    <div class="input-group-prepend ml-3">
-                        <span class="input-group-text" id="quantidade">Quantidade</span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-success">Criar</button>
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-    <!--MODAL PARA VISUALIZAÇÃO-->
-    <div class="modal fade" id="ver" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">{{NOME DA CATEGORIA}}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-                <h4>Descrição da categoria</h4>
-                <h5>Quantidade disponível</h5>
-            </div>
-            <div class="modal-footer justify-content-center">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-        </div>
-    </div>
-
-     <!--MODAL PARA EDIÇÃO-->
-     <div id="edit" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Criar nova categoria</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="nome">Nome</span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="abreviacao">Abreviação</span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="preço">Preço</span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-
-                    <div class="input-group-prepend ml-3">
-                        <span class="input-group-text" id="quantidade">Quantidade</span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-success">Editar</button>
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -324,5 +199,5 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
-</body>
+    </body>
 </html>

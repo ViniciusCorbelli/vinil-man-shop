@@ -1,26 +1,24 @@
-/*!
-    * Start Bootstrap - SB Admin v6.0.1 (https://startbootstrap.com/templates/sb-admin)
-    * Copyright 2013-2020 Start Bootstrap
-    * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
-    */
-   (function($) {
-    "use strict";
+var toggled = false
 
-    // Add active state to sidbar nav links
-    var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
-        $("#layoutSidenav_nav .sb-sidenav a.nav-link").each(function() {
-            if (this.href === path) {
-                $(this).addClass("active");
-            }
-        });
+function toggleButton() {
+    var btn = document.getElementById('sidenav');
+    var navbar = document.getElementById("navbar");
+    var main = document.getElementById('main');
+    //console.log('click');
 
-    // Toggle the side navigation
-    $("#sidebarToggle").on("click", function(e) {
-        e.preventDefault();
-        $("body").toggleClass("sb-sidenav-toggled");
-    });
-})(jQuery);
-
-$('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-})
+    if(toggled == false)
+    {
+        toggled = true;
+        //console.log("ENTROU")
+        btn.style.width = "250px";
+        navbar.style.marginLeft = "250px";
+        main.style.marginLeft = "250px";
+    }
+    else if(toggled == true) {
+        toggled = false;
+        //console.log("SAIU")
+        btn.style.width = "0";
+        navbar.style.marginLeft = "0";
+        main.style.marginLeft = "0";
+    }
+}
