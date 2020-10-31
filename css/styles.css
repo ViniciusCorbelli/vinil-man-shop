@@ -4,11 +4,11 @@
 /*==== VARIABLES CSS =====*/
 :root{
     /*==== COLORS ====*/
-    --white-color: #ffffff;
-    --black-color: #000000;
-    --first-blue-color: #1496d2;
+    --white-color: #ffffff; /*Cor Original do Cliente*/
+    --black-color: #000000; /*Cor Original do Cliente*/
+    --first-blue-color: #1496d2; /*Cor Original do Cliente*/
+    --first-grey-color: #747474; /*Cor Original do Cliente*/
     --second-blue-color: #027db6;
-    --first-grey-color: #747474;
     --second-grey-color: #e7e7e7;
     --red-color: #ff0000;
     --yellow-color: #ffff00;
@@ -75,6 +75,11 @@ body{
     display:  flex;
 }
 
+.non-space{
+    text-overflow: ellipsis!important; 
+    white-space:nowrap;
+}
+
 /*==== TABELA ADMINISTRATIVO =====*/
 .fa-trash:hover{
     color: var(--red-color);
@@ -86,4 +91,11 @@ body{
 
 .fa-edit:hover{
     color: var(--yellow-color);
+}
+
+/*==== MEDIA ====*/
+@media (orientation: portrait){
+    #main{
+        overflow: hidden;
+    }
 }

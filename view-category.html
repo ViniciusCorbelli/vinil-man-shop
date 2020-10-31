@@ -50,24 +50,19 @@
                 </a>
             </div>
     
-            <div id="main" class="container-fluid">
+            <div id="main" class="container-fluid" style="background-color: green;">
                 <main>
-                    <h1 class="mt-4 mx-auto">Bem Vindo {{nome do usuário}}</h1>
+                    <h1 class="mt-4 mx-auto non-space">Bem Vindo {{nome do usuário}}</h1>
                     
-                    <button class="mt-4 mb-4 btn btn-warning btn-lg">criar nova categoria</button>
+                    <button class="mt-4 mb-4 btn btn-warning btn-lg non-space">criar nova categoria</button>
 
-                    <div class="card mb-4">
+                    <div class="card mb-4 w-auto">
                         <div class="card-header">
                             <div class="row mb-1">
-                                <div class="col-7">
-                                    <h4 class="ml-2">Categorias</h4>
+                                <div class="col-12">
+                                    <h4 class="ml-2 non-space">Categorias</h4>
                                 </div>
-                                <div class="col-5 ml-auto" >
-                                    <div class="form-inline">
-                                        <label style="font-size: larger;" for="">Seach</label>
-                                        <input type="text" class="ml-3 mt-1 mb-1 form-control form-control w-75">
-                                    </div>
-                                </div>
+                               
                             </div>
                             <div class="row">
                                 <div class="col-4">
@@ -78,12 +73,18 @@
                                         </select>
                                     </form>
                                 </div>
+                                <div class="col-8 ml-auto" >
+                                    <div class="form-inline" >
+                                        <label style="font-size: larger;" for="">Seach</label>
+                                        <input type="text" class="ml-3 mt-1 mb-1 form-control form-control w-75">
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered w-100    " id="dataTable" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Nome</th>
