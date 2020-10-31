@@ -67,8 +67,9 @@ body{
 }
 
 #navbar img{
-    width: 90px;
-}
+    width: 45px !important;
+    height: 45px;
+}      
 
 /*===== MAIN ADMINISTRATIVO =====*/
 .wrapper{
@@ -94,7 +95,7 @@ body{
 }
 
 /*==== MEDIA ====*/
-@media (orientation: portrait){
+@media screen{
     #main{
         overflow: hidden;
     }
