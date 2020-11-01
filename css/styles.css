@@ -74,7 +74,7 @@ body{
 
 /*===== MAIN ADMINISTRATIVO =====*/
 .wrapper{
-    display:  flex;
+    display: flex;
 }
 
 .non-space{
@@ -100,14 +100,13 @@ body{
 }
 
 /*==== MEDIA ====*/
-@media screen{
+/* @media screen{
     #main{
         overflow: hidden;
     }
-}
+} */
 
 /* Home adm */
-
 .cartao {
   margin: 35px 0px 10px 0px;
   box-shadow: 3px 1px 7px 0 rgba(0,0,0,0.2);
