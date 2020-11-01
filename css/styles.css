@@ -147,7 +147,7 @@ body{
     }
 
     .closeBtn{
-        display: block;
+        display: block!important;
         text-align: end!important;
     }
 }

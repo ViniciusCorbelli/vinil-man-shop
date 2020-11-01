@@ -52,6 +52,8 @@ function toggleButton() {
         if(toggled == true){
             toggled = false;
             btn.style.width = "100%";
+            navbar.style.marginLeft = "0";
+            main.style.marginLeft = "0";
         }
     }
 };
@@ -62,4 +64,6 @@ function toggleButton() {
 function closeBtn(){
     toggled = true;
     btn.style.width = "0";
+    navbar.style.marginLeft = "0";
+    main.style.marginLeft = "0";
 };
