@@ -61,6 +61,11 @@ body{
     transition: width .3s;
 }
 
+.closeBtn{
+    color: var(--white-color);
+    display: none!important;
+}
+
 /*==== NAVBAR ADMINISTRATIVO =====*/
 .navbar-color-bg{
     background-color: var(--first-blue-color);
@@ -128,5 +133,21 @@ body{
 
     #sidenav{
         width: 0;
+    }
+}
+
+@media (max-width: 414px){
+    #sidenav{
+        padding-top: 0;
+    }
+
+    #sidenav a{
+        display: block;
+        text-align: center;
+    }
+
+    .closeBtn{
+        display: block;
+        text-align: end!important;
     }
 }

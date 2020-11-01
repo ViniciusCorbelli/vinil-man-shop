@@ -1,10 +1,12 @@
+/* === Variaveis Globais ==== */
 toggled = true; //Booleano para controle da sidebar
-
 var btn = document.getElementById('sidenav'); //Botão Toggle que se localiza na navbar
 var navbar = document.getElementById("navbar"); //Navbar 
 var main = document.getElementById('main'); //O corpo da página
 var singOut = document.getElementById('sign-out'); //Elemento para realziar logout
 var secondLine = document.getElementById('second-line'); //Elemento para esconder a barra de pesquisa e de número de elementos em exibição
+
+/* === Funções ==== */
 
 function toggleButton() {
     
@@ -54,6 +56,9 @@ function toggleButton() {
     }
 };
 
+/*
+* Função para fechar a sidenav em dispositivos menores que 414px
+*/
 function closeBtn(){
     toggled = true;
     btn.style.width = "0";
