@@ -98,6 +98,19 @@ body{
     color: var(--yellow-color);
 }
 
+.form-inline label {
+    display: block;
+}
+
+.form-inline {
+    display: block;
+}
+
+/*====AJUSTE INPUT CATEGORIA====*/
+.select-category {
+    display: block;
+    margin-bottom: 30px;
+}
 
 /*==== AJUSTE MODAL DE VIEW DO PRODUTO*/
 .view-product-container{
