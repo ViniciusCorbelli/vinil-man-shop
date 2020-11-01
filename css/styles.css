@@ -85,6 +85,10 @@ body{
     overflow: hidden;
 }
 
+#create-new-btn{
+    text-transform: uppercase;
+}
+
 /*==== TABELA ADMINISTRATIVO =====*/
 .fa-trash:hover{
     color: var(--red-color);
