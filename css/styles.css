@@ -23,11 +23,10 @@ body{
     margin: 0;
     padding: 0;
 }
-
 /*==== SIDENAVBAR ====*/
 #sidenav{
     height: 100%; /*100% da tela*/
-    width: 0; /*Começamos com 0 e mudaremos com a adição do JavaScript*/
+    width: 250px; /*Começamos com 0 e mudaremos com a adição do JavaScript*/
     position: fixed;
     z-index: 1;
     top: 0;
@@ -61,6 +60,11 @@ body{
     transition: width .3s;
 }
 
+.closeBtn{
+    color: var(--white-color);
+    display: none!important;
+}
+
 /*==== NAVBAR ADMINISTRATIVO =====*/
 .navbar-color-bg{
     background-color: var(--first-blue-color);
@@ -71,6 +75,10 @@ body{
     height: 45px;
 }      
 
+
+#navbar{
+    margin-left: 250px;
+}
 /*===== MAIN ADMINISTRATIVO =====*/
 .wrapper{
     display:  flex;
@@ -85,6 +93,11 @@ body{
     overflow: hidden;
 }
 
+#main{
+    margin-left: 250px;
+}
+
+
 /*==== TABELA ADMINISTRATIVO =====*/
 .fa-trash:hover{
     color: var(--red-color);
@@ -98,9 +111,70 @@ body{
     color: var(--yellow-color);
 }
 
+.form-inline label {
+    display: block;
+}
+
+.form-inline {
+    display: block;
+}
+
+/*====AJUSTE INPUT CATEGORIA====*/
+.select-category {
+    display: block;
+    margin-bottom: 30px;
+}
+
+/*==== AJUSTE MODAL DE VIEW DO PRODUTO*/
+.view-product-container{
+    height: 50vh;
+    width: auto;
+    display: inline-block;
+}
+
+.view-product-container img {
+    width: 400px;
+}
+
+/*==== AJUSTE DE TAMANHO DAS COLUNAS =====*/
+td {
+    max-width: 200px;
+    text-align: center;
+}
+
 /*==== MEDIA ====*/
 @media screen{
     #main{
         overflow: hidden;
+    }
+}
+
+@media (max-width: 1000px){
+    #navbar{
+        margin-left: 0;
+    }
+
+    #main{
+        margin-left: 0;
+    }
+
+    #sidenav{
+        width: 0;
+    }
+}
+
+@media (max-width: 414px){
+    #sidenav{
+        padding-top: 0;
+    }
+
+    #sidenav a{
+        display: block;
+        text-align: center;
+    }
+
+    .closeBtn{
+        display: block;
+        text-align: end!important;
     }
 }
