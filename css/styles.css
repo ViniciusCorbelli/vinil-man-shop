@@ -99,13 +99,6 @@ body{
     color: var(--yellow-color);
 }
 
-/*==== MEDIA ====*/
-/* @media screen{
-    #main{
-        overflow: hidden;
-    }
-} */
-
 /* Home adm */
 .cartao {
   margin: 35px 0px 10px 0px;
@@ -129,5 +122,11 @@ body{
   .cartao {
     margin: 15px 0px 10px 0px;
   } 
+}
+
+@media (max-width: 420px) {
+    #btn-abreSidebar {
+        display: none;
+    }
 }
 /* Fim home adm */
