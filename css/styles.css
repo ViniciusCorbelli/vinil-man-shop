@@ -201,3 +201,10 @@ td {
 
 
 }
+    .closeBtn{
+        display: block!important;
+        text-align: end!important;
+    }
+
+
+}
