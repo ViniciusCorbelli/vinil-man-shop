@@ -27,7 +27,7 @@ body{
 /*==== SIDENAVBAR ====*/
 #sidenav{
     height: 100%; /*100% da tela*/
-    width: 0; /*Começamos com 0 e mudaremos com a adição do JavaScript*/
+    width: 250px; /*Começamos com a navbar aberta*/
     position: fixed;
     z-index: 1;
     top: 0;
@@ -66,6 +66,10 @@ body{
     background-color: var(--first-blue-color);
 }
 
+#navbar{
+    margin-left: 250px;
+}
+
 #navbar img{
     width: 45px !important;
     height: 45px;
@@ -74,6 +78,10 @@ body{
 /*===== MAIN ADMINISTRATIVO =====*/
 .wrapper{
     display:  flex;
+}
+
+#main{
+    margin-left: 250px;
 }
 
 .non-space{
@@ -106,5 +114,19 @@ body{
 @media screen{
     #main{
         overflow: hidden;
+    }
+}
+
+@media (max-width: 1000px){
+    #navbar{
+        margin-left: 0;
+    }
+
+    #main{
+        margin-left: 0;
+    }
+
+    #sidenav{
+        width: 0;
     }
 }
