@@ -24,10 +24,14 @@ body{
     padding: 0;
 }
 
+#main{
+    margin-left: 250px;
+}
+
 /*==== SIDENAVBAR ====*/
 #sidenav{
     height: 100%; /*100% da tela*/
-    width: 0; /*Começamos com 0 e mudaremos com a adição do JavaScript*/
+    width: 250px; /*Começamos com 0 e mudaremos com a adição do JavaScript*/
     position: fixed;
     z-index: 1;
     top: 0;
@@ -45,6 +49,10 @@ body{
     color: var(--white-color);
     display: inline-block;
     transition: .3s;
+}
+
+#navbar{
+    margin-left: 250px;
 }
 
 .cool-link:after{
@@ -133,5 +141,41 @@ td {
 @media screen{
     #main{
         overflow: hidden;
+    }
+}
+
+
+.closeBtn{
+    color: var(--white-color);
+    display: none!important;
+}
+
+@media (max-width: 1000px){
+    #navbar{
+        margin-left: 0;
+    }
+
+    #main{
+        margin-left: 0;
+    }
+
+    #sidenav{
+        width: 0;
+    }
+}
+
+@media (max-width: 414px){
+    #sidenav{
+        padding-top: 0;
+    }
+
+    #sidenav a{
+        display: block;
+        text-align: center;
+    }
+
+    .closeBtn{
+        display: block;
+        text-align: end!important;
     }
 }

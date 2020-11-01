@@ -31,6 +31,11 @@
 
         <div class="wrapper">
             <div id="sidenav" class="sidenav">
+
+                <!--Icone para fechar a sidebar em casos de tela menor que 414px-->
+                <a class="closeBtn mb-6" onclick="closeBtn()">
+                    <i class="far fa-times-circle"></i>
+                </a>
     
                 <a class="cool-link mb-2" href="#">
                     <i class="fas fa-home"></i>
@@ -54,7 +59,7 @@
                 <main>
                     <h1 class="mt-4 mx-auto non-space">Bem Vindo {{nome do usuário}}</h1>
                     
-                    <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Adicionar novo produto</button>
+                    <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">ADICIONAR NOVO PRODUTO</button>
 
                     <div class="card mb-4 w-auto">
                         <div class="card-header">
@@ -67,7 +72,7 @@
                                 <div class="col-sm-4">
                                     <form class="form-inline">
                                         <label style="font-size: larger;" for="">Exibir</label>
-                                        <select class="ml-2 custom-select custom-select">
+                                        <select class="ml-2 custom-select">
                                             <option selected>Seven</option>
                                         </select>
                                     </form>
