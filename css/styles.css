@@ -31,7 +31,7 @@ body{
 /*==== SIDENAVBAR ====*/
 #sidenav{
     height: 100%; /*100% da tela*/
-    width: 250px; /*Começamos com 0 e mudaremos com a adição do JavaScript*/
+    width: 250px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -147,8 +147,17 @@ td {
 
 .closeBtn{
     color: var(--white-color);
-    display: none!important;
+    display: none !important;
 }
+
+.btn {
+    display: block;
+}
+
+.btn-menu {
+    display: none !important;
+}
+
 
 @media (max-width: 1000px){
     #navbar{
@@ -162,6 +171,17 @@ td {
     #sidenav{
         width: 0;
     }
+
+    .closeBtn{
+        display: block!important;
+        text-align: end!important;
+    }
+
+    .btn-menu {
+        display: block !important;
+    }
+
+
 }
 
 @media (max-width: 414px){
@@ -175,7 +195,9 @@ td {
     }
 
     .closeBtn{
-        display: block;
+        display: block!important;
         text-align: end!important;
     }
+
+
 }

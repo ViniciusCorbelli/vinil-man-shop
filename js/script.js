@@ -46,12 +46,16 @@ function toggleButton() {
             main.style.marginLeft = "0";
             singOut.style.display = 'block';
             secondLine.style.display = 'flex';
+            navbar.style.marginLeft = "0";
+            main.style.marginLeft = "0";
         }
     } else if(window.matchMedia("(max-width: 414px)").matches){
         /*A partir daqui a sidebar deverá cobrir toda a tela ao ser aberta */
         if(toggled == true){
             toggled = false;
             btn.style.width = "100%";
+            navbar.style.marginLeft = "0";
+            main.style.marginLeft = "0";
         }
     }
 };
@@ -62,4 +66,6 @@ function toggleButton() {
 function closeBtn(){
     toggled = true;
     btn.style.width = "0";
+    navbar.style.marginLeft = "0";
+    main.style.marginLeft = "0";
 };
