@@ -54,7 +54,7 @@
                 <main>
                     <h1 class="mt-4 mx-auto non-space">Listagem de Usuários</h1>
                     
-                    <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">criar nova categoria</button>
+                    <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new"><i class="fas fa-plus"></i> Criar novo usuário</button>
 
                     <div class="card mb-4 w-auto">
                         <div class="card-header">
@@ -87,33 +87,27 @@
                                     <thead>
                                         <tr>
                                             <th>Nome</th>
-                                            <th>Telefone</th>
+                                            
                                             <th>Email</th>
-                                            <th>Endereço</th>
-                                            <th>Nível</th>
-                                            <th>Status</th>
-                                            <th>Ação</th>
+                                            <th>Ações</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>Nome</th>
-                                            <th>Telefone</th>
+                                            
                                             <th>Email</th>
-                                            <th>Endereço</th>
-                                            <th>Nível</th>
-                                            <th>Status</th>
-                                            <th>Ação</th>
+                                            <th>Ações</th>
+                                           
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <tr>
                                             <td>Marco Silveira</td>
-                                            <td>(21) 97264-8310</td>
+                                            
                                             <td>marcosilveirad@gmail.com</td>
-                                            <td>Avenida Prefeito Rolando Moreira 336, Brasiléia, AC</td>
-                                            <td>Administrador</td>
-                                            <td>Ativo</td>
+                                           
                                             <td>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#see"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
@@ -122,11 +116,9 @@
                                         </tr>
                                         <tr>
                                             <td>Paulo Marques</td>
-                                            <td>(21) 93487-2347</td>
+                                            
                                             <td>paulo2020@gmail.com</td>
-                                            <td>Rua Paulo Ramos 62, Morros, MA</td>
-                                            <td>Administrador</td>
-                                            <td>Ativo</td>
+                                           
                                             <td>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#see"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
@@ -135,11 +127,9 @@
                                         </tr>
                                         <tr>
                                             <td>Guilherme Antônio</td>
-                                            <td>(21) 90583-1029</td>
+                                          
                                             <td>guilhermeantonio@hotmail.com</td>
-                                            <td>Rua Victoria Dudek, Curitiba, PR </td>
-                                            <td>Usuário</td>
-                                            <td>Inativo</td>
+                                           
                                             <td>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#see"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
@@ -148,11 +138,9 @@
                                         </tr>
                                         <tr>
                                             <td>Joana Fagundes</td>
-                                            <td>(21) 96489-3417</td>
+                                          
                                             <td>Joana_Fagundes@gmail.com</td>
-                                            <td>Rua Muniz Freire, Guarapari, ES</td>
-                                            <td>Administrador</td>
-                                            <td>Ativo</td>
+                                           
                                             <td>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#see"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
@@ -192,12 +180,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Nome do Usuário</label>                        
-                        <label>Telefone</label><br>                        
-                        <label>Email</label><br>                       
-                        <label>Endereço</label><br>                       
-                        <label>Nível</label><br>                        
-                        <label>Status</label><br>
+                        <label>Nome do Usuário</label><br>                       
+                                               
+                        <label>Email</label>                      
+                       
                        
                     </div>
                 </div>
@@ -245,16 +231,10 @@
                     <div class="form-group">
                         <label>Nome do Usuário</label>
                         <input type="text" class="form-control" placeholder="Nome do Usuário"><br>
-                        <label>Telefone</label><br>
-                        <input type="text" class="form-control" placeholder="Nome do Telefone"><br>
+                       
                         <label>Email</label><br>
-                        <input type="text" class="form-control" placeholder="Nome do Email"><br>
-                        <label>Endereço</label><br>
-                        <input type="text" class="form-control" placeholder="Endereço"><br>
-                        <label>Nível</label><br>
-                        <input type="text" class="form-control" placeholder="Nível do Usuário"><br>
-                        <label>Status</label><br>
-                        <input type="text" class="form-control" placeholder="Status do Usuário"><br>
+                        <input type="text" class="form-control" placeholder="Email do Usuário"><br>
+                       
                        
                       </div>
                 </div>
@@ -280,16 +260,10 @@
                     <div class="form-group">
                         <label>Nome do Usuário</label>
                         <input type="text" class="form-control" placeholder="Nome do Usuário"><br>
-                        <label>Telefone</label><br>
-                        <input type="text" class="form-control" placeholder="Nome do Telefone"><br>
-                        <label>Email</label><br>
-                        <input type="text" class="form-control" placeholder="Nome do Email"><br>
-                        <label>Endereço</label><br>
-                        <input type="text" class="form-control" placeholder="Endereço"><br>
-                        <label>Nível</label><br>
-                        <input type="text" class="form-control" placeholder="Nível do Usuário"><br>
-                        <label>Status</label><br>
-                        <input type="text" class="form-control" placeholder="Status do Usuário"><br>
+                        
+                        <label>Email</label>
+                        <input type="text" class="form-control" placeholder="Email do Uusário"><br>
+                       
                     </div>
                 </div>
                 <div class="modal-footer">
