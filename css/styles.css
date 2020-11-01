@@ -1,0 +1,106 @@
+/*==== GOOGLE FONTS =====*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+/*==== VARIABLES CSS =====*/
+:root{
+    /*==== COLORS ====*/
+    --white-color: #ffffff; /*Cor Original do Cliente*/
+    --black-color: #000000; /*Cor Original do Cliente*/
+    --first-blue-color: #1496d2; /*Cor Original do Cliente*/
+    --first-grey-color: #747474; /*Cor Original do Cliente*/
+    --second-blue-color: #027db6;
+    --second-grey-color: #e7e7e7;
+    --red-color: #ff0000;
+    --yellow-color: #ffff00;
+    --cyan-color: #00ffff;
+
+}   
+
+/*==== BASE ====*/
+body{
+    background-color: var(--white-color);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*==== SIDENAVBAR ====*/
+#sidenav{
+    height: 100%; /*100% da tela*/
+    width: 0; /*Começamos com 0 e mudaremos com a adição do JavaScript*/
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--second-blue-color);
+    overflow: hidden; /*Esconde ela no Ladinho*/
+    padding-top: 60px;
+    transition: .3s ease-in-out; /*Tempo para ela abrir*/
+}
+
+#sidenav a{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--white-color);
+    display: inline-block;
+    transition: .3s;
+}
+
+.cool-link:after{
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background-color: var(--white-color);
+    transition: width .3s;
+}
+
+.cool-link:hover::after{
+    width: 100%;
+    transition: width .3s;
+}
+
+/*==== NAVBAR ADMINISTRATIVO =====*/
+.navbar-color-bg{
+    background-color: var(--first-blue-color);
+}
+
+#navbar img{
+    width: 45px !important;
+    height: 45px;
+}      
+
+/*===== MAIN ADMINISTRATIVO =====*/
+.wrapper{
+    display:  flex;
+}
+
+.non-space{
+    text-overflow: ellipsis!important; 
+    white-space:nowrap;
+}
+
+.card{
+    overflow: hidden;
+}
+
+/*==== TABELA ADMINISTRATIVO =====*/
+.fa-trash:hover{
+    color: var(--red-color);
+}
+
+.fa-eye:hover{
+    color: var(--cyan-color);
+}
+
+.fa-edit:hover{
+    color: var(--yellow-color);
+}
+
+/*==== MEDIA ====*/
+@media screen{
+    #main{
+        overflow: hidden;
+    }
+}
