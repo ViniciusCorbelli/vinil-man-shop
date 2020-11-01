@@ -62,7 +62,7 @@ body{
 
 .closeBtn{
     color: var(--white-color);
-    /*display: none!important;*/
+    display: none!important;
 }
 
 /*==== NAVBAR ADMINISTRATIVO =====*/
