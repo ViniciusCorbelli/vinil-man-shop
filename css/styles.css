@@ -23,11 +23,6 @@ body{
     margin: 0;
     padding: 0;
 }
-
-#main{
-    margin-left: 250px;
-}
-
 /*==== SIDENAVBAR ====*/
 #sidenav{
     height: 100%; /*100% da tela*/
@@ -51,10 +46,6 @@ body{
     transition: .3s;
 }
 
-#navbar{
-    margin-left: 250px;
-}
-
 .cool-link:after{
     content: '';
     display: block;
@@ -69,6 +60,11 @@ body{
     transition: width .3s;
 }
 
+.closeBtn{
+    color: var(--white-color);
+    /*display: none!important;*/
+}
+
 /*==== NAVBAR ADMINISTRATIVO =====*/
 .navbar-color-bg{
     background-color: var(--first-blue-color);
@@ -79,6 +75,10 @@ body{
     height: 45px;
 }      
 
+
+#navbar{
+    margin-left: 250px;
+}
 /*===== MAIN ADMINISTRATIVO =====*/
 .wrapper{
     display:  flex;
@@ -92,6 +92,11 @@ body{
 .card{
     overflow: hidden;
 }
+
+#main{
+    margin-left: 250px;
+}
+
 
 /*==== TABELA ADMINISTRATIVO =====*/
 .fa-trash:hover{
@@ -142,12 +147,6 @@ td {
     #main{
         overflow: hidden;
     }
-}
-
-
-.closeBtn{
-    color: var(--white-color);
-    display: none!important;
 }
 
 @media (max-width: 1000px){
