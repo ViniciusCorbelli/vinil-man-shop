@@ -121,7 +121,7 @@ body{
     margin-bottom: 30px;
 }
 
-/*==== AJUSTE MODAL DE VIEW DO PRODUTO*/
+/*==== AJUSTE MODAL DE VIEW DO PRODUTO ====*/
 .view-product-container{
     height: 50vh;
     width: auto;
@@ -130,6 +130,11 @@ body{
 
 .view-product-container img {
     width: 400px;
+}
+
+/*==== AJUSTES FUNÇOES DA TABELA ====*/
+tbody button {
+    display: inline-block!important;
 }
 
 /*==== AJUSTE DE TAMANHO DAS COLUNAS =====*/
