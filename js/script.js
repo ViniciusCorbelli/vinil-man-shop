@@ -22,6 +22,7 @@ function toggleButton() {
         } else if(toggled == false){
             toggled = true;
             btn.style.width = "250px";
+            btn.style.maxWidth = "250px";
             navbar.style.marginLeft = "250px";
             main.style.marginLeft = "250px";
         }
@@ -32,6 +33,7 @@ function toggleButton() {
         if(toggled == false){
             toggled = true;
             btn.style.width = "250px";
+            btn.style.maxWidth = "250px";
             navbar.style.marginLeft = "250px";
             main.style.marginLeft = "250px";
             /*Se está fechado e tem largura menor que 760px, esconderemos o campo de pesquisa e o botão de logout */
@@ -52,6 +54,7 @@ function toggleButton() {
         if(toggled == true){
             toggled = false;
             btn.style.width = "100%";
+            btn.style.maxWidth = "736px";
             navbar.style.marginLeft = "0";
             main.style.marginLeft = "0";
         }

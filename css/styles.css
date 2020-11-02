@@ -28,6 +28,7 @@ body{
 #sidenav{
     height: 100%; /*100% da tela*/
     width: 250px; /*Começamos com a navbar aberta*/
+    max-width: 250px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -99,7 +100,7 @@ body{
 }
 
 #create-new-btn{
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 /*==== TABELA ADMINISTRATIVO =====*/
@@ -133,6 +134,7 @@ body{
 
     #sidenav{
         width: 0;
+        max-width: 250px;
     }
 }
 
