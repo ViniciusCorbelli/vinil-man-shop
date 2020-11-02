@@ -95,6 +95,10 @@ body{
     overflow: hidden;
 }
 
+#create-new-btn{
+    text-transform: capitalize;
+}
+
 /*==== TABELA ADMINISTRATIVO =====*/
 .fa-trash:hover{
     color: var(--red-color);
@@ -210,7 +214,7 @@ td {
     .closeBtn{
         display: block!important;
         text-align: center!important;
-        margin-top: -50px;
+        margin-top: 0;
     }
 
     .btn-menu {
