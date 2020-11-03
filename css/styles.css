@@ -1539,7 +1539,6 @@ td {
     }
 }
 
-}
 
 
 /* Home adm */
@@ -1573,3 +1572,152 @@ td {
       }
   }
   /* Fim home adm */
+
+  /*====PAGINA LOGIN====*/
+
+  .content {
+    background-color: #747474;
+    top: 20%;
+    left: 15%;
+    width: 70vw;
+    height: 60vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+}
+
+.boas-vindas {
+    width: 100%;
+    height: 100%;
+    display: flexbox;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-right: #1496d2 2px solid;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
+.boas-vindas img {
+    width: 150px;
+}
+
+.boas-vindas h2 {
+    font-size: 2em;
+    color: #000000;
+}
+
+.boas-vindas p {
+    font-size: 18px;
+    color: #000000;
+}
+
+.login {
+    width: 100%;
+    height: 100%;
+    display: flexbox;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.form {
+    margin-top: 8%;
+    display: inline-block;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.form a {
+    display: block;
+    color: #e2e2e2;
+}
+
+a:hover {
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.form input {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+}
+
+.form button {
+    margin-top: 15px;
+    width: 100%;
+    height: 40px;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #1496d2;
+}
+
+button:hover {
+    transition: 1s;
+}
+
+@media only screen and (max-width: 865px) {
+    .boas-vindas {
+        width: 100%;
+        height: 100%;
+        display: flexbox;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+    .boas-vindas h2 {
+        font-size: 20px;
+        margin-top: 10%;
+    }
+    .boas-vindas p {
+        font-size: 12px;
+    }
+    .boas-vindas img {
+        width: 100px;
+    }
+    .form {
+        margin-top: 8%;
+        display: inline-block;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-right: 10%;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+
+    .boas-vindas{
+    border-right: #1496d2 0px solid;
+    }
+
+    .form {
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+}
+
+
+@media only screen and (min-width: 1250px) {
+    .content {
+        justify-content: center;
+    }
+
+    .form {
+        width: 350px;
+    }
+
+}
+
