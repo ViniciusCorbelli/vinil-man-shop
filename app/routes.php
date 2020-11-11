@@ -1,4 +1,7 @@
  <?php
 
-// exemplo de rota
-$router->get('caminho/para/minha/rota', 'MyController@myPage');
+$router->get('', 'PagesController@home');
+$router->get('contato', 'PagesController@contato');
+$router->get('quem-somos', 'PagesController@quemsomos');
+$router->get('produtos', 'PagesController@produtos');
+$router->get('login', 'PagesController@login');

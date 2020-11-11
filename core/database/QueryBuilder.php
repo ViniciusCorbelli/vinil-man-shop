@@ -18,9 +18,9 @@ class QueryBuilder
      *
      * @param PDO $pdo
      */
-    public function __construct()
+    public function __construct($pdo)
     {
-
+        $this->pdo = $pdo;
     }
 
     /**
@@ -28,9 +28,13 @@ class QueryBuilder
      *
      * @param string $table
      */
-    public function selectAll()
+    public function selectAll($table)
     {
+        $statement = $this->pdo->prepare("select * from {$table}");
 
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
     /**
@@ -41,24 +45,19 @@ class QueryBuilder
      */
     public function insert($table, $parameters)
     {
+        $sql = sprintf(
+            'insert into %s (%s) values (%s)',
+            $table,
+            implode(', ', array_keys($parameters)),
+            ':' . implode(', :', array_keys($parameters))
+        );
 
-    }
+        try {
+            $statement = $this->pdo->prepare($sql);
 
-    public function read()
-    {
-      
-         
-    }
-
-    public function edit()
-    {
-      
-         
-    }
-
-    public function delete()
-    {
-      
-         
+            $statement->execute($parameters);
+        } catch (\Exception $e) {
+            //
+        }
     }
 }
