@@ -6,28 +6,13 @@ use PDO;
 
 class QueryBuilder
 {
-    /**
-     * The PDO instance.
-     *
-     * @var PDO
-     */
     protected $pdo;
 
-    /**
-     * Create a new QueryBuilder instance.
-     *
-     * @param PDO $pdo
-     */
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
     }
 
-    /**
-     * Select all records from a database table.
-     *
-     * @param string $table
-     */
     public function selectAll($table)
     {
         $statement = $this->pdo->prepare("select * from {$table}");
@@ -37,12 +22,6 @@ class QueryBuilder
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
-    /**
-     * Insert a record into a table.
-     *
-     * @param  string $table
-     * @param  array  $parameters
-     */
     public function insert($table, $parameters)
     {
         $sql = sprintf(
@@ -59,5 +38,41 @@ class QueryBuilder
         } catch (\Exception $e) {
             //
         }
+    }
+
+    public function edit($table, $parameters, $campo, $novo_valor, $condição)
+    {
+        $sql = sprintf(
+            'update %s set %s = %s where $s = $s',
+            $table,
+            $campo,
+            $novo_valor,
+            $condição
+        );
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute($parameters);
+        } catch (\Exception $e) {
+            //
+        } 
+    }
+
+    public function delete($table, $parameters, $condição)
+    {
+        $sql = sprintf(
+            'delete from %s where = %s',
+            $table,
+            $condição
+        );
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute($parameters);
+        } catch (\Exception $e) {
+            //
+        } 
     }
 }
