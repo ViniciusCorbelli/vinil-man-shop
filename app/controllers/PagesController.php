@@ -29,4 +29,26 @@ class PagesController
     {
         return view('login');
     }
+
+    public function administrativo()
+    {
+        return viewadmin('home');
+    }
+
+    public function administrativocategoria()
+    {
+        return viewadmin('category');
+    }
+
+    public function administrativoproduto()
+    {
+        return viewadmin('produto');
+    }
+
+    public function administrativousuario()
+    {
+        return viewadmin('usuario');
+    }
+
+
 }
