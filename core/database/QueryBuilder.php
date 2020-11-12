@@ -8,7 +8,7 @@ class QueryBuilder
 {
     /**
      * The PDO instance.
-     *
+     * 
      * @var PDO
      */
     protected $pdo;
@@ -18,9 +18,9 @@ class QueryBuilder
      *
      * @param PDO $pdo
      */
-    public function __construct()
+    public function __construct($pdo)
     {
-
+        $this->pdo = $pdo; 
     }
 
     /**
@@ -28,9 +28,13 @@ class QueryBuilder
      *
      * @param string $table
      */
-    public function selectAll()
+    public function selectAll($table)
     {
+        $statement = $this->pdo->prepare("select * from {$table}");
 
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
     /**
@@ -41,24 +45,37 @@ class QueryBuilder
      */
     public function insert($table, $parameters)
     {
+        $sql = sprintf(
+            'insert into %s (%s) values %s',
+            $table, //Tabela onde será inserido
+            implode(', ',array_keys($parameters)),
+            ':' . implode(', :',array_keys($parameters))
+        );
 
+        try {
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute($parameters);
+        } catch(Exception $e)
+        {
+            var_dump('Captured Exception: ' . $e->getMessage() . "\n");
+        }
     }
 
     public function read()
     {
-      
-         
+      //o que seria o read?
     }
 
-    public function edit()
+    public function edit($table,$parameters)
     {
-      
-         
+      //Editar um produto
+      // UPDATE tabela onde WHERE o que eu quero editar 
     }
 
-    public function delete()
+    public function delete($table,$parameters)
     {
-      
-         
+       //Deletar
+       //WHERE == o que eu quero   
     }
 }
