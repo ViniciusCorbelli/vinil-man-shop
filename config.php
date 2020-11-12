@@ -2,7 +2,7 @@
 
 return [
     'database' => [
-        'name' => 'vinil-man',
+        'name' => 'vinilmanshop',
         'username' => 'root',
         'password' => '',
         'connection' => 'mysql:host=127.0.0.1',

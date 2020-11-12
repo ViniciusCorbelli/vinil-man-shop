@@ -52,76 +52,21 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
                             </tr>
                         </tfoot>
                         <tbody>
-                            <tr>
-                                <td>Disco Vinil Guns 'n Roses</td>
-                                <td>R$50,00</td>
-                                <td>Rock</td>
+
+                            <?php foreach ($produtos as $produto) : ?>
+                            
+                                <tr>
+                                <td><?= $produto->name; ?></td>
+                                <td><?= $produto->price; ?></td>
+                                <td><?= $produto->id_category; ?></td>
                                 <td>
                                     <button type="button" class="btn" data-toggle="modal" data-target="#view-product"><i class="fas fa-eye"></i></button>
                                     <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
                                     <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Disco Vinil Guns 'n Roses</td>
-                                <td>R$50,00</td>
-                                <td>Rock</td>
-                                <td>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#view-product"><i class="fas fa-eye"></i></button>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Disco Vinil Guns 'n Roses</td>
-                                <td>R$50,00</td>
-                                <td>Rock</td>
-                                <td>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#view-product"><i class="fas fa-eye"></i></button>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Disco Vinil Guns 'n Roses</td>
-                                <td>R$50,00</td>
-                                <td>Rock</td>
-                                <td>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#view-product"><i class="fas fa-eye"></i></button>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Disco Vinil Guns 'n Roses</td>
-                                <td>R$50,00</td>
-                                <td>Rock</td>
-                                <td>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#view-product"><i class="fas fa-eye"></i></button>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Disco Vinil Guns 'n Roses</td>
-                                <td>R$50,00</td>
-                                <td>Rock</td>
-                                <td>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#view-product"><i class="fas fa-eye"></i></button>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Disco Vinil Guns 'n Roses</td>
-                                <td>R$50,00</td>
-                                <td>Rock</td>
-                                <td>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#view-product"><i class="fas fa-eye"></i></button>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
-                                    <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
+                            
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                     <nav class="nav justify-content-end">

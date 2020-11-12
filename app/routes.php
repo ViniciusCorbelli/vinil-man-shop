@@ -7,5 +7,6 @@ $router->get('produtos', 'PagesController@produtos');
 $router->get('login', 'PagesController@login');
 $router->get('administrativo', 'PagesController@administrativo');
 $router->get('administrativo/categoria', 'PagesController@administrativocategoria');
-$router->get('administrativo/produto', 'PagesController@administrativoproduto');
 $router->get('administrativo/usuario', 'PagesController@administrativousuario');
+
+$router->get('administrativo/produto', 'PagesController@administrativoproduto');
