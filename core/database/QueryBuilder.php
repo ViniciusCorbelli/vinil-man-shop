@@ -58,24 +58,48 @@ class QueryBuilder
             $statement->execute($parameters);
         } catch(Exception $e)
         {
-            var_dump('Captured Exception: ' . $e->getMessage() . "\n");
+            echo('Captured Exception: ' . $e->getMessage() . "\n");
         }
     }
 
     public function read()
     {
-      //o que seria o read?
+
     }
 
-    public function edit($table,$parameters)
+    public function edit($table,$parameters,$field,$value,$id)
     {
-      //Editar um produto
-      // UPDATE tabela onde WHERE o que eu quero editar 
+        $sql = sprintf(
+            'update %s set %s = %s where id = %s',
+            $table,
+            $field,
+            $value,
+            $id
+        );
+
+        try{
+            $statement = $this->pdo->prepare($sql);
+ 
+            $statement->execute($parameters);
+        } catch (Exception $e){
+             echo('Captured Exception: ' . $e->getMessage() . "\n");
+        }
     }
 
-    public function delete($table,$parameters)
+    public function delete($table,$parameters, $id)
     {
-       //Deletar
-       //WHERE == o que eu quero   
+       $sql = sprintf(
+           'delete from %s where id = %s',
+           $table,
+           $id
+       );
+
+       try{
+           $statement = $this->pdo->prepare($sql);
+
+           $statement->execute($parameters);
+       } catch (Exception $e){
+            echo('Captured Exception: ' . $e->getMessage() . "\n");
+       }
     }
 }

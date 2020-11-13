@@ -1,4 +1,5 @@
  <?php
 
-// exemplo de rota
+$router->get('',);
+
 $router->get('caminho/para/minha/rota', 'MyController@myPage');

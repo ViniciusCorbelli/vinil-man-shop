@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        
-        <title>Vinilman - admin</title>
-        <link rel="icon" type="image/png" href="img/logo.png">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <script src="https://kit.fontawesome.com/f74eef7211.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-    <body>
+<?php 
+    $pageTitle = "index";
+    include ('partials/header.php');
+?>
 
         <nav id="navbar" class="nav navbar-fixed-top navbar-expand-sm navbar-color-bg shadow">
             <a class="navbrand ml-3" href="#">
