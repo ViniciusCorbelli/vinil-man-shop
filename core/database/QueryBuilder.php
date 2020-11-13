@@ -62,9 +62,18 @@ class QueryBuilder
         }
     }
 
-    public function read()
+    /**
+     * Busca por id
+     * 
+     * @param int $search
+     */
+    public function read($table,$parameters,$search)
     {
+        $statement = $this->pdo->prepare("select * from {$table} where id = {$search}");
 
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
     public function edit($table,$parameters,$field,$value,$id)
