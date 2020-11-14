@@ -1,22 +1,4 @@
-<?php 
-    $pageTitle = "index";
-    include ('partials/header.php');
-?>
-
-        <nav id="navbar" class="nav navbar-fixed-top navbar-expand-sm navbar-color-bg shadow">
-            <a class="navbrand ml-3" href="#">
-                <img src="img/logo.png" alt="logo">
-            </a>
-            
-            <button class="btn mb-2 mr-auto ml-3" type="button" onclick="toggleButton()">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <button id="sign-out"  class="btn mb-2 ml-auto mr-3">
-                <i class="fas fa-sign-out-alt fa-lg"></i>
-            </button>
-        </nav>
-
+<?php require('app/views/partials/head-adm.php') ?>
         <div class="wrapper">
             <div id="sidenav" class="sidenav">
                 
@@ -221,12 +203,5 @@
               </div>
             </div>
           </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
-    </body>
-</html>
+          
+<?php require('app/views/partials/footer-adm.php') ?>

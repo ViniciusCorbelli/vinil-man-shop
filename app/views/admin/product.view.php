@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        
-        <title>Vinilman - Administração de Produtos</title>
-        <link rel="icon" type="image/png" href="img/logo.png">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <script src="https://kit.fontawesome.com/f74eef7211.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-    <body>
-
-        <nav id="navbar" class="nav navbar-fixed-top navbar-expand-sm navbar-color-bg shadow">
-            <a class="navbrand ml-3" href="#">
-                <img src="img/logo.png" alt="logo">
-            </a>
-            
-            <button class="btn btn-menu mb-2 mr-auto ml-3" type="button" onclick="toggleButton()">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <button id="sign-out"  class="btn mb-2 ml-auto mr-3">
-                <i class="fas fa-sign-out-alt fa-lg"></i>
-            </button>
-        </nav>
+<?php require('app/views/partials/head-adm.php') ?>
 
         <div class="wrapper">
             <div id="sidenav" class="sidenav">
@@ -327,11 +298,4 @@
             </div>
           </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
-    </body>
-</html>
+<?php require('app/views/partials/footer-adm.php') ?>

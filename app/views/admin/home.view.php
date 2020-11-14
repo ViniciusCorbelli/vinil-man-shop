@@ -1,34 +1,20 @@
-<?= require('app/views/partials/head-adm.php') ?>
-
-  <nav id="navbar" class="nav navbar-fixed-top navbar-expand-sm navbar-color-bg shadow">
-          <a class="navbrand ml-3" href="#">
-              <img src="img/logo.png" alt="logo">
-          </a>
-            
-          <button class="btn mb-2 mr-auto ml-3" id="btn-abreSidebar" type="button" onclick="toggleButton()">
-              <i class="fas fa-bars"></i>
-          </button>
-
-          <button id="sign-out"  class="btn mb-2 ml-auto mr-3">
-              <i class="fas fa-sign-out-alt fa-lg"></i>
-          </button>
-      </nav>
+<?php require('app/views/partials/head-adm.php') ?>
 
       <div class="wrapper">
         <div id="sidenav" class="sidenav">
-          <a class="cool-link mb-2" href="#">
+          <a class="cool-link mb-2" href="/admin/home">
               <i class="fas fa-home"></i>
               <span class="ml-1">Home</span>
           </a>
-          <a class="cool-link mb-2" href="#">
+          <a class="cool-link mb-2" href="/admin/users">
               <i class="fas fa-users"></i>
               <span class="ml-1">Usuários</span>
           </a>
-          <a class="cool-link mb-2" href="#">
+          <a class="cool-link mb-2" href="/admin/category">
               <i class="fas fa-table"></i>
               <span class="ml-1">Categorias</span>
           </a>
-          <a class="cool-link mb-2" href="#">
+          <a class="cool-link mb-2" href="/admin/product">
               <i class="fas fa-record-vinyl"></i>
               <span class="ml-1">Produtos</span>
           </a>
@@ -78,4 +64,4 @@
         <!-- Fim container fluid -->
       </div>
       
-      <?= require('app/views/partials/footer-adm.php') ?>
+<?php require('app/views/partials/footer-adm.php') ?>
