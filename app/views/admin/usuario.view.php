@@ -5,7 +5,7 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
   <main>
     <h1 class="mt-4 mx-auto non-space">Listagem de Usuários</h1>
 
-    <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">criar nova categoria</button>
+    <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Adicionar Nova Categoria</button>
 
     <div class="card mb-4 w-auto">
       <div class="card-header">
@@ -25,7 +25,7 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
           </div>
           <div class="col-sm-8">
             <div class="form-inline">
-              <label style="font-size: larger;" for="">Seach</label>
+              <label style="font-size: larger;" for="">Pesquisar</label>
               <input type="text" class="ml-3 mt-1 mb-1 form-control form-control w-75">
             </div>
           </div>

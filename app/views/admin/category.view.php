@@ -3,9 +3,9 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
 
 <div id="main" class="container-fluid">
     <main>
-        <h1 class="mt-4 mx-auto non-space">Bem Vindo {{nome do usuário}}</h1>
+        <h1 class="mt-4 mx-auto non-space">Listagem de categorias</h1>
 
-        <button id="create-new-btn" class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">criar nova categoria</button>
+        <button id="create-new-btn" class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Adicionar nova categoria</button>
 
         <div class="card mb-4 w-auto">
             <div class="card-header">

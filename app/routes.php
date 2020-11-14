@@ -10,3 +10,5 @@ $router->get('administrativo/categoria', 'PagesController@administrativocategori
 $router->get('administrativo/usuario', 'PagesController@administrativousuario');
 
 $router->get('administrativo/produto', 'ProdutosAdminController@index');
+$router->post('administrativo/produto/create', 'ProdutosAdminController@create');
+$router->post('administrativo/produto/delete', 'ProdutosAdminController@delete');

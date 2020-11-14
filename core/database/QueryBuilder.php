@@ -36,7 +36,6 @@ class QueryBuilder
 
             $statement->execute($parameters);
         } catch (\Exception $e) {
-            //
         }
     }
 
@@ -54,24 +53,20 @@ class QueryBuilder
 
             $statement->execute($parameters);
         } catch (\Exception $e) {
-            //
         }
     }
 
-    public function delete($table, $parameters, $condição)
+    public function delete($table, $id)
     {
         $sql = sprintf(
-            'delete from %s where = %s',
-            $table,
-            $condição
+            "delete from {$table} where id = {$id}"
         );
 
         try {
             $statement = $this->pdo->prepare($sql);
 
-            $statement->execute($parameters);
+            $statement->execute();
         } catch (\Exception $e) {
-            //
-        } 
+        }
     }
 }

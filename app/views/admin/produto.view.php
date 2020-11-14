@@ -3,9 +3,9 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
 
 <div id="main" class="container-fluid">
     <main>
-        <h1 class="mt-4 mx-auto non-space">Bem Vindo {{nome do usuário}}</h1>
+        <h1 class="mt-4 mx-auto non-space">Listagem de produtos</h1>
 
-        <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Adicionar novo produto</button>
+        <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Adicionar Novo Produto</button>
 
         <div class="card mb-4 w-auto">
             <div class="card-header">
@@ -25,7 +25,7 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
                     </div>
                     <div class="col-sm-8">
                         <div class="form-inline">
-                            <label style="font-size: larger;" for="">Search</label>
+                            <label style="font-size: larger;" for="">Pesquisar</label>
                             <input type="text" class="ml-3 mt-1 mb-1 form-control form-control w-75">
                         </div>
                     </div>
@@ -83,8 +83,11 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
                                                 <p>Esta ação é irrevessível</p>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                                <button type="button" class="btn btn-danger">Confirmar</button>
+                                                <form action="/administrativo/produto/delete" method="POST">
+                                                    <input type="hidden" name="id" value="<?= $produto->id; ?>">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                                    <button type="submit" class="btn btn-danger">Confirmar</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -189,7 +192,7 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
             </div>
             <div class="modal-body">
 
-                <form action="/administrativo/produto" method="GET">
+                <form action="/administrativo/produto/create" method="POST">
                     <div class="form-group">
 
                         <label>Insira o nome do produto</label>
@@ -220,23 +223,6 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
         </div>
     </div>
 </div>
-
-<?php
-
-use App\Core\App;
-
-if (isset($_GET['add_item'])) {
-    $dados = ([
-        'name' => $_GET['item_name'],
-        'description' => $_GET['item_description'],
-        'price' => $_GET['item_price'],
-        'stock' => $_GET['item_stock'],
-    ]);
-
-    App::get('database')->insert('product', $dados);
-}
-
-?>
 
 <?php dirname('/x');
 require('C:\xampp\htdocs\app\views\partials/footer.admin.php'); ?>
