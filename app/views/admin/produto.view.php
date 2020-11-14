@@ -188,35 +188,55 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-group">
-                    <label>Insira o nome do produto</label>
-                    <input type="text" class="form-control" placeholder="Nome do produto">
-                </div>
-                <div class="form-group">
-                    <label>Insira o preço do produto(R$)</label>
-                    <input type="text" class="form-control" placeholder="Preço do produto">
-                </div>
-                <div class="form-group">
-                    <label>Insira a descrição do produto</label>
-                    <input type="text" class="form-control" placeholder="Descrição do produto">
-                </div>
-                <div class="form-group">
-                    <label>Categoria</label>
-                    <select class="select-category form-control">
-                        <option selected>Categoria</option>
-                </div>
-                <div class="form-group">
-                    <label>Foto</label>
-                    <input type="image" src="" class="form-control" alt="Adicione a imagem do produto" style="height: 200px;">
-                </div>
+
+                <form action="/administrativo/produto" method="GET">
+                    <div class="form-group">
+
+                        <label>Insira o nome do produto</label>
+                        <input type="text" name="item_name" class="form-control" placeholder="Nome do produto">
+
+                        <label>Insira o preço do produto(R$)</label>
+                        <input type="text" name="item_price" class="form-control" placeholder="Preço do produto">
+
+                        <label>Insira a quantidade em estoque</label>
+                        <input type="text" name="item_stock" class="form-control" placeholder="Quantidade em estoque">
+
+                        <label>Insira a descrição do produto</label>
+                        <input type="text" name="item_description" class="form-control" placeholder="Descrição do produto">
+
+                        <label>Insira a categoria</label>
+                        <input type="text" name="item_category" class="form-control" placeholder="Descrição do produto">
+
+                        <label>Foto</label>
+                        <input type="image" src="" class="form-control" alt="Adicione a imagem do produto" style="height: 200px;">
+                    </div>
+
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-success">Criar novo</button>
+                <button type="submite" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="submite" name="add_item" class="btn btn-success">Criar novo</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
+
+<?php
+
+use App\Core\App;
+
+if (isset($_GET['add_item'])) {
+    $dados = ([
+        'name' => $_GET['item_name'],
+        'description' => $_GET['item_description'],
+        'price' => $_GET['item_price'],
+        'stock' => $_GET['item_stock'],
+    ]);
+
+    App::get('database')->insert('product', $dados);
+}
+
+?>
 
 <?php dirname('/x');
 require('C:\xampp\htdocs\app\views\partials/footer.admin.php'); ?>

@@ -40,14 +40,13 @@ class QueryBuilder
         }
     }
 
-    public function edit($table, $parameters, $campo, $novo_valor, $condição)
+    public function edit($table, $parameters)
     {
         $sql = sprintf(
-            'update %s set %s = %s where $s = $s',
+            'update into %s (%s) values (%s)',
             $table,
-            $campo,
-            $novo_valor,
-            $condição
+            implode(', ', array_keys($parameters)),
+            ':' . implode(', :', array_keys($parameters))
         );
 
         try {
@@ -56,7 +55,7 @@ class QueryBuilder
             $statement->execute($parameters);
         } catch (\Exception $e) {
             //
-        } 
+        }
     }
 
     public function delete($table, $parameters, $condição)

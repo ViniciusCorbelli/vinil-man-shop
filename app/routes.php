@@ -9,4 +9,4 @@ $router->get('administrativo', 'PagesController@administrativo');
 $router->get('administrativo/categoria', 'PagesController@administrativocategoria');
 $router->get('administrativo/usuario', 'PagesController@administrativousuario');
 
-$router->get('administrativo/produto', 'PagesController@administrativoproduto');
+$router->get('administrativo/produto', 'ProdutosAdminController@index');

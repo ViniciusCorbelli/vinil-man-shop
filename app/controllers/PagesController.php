@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Core\App;
 
 class PagesController
@@ -41,17 +42,9 @@ class PagesController
         return viewadmin('category');
     }
 
-    public function administrativoproduto()
-    {
-
-        $produtos = App::get('database')->selectAll('product');
-        return viewadmin('produto', compact('produtos'));
-    }
-
     public function administrativousuario()
     {
         return viewadmin('usuario');
     }
-
 
 }
