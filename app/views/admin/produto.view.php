@@ -17,7 +17,7 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
                 <div id="second-line" class="row">
                     <div class="col-sm-4">
                         <form class="form-inline">
-                            <label style="font-size: larger;" for="">Exibir</label>
+                            <label style="font-size: larger;" for="">Exibir</h4>
                             <select class="ml-2 custom-select">
                                 <option selected>Seven</option>
                             </select>
@@ -25,7 +25,7 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
                     </div>
                     <div class="col-sm-8">
                         <div class="form-inline">
-                            <label style="font-size: larger;" for="">Pesquisar</label>
+                            <label style="font-size: larger;" for="">Pesquisar</h4>
                             <input type="text" class="ml-3 mt-1 mb-1 form-control form-control w-75">
                         </div>
                     </div>
@@ -70,7 +70,7 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
                                 <!--MODAIS DO BOOTSTRAP-->
                                 <!--deletar-->
                                 <div class="modal" id="delete-<?= $produto->id; ?>" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-dialog modal-lg modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Confirmação para deletar</h5>
@@ -95,7 +95,7 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
 
                                 <!--view-product-->
                                 <div class="modal" id="view-product-<?= $produto->id; ?>" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-dialog modal-lg modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Visualizar</h5>
@@ -105,7 +105,11 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="view-product-container">
-                                                    <img src="$produto->image;" alt="Imagem do produto">
+
+                                                    <?php
+                                                    echo $produto->image;
+                                                    ?>
+
                                                     <div class="view-product-information">
                                                         <?= $produto->description; ?>
                                                     </div>
@@ -121,7 +125,7 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
 
                                 <!--Edit-->
                                 <div class="modal" id="edit-<?= $produto->id; ?>" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-dialog modal-lg modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Editar Produto</h5>
@@ -131,24 +135,24 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="form-group">
-                                                    <label>Nome do produto</label>
+                                                    <h4>Nome do produto</h4>
                                                     <input type="text" class="form-control" value="<?= $produto->name; ?>">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Preço(R$)</label>
+                                                    <h4>Preço(R$)</h4>
                                                     <input type="text" class="form-control" value="<?= $produto->price; ?>">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label>Descrição</label>
+                                                    <h4>Descrição</h4>
                                                     <input type="text" class="form-control" value="<?= $produto->description; ?>">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Categoria</label>
+                                                    <h4>Categoria</h4>
                                                     <input type="text" class="form-control" value="<?= $produto->id_category; ?>">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Foto</label>
+                                                    <h4>Foto</h4>
                                                     <input type="image" src="" class="form-control" alt="Adicione a imagem do produto" style="height: 200px;">
                                                 </div>
                                             </div>
@@ -181,7 +185,7 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
 
 <!--criar novo-->
 <div class="modal" id="new" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-lg modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Adicionando novo produto</h5>
@@ -191,26 +195,37 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
             </div>
             <div class="modal-body">
 
-                <form action="/administrativo/produto/create" method="POST">
+                <form action="/administrativo/produto/create" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
 
-                        <label>Insira o nome do produto</label>
+                        <h4>Insira o nome do produto</h4>
                         <input type="text" name="item_name" class="form-control" placeholder="Nome do produto">
 
-                        <label>Insira o preço do produto(R$)</label>
+                        <h4>Insira o preço do produto(R$)</h4>
                         <input type="text" name="item_price" class="form-control" placeholder="Preço do produto">
 
-                        <label>Insira a quantidade em estoque</label>
+                        <h4>Insira a quantidade em estoque</h4>
                         <input type="text" name="item_stock" class="form-control" placeholder="Quantidade em estoque">
 
-                        <label>Insira a descrição do produto</label>
-                        <input type="text" name="item_description" class="form-control" placeholder="Descrição do produto">
+                        <h4>Insira a descrição do produto</h4>
+                        <textarea class="form-control" name="item_description" aria-label="With textarea"></textarea>
 
-                        <label>Insira a categoria</label>
-                        <input type="text" name="item_category" class="form-control" placeholder="Descrição do produto">
+                        <h4>Insira a categoria</h4>
+                        <select class="form-control" name="item_category" id="exampleFormControlSelect1">
+                            <?php
 
-                        <label>Foto</label>
-                        <input type="image" src="" class="form-control" alt="Adicione a imagem do produto" style="height: 200px;">
+                            use App\Core\App;
+
+                            $categorias = App::get('database')->selectAll('category');
+                            foreach ($categorias as $categoria) : ?>
+                                <option>
+                                    <?= $categoria->name; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+
+                        <h4>Foto</h4>
+                        <input class="form-control" type="file" name="item_image">
                     </div>
 
             </div>
