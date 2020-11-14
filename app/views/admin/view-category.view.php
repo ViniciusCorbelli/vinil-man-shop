@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        
-        <title>Vinilman - admin</title>
-        <link rel="icon" type="image/png" href="img/logo.png">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <script src="https://kit.fontawesome.com/f74eef7211.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-    <body>
+<?php require 'partials/head.php' ?>
 
         <nav id="navbar" class="nav navbar-fixed-top navbar-expand-sm navbar-color-bg shadow">
             <a class="navbrand ml-3" href="#">
@@ -234,11 +219,4 @@
             </div>
           </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
-    </body>
-</html>
+<?php require 'partials/footer.php' ?>
