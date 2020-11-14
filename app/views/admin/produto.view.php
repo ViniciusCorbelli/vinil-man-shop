@@ -132,21 +132,20 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label>Nome do produto</label>
-                                                    <input type="text" class="form-control" placeholder="Nome do produto">
+                                                    <input type="text" class="form-control" value="<?= $produto->name; ?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Preço(R$)</label>
-                                                    <input type="text" class="form-control" placeholder="Preço do produto">
+                                                    <input type="text" class="form-control" value="<?= $produto->price; ?>">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Descrição</label>
-                                                    <input type="text" class="form-control" placeholder="Descrição do produto">
+                                                    <input type="text" class="form-control" value="<?= $produto->description; ?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Categoria</label>
-                                                    <select class="select-category form-control">
-                                                        <option selected>Categoria</option>
+                                                    <input type="text" class="form-control" value="<?= $produto->id_category; ?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Foto</label>
