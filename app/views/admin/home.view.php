@@ -1,5 +1,4 @@
-<?php dirname('/x');
-require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
+<?php require('app/views/partials/head.admin.php') ?>
 
 <div id="main" class="container-fluid">
   <main>
@@ -45,5 +44,4 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
 <!-- Fim container fluid -->
 </div>
 
-<?php dirname('/x');
-require('C:\xampp\htdocs\app\views\partials/footer.admin.php'); ?>
+<?php require('app/views/partials/footer.admin.php') ?>

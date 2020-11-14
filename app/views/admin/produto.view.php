@@ -1,5 +1,4 @@
-<?php dirname('/x');
-require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
+<?php require('app/views/partials/head.admin.php') ?>
 
 <div id="main" class="container-fluid">
     <main>
@@ -18,15 +17,15 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
                     <div class="col-sm-4">
                         <form class="form-inline">
                             <label style="font-size: larger;" for="">Exibir</h4>
-                            <select class="ml-2 custom-select">
-                                <option selected>Seven</option>
-                            </select>
+                                <select class="ml-2 custom-select">
+                                    <option selected>Seven</option>
+                                </select>
                         </form>
                     </div>
                     <div class="col-sm-8">
                         <div class="form-inline">
                             <label style="font-size: larger;" for="">Pesquisar</h4>
-                            <input type="text" class="ml-3 mt-1 mb-1 form-control form-control w-75">
+                                <input type="text" class="ml-3 mt-1 mb-1 form-control form-control w-75">
                         </div>
                     </div>
                 </div>
@@ -107,9 +106,10 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
                                                 <div class="view-product-container">
 
                                                     <?php
-                                                    echo $produto->image;
-                                                    ?>
 
+                                                    echo '<img src="data:image/jpeg;base64,' . base64_encode("<?= $produto->image; ?>") . '" width="200" alt="user image" title="image" />';
+
+                                                    ?>
                                                     <div class="view-product-information">
                                                         <?= $produto->description; ?>
                                                     </div>
@@ -238,5 +238,4 @@ require('C:\xampp\htdocs\app\views\partials/head.admin.php'); ?>
     </div>
 </div>
 
-<?php dirname('/x');
-require('C:\xampp\htdocs\app\views\partials/footer.admin.php'); ?>
+<?php require('app/views/partials/footer.admin.php') ?>

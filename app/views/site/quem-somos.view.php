@@ -1,5 +1,4 @@
-<?php dirname('/x');
-require('C:\xampp\htdocs\app\views\partials/head.php'); ?>
+<?php require('app/views/partials/head.php') ?>
 <main>
     <div class="quem-somos-cabecalho">
         <img src="/public/img/background.jpg">
@@ -139,5 +138,4 @@ require('C:\xampp\htdocs\app\views\partials/head.php'); ?>
     </div>
 </main>
 
-<?php dirname('/x');
-require('C:\xampp\htdocs\app\views\partials/footer.php'); ?>
+<?php require('app/views/partials/footer.php') ?>

@@ -1,5 +1,4 @@
-<?php dirname('/x');
-require('C:\xampp\htdocs\app\views\partials/head.php'); ?>
+<?php require('app/views/partials/head.php') ?>
 <div class="visualizar-produto-main">
     <nav class="nav nav-pills nav-justified visualizar-produto-nav">
         <a class="nav-link active visualizar-produto-voltar" href="#"><i class="fas fa-home"></i> Voltar à lista</a>
@@ -132,5 +131,4 @@ require('C:\xampp\htdocs\app\views\partials/head.php'); ?>
     </div>
 </div>
 
-<?php dirname('/x');
-require('C:\xampp\htdocs\app\views\partials/footer.php'); ?>
+<?php require('app/views/partials/footer.php') ?>

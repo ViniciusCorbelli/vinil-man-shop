@@ -14,13 +14,10 @@ class ProdutosAdminController
 
     public function create()
     {
-        $image = $_FILES['item_image']['tmp_name'];
-        $imgContent = addslashes(file_get_contents($image));
-
         $dados = ([
             'name' => $_POST['item_name'],
             'description' => $_POST['item_description'],
-            'image' => $imgContent,
+            'image' => addslashes(file_get_contents($_FILES['item_image']['tmp_name'])),
             'price' => $_POST['item_price'],
             'stock' => $_POST['item_stock'],
             'id_category' => $_POST['item_category'],

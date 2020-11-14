@@ -1,5 +1,4 @@
-<?php dirname('/x');
-require('C:\xampp\htdocs\app\views\partials/head.php'); ?>
+<?php require('app/views/partials/head.php') ?>
 
 <body>
 
@@ -59,5 +58,4 @@ require('C:\xampp\htdocs\app\views\partials/head.php'); ?>
         </form>
     </div>
 
-    <?php dirname('/x');
-    require('C:\xampp\htdocs\app\views\partials/footer.php'); ?>
+    <?php require('app/views/partials/footer.php') ?>

@@ -1,5 +1,4 @@
-<?php dirname('/x');
-require('C:\xampp\htdocs\app\views\partials/head.php'); ?>
+<?php require('app/views/partials/head.php') ?>
 <!--Page Content-->
 <main class="view-home">
 
@@ -180,5 +179,4 @@ require('C:\xampp\htdocs\app\views\partials/head.php'); ?>
 </main>
 <!--\Page Content-->
 
-<?php dirname('/x');
-require('C:\xampp\htdocs\app\views\partials/footer.php'); ?>
+<?php require('app/views/partials/footer.php') ?>
