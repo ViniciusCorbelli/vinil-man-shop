@@ -82,60 +82,20 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
+
+                                    <?php foreach ($users as $user) : ?>
+
                                         <tr>
-                                            <td>Marco Silveira</td>
-                                            <td>(21) 97264-8310</td>
-                                            <td>marcosilveirad@gmail.com</td>
-                                            <td>Avenida Prefeito Rolando Moreira 336, Brasiléia, AC</td>
-                                            <td>Administrador</td>
-                                            <td>Ativo</td>
+                                            <td><?= $user->name ?></td>
+                                            <td><?= $user->email ?></td>
                                             <td>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#see"><i class="fas fa-eye"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>Paulo Marques</td>
-                                            <td>(21) 93487-2347</td>
-                                            <td>paulo2020@gmail.com</td>
-                                            <td>Rua Paulo Ramos 62, Morros, MA</td>
-                                            <td>Administrador</td>
-                                            <td>Ativo</td>
-                                            <td>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#see"><i class="fas fa-eye"></i></button>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Guilherme Antônio</td>
-                                            <td>(21) 90583-1029</td>
-                                            <td>guilhermeantonio@hotmail.com</td>
-                                            <td>Rua Victoria Dudek, Curitiba, PR </td>
-                                            <td>Usuário</td>
-                                            <td>Inativo</td>
-                                            <td>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#see"><i class="fas fa-eye"></i></button>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Joana Fagundes</td>
-                                            <td>(21) 96489-3417</td>
-                                            <td>Joana_Fagundes@gmail.com</td>
-                                            <td>Rua Muniz Freire, Guarapari, ES</td>
-                                            <td>Administrador</td>
-                                            <td>Ativo</td>
-                                            <td>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#see"><i class="fas fa-eye"></i></button>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#edit"><i class="fas fa-edit"></i></button>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                           
+                                      <?php endforeach; ?>
+
                                     </tbody>
                                 </table>
                                 <nav class="nav justify-content-end">
