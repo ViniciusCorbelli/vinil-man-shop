@@ -7,19 +7,19 @@
                     <i class="far fa-times-circle"></i>
                 </a>
     
-                <a class="cool-link mb-2" href="#">
+                <a class="cool-link mb-2" href="admin/home">
                     <i class="fas fa-home"></i>
                     <span class="ml-1">Home</span>
                 </a>
-                <a class="cool-link mb-2" href="#">
+                <a class="cool-link mb-2" href="admin/users">
                     <i class="fas fa-users"></i>
                     <span class="ml-1">Usuários</span>
                 </a>
-                <a class="cool-link mb-2" href="#">
+                <a class="cool-link mb-2" href="admin/category">
                     <i class="fas fa-table"></i>
                     <span class="ml-1">Categorias</span>
                 </a>
-                <a class="cool-link mb-2" href="#">
+                <a class="cool-link mb-2" href="admin/product">
                     <i class="fas fa-record-vinyl"></i>
                     <span class="ml-1">Produtos</span>
                 </a>
@@ -29,7 +29,7 @@
                 <main>
                     <h1 class="mt-4 mx-auto non-space">Listagem de Usuários</h1>
                     
-                    <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">criar nova categoria</button>
+                    <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Criar Novo Usuário</button>
 
                     <div class="card mb-4 w-auto">
                         <div class="card-header">
@@ -62,23 +62,13 @@
                                     <thead>
                                         <tr>
                                             <th>Nome</th>
-                                            <th>Telefone</th>
                                             <th>Email</th>
-                                            <th>Endereço</th>
-                                            <th>Nível</th>
-                                            <th>Status</th>
-                                            <th>Ação</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>Nome</th>
-                                            <th>Telefone</th>
                                             <th>Email</th>
-                                            <th>Endereço</th>
-                                            <th>Nível</th>
-                                            <th>Status</th>
-                                            <th>Ação</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -177,25 +167,18 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label>Nome do Usuário</label>
-                        <input type="text" class="form-control" placeholder="Nome do Usuário"><br>
-                        <label>Telefone</label><br>
-                        <input type="text" class="form-control" placeholder="Nome do Telefone"><br>
+                    <form id="form" class="form-group" action="/user/create" method="POST">
+                        <label>Nome</label>
+                        <input type="text" name="name" class="form-control" placeholder="Nome do Usuário"><br>
                         <label>Email</label><br>
-                        <input type="text" class="form-control" placeholder="Nome do Email"><br>
-                        <label>Endereço</label><br>
-                        <input type="text" class="form-control" placeholder="Endereço"><br>
-                        <label>Nível</label><br>
-                        <input type="text" class="form-control" placeholder="Nível do Usuário"><br>
-                        <label>Status</label><br>
-                        <input type="text" class="form-control" placeholder="Status do Usuário"><br>
-                       
-                      </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                  <button type="button" class="btn btn-success">Criar novo Usuário</button>
+                        <input type="email" name="email" class="form-control" placeholder="exempo@exemplo.com"><br>
+                        <label>Password</label><br>
+                        <input type="text" name="password" class="form-control" placeholder="*****">
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                          <button type="submit" class="btn btn-success" data-target="form">Criar novo Usuário</button>
+                        </div>  
+                      </form>
                 </div>
               </div>
             </div>
@@ -220,11 +203,6 @@
                         <label>Email</label><br>
                         <input type="text" class="form-control" placeholder="Nome do Email"><br>
                         <label>Endereço</label><br>
-                        <input type="text" class="form-control" placeholder="Endereço"><br>
-                        <label>Nível</label><br>
-                        <input type="text" class="form-control" placeholder="Nível do Usuário"><br>
-                        <label>Status</label><br>
-                        <input type="text" class="form-control" placeholder="Status do Usuário"><br>
                     </div>
                 </div>
                 <div class="modal-footer">
