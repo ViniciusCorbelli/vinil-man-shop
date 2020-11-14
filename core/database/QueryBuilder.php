@@ -14,7 +14,7 @@ class QueryBuilder
     protected $pdo;
 
     /**
-     * Create a new QueryBuilder instance.
+     * Construtor do PDO
      *
      * @param PDO $pdo
      */
@@ -24,7 +24,7 @@ class QueryBuilder
     }
 
     /**
-     * Select all records from a database table.
+     * Seleciona todos os elementos de uma tabela
      *
      * @param string $table
      */
@@ -58,7 +58,7 @@ class QueryBuilder
             $statement->execute($parameters);
         } catch(Exception $e)
         {
-            echo('Captured Exception: ' . $e->getMessage() . "\n");
+            $e->getMessage();
         }
     }
 
@@ -67,13 +67,23 @@ class QueryBuilder
      * 
      * @param int $search
      */
-    public function read($table,$parameters,$search)
+    public function read($table,$id)
     {
-        $statement = $this->pdo->prepare("select * from {$table} where id = {$search}");
+        $sql = sprintf(
+            "select * from %s where id = %s",
+            $table,
+            $id        
+        );
+        
+        try{
+            $statement = $this->pdo->prepare($sql);
 
-        $statement->execute();
-
-        return $statement->fetchAll(PDO::FETCH_CLASS);
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_CLASS);
+        } catch(Exeception $e)
+        {
+            $e->getMessage();
+        }
     }
 
     public function edit($table,$parameters,$field,$value,$id)

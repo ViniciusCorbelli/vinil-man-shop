@@ -30,23 +30,24 @@ class PagesController
         return view('login');
     }
 
+    /*Página referente ao acesso administrativo */
     public function administrativo()
     {
-        return viewadmin('home');
+        return view('admin/home');
     }
 
     public function administrativocategoria()
     {
-        return viewadmin('category');
+        return view('admin/category');
     }
 
     public function administrativoproduto()
     {
-
+        return view('admin/product');
     }
 
     public function administrativousuario()
     {
-        return viewadmin('usuario');
+        return view('admin/users');
     }
 }
