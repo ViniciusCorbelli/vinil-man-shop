@@ -104,12 +104,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="view-product-container">
-
-                                                    <?php
-
-                                                    echo '<img src="data:image/jpeg;base64,' . base64_encode("<?= $produto->image; ?>") . '" width="200" alt="user image" title="image" />';
-
-                                                    ?>
+                                                    <img src="/public/img/product/<?= $produto->name; ?>.jpg" alt="Produto">
                                                     <div class="view-product-information">
                                                         <?= $produto->description; ?>
                                                     </div>
