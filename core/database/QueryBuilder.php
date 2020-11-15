@@ -41,11 +41,16 @@ class QueryBuilder
 
     public function editProduct($table, $parameters, $id)
     {
-        $sql = sprintf(
-            "update product set name = '{$parameters['name']}', description = '{$parameters['description']}',
-            image = '{$parameters['image']}', price = '{$parameters['price']}', stock = '{$parameters['stock']}',
-            id_category = '{$parameters['id_category']}' where id = {$id}"
-        );
+        $last = end($parameters);
+
+        $sql = "update {$table} set ";
+         foreach($parameters as $item => $val) {
+             if($val == "$last"){
+                $sql = $sql . "$item = '{$val}' ";
+             }else{
+             $sql = $sql . "$item = '{$val}', ";}
+         };
+        $sql = $sql . "where id = {$id}";
 
         try {
             $statement = $this->pdo->prepare($sql);
