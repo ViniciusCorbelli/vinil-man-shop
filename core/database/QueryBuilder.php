@@ -3,6 +3,7 @@
 namespace App\Core\Database;
 
 use PDO;
+use Exception;
 
 class QueryBuilder
 {
@@ -46,18 +47,17 @@ class QueryBuilder
     public function insert($table, $parameters)
     {
         $sql = sprintf(
-            'insert into %s (%s) values %s',
-            $table, //Tabela onde será inserido
-            implode(', ',array_keys($parameters)),
-            ':' . implode(', :',array_keys($parameters))
+            'insert into %s (%s) values (%s)',
+            $table,
+            implode(', ', array_keys($parameters)),
+            ':' . implode(', :', array_keys($parameters))
         );
 
         try {
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute($parameters);
-        } catch(Exception $e)
-        {
+        } catch (Exception $e) {
             $e->getMessage();
         }
     }
@@ -79,14 +79,41 @@ class QueryBuilder
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute();
+            
             return $statement->fetchAll(PDO::FETCH_CLASS);
-        } catch(Exeception $e)
+        } catch(Exception $e)
         {
             $e->getMessage();
         }
     }
 
-    public function edit($table,$parameters,$field,$value,$id)
+    public function findByEmail($table,$parameters)
+    {
+        $tamanho = count(array_keys($parameters)); 
+        $sql = "select * from {$table} where ";
+        for ($i = 0; $i < ($tamanho); $i++) 
+        {   
+            $sql = $sql . (array_keys($parameters)[$i] ). '=' . "'" . (array_values($parameters)[$i]) . "'";
+            if($i < $tamanho-1)
+                $sql = $sql . ' and ';
+        }   //Mudar isso aqui
+        
+        //die(var_dump($sql));
+
+        try{
+            $statement = $this->pdo->prepare($sql);
+            
+            $statement->execute();
+
+            return $statement->fetchAll(PDO::FETCH_CLASS);
+
+        } catch(Exception $e)
+        {
+            $e->getMessage();
+        }
+    }
+
+    public function edit($table,$field,$value,$id)
     {
         $sql = sprintf(
             'update %s set %s = %s where id = %s',
@@ -99,13 +126,13 @@ class QueryBuilder
         try{
             $statement = $this->pdo->prepare($sql);
  
-            $statement->execute($parameters);
-        } catch (Exception $e){
+            $statement->execute();
+        } catch (Exception $e){ 
              echo('Captured Exception: ' . $e->getMessage() . "\n");
         }
     }
 
-    public function delete($table,$parameters, $id)
+    public function delete($table,$id)
     {
        $sql = sprintf(
            'delete from %s where id = %s',
@@ -116,7 +143,7 @@ class QueryBuilder
        try{
            $statement = $this->pdo->prepare($sql);
 
-           $statement->execute($parameters);
+           $statement->execute();
        } catch (Exception $e){
             echo('Captured Exception: ' . $e->getMessage() . "\n");
        }

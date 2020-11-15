@@ -107,8 +107,11 @@
                           <p>Esta ação é irrevessível</p>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                          <button type="button" class="btn btn-danger" href="user/delete">Confirmar</button>
+                          <form action="/user/delete" method="POST">
+                            <input type="hidden" name="id" value="<?= $user->id ?>">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-danger">Confirmar</button>
+                          </form>
                         </div>
                       </div>
                     </div>
@@ -125,20 +128,20 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <div class="form-group">
+                          <form action="/user/edit" method="POST" class="form-group">
                             <label>Nome</label>
-                            <input type="text" class="form-control" placeholder="<?= $user->name ?>"><br>
+                            <input type="text" name="name" class="form-control" placeholder="<?= $user->name ?>"><br>
                             <label>Email</label><br>
-                            <input type="text" class="form-control" placeholder="<?= $user->email ?>"><br>
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                          <button type="button" class="btn btn-success">Editar</button>
+                            <input type="text" name="email" class="form-control" placeholder="<?= $user->email ?>"><br>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                              <button type="submit" class="btn btn-success">Editar</button>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
-</div>
+                  </div>
 
                   <!--Modal de visualizar usuário-->
                   <div class="modal" id="view-user-<?= $user->id ?>" tabindex="-1" role="dialog">
@@ -154,7 +157,7 @@
                           <div class="form-group">
                             <label>
                               <p class="nome-php"><?= $user->name ?></p>
-                            </label>
+                            </label><br>
                             <label>
                               <p class="email-php"><?= $user->email ?></p>
                             </label><br>
