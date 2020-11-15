@@ -39,13 +39,12 @@ class QueryBuilder
         }
     }
 
-    public function edit($table, $parameters)
+    public function editProduct($table, $parameters, $id)
     {
         $sql = sprintf(
-            'update into %s (%s) values (%s)',
-            $table,
-            implode(', ', array_keys($parameters)),
-            ':' . implode(', :', array_keys($parameters))
+            "update product set name = '{$parameters['name']}', description = '{$parameters['description']}',
+            image = '{$parameters['image']}', price = '{$parameters['price']}', stock = '{$parameters['stock']}',
+            id_category = '{$parameters['id_category']}' where id = {$id}"
         );
 
         try {

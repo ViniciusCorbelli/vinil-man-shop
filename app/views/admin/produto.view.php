@@ -134,38 +134,47 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="form-group">
-                                                    <h4>Nome do produto</h4>
-                                                    <input type="text" class="form-control" value="<?= $produto->name; ?>">
-                                                </div>
-                                                <div class="form-group">
-                                                    <h4>Preço(R$)</h4>
-                                                    <input type="text" class="form-control" value="<?= $produto->price; ?>">
-                                                </div>
 
-                                                <div class="form-group">
-                                                    <h4>Descrição</h4>
-                                                    <input type="text" class="form-control" value="<?= $produto->description; ?>">
-                                                </div>
-                                                <div class="form-group">
-                                                    <h4>Categoria</h4>
-                                                    <input type="text" class="form-control" value="<?= $produto->id_category; ?>">
-                                                </div>
-                                                <div class="form-group">
-                                                    <h4>Foto</h4>
-                                                    <input type="image" src="" class="form-control" alt="Adicione a imagem do produto" style="height: 200px;">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                                <button type="button" class="btn btn-success">Editar</button>
+                                                <form action="/administrativo/produto/edit" method="POST" enctype="multipart/form-data">
+                                                    <div class="form-group">
+                                                        <input type="hidden" name="item_id" value="<?= $produto->id; ?>">
+                                                        <h4>Nome do produto</h4>
+                                                        <input type="text" name="item_name" class="form-control" value="<?= $produto->name; ?>">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <h4>Preço(R$)</h4>
+                                                        <input type="text" name="item_price" class="form-control" value="<?= $produto->price; ?>">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <h4>Estoque</h4>
+                                                        <input type="text" name="item_stock" class="form-control" value="<?= $produto->stock; ?>">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <h4>Descrição</h4>
+                                                        <input type="text" name="item_description" class="form-control" value="<?= $produto->description; ?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <h4>Categoria</h4>
+                                                        <input type="text" name="item_category" class="form-control" value="<?= $produto->id_category; ?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <h4>Foto</h4>
+                                                        <input class="form-control" type="file" name="item_image">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submite" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                                        <button type="submite" class="btn btn-success">Editar</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
 
-                            <?php endforeach; ?>
+                                <?php endforeach; ?>
                         </tbody>
                     </table>
                     <nav class="nav justify-content-end">
@@ -231,7 +240,7 @@
             </div>
             <div class="modal-footer">
                 <button type="submite" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="submite" name="add_item" class="btn btn-success">Criar novo</button>
+                <button type="submite" class="btn btn-success">Criar novo</button>
             </div>
             </form>
         </div>

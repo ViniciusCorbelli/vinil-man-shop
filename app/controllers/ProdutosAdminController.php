@@ -27,6 +27,21 @@ class ProdutosAdminController
         header('Location: /administrativo/produto');
     }
 
+    public function edit()
+    {
+        $dados = ([
+            'name' => $_POST['item_name'],
+            'description' => $_POST['item_description'],
+            'image' => addslashes(file_get_contents($_FILES['item_image']['tmp_name'])),
+            'price' => $_POST['item_price'],
+            'stock' => $_POST['item_stock'],
+            'id_category' => $_POST['item_category'],
+        ]);
+
+        App::get('database')->editProduct('product', $dados, $_POST['item_id']);
+        header('Location: /administrativo/produto');
+    }
+
     public function delete()
     {
         App::get('database')->delete('product', $_POST['id']);
