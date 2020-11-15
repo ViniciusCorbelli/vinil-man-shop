@@ -17,12 +17,16 @@ class ProdutosAdminController
         $dados = ([
             'name' => $_POST['item_name'],
             'description' => $_POST['item_description'],
-            'image' => addslashes(file_get_contents($_FILES['item_image']['tmp_name'])),
             'price' => $_POST['item_price'],
             'stock' => $_POST['item_stock'],
             'id_category' => $_POST['item_category'],
         ]);
 
+        $uploaddir = 'public/img/product/';
+        $uploadfile = $uploaddir . basename("{$dados['name']}.jpg");
+    
+        move_uploaded_file($_FILES['item_image']['tmp_name'], $uploadfile);
+        
         App::get('database')->insert('product', $dados);
         header('Location: /administrativo/produto');
     }
@@ -32,7 +36,6 @@ class ProdutosAdminController
         $dados = ([
             'name' => $_POST['item_name'],
             'description' => $_POST['item_description'],
-            'image' => addslashes(file_get_contents($_FILES['item_image']['tmp_name'])),
             'price' => $_POST['item_price'],
             'stock' => $_POST['item_stock'],
             'id_category' => $_POST['item_category'],
