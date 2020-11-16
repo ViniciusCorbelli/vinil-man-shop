@@ -39,6 +39,42 @@ class QueryBuilder
         }
     }
 
+    public function read($table, $id)
+    {
+        $sql = sprintf(
+            "select * from %s where id = %s",
+            $table,
+            $id
+        );
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute();
+
+            return $statement->fetchAll(PDO::FETCH_CLASS);
+        } catch (\Exception $e) {
+        }
+    }
+
+    public function edit($table, $field, $value, $id)
+    {
+        $sql = sprintf(
+            'update %s set %s = %s where id = %s',
+            $table,
+            $field,
+            $value,
+            $id
+        );
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute();
+        } catch (\Exception $e) {
+        }
+    }
+
     public function editProduct($table, $parameters, $id)
     {
         $sql = sprintf(
