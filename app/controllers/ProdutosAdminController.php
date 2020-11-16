@@ -34,7 +34,7 @@ class ProdutosAdminController
     public function edit()
     {
         $uploaddir = 'public/img/product/';
-        $uploadfile = $uploaddir . basename("{$dados['name']}.jpg");
+        $uploadfile = $uploaddir . basename("{$_POST['item_name']}.jpg");
 
         move_uploaded_file($_FILES['item_image']['tmp_name'], $uploadfile);
 
