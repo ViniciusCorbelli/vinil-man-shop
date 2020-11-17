@@ -269,6 +269,39 @@ html {
     padding: 0;
 }
 
+.index-destaques {
+    margin-bottom: 30px;
+    animation-name: efeito-subir;
+    animation-duration: 2s;
+}
+
+.index-destaques h2 {
+    color: #1496d2;
+    font-family: 'Miniver', cursive;
+    font-size: 36px;
+}
+
+.index-promo {
+    animation-name: efeito-subir;
+    animation-duration: 2s;
+}
+
+.index-promo h2 {
+    margin-top: 30px;
+    color: #1496d2;
+    font-family: 'Miniver', cursive;
+    font-size: 36px;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+#sobre {
+    animation-name: efeito-subir;
+    animation-duration: 2s;
+}
+
 #slogan h3 {
     color: #1496d2;
     font-family: 'Miniver', cursive;
@@ -402,58 +435,9 @@ html {
     background: #fff;
 }
 
-
-/*Cartões*/
-
-.index-card {
-    width: 250px;
-    height: 550px;
-    position: relative;
-    box-shadow: 0 2px 7px #dfdfdf;
-    margin: 8px auto;
-    background: #fafafa;
-}
-
-.product-category {
-    display: block;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #ccc;
-    margin-bottom: 18px;
-}
-
-.product-button {
-    overflow: hidden;
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-}
-
-.product-button div {
-    float: left;
-    width: 50%;
-}
-
-.product-price {
-    font-size: 18px;
-    color: #fbb72c;
-    font-weight: 600;
-}
-
-.product-links {
-    text-align: right;
-}
-
-.product-links a {
-    display: inline-block;
-    margin-left: 5px;
-    color: #e1e1e1;
-    transition: 0.3s;
-    font-size: 17px;
-}
-
-.product-links a:hover {
-    color: #fbb72c;
+#slogan {
+    animation-name: efeito-subir;
+    animation-duration: 2s;
 }
 
 @media(max-width: 575px) and (orientation: portrait) {
@@ -531,7 +515,7 @@ html {
     margin-bottom: 40px;
     text-align: center;
     vertical-align: middle;
-    animation-name: quem-somos-efeito;
+    animation-name: efeito-subir;
     animation-duration: 2s;
 }
 
@@ -556,7 +540,7 @@ html {
     margin-right: 120px;
     margin-bottom: 40px;
     text-align: center;
-    animation-name: quem-somos-efeito;
+    animation-name: efeito-subir;
     animation-duration: 2s;
 }
 
@@ -576,7 +560,7 @@ html {
     text-align: center;
     margin-left: 120px;
     margin-right: 120px;
-    animation-name: quem-somos-efeito;
+    animation-name: efeito-subir;
     animation-duration: 2s;
 }
 
@@ -606,7 +590,7 @@ html {
     margin-top: 40px;
     margin-bottom: 40px;
     text-align: center;
-    animation-name: quem-somos-efeito;
+    animation-name: efeito-subir;
     animation-duration: 2s;
 }
 
@@ -631,7 +615,7 @@ html {
     margin-right: 150px;
     margin-bottom: 60px;
     text-align: center;
-    animation-name: quem-somos-efeito;
+    animation-name: efeito-subir;
     animation-duration: 2s;
 }
 
@@ -761,21 +745,6 @@ html {
     }
     .quem-somos-linhas {
         margin-bottom: 0px;
-    }
-}
-
-@keyframes quem-somos-efeito {
-    0% {
-        opacity: 0;
-        transform: translate(0px, 60px)
-    }
-    50% {
-        opacity: 0.8;
-        transform: translate(0px, 20px)
-    }
-    100% {
-        opacity: 1;
-        transform: translate(0px, 0px)
     }
 }
 
@@ -1003,6 +972,11 @@ i:hover {
 
 /* CONTATO */
 
+.contato {
+    animation-name: efeito-subir;
+    animation-duration: 2s;
+}
+
 .contato form {
     width: 100%;
     padding: 25px 50px 25px 50px;
@@ -1065,6 +1039,11 @@ i:hover {
     color: black;
     border-bottom: 3px solid;
     padding-bottom: 30px;
+}
+
+.contato button {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 480px) {
@@ -1153,12 +1132,12 @@ i:hover {
 }
 
 .produtos-carrosel-animation {
-    animation-name: produtos-efeito;
+    animation-name: efeito-subir;
     animation-duration: 2s;
 }
 
 .produtos-buscador {
-    animation-name: produtos-efeito;
+    animation-name: efeito-subir;
     animation-duration: 2s;
 }
 
@@ -1217,7 +1196,7 @@ i:hover {
     padding: 2px;
     border-radius: 3px;
     transition: .2s all;
-    animation-name: produtos-efeito;
+    animation-name: efeito-subir;
     animation-duration: 2s;
     border-radius: 2px;
 }
@@ -1243,14 +1222,14 @@ i:hover {
 .produto-listagem-margin {
     margin-left: -1px;
     margin-right: -1px;
+    animation-name: efeito-subir;
+    animation-duration: 2s;
 }
 
 .produtos-cards {
     padding: 2px;
     border-radius: 3px;
     transition: .2s all;
-    animation-name: produtos-efeito;
-    animation-duration: 2s;
 }
 
 .produtos-cards:hover {
@@ -1297,7 +1276,7 @@ i:hover {
 
 .produtos-navigation {
     margin-top: 50px;
-    animation-name: produtos-efeito;
+    animation-name: efeito-subir;
     animation-duration: 2s;
 }
 
@@ -1337,21 +1316,6 @@ i:hover {
     }
 }
 
-@keyframes produtos-efeito {
-    0% {
-        opacity: 0;
-        transform: translate(0px, 60px)
-    }
-    50% {
-        opacity: 0.8;
-        transform: translate(0px, 20px)
-    }
-    100% {
-        opacity: 1;
-        transform: translate(0px, 0px)
-    }
-}
-
 
 /* Ver um produto */
 
@@ -1385,7 +1349,7 @@ i:hover {
 .visualizar-produto-img {
     text-align: center;
     margin-top: 50px;
-    animation-name: visualizar-produto-efeito;
+    animation-name: efeito-subir;
     animation-duration: 2s;
 }
 
@@ -1401,7 +1365,7 @@ i:hover {
 }
 
 .visualizar-produto-inf {
-    animation-name: visualizar-produto-efeito;
+    animation-name: efeito-subir;
     animation-duration: 2s;
 }
 
@@ -1446,7 +1410,7 @@ i:hover {
 .visualizar-produto-relacionados {
     margin-left: 50px;
     margin-right: 50px;
-    animation-name: visualizar-produto-efeito;
+    animation-name: efeito-subir;
     animation-duration: 2s;
 }
 
@@ -1454,7 +1418,7 @@ i:hover {
     padding: 2px;
     border-radius: 3px;
     transition: .2s all;
-    animation-name: produtos-efeito;
+    animation-name: efeito-subir;
     animation-duration: 2s;
 }
 
@@ -1509,7 +1473,7 @@ i:hover {
 
 .visualizar-produto-caracteristicas {
     text-align: justify;
-    animation-name: visualizar-produto-efeito;
+    animation-name: efeito-subir;
     animation-duration: 2s;
 }
 
@@ -1570,21 +1534,6 @@ i:hover {
         margin: 30px;
         padding-right: 10px;
         text-align: left;
-    }
-}
-
-@keyframes visualizar-produto-efeito {
-    0% {
-        opacity: 0;
-        transform: translate(0px, 60px)
-    }
-    50% {
-        opacity: 0.8;
-        transform: translate(0px, 20px)
-    }
-    100% {
-        opacity: 1;
-        transform: translate(0px, 0px)
     }
 }
 
@@ -1692,11 +1641,6 @@ i:hover {
     color: #e2e2e2;
 }
 
-a:hover {
-    text-transform: uppercase;
-    text-decoration: none;
-}
-
 .form input {
     width: 100%;
     height: 40px;
@@ -1764,5 +1708,16 @@ button:hover {
     }
     .form {
         width: 350px;
+    }
+}
+
+@keyframes efeito-subir {
+    0% {
+        opacity: 0;
+        transform: translate(0px, 60px)
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0px)
     }
 }

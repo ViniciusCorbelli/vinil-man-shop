@@ -7,28 +7,13 @@ use Exception;
 
 class QueryBuilder
 {
-    /**
-     * The PDO instance.
-     * 
-     * @var PDO
-     */
     protected $pdo;
 
-    /**
-     * Construtor do PDO
-     *
-     * @param PDO $pdo
-     */
     public function __construct($pdo)
     {
-        $this->pdo = $pdo; 
+        $this->pdo = $pdo;
     }
 
-    /**
-     * Seleciona todos os elementos de uma tabela
-     *
-     * @param string $table
-     */
     public function selectAll($table)
     {
         $statement = $this->pdo->prepare("select * from {$table}");
@@ -38,12 +23,6 @@ class QueryBuilder
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
-    /**
-     * Insert a record into a table.
-     *
-     * @param  string $table
-     * @param  array  $parameters
-     */
     public function insert($table, $parameters)
     {
         $sql = sprintf(
@@ -62,32 +41,26 @@ class QueryBuilder
         }
     }
 
-    /**
-     * Busca por id
-     * 
-     * @param int $search
-     */
-    public function read($table,$id)
+    public function read($table, $id)
     {
         $sql = sprintf(
             "select * from %s where id = %s",
             $table,
-            $id        
+            $id
         );
-        
-        try{
+
+        try {
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute();
-            
+
             return $statement->fetchAll(PDO::FETCH_CLASS);
-        } catch(Exception $e)
-        {
+        } catch (Exception $e) {
             $e->getMessage();
         }
     }
 
-    public function edit($table,$field,$value,$id)
+    public function edit($table, $field, $value, $id)
     {
         $sql = sprintf(
             'update %s set %s = %s where id = %s',
@@ -97,29 +70,27 @@ class QueryBuilder
             $id
         );
 
-        try{
+        try {
             $statement = $this->pdo->prepare($sql);
- 
+
             $statement->execute();
-        } catch (Exception $e){ 
-             echo('Captured Exception: ' . $e->getMessage() . "\n");
+        } catch (Exception $e) {
+            $e->getMessage();
         }
     }
 
-    public function delete($table,$id)
+    public function delete($table, $id)
     {
-       $sql = sprintf(
-           'delete from %s where id = %s',
-           $table,
-           $id
-       );
+        $sql = sprintf(
+            "delete from {$table} where id = {$id}"
+        );
 
-       try{
-           $statement = $this->pdo->prepare($sql);
+        try {
+            $statement = $this->pdo->prepare($sql);
 
-           $statement->execute();
-       } catch (Exception $e){
-            echo('Captured Exception: ' . $e->getMessage() . "\n");
-       }
+            $statement->execute();
+        } catch (Exception $e) {
+            $e->getMessage();
+        }
     }
 }

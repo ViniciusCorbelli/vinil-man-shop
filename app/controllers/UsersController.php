@@ -9,23 +9,11 @@ class UserController{
     {
         $users = App::get('database')->selectAll('users');
 
-        return view('admin/users', compact('users'));
+        return view('admin/usuario', compact('users'));
     }
 
     public function create()
     {
-        /*$email = App::get('database')->findByEmail('users',[
-            'email' => $_POST['email']
-        ]);
-
-        //die(var_dump($email));
-
-        if($email == $_POST['email'])
-        {
-            
-            header('Location: /admin/users');
-        }*/
-
         $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         $parameters = ([
@@ -36,7 +24,7 @@ class UserController{
 
         App::get('database')->insert('users',$parameters);
 
-        header('Location: /admin/users');
+        header('Location: /admin/usuario');
     }
 
     public function delete()
@@ -45,7 +33,7 @@ class UserController{
 
         App::get('database')->delete('users', $id);
 
-        header('Location: /admin/users');
+        header('Location: /admin/usuario');
     }
 
 }
