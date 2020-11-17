@@ -2,33 +2,37 @@
 
 namespace App\Controllers;
 
-use App\Core\App;
-
 class PagesController
 {
 
     public function home()
     {
-        return view('index');
+        return view('/site/index');
     }
 
     public function contato()
     {
-        return view('contato');
+        return view('/site/contato');
     }
 
     public function quemsomos()
     {
-        return view('quem-somos');
+        return view('/site/quem-somos');
     }
 
     public function produtos()
     {
-        return view('produtos');
+        return view('/site/produtos');
     }
-    
+
+    public function login()
+    {
+        return view('/site/login');
+    }
+
+    /*Página referente ao acesso administrativo */
     public function administrativo()
     {
-        return viewadmin('home');
+        return view('admin/home');
     }
 }

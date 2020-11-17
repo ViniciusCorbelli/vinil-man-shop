@@ -20,19 +20,19 @@
             <i class="far fa-times-circle"></i>
         </a>
 
-        <a class="cool-link mb-2" href="/administrativo">
+        <a class="cool-link mb-2" href="/admin">
             <i class="fas fa-home"></i>
             <span class="ml-1">Home</span>
         </a>
-        <a class="cool-link mb-2" href="/administrativo/usuario">
+        <a class="cool-link mb-2" href="/admin/usuario">
             <i class="fas fa-users"></i>
             <span class="ml-1">Usuários</span>
         </a>
-        <a class="cool-link mb-2" href="/administrativo/categoria">
+        <a class="cool-link mb-2" href="/admin/categoria">
             <i class="fas fa-table"></i>
             <span class="ml-1">Categorias</span>
         </a>
-        <a class="cool-link mb-2" href="/administrativo/produto">
+        <a class="cool-link mb-2" href="/admin/produto">
             <i class="fas fa-record-vinyl"></i>
             <span class="ml-1">Produtos</span>
         </a>
