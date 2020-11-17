@@ -9,7 +9,7 @@ class UserController{
     {
         $users = App::get('database')->selectAll('users');
 
-        return view('admin/usuario', compact('users'));
+        return view('/admin/usuarios', compact('users'));
     }
 
     public function create()
@@ -24,7 +24,7 @@ class UserController{
 
         App::get('database')->insert('users',$parameters);
 
-        header('Location: /admin/usuario');
+        header('Location: /admin/usuarios');
     }
 
     public function delete()
@@ -33,7 +33,7 @@ class UserController{
 
         App::get('database')->delete('users', $id);
 
-        header('Location: /admin/usuario');
+        header('Location: /admin/usuarios');
     }
 
 }

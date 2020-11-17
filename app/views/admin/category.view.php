@@ -1,30 +1,5 @@
-<?php require('app/views/partials/head-adm.php') ?>
+<?php require('app/views/partials/head.admin.php') ?>
         <div class="wrapper">
-            <div id="sidenav" class="sidenav">
-                
-                <!--Icone para fechar a sidebar em casos de tela menor que 414px-->
-                <a class="closeBtn mb-6" onclick="closeBtn()">
-                    <i class="far fa-times-circle"></i>
-                </a>
-
-                <a class="cool-link mb-2" href="#">
-                    <i class="fas fa-home"></i>
-                    <span class="ml-1">Home</span>
-                </a>
-                <a class="cool-link mb-2" href="#">
-                    <i class="fas fa-users"></i>
-                    <span class="ml-1">Usuários</span>
-                </a>
-                <a class="cool-link mb-2" href="#">
-                    <i class="fas fa-table"></i>
-                    <span class="ml-1">Categorias</span>
-                </a>
-                <a class="cool-link mb-2" href="#">
-                    <i class="fas fa-record-vinyl"></i>
-                    <span class="ml-1">Produtos</span>
-                </a>
-            </div>
-    
             <div id="main" class="container-fluid">
                 <main>
                     <h1 class="mt-4 mx-auto non-space">Bem Vindo {{nome do usuário}}</h1>
@@ -204,4 +179,4 @@
             </div>
           </div>
           
-<?php require('app/views/partials/footer-adm.php') ?>
+<?php require('app/views/partials/footer.admin.php') ?>

@@ -33,6 +33,6 @@ class PagesController
     /*Página referente ao acesso administrativo */
     public function administrativo()
     {
-        return view('admin');
+        return view('admin/home');
     }
 }

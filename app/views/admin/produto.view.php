@@ -241,5 +241,4 @@
         </div>
     </div>
 </div>
-
 <?php require('app/views/partials/footer.admin.php') ?>
