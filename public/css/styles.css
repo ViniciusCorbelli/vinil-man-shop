@@ -257,6 +257,30 @@ html {
     padding: 0;
 }
 
+.index-destaques {
+    margin-bottom: 30px;
+    animation-name: efeito-subir;
+    animation-duration: 2s;
+}
+
+.index-destaques h2 {
+    color: #1496d2;
+    font-family: 'Miniver', cursive;
+    font-size: 36px;
+}
+
+.index-promo {
+    animation-name: efeito-subir;
+    animation-duration: 2s;
+}
+
+.index-promo h2 {
+    margin-top: 30px;
+    color: #1496d2;
+    font-family: 'Miniver', cursive;
+    font-size: 36px;
+}
+
 .container {
     margin-top: 50px;
 }
@@ -1186,14 +1210,14 @@ i:hover {
 .produto-listagem-margin {
     margin-left: -1px;
     margin-right: -1px;
+    animation-name: efeito-subir;
+    animation-duration: 2s;
 }
 
 .produtos-cards {
     padding: 2px;
     border-radius: 3px;
     transition: .2s all;
-    animation-name: efeito-subir;
-    animation-duration: 2s;
 }
 
 .produtos-cards:hover {

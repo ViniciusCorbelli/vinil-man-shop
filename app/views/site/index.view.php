@@ -1,29 +1,24 @@
 <?php require('app/views/partials/head.php') ?>
 <!--Page Content-->
 <main class="view-home">
-
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="/public/img/background.jpg" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="/public/img/background.jpg" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="/public/img/background.jpg" alt="Third slide">
+                <img class="d-block w-100" src="/public/img/carrousel_1.jpg" alt="Carrousel">
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span class="sr-only">Anterior</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <span class="sr-only">Próximo</span>
         </a>
     </div>
-    <!--\slider area-->
 
     <div class="container">
         <!--Slogan-->
@@ -66,116 +61,56 @@
         </section>
         <!--\Sobre-->
 
-
-        <div class="row produto-listagem-margin">
-            <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                <a href="#">
-                    <div class="card h-100">
-                        <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                        <div class="card-body">
-                            <h4 class="card-title produtos-cards-titulo">
-                                <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                            </h4>
-                            <h5>R$ 230,00</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+        <div class="index-destaques">
+            <hr width=“2” size=“100”>
+            <h2>Produtos em destaques</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 produtos-cards produto-listagem-margin">
+                    <a href="#">
+                        <div class="card h-100">
+                            <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
+                            <div class="card-body">
+                                <h4 class="card-title produtos-cards-titulo">
+                                    <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
+                                </h4>
+                                <h5>R$ 230,00</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">5 unid. disponível</small>
+                            </div>
                         </div>
-                        <div class="card-footer">
-                            <small class="text-muted">5 unid. disponível</small>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                <a href="#">
-                    <div class="card h-100">
-                        <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                        <div class="card-body">
-                            <h4 class="card-title produtos-cards-titulo">
-                                <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                            </h4>
-                            <h5>R$ 230,00</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">5 unid. disponível</small>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                <a href="#">
-                    <div class="card h-100">
-                        <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                        <div class="card-body">
-                            <h4 class="card-title produtos-cards-titulo">
-                                <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                            </h4>
-                            <h5>R$ 230,00</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">5 unid. disponível</small>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                <a href="#">
-                    <div class="card h-100">
-                        <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                        <div class="card-body">
-                            <h4 class="card-title produtos-cards-titulo">
-                                <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                            </h4>
-                            <h5>R$ 230,00</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">5 unid. disponível</small>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                <a href="#">
-                    <div class="card h-100">
-                        <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                        <div class="card-body">
-                            <h4 class="card-title produtos-cards-titulo">
-                                <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                            </h4>
-                            <h5>R$ 230,00</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">5 unid. disponível</small>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                <a href="#">
-                    <div class="card h-100">
-                        <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                        <div class="card-body">
-                            <h4 class="card-title produtos-cards-titulo">
-                                <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                            </h4>
-                            <h5>R$ 230,00</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">5 unid. disponível</small>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
         </div>
+
+        <div class="index-promo">
+            <hr width=“2” size=“100”>
+            <h2>Promoções</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 produtos-cards produto-listagem-margin">
+                    <a href="#">
+                        <div class="card h-100">
+                            <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
+                            <div class="card-body">
+                                <h4 class="card-title produtos-cards-titulo">
+                                    <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
+                                </h4>
+                                <h5>R$ 230,00</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">5 unid. disponível</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
 </main>
 <!--\Page Content-->
 
