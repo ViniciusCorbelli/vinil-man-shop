@@ -82,7 +82,7 @@
                                                 <p>Esta ação é irrevessível</p>
                                             </div>
                                             <div class="modal-footer">
-                                                <form action="/administrativo/produto/delete" method="POST">
+                                                <form action="/admin/produto/delete" method="POST">
                                                     <input type="hidden" name="id" value="<?= $produto->id; ?>">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                                                     <button type="submit" class="btn btn-danger">Confirmar</button>
@@ -130,7 +130,7 @@
                                             </div>
                                             <div class="modal-body">
 
-                                                <form action="/administrativo/produto/edit" method="POST" enctype="multipart/form-data">
+                                                <form action="/admin/produto/edit" method="POST" enctype="multipart/form-data">
                                                     <div class="form-group">
                                                         <input type="hidden" name="item_id" value="<?= $produto->id; ?>">
                                                         <h4>Nome do produto</h4>
@@ -199,7 +199,7 @@
             </div>
             <div class="modal-body">
 
-                <form action="/administrativo/produto/create" method="POST" enctype="multipart/form-data">
+                <form action="/admin/produto/create" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
 
                         <h4>Insira o nome do produto</h4>

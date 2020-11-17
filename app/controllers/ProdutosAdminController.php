@@ -28,7 +28,7 @@ class ProdutosAdminController
         move_uploaded_file($_FILES['item_image']['tmp_name'], $uploadfile);
 
         App::get('database')->insert('product', $dados);
-        header('Location: /administrativo/produto');
+        header('Location: /admin/produto');
     }
 
     public function edit()
@@ -43,12 +43,12 @@ class ProdutosAdminController
         App::get('database')->edit('product','price', $_POST['item_price'], $_POST['item_id']);
         App::get('database')->edit('product','stock', $_POST['item_stock'], $_POST['item_id']);
         App::get('database')->edit('product','category', $_POST['item_category'], $_POST['item_id']);
-        header('Location: /administrativo/produto');
+        header('Location: /admin/produto');
     }
 
     public function delete()
     {
         App::get('database')->delete('product', $_POST['id']);
-        header('Location: /administrativo/produto');
+        header('Location: /admin/produto');
     }
 }

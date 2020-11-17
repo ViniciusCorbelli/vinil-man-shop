@@ -5,11 +5,6 @@ namespace App\Controllers;
 class PagesController
 {
 
-    public function home()
-    {
-        return view('/site/index');
-    }
-
     public function contato()
     {
         return view('/site/contato');

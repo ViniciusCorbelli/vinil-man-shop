@@ -42,17 +42,18 @@ body {
     background-color: #e7e7e7;
 }
 
+
 /*==== ESTILIZAÇÃO DO PHP ====*/
-.nome-php{
+
+.nome-php {
     font-size: 25px;
 }
 
-.email-php{
+.email-php {
     font-size: 18px;
     text-overflow: ellipsis!important;
     white-space: nowrap;
 }
-
 
 
 /*==== SIDENAVBAR ====*/
@@ -279,6 +280,7 @@ html {
     color: #1496d2;
     font-family: 'Miniver', cursive;
     font-size: 36px;
+    margin-left: 120px;
 }
 
 .index-promo {
@@ -1262,7 +1264,7 @@ i:hover {
 
 .produtos-paginas a {
     background-color: #e7e7e7!important;
-    color: #777474!important;
+    color: #1f1717!important;
     margin-right: 5px;
     margin-left: 5px;
     transition: .2s all;
@@ -1660,6 +1662,30 @@ i:hover {
 
 button:hover {
     transition: 1s;
+}
+
+.col-md-3 {
+    display: inline-block;
+    margin-left: -4px;
+}
+
+.col-md-3 img {
+    width: 100%;
+    height: auto;
+}
+
+body .carousel-indicators li {
+    background-color: #1496d2;
+}
+
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon {
+    background-color: #1496d2;
+}
+
+body .no-padding {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 @media only screen and (max-width: 865px) {

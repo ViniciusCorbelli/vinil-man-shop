@@ -1,24 +1,34 @@
 <?php require('app/views/partials/head.php') ?>
 <!--Page Content-->
 <main class="view-home">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <!--Carousel Wrapper-->
+    <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+            <li data-target="#carousel-example-1z" data-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner">
+        <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="/public/img/carrousel_1.jpg" alt="Carrousel">
+                <img class="d-block w-100" src="/public/img/carrousel_1.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/public/img/carrousel_1.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/public/img/carrousel_1.jpg" alt="Third slide">
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Anterior</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Próximo</span>
+            <span class="sr-only">Proximo</span>
         </a>
     </div>
+    <!--/.Carousel Wrapper-->
 
     <div class="container">
         <!--Slogan-->
@@ -60,58 +70,124 @@
             </div>
         </section>
         <!--\Sobre-->
-
-        <div class="index-destaques">
-            <hr width=“2” size=“100”>
-            <h2>Produtos em destaques</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4 produtos-cards produto-listagem-margin">
-                    <a href="#">
-                        <div class="card h-100">
-                            <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                            <div class="card-body">
-                                <h4 class="card-title produtos-cards-titulo">
-                                    <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                                </h4>
-                                <h5>R$ 230,00</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">5 unid. disponível</small>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="index-promo">
-            <hr width=“2” size=“100”>
-            <h2>Promoções</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4 produtos-cards produto-listagem-margin">
-                    <a href="#">
-                        <div class="card h-100">
-                            <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                            <div class="card-body">
-                                <h4 class="card-title produtos-cards-titulo">
-                                    <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                                </h4>
-                                <h5>R$ 230,00</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">5 unid. disponível</small>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-
     </div>
 </main>
-<!--\Page Content-->
+
+
+<div class="index-destaques">
+    <hr width=“2” size=“100”>
+    <h2>Produtos em destaques</h2>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <div class="container carousel-inner no-padding index-destaques">
+            <div class="carousel-item active">
+
+                <?php
+                $i = 0;
+                foreach ($produtos as $produto) :
+                ?>
+                    <?php if ($i <= 3) : ?>
+                        <div class="col-xs-3 col-sm-3 col-md-3 produtos-cards produto-listagem-margin">
+                            <a href="/produto?id=<?= $produto->id; ?>">
+                                <div class="card h-100">
+                                    <img class="card-img-top card-img" src="/public/img/product/<?= $produto->name; ?>.jpg" alt="Vinil">
+                                    <div class="card-body">
+                                        <h4 class="card-title produtos-cards-titulo">
+                                            <a href="/produto?id=<?= $produto->id; ?>"><?= $produto->name; ?></a>
+                                        </h4>
+                                        <h5>R$ <?= $produto->price; ?></h5>
+                                        <p class="card-text"><?= $produto->description; ?></p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted"><?= $produto->stock; ?> unid. disponível</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <?php $i++;
+                    endif; ?>
+                <?php endforeach; ?>
+
+
+            </div>
+            <div class="carousel-item">
+                <?php
+                $i = 0;
+                foreach ($produtos as $produto) :
+                ?>
+                    <?php if ($i > 3) : ?>
+                        <?php if ($i <= 7) : ?>
+                            <div class="col-xs-3 col-sm-3 col-md-3 produtos-cards produto-listagem-margin">
+                                <a href="/produto?id=<?= $produto->id; ?>">
+                                    <div class="card h-100">
+                                        <img class="card-img-top card-img" src="/public/img/product/<?= $produto->name; ?>.jpg" alt="Vinil">
+                                        <div class="card-body">
+                                            <h4 class="card-title produtos-cards-titulo">
+                                                <a href="/produto?id=<?= $produto->id; ?>"><?= $produto->name; ?></a>
+                                            </h4>
+                                            <h5>R$ <?= $produto->price; ?></h5>
+                                            <p class="card-text"><?= $produto->description; ?></p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <small class="text-muted"><?= $produto->stock; ?> unid. disponível</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php
+                        endif; ?>
+                    <?php
+                    endif; ?>
+                    <?php $i++; ?>
+                <?php endforeach; ?>
+            </div>
+            <div class="carousel-item">
+                <?php
+                $i = 0;
+                foreach ($produtos as $produto) :
+                ?>
+                    <?php if ($i > 7) : ?>
+                        <?php if ($i <= 11) : ?>
+                            <div class="col-xs-3 col-sm-3 col-md-3 produtos-cards produto-listagem-margin">
+                                <a href="/produto?id=<?= $produto->id; ?>">
+                                    <div class="card h-100">
+                                        <img class="card-img-top card-img" src="/public/img/product/<?= $produto->name; ?>.jpg" alt="Vinil">
+                                        <div class="card-body">
+                                            <h4 class="card-title produtos-cards-titulo">
+                                                <a href="/produto?id=<?= $produto->id; ?>"><?= $produto->name; ?></a>
+                                            </h4>
+                                            <h5>R$ <?= $produto->price; ?></h5>
+                                            <p class="card-text"><?= $produto->description; ?></p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <small class="text-muted"><?= $produto->stock; ?> unid. disponível</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php
+                        endif; ?>
+                    <?php
+                    endif; ?>
+                    <?php $i++; ?>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="" data-slide="Anterior">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="" data-slide="Proximo">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div>
 
 <?php require('app/views/partials/footer.php') ?>
