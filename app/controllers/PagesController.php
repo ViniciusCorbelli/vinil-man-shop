@@ -38,7 +38,7 @@ class PagesController
 
     public function administrativocategoria()
     {
-        return view('admin/view-category-adm');
+        return view('admin/category');
     }
 
     public function administrativoproduto()
