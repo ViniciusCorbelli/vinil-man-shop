@@ -1,4 +1,8 @@
-<?php require('app/views/partials/head.admin.php') ?>
+<?php
+
+use App\Core\App;
+
+require('app/views/partials/head.admin.php') ?>
 
 <div id="main" class="container-fluid">
     <main>
@@ -57,7 +61,15 @@
                                 <tr>
                                     <td><?= $produto->name; ?></td>
                                     <td><?= $produto->price; ?></td>
-                                    <td><?= $produto->id_category; ?></td>
+
+                                    <?php
+                                    $categorias = App::get('database')->selectAll('category');
+                                    foreach ($categorias as $categoria) : ?>
+                                        <?php if ($categoria->id == $produto->id_category) : ?>
+                                            <td><?= $categoria->name; ?></td>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+
                                     <td>
                                         <button type="button" class="btn" data-toggle="modal" data-target="#view-product-<?= $produto->id; ?>"><i class="fas fa-eye"></i></button>
                                         <button type="button" class="btn" data-toggle="modal" data-target="#edit-<?= $produto->id; ?>"><i class="fas fa-edit"></i></button>
@@ -153,7 +165,24 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <h4>Categoria</h4>
-                                                        <input type="text" name="item_category" class="form-control" value="<?= $produto->id_category; ?>">
+                                                        <select class="form-control" name="item_category" id="exampleFormControlSelect1">
+                                                            <?php
+                                                            $categorias = App::get('database')->selectAll('category');
+                                                            foreach ($categorias as $categoria) : ?>
+
+                                                                <?php if ($categoria->id == $produto->id_category) : ?>
+                                                                    <option value="<?= $categoria->id; ?>" selected="selected">
+                                                                        <?= $categoria->name; ?>
+                                                                    </option>
+                                                                <?php endif; ?>
+
+                                                                <?php if ($categoria->id != $produto->id_category) : ?>
+                                                                    <option value="<?= $categoria->id; ?>">
+                                                                        <?= $categoria->name; ?>
+                                                                    </option>
+                                                                <?php endif; ?>
+                                                            <?php endforeach; ?>
+                                                        </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <h4>Foto</h4>
@@ -217,12 +246,9 @@
                         <h4>Insira a categoria</h4>
                         <select class="form-control" name="item_category" id="exampleFormControlSelect1">
                             <?php
-
-                            use App\Core\App;
-
                             $categorias = App::get('database')->selectAll('category');
                             foreach ($categorias as $categoria) : ?>
-                                <option>
+                                <option value="<?= $categoria->id; ?>">
                                     <?= $categoria->name; ?>
                                 </option>
                             <?php endforeach; ?>

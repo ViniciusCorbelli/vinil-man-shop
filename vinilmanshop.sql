@@ -52,7 +52,7 @@ CREATE TABLE `product` (
   `description` varchar(500) DEFAULT NULL,
   `price` double NOT NULL,
   `stock` int(11) NOT NULL,
-  `id_category` varchar(200) DEFAULT NULL
+  `id_category` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -60,18 +60,18 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `description`, `price`, `stock`, `id_category`) VALUES
-(20, 'Vinil anos 50', 'Descrição', 200, 5, 'Rock'),
-(21, 'Vinil anos 40', 'Descrição', 20, 5, 'Rock'),
-(22, 'Vinil anos 80', 'Descrição', 60, 90, 'Rock'),
-(23, 'Vinil anos 70', 'Descrição', 10, 90, 'Rock'),
-(24, 'Vinil anos 20', 'Descrição', 110, 8, 'Rock'),
-(25, 'Vinil anos 90', 'Descrição', 60, 90, 'Rock'),
-(26, 'Vinil anos 10', 'Descrição', 110, 2, 'Rock'),
-(27, 'Vinil anos 30', 'Descrição', 60, 8, 'Rock'),
-(28, 'Vinil anos 60', 'Descrição', 546, 8, 'Rock'),
-(29, 'Vinil anos 2000', 'Descrição', 99999, 2, 'Rock'),
-(30, 'Vinil ano 2010', 'Descrição', 200, 4, 'Rock'),
-(31, 'Vinil ano 2020', 'Descrição', 60, 80, 'Rock');
+(20, 'Vinil anos 50', 'Descrição', 200, 5, 1),
+(21, 'Vinil anos 40', 'Descrição', 20, 5, 1),
+(22, 'Vinil anos 80', 'Descrição', 60, 90, 1),
+(23, 'Vinil anos 70', 'Descrição', 10, 90, 2),
+(24, 'Vinil anos 20', 'Descrição', 110, 8, 2),
+(25, 'Vinil anos 90', 'Descrição', 60, 90, 2),
+(26, 'Vinil anos 10', 'Descrição', 110, 2, 1),
+(27, 'Vinil anos 30', 'Descrição', 60, 8, 1),
+(28, 'Vinil anos 60', 'Descrição', 546, 8, 1),
+(29, 'Vinil anos 2000', 'Descrição', 99999, 2, 2),
+(30, 'Vinil ano 2010', 'Descrição', 200, 4, 1),
+(31, 'Vinil ano 2020', 'Descrição', 60, 80, 2);
 
 -- --------------------------------------------------------
 
