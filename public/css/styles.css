@@ -1674,20 +1674,6 @@ button:hover {
     height: auto;
 }
 
-body .carousel-indicators li {
-    background-color: #1496d2;
-}
-
-body .carousel-control-prev-icon,
-body .carousel-control-next-icon {
-    background-color: #1496d2;
-}
-
-body .no-padding {
-    padding-left: 0;
-    padding-right: 0;
-}
-
 @media only screen and (max-width: 865px) {
     .boas-vindas {
         width: 100%;

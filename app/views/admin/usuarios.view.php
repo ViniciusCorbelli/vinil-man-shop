@@ -81,7 +81,7 @@
                         <p>Esta ação é irrevessível</p>
                       </div>
                       <div class="modal-footer">
-                        <form action="/user/delete" method="POST">
+                        <form action="/admin/usuario/delete" method="POST">
                           <input type="hidden" name="id" value="<?= $user->id ?>">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                           <button type="submit" class="btn btn-danger">Confirmar</button>
@@ -102,7 +102,7 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                        <form action="/user/edit" method="POST" class="form-group">
+                        <form action="/admin/usuario/edit" method="POST" class="form-group">
                           <label>Nome</label>
                           <input type="text" name="name" class="form-control" placeholder="<?= $user->name ?>"><br>
                           <label>Email</label><br>
@@ -177,7 +177,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="form" class="form-group" action="/user/create" method="POST">
+        <form id="form" class="form-group" action="/admin/usuario/create" method="POST">
           <label>Nome</label>
           <input type="text" name="name" class="form-control" placeholder="Nome do Usuário"><br>
           <label>Email</label><br>
