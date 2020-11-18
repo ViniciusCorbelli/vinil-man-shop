@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Controllers;
-
-use App\Core\App;
+use app\core\App;
 
 class PagesController
 {
-
     public function home()
     {
         return view('index');
@@ -26,9 +24,30 @@ class PagesController
     {
         return view('produtos');
     }
-    
+
+    public function login()
+    {
+        return view('login');
+    }
+
+    /*Página referente ao acesso administrativo */
     public function administrativo()
     {
-        return viewadmin('home');
+        return view('admin/home');
+    }
+
+    public function administrativocategoria()
+    {
+        return view('admin/view-category-adm');
+    }
+
+    public function administrativoproduto()
+    {
+        return view('admin/product');
+    }
+
+    public function administrativousuario()
+    {
+        return view('admin/users');
     }
 }

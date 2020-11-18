@@ -1,41 +1,42 @@
 <?php
 
 namespace App\Controllers;
+use app\core\App;
 
-use App\Core\App;
+class UserController{
 
-class CategoryAdminController
-{
     public function index()
     {
-        $category = App::get('database')->selectAll('category');
-        return viewadmin('category', compact('categorys'));
+        $users = App::get('database')->selectAll('category');
+
+        return view('category', compact('category'));
     }
 
     public function create()
     {
-        $dados = ([
-            'name' => $_POST['item_name'],
+       
+        
+
+        $parameters = ([
+            'name' => $_POST['name'],
+            
+            
         ]);
 
-        App::get('database')->insert('category', $dados);
-        header('Location: /administrativo/category');
+        App::get('database')->insert('category',$parameters);
+
+        header('Location: /admin/category');
     }
-
-    public function edit()
-    {
-        $dados = ([
-            'name' => $_POST['item_name'],
-        ]);
-
-        App::get('database')->update('category', $dados);
-        header('Location: /administrativo/category');
-    }
-
 
     public function delete()
     {
-        App::get('database')->delete('category', $_POST['id']);
-        header('Location: /administrativo/category');
+        $id = $_POST['id'];
+
+        App::get('database')->delete('category', $id);
+
+        header('Location: /admin/category');
     }
+
 }
+
+?>
