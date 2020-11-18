@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Nov-2020 às 16:30
+-- Tempo de geração: 18-Nov-2020 às 22:13
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.3.23
 
@@ -81,7 +81,7 @@ INSERT INTO `product` (`id`, `name`, `description`, `price`, `stock`, `id_catego
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `name` varchar(25) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -91,8 +91,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
-(0, 'Vinicius', 'v.corbelli71@gmail.com', '$2y$10$lnGb6Cl6b2doScxg1PTwtOs1jwxxTISAmSjuT2XDEz0EC.nvqzrzu'),
-(0, 'Renan', 'renannunes@ice.ufjf.br', '$2y$10$DKMz9TlYAOulOa2l3Viy8ux0L9pCkkqTi1bHD0fNGEK.7r0iBHVV6');
+(1, 'Vinícius', 'v.corbelli71@gmail.com', '$2y$10$c6Dmwt1JE.zIQsG1WXB7.OuI9rVEssCGwrU98S.6O9UZ9471/Di2m'),
+(2, 'Renan', 'renan@gmail.com', '$2y$10$ZetGLr5BM63TjhLDhJiUDexf.7clrNAcxkmft89iFxw3vueKmYFlu');
 
 --
 -- Índices para tabelas despejadas
@@ -111,6 +111,12 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -125,6 +131,12 @@ ALTER TABLE `category`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT de tabela `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
