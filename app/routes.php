@@ -13,6 +13,7 @@ $router->post('admin/usuario/delete', 'UserController@delete');
 $router->post('admin/produto/create', 'ProdutosAdminController@create');
 $router->post('admin/produto/delete', 'ProdutosAdminController@delete');
 $router->post('admin/produto/edit', 'ProdutosAdminController@edit');
+
 $router->post('admin/category/create', 'CategoryController@create');
 $router->post('admin/category/delete', 'CategoryController@delete');
 $router->post('admin/category/edit', 'CategoryController@edit');
