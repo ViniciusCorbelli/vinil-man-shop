@@ -1,4 +1,8 @@
-<?php require('app/views/partials/head.php') ?>
+<?php
+$nomePage = $titulo;
+require('app/views/partials/head.php');
+?>
+
 <main>
     <div class="produtos-cabecalho">
         <img src="/public/img/background.jpg">
@@ -28,30 +32,9 @@
                         <div class="dropdown show produtos-relevantes ">
                             <a class="btn btn-secondary dropdown-toggle produtos-relevantes-background" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Estilo</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Blues (204.889)</a>
-                                <a class="dropdown-item" href="#">Clássica (204.889)</a>
-                                <a class="dropdown-item" href="#">Country (204.889)</a>
-                                <a class="dropdown-item" href="#">Dance e Eletrônica (204.889)</a>
-                                <a class="dropdown-item" href="#">Diversos (204.889)</a>
-                                <a class="dropdown-item" href="#">Easy Listening (204.889)</a>
-                                <a class="dropdown-item" href="#">Folk (204.889)</a>
-                                <a class="dropdown-item" href="#">Hard Rock e Metal (204.889)</a>
-                                <a class="dropdown-item" href="#">Indie e Alternativa (204.889)</a>
-                                <a class="dropdown-item" href="#">Internacional (204.889)</a>
-                                <a class="dropdown-item" href="#">Jazz (204.889)</a>
-                                <a class="dropdown-item" href="#">Músicais e Cabaré (204.889)</a>
-                                <a class="dropdown-item" href="#">Música Nacional (204.889)</a>
-                                <a class="dropdown-item" href="#">Música, Peças e Histórias (204.889)</a>
-                                <a class="dropdown-item" href="#">Infantis (204.889)</a>
-                                <a class="dropdown-item" href="#">New Age e Meditação (204.889)</a>
-                                <a class="dropdown-item" href="#">Pop (204.889)</a>
-                                <a class="dropdown-item" href="#">R&B (204.889)</a>
-                                <a class="dropdown-item" href="#">Rap e Hip-Hop (204.889)</a>
-                                <a class="dropdown-item" href="#">Reggae (204.889)</a>
-                                <a class="dropdown-item" href="#">Religião e Gospel (204.889)</a>
-                                <a class="dropdown-item" href="#">Rock (204.889)</a>
-                                <a class="dropdown-item" href="#">Trilhas Sonoras (204.889)</a>
-
+                                <?php foreach ($categorias as $categoria) : ?>
+                                    <a class="dropdown-item" href="#"><?= $categoria->name ?></a>
+                                <?php endforeach ?>
                             </div>
                         </div>
 
@@ -81,29 +64,8 @@
                             </div>
                         </div>
                         <h6>Estilos</h6>
-                        <a href="#">Blues (204.889)</a>
-                        <a href="#">Clássica (204.889)</a>
-                        <a href="#">Country (204.889)</a>
-                        <a href="#">Dance e Eletrônica (204.889)</a>
-                        <a href="#">Diversos (204.889)</a>
-                        <a href="#">Easy Listening (204.889)</a>
-                        <a href="#">Folk (204.889)</a>
-                        <a href="#">Hard Rock e Metal (204.889)</a>
-                        <a href="#">Indie e Alternativa (204.889)</a>
-                        <a href="#">Internacional (204.889)</a>
-                        <a href="#">Jazz (204.889)</a>
-                        <a href="#">Músicais e Cabaré (204.889)</a>
-                        <a href="#">Música Nacional (204.889)</a>
-                        <a href="#">Música, Peças e Histórias (204.889)</a>
-                        <a href="#">Infantis (204.889)</a>
-                        <a href="#">New Age e Meditação (204.889)</a>
-                        <a href="#">Pop (204.889)</a>
-                        <a href="#">R&B (204.889)</a>
-                        <a href="#">Rap e Hip-Hop (204.889)</a>
-                        <a href="#">Reggae (204.889)</a>
-                        <a href="#">Religião e Gospel (204.889)</a>
-                        <a href="#">Rock (204.889)</a>
-                        <a href="#">Trilhas Sonoras (204.889)</a>
+                        <?php foreach ($categorias as $categoria) : ?> <a class="dropdown-item" href="#"><?= $categoria->name ?></a>
+                        <?php endforeach ?>
                         <h6>Preço</h6>
                         <form>
                             <div class="form-group">
@@ -145,167 +107,26 @@
                 </div>
 
                 <div class="row produto-listagem-margin">
-                    <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                        <a href="#">
-                            <div class="card h-100">
-                                <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                                <div class="card-body">
-                                    <h4 class="card-title produtos-cards-titulo">
-                                        <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                                    </h4>
-                                    <h5>R$ 230,00</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">5 unid. disponível</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
 
+                    <?php foreach ($produtos as $produto): ?>
                     <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                        <a href="#">
+                        <a href="produtos/<?= $produto->id ?>">
                             <div class="card h-100">
-                                <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
+                                <img class="card-img-top card-img" src="/public/img/product/<?= $produto->name; ?>" alt="Vinil">
                                 <div class="card-body">
                                     <h4 class="card-title produtos-cards-titulo">
-                                        <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
+                                        <a class="produtos-cards-titulo" href="produtos/<?= $produto->id ?>">"><?= $produto->name ?></a>
                                     </h4>
-                                    <h5>R$ 230,00</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                                    <h5><?= $produto->price ?></h5>
+                                    <p class="card-text"><?= $produto->description ?></p>
                                 </div>
                                 <div class="card-footer">
-                                    <small class="text-muted">5 unid. disponível</small>
+                                    <small class="text-muted"><?= $produto->stock ?></small>
                                 </div>
                             </div>
                         </a>
                     </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                        <a href="#">
-                            <div class="card h-100">
-                                <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                                <div class="card-body">
-                                    <h4 class="card-title produtos-cards-titulo">
-                                        <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                                    </h4>
-                                    <h5>R$ 230,00</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">5 unid. disponível</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                        <a href="#">
-                            <div class="card h-100">
-                                <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                                <div class="card-body">
-                                    <h4 class="card-title produtos-cards-titulo">
-                                        <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                                    </h4>
-                                    <h5>R$ 230,00</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">5 unid. disponível</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                        <a href="#">
-                            <div class="card h-100">
-                                <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                                <div class="card-body">
-                                    <h4 class="card-title produtos-cards-titulo">
-                                        <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                                    </h4>
-                                    <h5>R$ 230,00</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">5 unid. disponível</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                        <a href="#">
-                            <div class="card h-100">
-                                <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                                <div class="card-body">
-                                    <h4 class="card-title produtos-cards-titulo">
-                                        <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                                    </h4>
-                                    <h5>R$ 230,00</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">5 unid. disponível</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                        <a href="#">
-                            <div class="card h-100">
-                                <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                                <div class="card-body">
-                                    <h4 class="card-title produtos-cards-titulo">
-                                        <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                                    </h4>
-                                    <h5>R$ 230,00</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">5 unid. disponível</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                        <a href="#">
-                            <div class="card h-100">
-                                <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                                <div class="card-body">
-                                    <h4 class="card-title produtos-cards-titulo">
-                                        <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                                    </h4>
-                                    <h5>R$ 230,00</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">5 unid. disponível</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                        <a href="#">
-                            <div class="card h-100">
-                                <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                                <div class="card-body">
-                                    <h4 class="card-title produtos-cards-titulo">
-                                        <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                                    </h4>
-                                    <h5>R$ 230,00</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">5 unid. disponível</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <?php endforeach ?>
 
                 </div>
             </div>

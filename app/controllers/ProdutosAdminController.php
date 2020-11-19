@@ -28,7 +28,7 @@ class ProdutosAdminController
         move_uploaded_file($_FILES['item_image']['tmp_name'], $uploadfile);
 
         App::get('database')->insert('product', $dados);
-        header('Location: /administrativo/produto');
+        header('Location: /admin/produto');
     }
 
     public function edit()
