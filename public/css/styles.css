@@ -272,8 +272,6 @@ html {
 
 .index-destaques {
     margin-bottom: 30px;
-    animation-name: efeito-subir;
-    animation-duration: 2s;
 }
 
 .index-destaques h2 {
@@ -281,18 +279,8 @@ html {
     font-family: 'Miniver', cursive;
     font-size: 36px;
     margin-left: 120px;
-}
-
-.index-promo {
     animation-name: efeito-subir;
     animation-duration: 2s;
-}
-
-.index-promo h2 {
-    margin-top: 30px;
-    color: #1496d2;
-    font-family: 'Miniver', cursive;
-    font-size: 36px;
 }
 
 .container {

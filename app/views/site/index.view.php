@@ -62,128 +62,122 @@
                                     </div>
                                 </a>
                             </div>
-                        <?php $i++;
-                        endif; ?>
-                    <?php endforeach; ?>
+                        <?php endif; ?>
 
-
+                        <?php if ($i == 3) : ?>
                 </div>
                 <div class="carousel-item">
-                    <?php
-                    $i = 0;
-                    foreach ($produtos as $produto) :
-                    ?>
-                        <?php if ($i > 3 && $i <= 7) : ?>
-                            <div class="col-xs-3 col-sm-3 col-md-3 produtos-cards produto-listagem-margin">
-                                <a href="/produto?id=<?= $produto->id; ?>">
-                                    <div class="card h-100">
-                                        <img class="card-img-top card-img" src="/public/img/product/<?= $produto->name; ?>.jpg" alt="Vinil">
-                                        <div class="card-body">
-                                            <h4 class="card-title produtos-cards-titulo">
-                                                <a href="/produto?id=<?= $produto->id; ?>"><?= $produto->name; ?></a>
-                                            </h4>
-                                            <h5>R$ <?= $produto->price; ?></h5>
-                                            <p class="card-text"><?= $produto->description; ?></p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <small class="text-muted"><?= $produto->stock; ?> unid. disponível</small>
-                                        </div>
-                                    </div>
-                                </a>
+                <?php endif; ?>
+
+                <?php if ($i > 3 && $i <= 7) : ?>
+                    <div class="col-xs-3 col-sm-3 col-md-3 produtos-cards produto-listagem-margin">
+                        <a href="/produto?id=<?= $produto->id; ?>">
+                            <div class="card h-100">
+                                <img class="card-img-top card-img" src="/public/img/product/<?= $produto->name; ?>.jpg" alt="Vinil">
+                                <div class="card-body">
+                                    <h4 class="card-title produtos-cards-titulo">
+                                        <a href="/produto?id=<?= $produto->id; ?>"><?= $produto->name; ?></a>
+                                    </h4>
+                                    <h5>R$ <?= $produto->price; ?></h5>
+                                    <p class="card-text"><?= $produto->description; ?></p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted"><?= $produto->stock; ?> unid. disponível</small>
+                                </div>
                             </div>
-                        <?php
-                        endif; ?>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
+                        </a>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($i == 7) : ?>
                 </div>
                 <div class="carousel-item">
-                    <?php
-                    $i = 0;
-                    foreach ($produtos as $produto) :
-                    ?>
-                        <?php if ($i > 7 && $i <= 11) : ?>
-                            <div class="col-xs-3 col-sm-3 col-md-3 produtos-cards produto-listagem-margin">
-                                <a href="/produto?id=<?= $produto->id; ?>">
-                                    <div class="card h-100">
-                                        <img class="card-img-top card-img" src="/public/img/product/<?= $produto->name; ?>.jpg" alt="Vinil">
-                                        <div class="card-body">
-                                            <h4 class="card-title produtos-cards-titulo">
-                                                <a href="/produto?id=<?= $produto->id; ?>"><?= $produto->name; ?></a>
-                                            </h4>
-                                            <h5>R$ <?= $produto->price; ?></h5>
-                                            <p class="card-text"><?= $produto->description; ?></p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <small class="text-muted"><?= $produto->stock; ?> unid. disponível</small>
-                                        </div>
-                                    </div>
-                                </a>
+                <?php endif; ?>
+
+                <?php if ($i > 7 && $i <= 11) : ?>
+                    <div class="col-xs-3 col-sm-3 col-md-3 produtos-cards produto-listagem-margin">
+                        <a href="/produto?id=<?= $produto->id; ?>">
+                            <div class="card h-100">
+                                <img class="card-img-top card-img" src="/public/img/product/<?= $produto->name; ?>.jpg" alt="Vinil">
+                                <div class="card-body">
+                                    <h4 class="card-title produtos-cards-titulo">
+                                        <a href="/produto?id=<?= $produto->id; ?>"><?= $produto->name; ?></a>
+                                    </h4>
+                                    <h5>R$ <?= $produto->price; ?></h5>
+                                    <p class="card-text"><?= $produto->description; ?></p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted"><?= $produto->stock; ?> unid. disponível</small>
+                                </div>
                             </div>
-                        <?php
-                        endif; ?>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
+                        </a>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($i == 11) : ?>
                 </div>
+            <?php endif; ?>
+
+
+            <?php $i++ ?>
+        <?php endforeach; ?>
             </div>
 
-            <!-- Left and right controls -->
-
-
-            <a class="carousel-control-prev" href="#demo" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-            </a>
-            <a class="carousel-control-next" href="#demo" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Proximo</span>
-            </a>
+        <a class="carousel-control-prev" href="#demo" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#demo" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Proximo</span>
+        </a>
+            </div>
         </div>
-    </div>
 
 
-    <div class="container">
-        <!--Slogan-->
-        <section id="slogan" class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <section>
-                    <h3>SINTONIZE NA VINIL MAN</h3>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </section>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <div id="animation">
-                    <div class="vitrola-base"></div>
-                    <div class="disco">
-                        <div class="agulha"></div>
-                    </div>
-                    <div class="furo"></div>
-                </div>
-            </div>
-        </section>
-        <!--\Slogan-->
-
-        <!--Sobre-->
-        <section id="sobre" class="mt-5 mb-5">
-            <div class="row">
+        <div class="container">
+            <!--Slogan-->
+            <section id="slogan" class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                    <div id="viniman" class="d-flex justify-content-center">
-                        <img src="/public/img/vini-profile.jpg" alt="Foto de Viniman">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
                     <section>
-                        <h4>CONHEÇA A VINIL MAN SHOP</h4>
-                        <p>Somos uma empresa de vendas de vinil que tem como objetivo democratizar o comércio oferecendo a melhor plataforma e os serviços necessários para que pessoas e empresas possam comprar com a qualidade Vinil Man Shop.
-                        </p>
-                        <p>Nascemos em 2020, no Brasil, e atualmente fazemos entrega para os quatro cantos do Brasil. Nosso marketplace - vinilmanshop.com.br - foi desenolvido por Trainee do processo seletivo da empresa júnior da Faculdade Federal de Juiz de
-                            Fora, CodeJR.</p>
+                        <h3>SINTONIZE NA VINIL MAN</h3>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </section>
                 </div>
-            </div>
-        </section>
-        <!--\Sobre-->
-    </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div id="animation">
+                        <div class="vitrola-base"></div>
+                        <div class="disco">
+                            <div class="agulha"></div>
+                        </div>
+                        <div class="furo"></div>
+                    </div>
+                </div>
+            </section>
+            <!--\Slogan-->
+
+            <!--Sobre-->
+            <section id="sobre" class="mt-5 mb-5">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div id="viniman" class="d-flex justify-content-center">
+                            <img src="/public/img/vini-profile.jpg" alt="Foto de Viniman">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                        <section>
+                            <h4>CONHEÇA A VINIL MAN SHOP</h4>
+                            <p>Somos uma empresa de vendas de vinil que tem como objetivo democratizar o comércio oferecendo a melhor plataforma e os serviços necessários para que pessoas e empresas possam comprar com a qualidade Vinil Man Shop.
+                            </p>
+                            <p>Nascemos em 2020, no Brasil, e atualmente fazemos entrega para os quatro cantos do Brasil. Nosso marketplace - vinilmanshop.com.br - foi desenolvido por Trainee do processo seletivo da empresa júnior da Faculdade Federal de Juiz de
+                                Fora, CodeJR.</p>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <!--\Sobre-->
+        </div>
 </main>
 
 <?php require('app/views/partials/footer.php') ?>

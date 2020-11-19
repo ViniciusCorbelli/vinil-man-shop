@@ -62,13 +62,12 @@ require('app/views/partials/head.admin.php') ?>
                                     <td><?= $produto->name; ?></td>
                                     <td><?= $produto->price; ?></td>
 
-                                    <?php
-                                    $categorias = App::get('database')->selectAll('category');
-                                    foreach ($categorias as $categoria) : ?>
-                                        <?php if ($categoria->id == $produto->id_category) : ?>
-                                            <td><?= $categoria->name; ?></td>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
+                                    <td>
+                                        <?php
+                                        $category = App::get('database')->read('category', $produto->id_category);
+                                        var_dump($category[0]);
+                                        ?>
+                                    <td>
 
                                     <td>
                                         <button type="button" class="btn" data-toggle="modal" data-target="#view-product-<?= $produto->id; ?>"><i class="fas fa-eye"></i></button>
