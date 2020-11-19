@@ -67,7 +67,7 @@ require('app/views/partials/head.admin.php') ?>
                                         $category = App::get('database')->read('category', $produto->id_category);
                                         var_dump($category[0]);
                                         ?>
-                                    <td>
+                                    </td>
 
                                     <td>
                                         <button type="button" class="btn" data-toggle="modal" data-target="#view-product-<?= $produto->id; ?>"><i class="fas fa-eye"></i></button>
