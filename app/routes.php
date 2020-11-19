@@ -14,7 +14,7 @@ $router->post('admin/produto/delete', 'ProdutosAdminController@delete');
 $router->post('admin/produto/edit', 'ProdutosAdminController@edit');
 
 /*Publicas*/
-$router->get('', 'IndexController@index');
+$router->get('', 'PagesController@index');
 $router->get('contato', 'PagesController@contato');
 $router->get('quem-somos', 'PagesController@quemsomos');
 $router->get('produtos', 'PagesController@produtos');
