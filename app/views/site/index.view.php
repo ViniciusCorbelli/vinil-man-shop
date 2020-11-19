@@ -73,27 +73,24 @@
                     $i = 0;
                     foreach ($produtos as $produto) :
                     ?>
-                        <?php if ($i > 3) : ?>
-                            <?php if ($i <= 7) : ?>
-                                <div class="col-xs-3 col-sm-3 col-md-3 produtos-cards produto-listagem-margin">
-                                    <a href="/produto?id=<?= $produto->id; ?>">
-                                        <div class="card h-100">
-                                            <img class="card-img-top card-img" src="/public/img/product/<?= $produto->name; ?>.jpg" alt="Vinil">
-                                            <div class="card-body">
-                                                <h4 class="card-title produtos-cards-titulo">
-                                                    <a href="/produto?id=<?= $produto->id; ?>"><?= $produto->name; ?></a>
-                                                </h4>
-                                                <h5>R$ <?= $produto->price; ?></h5>
-                                                <p class="card-text"><?= $produto->description; ?></p>
-                                            </div>
-                                            <div class="card-footer">
-                                                <small class="text-muted"><?= $produto->stock; ?> unid. disponível</small>
-                                            </div>
+                        <?php if ($i > 3 && $i <= 7) : ?>
+                            <div class="col-xs-3 col-sm-3 col-md-3 produtos-cards produto-listagem-margin">
+                                <a href="/produto?id=<?= $produto->id; ?>">
+                                    <div class="card h-100">
+                                        <img class="card-img-top card-img" src="/public/img/product/<?= $produto->name; ?>.jpg" alt="Vinil">
+                                        <div class="card-body">
+                                            <h4 class="card-title produtos-cards-titulo">
+                                                <a href="/produto?id=<?= $produto->id; ?>"><?= $produto->name; ?></a>
+                                            </h4>
+                                            <h5>R$ <?= $produto->price; ?></h5>
+                                            <p class="card-text"><?= $produto->description; ?></p>
                                         </div>
-                                    </a>
-                                </div>
-                            <?php
-                            endif; ?>
+                                        <div class="card-footer">
+                                            <small class="text-muted"><?= $produto->stock; ?> unid. disponível</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         <?php
                         endif; ?>
                         <?php $i++; ?>
@@ -104,27 +101,24 @@
                     $i = 0;
                     foreach ($produtos as $produto) :
                     ?>
-                        <?php if ($i > 7) : ?>
-                            <?php if ($i <= 11) : ?>
-                                <div class="col-xs-3 col-sm-3 col-md-3 produtos-cards produto-listagem-margin">
-                                    <a href="/produto?id=<?= $produto->id; ?>">
-                                        <div class="card h-100">
-                                            <img class="card-img-top card-img" src="/public/img/product/<?= $produto->name; ?>.jpg" alt="Vinil">
-                                            <div class="card-body">
-                                                <h4 class="card-title produtos-cards-titulo">
-                                                    <a href="/produto?id=<?= $produto->id; ?>"><?= $produto->name; ?></a>
-                                                </h4>
-                                                <h5>R$ <?= $produto->price; ?></h5>
-                                                <p class="card-text"><?= $produto->description; ?></p>
-                                            </div>
-                                            <div class="card-footer">
-                                                <small class="text-muted"><?= $produto->stock; ?> unid. disponível</small>
-                                            </div>
+                        <?php if ($i > 7 && $i <= 11) : ?>
+                            <div class="col-xs-3 col-sm-3 col-md-3 produtos-cards produto-listagem-margin">
+                                <a href="/produto?id=<?= $produto->id; ?>">
+                                    <div class="card h-100">
+                                        <img class="card-img-top card-img" src="/public/img/product/<?= $produto->name; ?>.jpg" alt="Vinil">
+                                        <div class="card-body">
+                                            <h4 class="card-title produtos-cards-titulo">
+                                                <a href="/produto?id=<?= $produto->id; ?>"><?= $produto->name; ?></a>
+                                            </h4>
+                                            <h5>R$ <?= $produto->price; ?></h5>
+                                            <p class="card-text"><?= $produto->description; ?></p>
                                         </div>
-                                    </a>
-                                </div>
-                            <?php
-                            endif; ?>
+                                        <div class="card-footer">
+                                            <small class="text-muted"><?= $produto->stock; ?> unid. disponível</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         <?php
                         endif; ?>
                         <?php $i++; ?>

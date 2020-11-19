@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Nov-2020 às 22:13
+-- Tempo de geração: 19-Nov-2020 às 00:43
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.3.23
 
@@ -38,7 +38,7 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`id`, `name`) VALUES
 (1, 'Rock'),
-(2, 'Rock');
+(2, 'POP');
 
 -- --------------------------------------------------------
 
@@ -60,8 +60,6 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `description`, `price`, `stock`, `id_category`) VALUES
-(20, 'Vinil anos 50', 'Descrição', 200, 5, 1),
-(21, 'Vinil anos 40', 'Descrição', 20, 5, 1),
 (22, 'Vinil anos 80', 'Descrição', 60, 90, 1),
 (23, 'Vinil anos 70', 'Descrição', 10, 90, 2),
 (24, 'Vinil anos 20', 'Descrição', 110, 8, 2),
@@ -71,7 +69,9 @@ INSERT INTO `product` (`id`, `name`, `description`, `price`, `stock`, `id_catego
 (28, 'Vinil anos 60', 'Descrição', 546, 8, 1),
 (29, 'Vinil anos 2000', 'Descrição', 99999, 2, 2),
 (30, 'Vinil ano 2010', 'Descrição', 200, 4, 1),
-(31, 'Vinil ano 2020', 'Descrição', 60, 80, 2);
+(31, 'Vinil ano 2020', 'Descrição', 60, 80, 2),
+(32, 'Vinil anos 1890', 'Descrição', 20, 45, 1),
+(33, 'Vinil anos 1880', 'Descrição', 20, 85, 2);
 
 -- --------------------------------------------------------
 
@@ -130,7 +130,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT de tabela `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de tabela `users`

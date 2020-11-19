@@ -167,7 +167,6 @@ require('app/views/partials/head.admin.php') ?>
                                                         <h4>Categoria</h4>
                                                         <select class="form-control" name="item_category" id="exampleFormControlSelect1">
                                                             <?php
-                                                            $categorias = App::get('database')->selectAll('category');
                                                             foreach ($categorias as $categoria) : ?>
 
                                                                 <?php if ($categoria->id == $produto->id_category) : ?>
@@ -246,7 +245,6 @@ require('app/views/partials/head.admin.php') ?>
                         <h4>Insira a categoria</h4>
                         <select class="form-control" name="item_category" id="exampleFormControlSelect1">
                             <?php
-                            $categorias = App::get('database')->selectAll('category');
                             foreach ($categorias as $categoria) : ?>
                                 <option value="<?= $categoria->id; ?>">
                                     <?= $categoria->name; ?>
