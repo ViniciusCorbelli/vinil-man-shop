@@ -64,9 +64,13 @@ require('app/views/partials/head.admin.php') ?>
 
                                     <td>
                                         <?php
-                                        $category = App::get('database')->read('category', $produto->id_category);
-                                        var_dump($category[0]);
-                                        ?>
+                                        $categorias = App::get('database')->read('category', $produto->id_category);
+                                        foreach ($categorias as $categoria) : ?>
+
+                                            <?php if ($categoria->id == $produto->id_category) : ?>
+                                                <?= $categoria->name; ?>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
                                     </td>
 
                                     <td>
