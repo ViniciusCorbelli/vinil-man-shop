@@ -96,7 +96,9 @@
                                             <th>Ação</th>
                                         </tr>
                                     </tfoot>
+                                  
                                     <tbody>
+                                    <?php foreach ($category as $user) : ?>
                                         <tr>
                                             <td>Musica Popular Brasileira</td>
                                             <td>
@@ -146,6 +148,7 @@
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#delete"><i class="fas fa-trash"></i></button>
                                             </td>
                                         </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                                 <nav class="nav justify-content-end">
@@ -166,29 +169,32 @@
        
         <!--MODAIS DO BOOTSTRAP-->
         <!--deletar-->
-        <div class="modal" id="delete" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Confirmação para deletar</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>Você confirma que deseja deletar a {{nome da categoria}}</p>
-                  <p>Esta ação é irrevessível</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                  <button type="button" class="btn btn-danger">Confirmar</button>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="modal" id="delete-<?= $user->id ?>" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Confirmação para deletar</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Você confirma que deseja deletar a categoria: <?= $user->name ?>?</p>
+                          <p>Esta ação é irrevessível</p>
+                        </div>
+                        <div class="modal-footer">
+                          <form action="/category/delete" method="POST">
+                            <input type="hidden" name="id" value="<?= $user->id ?>">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-danger">Confirmar</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
         <!--criar novo-->
-        <div class="modal" id="new" tabindex="-1" role="dialog">
+        <div class="modal" id="new-<?= $user->id ?>" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -199,6 +205,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                    <form id="form" class="form-group" action="/category/create" method="POST">
                         <label>Insira o nome da Categoria</label>
                         <input type="text" class="form-control" placeholder="nome da categoria">
                       </div>
@@ -212,19 +219,20 @@
           </div>
 
         <!--Edit-->
-        <div class="modal" id="edit" tabindex="-1" role="dialog">
+        <div class="modal" id="edit-<?= $user->id ?>" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Editar Categoria</h5>
+                  <h5 class="modal-title">Editar Categoria <?= $user->name ?></h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Nome da Categoria</label>
-                        <input type="text" class="form-control" placeholder="<nome da categoria>">
+                    <form action="/user/edit" method="POST" class="form-group">
+                        <label>Nome da Categoria</label><?= $user->name ?></p>
+                        <input type="text" class="form-control" placeholder="<?= $user->name ?>">
                     </div>
                 </div>
                 <div class="modal-footer">

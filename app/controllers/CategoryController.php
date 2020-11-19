@@ -9,7 +9,7 @@ class UserController{
     {
         $users = App::get('database')->selectAll('category');
 
-        return view('category', compact('category'));
+        return view('/admin/category', compact('category'));
     }
 
     public function create()

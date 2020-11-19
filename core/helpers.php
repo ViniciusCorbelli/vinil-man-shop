@@ -6,13 +6,11 @@
  * @param  string $name
  * @param  array  $data
  */
-
-
-function viewadmin($name, $data = [])
+function view($name, $data = [])
 {
     extract($data);
 
-    return require "app/views/admin/{$name}.view.php";
+    return require "app/views/{$name}.view.php";
 }
 
 /**

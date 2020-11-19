@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Core;
-
 use Exception;
-
 class Router
 {
     public $routes = [
@@ -56,10 +54,9 @@ class Router
         $controller = new $controller;
 
         if (!method_exists($controller, $action)) {
-            throw new Exception(
-                "{$controller} does not resonde to the {$action}"
-            );
-        }
+            throw new Exception("{$controller} does not resonde to the {$action}");
+        } 
         return $controller->$action();
-    }
+    
+}
 }

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controllers;
-use app\core\App;
 
 class PagesController
 {
@@ -27,7 +26,7 @@ class PagesController
 
     public function login()
     {
-        return view('login');
+        return view('/site/login');
     }
 
     /*Página referente ao acesso administrativo */
