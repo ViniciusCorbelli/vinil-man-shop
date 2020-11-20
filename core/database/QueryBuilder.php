@@ -60,13 +60,15 @@ class QueryBuilder
     public function edit($table, $field, $value, $id)
     {
         $sql = sprintf(
-            'update %s set %s = %s where id = %s',
+            'UPDATE `%s` SET `%s` = `%s` WHERE `%s`.id = `%s`',
             $table,
             $field,
             $value,
+            $table,
             $id
         );
 
+        //die(var_dump($sql));
         try {
             $statement = $this->pdo->prepare($sql);
 
@@ -89,4 +91,3 @@ class QueryBuilder
         }
     }
 }
-

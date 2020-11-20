@@ -24,10 +24,8 @@ class CategoryController
 
     public function edit()
     {
-
-
         App::get('database')->edit('category','name', $_POST['name'], $_POST['id']);
-
+        
         return redirect('admin/category');
     }
 

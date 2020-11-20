@@ -100,7 +100,7 @@
                                             <div class="modal-body">
                                                 <div class="view-product-container">
 
-
+                                                    <?= $categoria->name; ?>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -125,9 +125,9 @@
 
                                                 <form action="/admin/category/edit" method="POST" enctype="multipart/form-data">
                                                     <div class="form-group">
-                                                        <input type="hidden" name="item_id" value="<?= $produto->id; ?>">
+                                                        <input type="hidden" name="id" value="<?= $produto->id; ?>">
                                                         <h4>Nome do produto</h4>
-                                                        <input type="text" name="item_name" class="form-control" value="<?= $categoria->name; ?>">
+                                                        <input type="text" name="name" class="form-control" value="<?= $categoria->name; ?>">
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="submite" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
