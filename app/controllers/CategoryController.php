@@ -15,9 +15,7 @@ class CategoryController
     public function create()
     {
         $parameters = ([
-            'name' => $_POST['name'],
-            
-            
+            'name' => $_POST['name']
         ]);
 
         App::get('database')->insert('category',$parameters);
@@ -31,7 +29,7 @@ class CategoryController
 
         App::get('database')->edit('category','name', $_POST['name'], $_POST['id']);
 
-        header('Location: admin/category');
+        return redirect('admin/category');
     }
 
     public function delete()
@@ -40,6 +38,6 @@ class CategoryController
 
         App::get('database')->delete('category', $id);
 
-        header('Location: admin/category');
+        return redirect('admin/category');
     }
 }

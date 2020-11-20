@@ -179,10 +179,10 @@
                         
             </div>
             <div class="modal-footer">
-                <button type="submite" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="submite" class="btn btn-success">Criar novo</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-success">Criar novo</button>
             </div>
-            </form>
+                </form>
         </div>
     </div>
 </div>
