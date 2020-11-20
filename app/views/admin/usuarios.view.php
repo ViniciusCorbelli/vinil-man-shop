@@ -83,7 +83,7 @@
                         <p>Esta ação é irrevessível</p>
                       </div>
                       <div class="modal-footer">
-                        <form action="/user/delete" method="POST">
+                        <form action="admin/usuarios/delete" method="POST">
                           <input type="hidden" name="id" value="<?= $user->id ?>">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                           <button type="submit" class="btn btn-danger">Confirmar</button>
@@ -104,11 +104,11 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                        <form action="/user/edit" method="POST" class="form-group">
+                        <form action="admin/usuarios/edit" method="POST" class="form-group">
                           <label>Nome</label>
-                          <input type="text" name="name" class="form-control" placeholder="<?= $user->name ?>"><br>
+                          <input type="text" name="name" class="form-control" value="<?= $user->name ?>"><br>
                           <label>Email</label><br>
-                          <input type="text" name="email" class="form-control" placeholder="<?= $user->email ?>"><br>
+                          <input type="text" name="email" class="form-control" value="<?= $user->email ?>"><br>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                             <button type="submit" class="btn btn-success">Editar</button>
@@ -180,7 +180,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="form" class="form-group" action="/user/create" method="POST">
+        <form id="form" class="form-group" action="admin/usuarios/create" method="POST">
           <label>Nome</label>
           <input type="text" name="name" class="form-control" placeholder="Nome do Usuário"><br>
           <label>Email</label><br>

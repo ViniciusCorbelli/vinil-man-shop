@@ -24,14 +24,19 @@ class PagesController
 
     public function produtos()
     {
-        $categorias = App::get('database')->selectAll('category');
+        $categorias = App::get('database')->selectAll('category'); //Pega todas as categorias disponíveis
+        
+        $totalDeColunas = App::get('database')->getTotalRows('product'); //Pega o número de linhas
+        $linhasPorPaginas = 9;
+        
         $produtos = App::get('database')->selectAll('product');
 
         $titulo = 'produtos';
         return view('/site/produtos',[
             'categorias' => $categorias,
             'produtos' => $produtos,
-            'titulo' => $titulo
+            'titulo' => $titulo,
+            'totalDeColunas' => $totalDeColunas[0]
         ]);
     }
 

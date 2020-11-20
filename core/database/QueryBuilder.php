@@ -93,4 +93,24 @@ class QueryBuilder
             $e->getMessage();
         }
     }
+
+    /**
+     * Função que conta o número de linhas
+     */
+    public function getTotalRows($table)
+    {
+        $sql = "SELECT COUNT(*) FROM {$table}";
+
+        try{
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute();
+
+            $cont = $statement->fetch();
+            return $cont;
+        }catch(Exception $e)
+        {
+            $e->getMessage();
+        }
+    }
 }
