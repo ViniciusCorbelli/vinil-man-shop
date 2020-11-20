@@ -202,6 +202,10 @@ td {
     }
 }
 
+.button-admin {
+    background-color: #1496d2;
+}
+
 .closeBtn {
     color: var(--white-color);
     display: none !important;

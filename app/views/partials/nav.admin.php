@@ -2,10 +2,10 @@
     <a class="navbrand ml-3" href="/">
         <img src="/public/img/logo.png" alt="logo">
     </a>
-    <button class="btn mb-2 mr-auto ml-3" type="button" onclick="toggleButton()">
+    <button class="btn mb-2 mr-auto ml-3 button-admin" type="button" onclick="toggleButton()">
         <i class="fas fa-bars"></i>
     </button>
-    <button id="sign-out" class="btn mb-2 ml-auto mr-3">
+    <button id="sign-out" class="btn mb-2 ml-auto mr-3 button-admin">
         <i class="fas fa-sign-out-alt fa-lg"></i>
     </button>
 </nav>
