@@ -65,6 +65,7 @@ require('app/views/partials/head.admin.php') ?>
                                     <td>
                                         <?php
                                         $categorias = App::get('database')->selectAll('category');
+
                                         foreach ($categorias as $categoria) : ?>
 
                                             <?php if ($categoria->id == $produto->id_category) : ?>
