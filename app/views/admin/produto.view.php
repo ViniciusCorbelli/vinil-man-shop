@@ -1,4 +1,8 @@
-<?php require('app/views/partials/head.admin.php') ?>
+<?php
+
+use App\Core\App;
+
+require('app/views/partials/head.admin.php') ?>
 
 <div id="main" class="container-fluid">
     <main>
@@ -57,7 +61,19 @@
                                 <tr>
                                     <td><?= $produto->name; ?></td>
                                     <td><?= $produto->price; ?></td>
-                                    <td><?= $produto->id_category; ?></td>
+
+                                    <td>
+                                        <?php
+                                        $categorias = App::get('database')->selectAll('category');
+
+                                        foreach ($categorias as $categoria) : ?>
+
+                                            <?php if ($categoria->id == $produto->id_category) : ?>
+                                                <?= $categoria->name; ?>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </td>
+
                                     <td>
                                         <button type="button" class="btn" data-toggle="modal" data-target="#view-product-<?= $produto->id; ?>"><i class="fas fa-eye"></i></button>
                                         <button type="button" class="btn" data-toggle="modal" data-target="#edit-<?= $produto->id; ?>"><i class="fas fa-edit"></i></button>
@@ -82,7 +98,7 @@
                                                 <p>Esta ação é irrevessível</p>
                                             </div>
                                             <div class="modal-footer">
-                                                <form action="/administrativo/produto/delete" method="POST">
+                                                <form action="/admin/produto/delete" method="POST">
                                                     <input type="hidden" name="id" value="<?= $produto->id; ?>">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                                                     <button type="submit" class="btn btn-danger">Confirmar</button>
@@ -130,7 +146,7 @@
                                             </div>
                                             <div class="modal-body">
 
-                                                <form action="/administrativo/produto/edit" method="POST" enctype="multipart/form-data">
+                                                <form action="/admin/produto/edit" method="POST" enctype="multipart/form-data">
                                                     <div class="form-group">
                                                         <input type="hidden" name="item_id" value="<?= $produto->id; ?>">
                                                         <h4>Nome do produto</h4>
@@ -153,7 +169,23 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <h4>Categoria</h4>
-                                                        <input type="text" name="item_category" class="form-control" value="<?= $produto->id_category; ?>">
+                                                        <select class="form-control" name="item_category" id="exampleFormControlSelect1">
+                                                            <?php
+                                                            foreach ($categorias as $categoria) : ?>
+
+                                                                <?php if ($categoria->id == $produto->id_category) : ?>
+                                                                    <option value="<?= $categoria->id; ?>" selected="selected">
+                                                                        <?= $categoria->name; ?>
+                                                                    </option>
+                                                                <?php endif; ?>
+
+                                                                <?php if ($categoria->id != $produto->id_category) : ?>
+                                                                    <option value="<?= $categoria->id; ?>">
+                                                                        <?= $categoria->name; ?>
+                                                                    </option>
+                                                                <?php endif; ?>
+                                                            <?php endforeach; ?>
+                                                        </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <h4>Foto</h4>
@@ -199,7 +231,7 @@
             </div>
             <div class="modal-body">
 
-                <form action="/administrativo/produto/create" method="POST" enctype="multipart/form-data">
+                <form action="/admin/produto/create" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
 
                         <h4>Insira o nome do produto</h4>
@@ -217,12 +249,8 @@
                         <h4>Insira a categoria</h4>
                         <select class="form-control" name="item_category" id="exampleFormControlSelect1">
                             <?php
-
-                            use App\Core\App;
-
-                            $categorias = App::get('database')->selectAll('category');
                             foreach ($categorias as $categoria) : ?>
-                                <option>
+                                <option value="<?= $categoria->id; ?>">
                                     <?= $categoria->name; ?>
                                 </option>
                             <?php endforeach; ?>
@@ -241,5 +269,4 @@
         </div>
     </div>
 </div>
-
 <?php require('app/views/partials/footer.admin.php') ?>
