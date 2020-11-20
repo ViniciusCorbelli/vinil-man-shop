@@ -36,13 +36,13 @@
                     <table class="table table-bordered no-space" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Categoria</th>                              
+                                <th>Categoria</th>
                                 <th>Ação</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Categoria</th>                          
+                                <th>Categoria</th>
                                 <th>Ação</th>
                             </tr>
                         </tfoot>
@@ -51,8 +51,8 @@
                             <?php foreach ($categorias as $categoria) : ?>
 
                                 <tr>
-                                    <td><?= $categoria->name; ?></td>                                  
-                                   
+                                    <td><?= $categoria->name; ?></td>
+
                                     <td>
                                         <button type="button" class="btn" data-toggle="modal" data-target="#view-category-<?= $categoria->id; ?>"><i class="fas fa-eye"></i></button>
                                         <button type="button" class="btn" data-toggle="modal" data-target="#edit-<?= $categoria->id; ?>"><i class="fas fa-edit"></i></button>
@@ -77,7 +77,7 @@
                                                 <p>Esta ação é irrevessível</p>
                                             </div>
                                             <div class="modal-footer">
-                                                <form action="admin/category/delete" method="POST" enctype="multipart/form-data">
+                                                <form action="/admin/category/delete" method="POST" enctype="multipart/form-data">
                                                     <input type="hidden" name="id" value="<?= $categoria->id; ?>">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                                                     <button type="submit" class="btn btn-danger">Confirmar</button>
@@ -99,8 +99,8 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="view-product-container">
-                                                   
-                                                   
+
+
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -123,7 +123,7 @@
                                             </div>
                                             <div class="modal-body">
 
-                                                <form action="admin/category/edit" method="POST" enctype="multipart/form-data">
+                                                <form action="/admin/category/edit" method="POST" enctype="multipart/form-data">
                                                     <div class="form-group">
                                                         <input type="hidden" name="item_id" value="<?= $produto->id; ?>">
                                                         <h4>Nome do produto</h4>
@@ -140,7 +140,7 @@
                                 </div>
 
 
-                                <?php endforeach; ?>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                     <nav class="nav justify-content-end">
@@ -170,21 +170,18 @@
             </div>
             <div class="modal-body">
 
-                <form action="admin/category/create" method="POST" enctype="multipart/form-data">
+                <form action="/admin/category/create" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
-
                         <h4>Insira o nome da categoria</h4>
-                        <input type="text" name="item_name" class="form-control" placeholder="Nome da categoria">
-
-                        
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="submit" class="btn btn-success">Criar novo</button>
-            </div>
+                        <input type="text" name="name" class="form-control" placeholder="Nome da categoria">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-success">Criar novo</button>
+                    </div>
                 </form>
+            </div>
         </div>
     </div>
-</div>
 
-<?php require('app/views/partials/footer.admin.php') ?>
+    <?php require('app/views/partials/footer.admin.php') ?>

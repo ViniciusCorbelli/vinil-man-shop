@@ -19,8 +19,7 @@ class CategoryController
         ]);
 
         App::get('database')->insert('category',$parameters);
-
-        header('Location: admin/category');
+        return redirect('admin/category');
     }
 
     public function edit()
