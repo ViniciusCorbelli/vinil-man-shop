@@ -27,7 +27,7 @@ class PagesController
         $categorias = App::get('database')->selectAll('category'); //Pega todas as categorias disponíveis
         
         $totalDeColunas = App::get('database')->getTotalRows('product'); //Pega o número de linhas
-        $linhasPorPaginas = 9;
+        $linhasPorPaginas = 9; //Exibir o número máximo entra na próxima sprint de paginação
         
         $produtos = App::get('database')->selectAll('product');
 
