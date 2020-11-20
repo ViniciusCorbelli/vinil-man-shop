@@ -26,3 +26,4 @@ class Request
         return $_SERVER['REQUEST_METHOD'];
     }
 }
+

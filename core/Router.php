@@ -39,13 +39,10 @@ class Router
                 ...explode('@', $this->routes[$requestType][$uri])
             );
         } else {
-            try{
-                throw new Exception("No route defined for this URI");
-            }catch(Exception $e)
-            {
-                $e->getMessage();
-            }
-            
+
+            throw new Exception(
+                "No route defined for this URI"
+            );
         }
     }
     protected function callAction($controller, $action)
@@ -54,9 +51,10 @@ class Router
         $controller = new $controller;
 
         if (!method_exists($controller, $action)) {
-            throw new Exception("{$controller} does not resonde to the {$action}");
-        } 
+            throw new Exception(
+                "{$controller} does not resonde to the {$action}"
+            );
+        }
         return $controller->$action();
-    
-}
+    }
 }

@@ -1,22 +1,19 @@
 <?php
 
 namespace App\Controllers;
-use app\core\App;
 
-class UserController{
+use App\Core\App;
 
+class CategoryController
+{
     public function index()
     {
-        $users = App::get('database')->selectAll('category');
-
-        return view('/admin/category', compact('category'));
+        $categorias = App::get('database')->selectAll('category');
+        return view('admin/category', compact('categorias'));
     }
 
     public function create()
     {
-       
-        
-
         $parameters = ([
             'name' => $_POST['name'],
             
@@ -25,7 +22,16 @@ class UserController{
 
         App::get('database')->insert('category',$parameters);
 
-        header('Location: /admin/category');
+        header('Location: admin/category');
+    }
+
+    public function edit()
+    {
+
+
+        App::get('database')->edit('category','name', $_POST['name'], $_POST['id']);
+
+        header('Location: admin/category');
     }
 
     public function delete()
@@ -34,9 +40,6 @@ class UserController{
 
         App::get('database')->delete('category', $id);
 
-        header('Location: /admin/category');
+        header('Location: admin/category');
     }
-
 }
-
-?>
