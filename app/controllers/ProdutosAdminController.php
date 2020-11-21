@@ -38,11 +38,16 @@ class ProdutosAdminController
 
         move_uploaded_file($_FILES['item_image']['tmp_name'], $uploadfile);
 
-        App::get('database')->edit('product','name', $_POST['item_name'], $_POST['item_id']);
-        App::get('database')->edit('product','description', $_POST['item_description'], $_POST['item_id']);
-        App::get('database')->edit('product','price', $_POST['item_price'], $_POST['item_id']);
-        App::get('database')->edit('product','stock', $_POST['item_stock'], $_POST['item_id']);
-        App::get('database')->edit('product','category', $_POST['item_category'], $_POST['item_id']);
+        $dados = ([
+            'name' => $_POST['item_name'],
+            'description' => $_POST['item_description'],
+            'price' => $_POST['item_price'],
+            'stock' => $_POST['item_stock'],
+            'id_category' => $_POST['item_category'],
+        ]);
+
+        App::get('database')->edit('product', $dados, $_POST['item_id']);
+
         header('Location: /admin/produto');
     }
 
