@@ -85,13 +85,17 @@ class QueryBuilder
 
     public function edit($table, $field, $value, $id)
     {
-        $sql = sprintf(
-            'update %s set %s = %s where id = %s',
-            $table,
-            $field,
-            $value,
-            $id
-        );
+        $last = end($parameters);
+
+        $sql = "update {$table} set ";
+        foreach ($parameters as $item => $val) {
+            if ($val == "$last") {
+                $sql = $sql . "$item = '{$val}' ";
+            } else {
+                $sql = $sql . "$item = '{$val}', ";
+            }
+        };
+        $sql = $sql . "where id = {$id}";
 
         try {
             $statement = $this->pdo->prepare($sql);
