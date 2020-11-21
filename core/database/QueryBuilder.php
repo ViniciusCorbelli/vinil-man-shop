@@ -41,6 +41,29 @@ class QueryBuilder
         }
     }
 
+    public function search($table,$parameters)
+    {
+        $tamanho = count(array_keys($parameters));
+
+        $sql = "select * from {$table} where ";
+        for ($i = 0; $i < ($tamanho); $i++) 
+        {   
+            $sql = $sql . (array_keys($parameters)[$i] ). '=' . "'" . (array_values($parameters)[$i]) . "'";
+            if($i < $tamanho-1)
+                $sql = $sql . ' and ';
+        }     
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute();
+
+            return $statement->fetchAll(PDO::FETCH_CLASS);
+        } catch (Exception $e) {
+            $e->getMessage();
+        }
+    }
+
     public function read($table, $id)
     {
         $sql = sprintf(
