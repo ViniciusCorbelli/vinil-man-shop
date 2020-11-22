@@ -984,7 +984,7 @@ i:hover {
 
 .form-group {
     color: #1496d2;
-    font-size: 40px;
+    font-size: 18px;
     text-align: center;
     margin: auto;
 }
@@ -1721,3 +1721,4 @@ button:hover {
         transform: translate(0px, 0px)
     }
 }
+
