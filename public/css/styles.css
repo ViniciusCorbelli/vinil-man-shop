@@ -43,19 +43,6 @@ body {
 }
 
 
-/*==== ESTILIZAÇÃO DO PHP ====*/
-
-.nome-php {
-    font-size: 25px;
-}
-
-.email-php {
-    font-size: 18px;
-    text-overflow: ellipsis!important;
-    white-space: nowrap;
-}
-
-
 /*==== SIDENAVBAR ====*/
 
 #sidenav {
@@ -178,6 +165,27 @@ body {
     width: 400px;
 }
 
+.view-product-admin h1 {
+    color: #139fe0;
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+.view-product-admin h5 {
+    color: #000000;
+    font-size: 20px;
+}
+
+.view-product-admin h6 {
+    color: #000000;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.formulario-produto-admin h5 {
+    margin-top: 20px;
+}
+
 
 /*==== AJUSTES FUNÇOES DA TABELA ====*/
 
@@ -200,10 +208,6 @@ td {
     #main {
         overflow: hidden;
     }
-}
-
-.button-admin {
-    background-color: #1496d2;
 }
 
 .closeBtn {

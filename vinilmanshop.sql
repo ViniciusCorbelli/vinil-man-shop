@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Nov-2020 às 00:43
+-- Tempo de geração: 22-Nov-2020 às 23:24
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.3.23
 
@@ -52,26 +52,27 @@ CREATE TABLE `product` (
   `description` varchar(500) DEFAULT NULL,
   `price` double NOT NULL,
   `stock` int(11) NOT NULL,
-  `id_category` int(11) DEFAULT NULL
+  `id_category` int(11) DEFAULT NULL,
+  `image` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `description`, `price`, `stock`, `id_category`) VALUES
-(22, 'Vinil anos 80', 'Descrição', 60, 90, 1),
-(23, 'Vinil anos 70', 'Descrição', 10, 90, 2),
-(24, 'Vinil anos 20', 'Descrição', 110, 8, 2),
-(25, 'Vinil anos 90', 'Descrição', 60, 90, 2),
-(26, 'Vinil anos 10', 'Descrição', 110, 2, 1),
-(27, 'Vinil anos 30', 'Descrição', 60, 8, 1),
-(28, 'Vinil anos 60', 'Descrição', 546, 8, 1),
-(29, 'Vinil anos 2000', 'Descrição', 99999, 2, 2),
-(30, 'Vinil ano 2010', 'Descrição', 200, 4, 1),
-(31, 'Vinil ano 2020', 'Descrição', 60, 80, 2),
-(32, 'Vinil anos 1890', 'Descrição', 20, 45, 1),
-(33, 'Vinil anos 1880', 'Descrição', 20, 85, 2);
+INSERT INTO `product` (`id`, `name`, `description`, `price`, `stock`, `id_category`, `image`) VALUES
+(42, 'Vinil anos 50', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!', 200, 90, 1, '/public/img/product/16060835595fbae3e7485c8.jpg'),
+(43, 'Vinil anos 50', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!', 200, 5, 1, '/public/img/product/16060836165fbae4204349f.jpg'),
+(44, 'Vinil anos 40', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!', 80, 6, 1, '/public/img/product/16060836305fbae42e06044.jpg'),
+(45, 'Vinil anos 2000', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!', 60, 500, 1, '/public/img/product/16060836475fbae43f710f6.jpg'),
+(46, 'Vinil anos 85', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!', 40.5, 6, 1, '/public/img/product/16060836645fbae4509cdd8.jpg'),
+(47, 'Vinil anos 40', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!', 52, 90, 2, '/public/img/product/16060836935fbae46de7aa0.jpg'),
+(48, 'Vinil anos 89', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!', 199.99, 85, 2, '/public/img/product/16060837165fbae484135b2.jpg'),
+(49, 'Vinil anos 2000', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!', 200, 5, 1, '/public/img/product/16060837345fbae496774c9.jpg'),
+(50, 'Vinil anos 10', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!', 149.99, 15, 1, '/public/img/product/16060837515fbae4a7ed3d0.jpg'),
+(51, 'Vinil anos 85', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!', 58.99, 45, 2, '/public/img/product/16060837675fbae4b74afd5.jpg'),
+(52, 'Vinil anos 85', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!', 110, 752, 2, '/public/img/product/16060837825fbae4c6e728c.jpg'),
+(53, 'Vinil anos 45', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!', 10, 9, 1, '/public/img/product/16060837985fbae4d6b52c7.jpg');
 
 -- --------------------------------------------------------
 
@@ -130,7 +131,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT de tabela `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de tabela `users`
