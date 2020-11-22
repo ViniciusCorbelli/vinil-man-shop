@@ -56,13 +56,13 @@ class ProdutosAdminController
 
 
             if (@move_uploaded_file($arquivo_tmp, $destino)) {
-
                 $dados = ([
                     'name' => $_POST['item_name'],
                     'description' => $_POST['item_description'],
                     'price' => $_POST['item_price'],
                     'stock' => $_POST['item_stock'],
                     'id_category' => $_POST['item_category'],
+                    'image' => "/public/img/product/{$novoNome}"
                 ]);
 
                 App::get('database')->edit('product', $dados, $_POST['item_id']);
@@ -73,6 +73,16 @@ class ProdutosAdminController
                     unlink($destino);
                 }
             }
+        } else {
+            $dados = ([
+                'name' => $_POST['item_name'],
+                'description' => $_POST['item_description'],
+                'price' => $_POST['item_price'],
+                'stock' => $_POST['item_stock'],
+                'id_category' => $_POST['item_category'],
+            ]);
+
+            App::get('database')->edit('product', $dados, $_POST['item_id']);
         }
 
         header('Location: /admin/produto');
