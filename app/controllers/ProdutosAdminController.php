@@ -36,13 +36,6 @@ class ProdutosAdminController
                 ]);
 
                 App::get('database')->insert('product', $dados);
-
-
-                $destino = $_SERVER['DOCUMENT_ROOT'] . $_POST['foto'];
-
-                if (file_exists($destino)) {
-                    unlink($destino);
-                }
             }
         }
 
@@ -73,6 +66,12 @@ class ProdutosAdminController
                 ]);
 
                 App::get('database')->edit('product', $dados, $_POST['item_id']);
+
+                $destino = $_SERVER['DOCUMENT_ROOT'] . $_POST['foto'];
+
+                if (file_exists($destino)) {
+                    unlink($destino);
+                }
             }
         }
 
