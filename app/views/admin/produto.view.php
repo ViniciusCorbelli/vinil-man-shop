@@ -2,6 +2,8 @@
 
 use App\Core\App;
 
+$categorias = App::get('database')->selectAll('category');
+
 require('app/views/partials/head.admin.php') ?>
 
 <div id="main" class="container-fluid">
@@ -20,7 +22,7 @@ require('app/views/partials/head.admin.php') ?>
                 <div id="second-line" class="row">
                     <div class="col-sm-4">
                         <form class="form-inline">
-                            <label style="font-size: larger;" for="">Exibir</h4>
+                            <label style="font-size: larger;" for="">Exibir
                                 <select class="ml-2 custom-select">
                                     <option selected>Seven</option>
                                 </select>
@@ -28,7 +30,7 @@ require('app/views/partials/head.admin.php') ?>
                     </div>
                     <div class="col-sm-8">
                         <div class="form-inline">
-                            <label style="font-size: larger;" for="">Pesquisar</h4>
+                            <label style="font-size: larger;" for="">Pesquisar</h5>
                                 <input type="text" class="ml-3 mt-1 mb-1 form-control form-control w-75">
                         </div>
                     </div>
@@ -64,8 +66,6 @@ require('app/views/partials/head.admin.php') ?>
 
                                     <td>
                                         <?php
-                                        $categorias = App::get('database')->selectAll('category');
-
                                         foreach ($categorias as $categoria) : ?>
 
                                             <?php if ($categoria->id == $produto->id_category) : ?>
@@ -85,7 +85,7 @@ require('app/views/partials/head.admin.php') ?>
                                 <!--MODAIS DO BOOTSTRAP-->
                                 <!--deletar-->
                                 <div class="modal" id="delete-<?= $produto->id; ?>" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog modal-lg modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Confirmação para deletar</h5>
@@ -100,8 +100,9 @@ require('app/views/partials/head.admin.php') ?>
                                             <div class="modal-footer">
                                                 <form action="/admin/produto/delete" method="POST">
                                                     <input type="hidden" name="id" value="<?= $produto->id; ?>">
+                                                    <input type="hidden" name="foto" value="<?= $produto->image; ?>">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                                    <button type="submit" class="btn btn-danger">Confirmar</button>
+                                                    <button class="btn btn-danger">Confirmar</button>
                                                 </form>
                                             </div>
                                         </div>
@@ -109,8 +110,8 @@ require('app/views/partials/head.admin.php') ?>
                                 </div>
 
                                 <!--view-product-->
-                                <div class="modal" id="view-product-<?= $produto->id; ?>" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog modal-lg modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal view-product-admin" id="view-product-<?= $produto->id; ?>" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Visualizar</h5>
@@ -120,9 +121,22 @@ require('app/views/partials/head.admin.php') ?>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="view-product-container">
-                                                    <img src="/public/img/product/<?= $produto->name; ?>.jpg" alt="Produto">
+                                                    <img src="<?= $produto->image; ?>" alt="Produto">
                                                     <div class="view-product-information">
-                                                        <?= $produto->description; ?>
+                                                        <h1><?= $produto->name; ?></h1>
+                                                    </div>
+                                                    <div class="view-product-information">
+                                                        <?php foreach ($categorias as $categoria) : ?>
+                                                            <?php if ($categoria->id == $produto->id_category) : ?>
+                                                                <h6><?= $categoria->name; ?></h6>
+                                                            <?php endif; ?>
+                                                        <?php endforeach; ?>
+                                                    </div>
+                                                    <div class="view-product-information">
+                                                        <h5>R$ <?= $produto->price; ?></h4>
+                                                    </div>
+                                                    <div class="view-product-information">
+                                                        <p><?= $produto->description; ?></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -136,8 +150,8 @@ require('app/views/partials/head.admin.php') ?>
 
                                 <!--Edit-->
                                 <div class="modal" id="edit-<?= $produto->id; ?>" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog modal-lg modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content formulario-produto-admin">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Editar Produto</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -149,26 +163,27 @@ require('app/views/partials/head.admin.php') ?>
                                                 <form action="/admin/produto/edit" method="POST" enctype="multipart/form-data">
                                                     <div class="form-group">
                                                         <input type="hidden" name="item_id" value="<?= $produto->id; ?>">
-                                                        <h4>Nome do produto</h4>
+                                                        <input type="hidden" name="foto" value="<?= $produto->image; ?>">
+                                                        <h5>Nome do produto</h5>
                                                         <input type="text" name="item_name" class="form-control" value="<?= $produto->name; ?>">
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <h4>Preço(R$)</h4>
+                                                        <h5>Preço(R$)</h5>
                                                         <input type="text" name="item_price" class="form-control" value="<?= $produto->price; ?>">
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <h4>Estoque</h4>
+                                                        <h5>Estoque</h5>
                                                         <input type="text" name="item_stock" class="form-control" value="<?= $produto->stock; ?>">
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <h4>Descrição</h4>
+                                                        <h5>Descrição</h5>
                                                         <input type="text" name="item_description" class="form-control" value="<?= $produto->description; ?>">
                                                     </div>
                                                     <div class="form-group">
-                                                        <h4>Categoria</h4>
+                                                        <h5>Categoria</h5>
                                                         <select class="form-control" name="item_category" id="exampleFormControlSelect1">
                                                             <?php
                                                             foreach ($categorias as $categoria) : ?>
@@ -188,12 +203,12 @@ require('app/views/partials/head.admin.php') ?>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <h4>Foto</h4>
+                                                        <h5>Foto</h5>
                                                         <input class="form-control" type="file" name="item_image">
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="submite" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                                        <button type="submite" class="btn btn-success">Editar</button>
+                                                        <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                                        <button class="btn btn-success">Editar</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -221,7 +236,7 @@ require('app/views/partials/head.admin.php') ?>
 
 <!--criar novo-->
 <div class="modal" id="new" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Adicionando novo produto</h5>
@@ -232,21 +247,21 @@ require('app/views/partials/head.admin.php') ?>
             <div class="modal-body">
 
                 <form action="/admin/produto/create" method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
+                    <div class="form-group formulario-produto-admin">
 
-                        <h4>Insira o nome do produto</h4>
+                        <h5>Insira o nome do produto</h5>
                         <input type="text" name="item_name" class="form-control" placeholder="Nome do produto">
 
-                        <h4>Insira o preço do produto(R$)</h4>
+                        <h5>Insira o preço do produto(R$)</h5>
                         <input type="text" name="item_price" class="form-control" placeholder="Preço do produto">
 
-                        <h4>Insira a quantidade em estoque</h4>
+                        <h5>Insira a quantidade em estoque</h5>
                         <input type="text" name="item_stock" class="form-control" placeholder="Quantidade em estoque">
 
-                        <h4>Insira a descrição do produto</h4>
+                        <h5>Insira a descrição do produto</h5>
                         <textarea class="form-control" name="item_description" aria-label="With textarea"></textarea>
 
-                        <h4>Insira a categoria</h4>
+                        <h5>Insira a categoria</h5>
                         <select class="form-control" name="item_category" id="exampleFormControlSelect1">
                             <?php
                             foreach ($categorias as $categoria) : ?>
@@ -256,14 +271,14 @@ require('app/views/partials/head.admin.php') ?>
                             <?php endforeach; ?>
                         </select>
 
-                        <h4>Foto</h4>
+                        <h5>Foto</h5>
                         <input class="form-control" type="file" name="item_image">
                     </div>
 
             </div>
             <div class="modal-footer">
-                <button type="submite" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="submite" class="btn btn-success">Criar novo</button>
+                <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button class="btn btn-success">Criar novo</button>
             </div>
             </form>
         </div>

@@ -14,39 +14,67 @@ class ProdutosAdminController
 
     public function create()
     {
-        $dados = ([
-            'name' => $_POST['item_name'],
-            'description' => $_POST['item_description'],
-            'price' => $_POST['item_price'],
-            'stock' => $_POST['item_stock'],
-            'id_category' => $_POST['item_category'],
-        ]);
+        $arquivo_tmp = $_FILES['item_image']['tmp_name'];
+        $nome = $_FILES['item_image']['name'];
 
-        $uploaddir = 'public/img/product/';
-        $uploadfile = $uploaddir . basename("{$dados['name']}.jpg");
+        $extensao = pathinfo($nome, PATHINFO_EXTENSION);
+        $extensao = strtolower($extensao);
+        if (strstr('.jpg;.jpeg;.gif;.png', $extensao)) {
+            $novoNome = uniqid(time()) . '.' . $extensao;
 
-        move_uploaded_file($_FILES['item_image']['tmp_name'], $uploadfile);
+            $destino = $_SERVER['DOCUMENT_ROOT'] . "/public/img/product/" . $novoNome;
 
-        App::get('database')->insert('product', $dados);
+
+            if (@move_uploaded_file($arquivo_tmp, $destino)) {
+                $dados = ([
+                    'name' => $_POST['item_name'],
+                    'description' => $_POST['item_description'],
+                    'price' => $_POST['item_price'],
+                    'stock' => $_POST['item_stock'],
+                    'id_category' => $_POST['item_category'],
+                    'image' => "/public/img/product/{$novoNome}"
+                ]);
+
+                App::get('database')->insert('product', $dados);
+
+
+                $destino = $_SERVER['DOCUMENT_ROOT'] . $_POST['foto'];
+
+                if (file_exists($destino)) {
+                    unlink($destino);
+                }
+            }
+        }
+
         header('Location: /admin/produto');
     }
 
     public function edit()
     {
-        $uploaddir = 'public/img/product/';
-        $uploadfile = $uploaddir . basename("{$_POST['item_name']}.jpg");
+        $arquivo_tmp = $_FILES['item_image']['tmp_name'];
+        $nome = $_FILES['item_image']['name'];
 
-        move_uploaded_file($_FILES['item_image']['tmp_name'], $uploadfile);
+        $extensao = pathinfo($nome, PATHINFO_EXTENSION);
+        $extensao = strtolower($extensao);
+        if (strstr('.jpg;.jpeg;.gif;.png', $extensao)) {
+            $novoNome = uniqid(time()) . '.' . $extensao;
 
-        $dados = ([
-            'name' => $_POST['item_name'],
-            'description' => $_POST['item_description'],
-            'price' => $_POST['item_price'],
-            'stock' => $_POST['item_stock'],
-            'id_category' => $_POST['item_category'],
-        ]);
+            $destino = $_SERVER['DOCUMENT_ROOT'] . "/public/img/product/" . $novoNome;
 
-        App::get('database')->edit('product', $dados, $_POST['item_id']);
+
+            if (@move_uploaded_file($arquivo_tmp, $destino)) {
+
+                $dados = ([
+                    'name' => $_POST['item_name'],
+                    'description' => $_POST['item_description'],
+                    'price' => $_POST['item_price'],
+                    'stock' => $_POST['item_stock'],
+                    'id_category' => $_POST['item_category'],
+                ]);
+
+                App::get('database')->edit('product', $dados, $_POST['item_id']);
+            }
+        }
 
         header('Location: /admin/produto');
     }
@@ -54,6 +82,13 @@ class ProdutosAdminController
     public function delete()
     {
         App::get('database')->delete('product', $_POST['id']);
+
+        $destino = $_SERVER['DOCUMENT_ROOT'] . $_POST['foto'];
+
+        if (file_exists($destino)) {
+            unlink($destino);
+        }
+
         header('Location: /admin/produto');
     }
 }
