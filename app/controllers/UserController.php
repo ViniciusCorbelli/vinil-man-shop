@@ -24,7 +24,7 @@ class UserController{
 
         App::get('database')->insert('users',$parameters);
 
-        header('Location: /admin/usuario');
+        return redirect('admin/usuarios');
     }
 
     public function edit()
@@ -36,7 +36,7 @@ class UserController{
 
         App::get('database')->edit('users', $parameters, $_POST['id']);
 
-        header('Location: /admin/usuarios');
+        return redirect('admin/usuarios');
     }
 
     public function delete()
@@ -45,7 +45,7 @@ class UserController{
 
         App::get('database')->delete('users', $id);
 
-        header('Location: /admin/usuario');
+        return redirect('admin/usuarios');
     }
 
 }
