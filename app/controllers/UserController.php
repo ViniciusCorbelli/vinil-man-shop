@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Controllers;
+
 use app\core\App;
 
-class UserController{
+class UserController
+{
 
     public function index()
     {
@@ -14,17 +16,24 @@ class UserController{
 
     public function create()
     {
-        $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $user = App::get('database')->search('users', ['email' => $_POST['email']]);
 
-        $parameters = ([
-            'name' => $_POST['name'],
-            'email' => $_POST['email'],
-            'password' => $hash
-        ]);
+        if (count($user) > 0) {
+            return redirect('admin/usuarios');
+        } else {
 
-        App::get('database')->insert('users',$parameters);
+            $hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        return redirect('admin/usuarios');
+            $parameters = ([
+                'name' => $_POST['name'],
+                'email' => $_POST['email'],
+                'password' => $hash
+            ]);
+
+            App::get('database')->insert('users', $parameters);
+
+            return redirect('admin/usuarios');
+        }
     }
 
     public function edit()
@@ -47,7 +56,4 @@ class UserController{
 
         return redirect('admin/usuarios');
     }
-
 }
-
-?>

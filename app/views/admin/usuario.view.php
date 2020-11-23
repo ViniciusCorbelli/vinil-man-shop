@@ -129,6 +129,7 @@
                         </div>
                         <div class="modal-body">
                           <form action="/admin/usuario/edit" method="POST" class="form-group">
+                            <input type="hidden" name="id" value="<?= $user->id; ?>">
                             <label>Nome</label>
                             <input type="text" name="name" class="form-control" value="<?= $user->name ?>"><br>
                             <label>Email</label><br>
