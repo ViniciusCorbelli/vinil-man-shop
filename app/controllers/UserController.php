@@ -27,6 +27,18 @@ class UserController{
         header('Location: /admin/usuario');
     }
 
+    public function edit()
+    {
+        $parameters = ([
+            'name' => $_POST['name'],
+            'email' => $_POST['email']
+        ]);
+
+        App::get('database')->edit('users', $parameters, $_POST['id']);
+
+        header('Location: /admin/usuarios');
+    }
+
     public function delete()
     {
         $id = $_POST['id'];
