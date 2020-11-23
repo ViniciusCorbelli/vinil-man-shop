@@ -1,10 +1,4 @@
-<?php
-
-use App\Core\App;
-
-$categorias = App::get('database')->selectAll('category');
-
-require('app/views/partials/head.admin.php') ?>
+<?php require('app/views/partials/head.admin.php') ?>
 
 <div id="main" class="container-fluid">
     <main>

@@ -8,8 +8,15 @@ class ProdutosAdminController
 {
     public function index()
     {
+
+        $category = App::get('database')->selectAll('category'); //Pega todas as categorias disponíveis
         $produtos = App::get('database')->selectAll('product');
-        return view('/admin/produto', compact('produtos'));
+
+        $titulo = 'produtos';
+        return view('/admin/produto',[
+            'categorias' => $category,
+            'produtos' => $produtos,
+        ]);
     }
 
     public function create()
