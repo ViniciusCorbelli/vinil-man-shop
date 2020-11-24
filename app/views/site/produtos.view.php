@@ -112,7 +112,7 @@ require('app/views/partials/head.php');
                     <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
                         <a href="produtos/<?= $produto->id ?>">
                             <div class="card h-100">
-                                <img class="card-img-top card-img" src="/public/img/product/<?= $produto->name; ?>" alt="Vinil">
+                                <img class="card-img-top card-img" src="<?= $produto->image; ?>" alt="Vinil">
                                 <div class="card-body">
                                     <h4 class="card-title produtos-cards-titulo">
                                         <a class="produtos-cards-titulo" href="produtos/<?= $produto->id ?>"><?= $produto->name ?></a>
