@@ -125,7 +125,7 @@
 
                                                 <form action="/admin/category/edit" method="POST" enctype="multipart/form-data">
                                                     <div class="form-group">
-                                                        <input type="hidden" name="id" value="<?= $produto->id; ?>">
+                                                        <input type="hidden" name="id" value="<?= $categoria->id; ?>">
                                                         <h4>Nome do produto</h4>
                                                         <input type="text" name="name" class="form-control" value="<?= $categoria->name; ?>">
                                                     </div>

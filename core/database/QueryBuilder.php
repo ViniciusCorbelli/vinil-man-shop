@@ -3,6 +3,7 @@
 namespace App\Core\Database;
 
 use PDO;
+use Exception;
 
 class QueryBuilder
 {
@@ -57,23 +58,21 @@ class QueryBuilder
         }
     }
 
-    public function edit($table, $field, $value, $id)
+    public function edit($table,$parameters, $id)
     {
         $sql = sprintf(
-            'UPDATE `%s` SET `%s` = `%s` WHERE `%s`.id = `%s`',
+            'insert into %s (%s) values (%s)',
             $table,
-            $field,
-            $value,
-            $table,
-            $id
+            implode(', ', array_keys($parameters)),
+            ':' . implode(', :', array_keys($parameters))
         );
 
-        //die(var_dump($sql));
         try {
             $statement = $this->pdo->prepare($sql);
 
-            $statement->execute();
-        } catch (\Exception $e) {
+            $statement->execute($parameters);
+        } catch (Exception $e) {
+            $e->getMessage();
         }
     }
 
