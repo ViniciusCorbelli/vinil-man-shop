@@ -1253,9 +1253,10 @@ i:hover {
     width: 750px;
 }
 
-.card-img {
-    height: 100%;
+.produtos-cards img {
     width: 100%;
+    min-height: 300px;
+    max-height: 300px;
 }
 
 .produtos-paginas a {

@@ -9,7 +9,7 @@ class ProdutosAdminController
     public function index()
     {
 
-        $category = App::get('database')->selectAll('category'); //Pega todas as categorias disponíveis
+        $category = App::get('database')->selectAll('category');
         $produtos = App::get('database')->selectAll('product');
 
         $titulo = 'produtos';

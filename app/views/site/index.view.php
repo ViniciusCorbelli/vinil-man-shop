@@ -73,7 +73,7 @@
                     <div class="col-xs-3 col-sm-3 col-md-3 produtos-cards produto-listagem-margin">
                         <a href="/produto?id=<?= $produto->id; ?>">
                             <div class="card h-100">
-                                <img class="card-img-top card-img" src="<?= $produto->image; ?>" alt="Vinil">
+                                <img class="card-img-top" src="<?= $produto->image; ?>" alt="Vinil">
                                 <div class="card-body">
                                     <h4 class="card-title produtos-cards-titulo">
                                         <a href="/produto?id=<?= $produto->id; ?>"><?= $produto->name; ?></a>
