@@ -3,7 +3,6 @@
 namespace App\Core\Database;
 
 use PDO;
-use Exception;
 
 class QueryBuilder
 {
@@ -36,44 +35,19 @@ class QueryBuilder
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute($parameters);
-        } catch (Exception $e) {
-            $e->getMessage();
+        } catch (\Exception $e) {
         }
     }
 
     public function read($table, $id)
     {
-        $sql = sprintf(
-            "select * from %s where id = %s",
-            $table,
-            $id
-        );
+        $sql = "select * from " . $table . " where id =" . $id;
 
         try {
-            $statement = $this->pdo->prepare($sql);
+            $stmt = $this->pdo->prepare($sql);
 
-            $statement->execute();
-
-            return $statement->fetchAll(PDO::FETCH_CLASS);
-        } catch (Exception $e) {
-            $e->getMessage();
-        }
-    }
-
-    public function edit($table, $field, $value, $id)
-    {
-        $sql = sprintf(
-            'update %s set %s = %s where id = %s',
-            $table,
-            $field,
-            $value,
-            $id
-        );
-
-        try {
-            $statement = $this->pdo->prepare($sql);
-
-            $statement->execute();
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
         } catch (Exception $e) {
             $e->getMessage();
         }
@@ -89,8 +63,7 @@ class QueryBuilder
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute();
-        } catch (Exception $e) {
-            $e->getMessage();
+        } catch (\Exception $e) {
         }
     }
 }

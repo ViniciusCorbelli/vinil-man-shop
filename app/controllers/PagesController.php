@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Core\App;
+
 class PagesController
 {
 
@@ -25,6 +27,19 @@ class PagesController
         return view('/site/produtos');
     }
 
+    public function produto()
+    {
+        $produtosID = App::get('database')->read('product', $_GET['id']);
+        $produtos = App::get('database')->selectAll('product');
+        $categorias = App::get('database')->selectAll('category');
+
+        return view('/site/visualizar-produtos', [
+            'produtosID' => $produtosID,
+            'produtos' => $produtos,
+            'categorias' => $categorias,
+        ]);
+    }
+
     public function login()
     {
         return view('/site/login');
@@ -35,4 +50,5 @@ class PagesController
     {
         return view('admin/home');
     }
+    
 }

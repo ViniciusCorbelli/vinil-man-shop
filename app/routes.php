@@ -19,6 +19,7 @@ $router->get('contato', 'PagesController@contato');
 $router->get('quem-somos', 'PagesController@quemsomos');
 $router->get('produtos', 'PagesController@produtos');
 $router->get('login', 'PagesController@login');
+$router->get('produto', 'PagesController@produto');
 
 
 
