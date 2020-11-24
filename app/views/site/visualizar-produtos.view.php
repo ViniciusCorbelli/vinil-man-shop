@@ -65,7 +65,7 @@
                                         <h4 class="card-title visualizar-produto-cards-titulo ">
                                             <a class="visualizar-produto-cards-titulo " href="/produto?id=<?= $produto->id ?>"><?= $produto->name; ?></a>
                                         </h4>
-                                        <h5><?= $produto->price; ?></h5>
+                                        <h5>R$ <?= $produto->price; ?></h5>
                                     </div>
                                     <div class="card-footer ">
                                         <small class="text-muted "><?= $produto->stock ?> unid. disponível</small>
@@ -94,7 +94,7 @@
                     </tr>
                     <tr>
                         <th scope="row ">Preço</th>
-                        <td><?= $price; ?></td>
+                        <td>R$ <?= $price; ?></td>
                     </tr>
                     <tr>
                 </tbody>
