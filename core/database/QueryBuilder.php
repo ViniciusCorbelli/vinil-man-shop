@@ -3,6 +3,7 @@
 namespace App\Core\Database;
 
 use PDO;
+use Exception;
 
 class QueryBuilder
 {
@@ -35,24 +36,50 @@ class QueryBuilder
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute($parameters);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
+            $e->getMessage();
         }
     }
 
-    public function edit($table, $parameters)
+    public function read($table, $id)
     {
         $sql = sprintf(
-            'update into %s (%s) values (%s)',
+            "select * from %s where id = %s",
             $table,
-            implode(', ', array_keys($parameters)),
-            ':' . implode(', :', array_keys($parameters))
+            $id
         );
 
         try {
             $statement = $this->pdo->prepare($sql);
 
-            $statement->execute($parameters);
-        } catch (\Exception $e) {
+            $statement->execute();
+
+            return $statement->fetchAll(PDO::FETCH_CLASS);
+        } catch (Exception $e) {
+            $e->getMessage();
+        }
+    }
+
+    public function edit($table, $parameters, $id)
+    {
+        $last = end($parameters);
+
+        $sql = "update {$table} set ";
+        foreach ($parameters as $item => $val) {
+            if ($val == "$last") {
+                $sql = $sql . "$item = '{$val}' ";
+            } else {
+                $sql = $sql . "$item = '{$val}', ";
+            }
+        };
+        $sql = $sql . "where id = {$id}";
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute();
+        } catch (Exception $e) {
+            $e->getMessage();
         }
     }
 
@@ -66,7 +93,8 @@ class QueryBuilder
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
+            $e->getMessage();
         }
     }
 }

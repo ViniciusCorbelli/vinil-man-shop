@@ -9,33 +9,33 @@ class CategoryAdminController
     public function index()
     {
         $category = App::get('database')->selectAll('category');
-        return viewadmin('category', compact('categorys'));
+        return view('admin/category', compact('category'));
     }
 
     public function create()
     {
-        $dados = ([
-            'name' => $_POST['item_name'],
+        $parameters = ([
+            'name' => $_POST['name']
         ]);
 
-        App::get('database')->insert('category', $dados);
-        header('Location: /administrativo/category');
+        App::get('database')->insert('category',$parameters);
+        return redirect('admin/categoria');
     }
 
     public function edit()
     {
-        $dados = ([
-            'name' => $_POST['item_name'],
+        $parameters = ([
+            'name' => $_POST['name']
         ]);
-
-        App::get('database')->update('category', $dados);
-        header('Location: /administrativo/category');
+        
+        App::get('database')->edit('category',$parameters, $_POST['id']);
+        
+        return redirect('admin/categoria');
     }
-
 
     public function delete()
     {
         App::get('database')->delete('category', $_POST['id']);
-        header('Location: /administrativo/category');
+        header('Location: /admin/categoria');
     }
 }
