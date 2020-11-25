@@ -1,6 +1,3 @@
-/*====CSS VIEW-PRODUCT-ADM====*/
-
-
 /*==== GOOGLE FONTS =====*/
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
@@ -55,14 +52,31 @@ body {
     white-space: nowrap;
 }
 
+<<<<<<< HEAD
+/*==== ESTILIZAÇÃO DO PHP ====*/
 
+.nome-php {
+    font-size: 25px;
+}
+
+.email-php {
+    font-size: 18px;
+    text-overflow: ellipsis!important;
+    white-space: nowrap;
+}
+
+
+/*==== SIDENAVBAR ====*/
+
+=======>>>>>>>96c864d206c260b701fd0d77c5e17fbe386ddccf
 /*==== SIDENAVBAR ====*/
 
 #sidenav {
     height: 100%;
     /*100% da tela*/
     width: 250px;
-    max-width: auto;
+    /*Começamos com a navbar aberta*/
+    max-width: 250px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -84,10 +98,6 @@ body {
     transition: .3s;
 }
 
-#navbar {
-    margin-left: 250px;
-}
-
 .cool-link:after {
     content: '';
     display: block;
@@ -102,11 +112,20 @@ body {
     transition: width .3s;
 }
 
+.closeBtn {
+    color: var(--white-color);
+    display: none!important;
+}
+
 
 /*==== NAVBAR ADMINISTRATIVO =====*/
 
 .navbar-color-bg {
     background-color: var(--first-blue-color);
+}
+
+#navbar {
+    margin-left: 250px;
 }
 
 #navbar img {
@@ -119,6 +138,10 @@ body {
 
 .wrapper {
     display: flex;
+}
+
+#main {
+    margin-left: 250px;
 }
 
 .non-space {
@@ -149,50 +172,6 @@ body {
     color: var(--yellow-color);
 }
 
-.form-inline label {
-    display: block;
-}
-
-.form-inline {
-    display: block;
-}
-
-
-/*====AJUSTE INPUT CATEGORIA====*/
-
-.select-category {
-    display: block;
-    margin-bottom: 30px;
-}
-
-
-/*==== AJUSTE MODAL DE VIEW DO PRODUTO ====*/
-
-.view-product-container {
-    height: 50vh;
-    width: auto;
-    display: inline-block;
-}
-
-.view-product-container img {
-    width: 400px;
-}
-
-
-/*==== AJUSTES FUNÇOES DA TABELA ====*/
-
-tbody button {
-    display: inline-block!important;
-}
-
-
-/*==== AJUSTE DE TAMANHO DAS COLUNAS =====*/
-
-td {
-    max-width: 200px;
-    text-align: center;
-}
-
 
 /*==== MEDIA ====*/
 
@@ -200,19 +179,6 @@ td {
     #main {
         overflow: hidden;
     }
-}
-
-.closeBtn {
-    color: var(--white-color);
-    display: none !important;
-}
-
-.btn {
-    display: block;
-}
-
-.btn-menu {
-    display: none !important;
 }
 
 @media (max-width: 1000px) {
@@ -224,14 +190,7 @@ td {
     }
     #sidenav {
         width: 0;
-    }
-    .closeBtn {
-        display: block!important;
-        text-align: center!important;
-        margin-top: -50px;
-    }
-    .btn-menu {
-        display: block !important;
+        max-width: 250px;
     }
 }
 

@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Core\App;
 
-class CategoryAdminController
+class CategoryController
 {
     public function index()
     {

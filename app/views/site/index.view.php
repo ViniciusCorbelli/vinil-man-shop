@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php require('app/views/partials/head.php') ?>
 <!--Page Content-->
 <main class="view-home">
@@ -8,6 +9,34 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="d-block w-100" src="/public/img/carrousel_1.jpg" alt="Carrousel">
+=======
+<?php 
+    $pageTitle = "index";
+    include ('partials/header.php');
+?>
+
+<body class="paginas-site">
+    <!--Page Content-->
+    <main class="view-home">
+        <!--slider area-->
+        <div id="carouselExampleIndicators" class="container carousel slide mb-5" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="..."><img src="img/carrossel_1.jpg" class="d-block w-100" alt="...">
+                        <figcaption>Uma de nossas melhores ofetas para você!</figcaption>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="..."><img src="img/carrossel_1.jpg" class="d-block w-100" alt="...">
+                        <figcaption>Uma de nossas melhores ofetas para você!</figcaption>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="..."><img src="img/carrossel_1.jpg" class="d-block w-100" alt="...">
+                        <figcaption>Uma de nossas melhores ofetas para você!</figcaption>
+                    </a>
+                </div>
+>>>>>>> 96c864d206c260b701fd0d77c5e17fbe386ddccf
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -108,6 +137,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
 
 
     </div>
@@ -115,3 +145,10 @@
 <!--\Page Content-->
 
 <?php require('app/views/partials/footer.php') ?>
+=======
+    </main>
+
+<?php 
+    include ('partials/footer.php');
+?>
+>>>>>>> 96c864d206c260b701fd0d77c5e17fbe386ddccf

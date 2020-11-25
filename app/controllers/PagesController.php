@@ -6,7 +6,6 @@ use App\Core\App;
 
 class PagesController
 {
-
     public function home()
     {
         return view('/site/index');
