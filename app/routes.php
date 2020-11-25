@@ -1,7 +1,6 @@
 <?php
 
 /*Administrativas */
-<<<<<<< HEAD
 $router->get('admin','PagesController@administrativo'); //Home do Administrativo
 $router->get('admin/usuarios','UserController@index'); //Home de Controle de usuários
 $router->get('admin/produto', 'ProdutosAdminController@index'); //Home de Controle de Produtos
@@ -18,24 +17,13 @@ $router->post('admin/categoria/create', 'CategoryAdminController@create');
 $router->post('admin/categoria/delete', 'CategoryAdminController@delete');
 $router->post('admin/categoria/edit', 'CategoryAdminController@edit');
 
-=======
-
-$router->get('admin/category', 'CategoryController@index'); //Home de Controle de categoria
-
-$router->post('admin/category/create', 'CategoryController@create');
-$router->post('admin/category/delete', 'CategoryController@delete');
-$router->post('admin/category/edit', 'CategoryController@edit');
->>>>>>> 96c864d206c260b701fd0d77c5e17fbe386ddccf
 /*Publicas*/
 $router->get('', 'PagesController@home');
 $router->get('contato', 'PagesController@contato');
 $router->get('quem-somos', 'PagesController@quemsomos');
 $router->get('produtos', 'PagesController@produtos');
 $router->get('login', 'PagesController@login');
-<<<<<<< HEAD
 $router->get('produto', 'PagesController@produto');
 
 
-=======
->>>>>>> 96c864d206c260b701fd0d77c5e17fbe386ddccf
 

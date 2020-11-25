@@ -1,3 +1,6 @@
+/*====CSS VIEW-PRODUCT-ADM====*/
+
+
 /*==== GOOGLE FONTS =====*/
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
@@ -40,43 +43,13 @@ body {
 }
 
 
-/*==== ESTILIZAÇÃO DO PHP ====*/
-
-.nome-php {
-    font-size: 25px;
-}
-
-.email-php {
-    font-size: 18px;
-    text-overflow: ellipsis!important;
-    white-space: nowrap;
-}
-
-<<<<<<< HEAD
-/*==== ESTILIZAÇÃO DO PHP ====*/
-
-.nome-php {
-    font-size: 25px;
-}
-
-.email-php {
-    font-size: 18px;
-    text-overflow: ellipsis!important;
-    white-space: nowrap;
-}
-
-
-/*==== SIDENAVBAR ====*/
-
-=======>>>>>>>96c864d206c260b701fd0d77c5e17fbe386ddccf
 /*==== SIDENAVBAR ====*/
 
 #sidenav {
     height: 100%;
     /*100% da tela*/
     width: 250px;
-    /*Começamos com a navbar aberta*/
-    max-width: 250px;
+    max-width: auto;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -98,6 +71,10 @@ body {
     transition: .3s;
 }
 
+#navbar {
+    margin-left: 250px;
+}
+
 .cool-link:after {
     content: '';
     display: block;
@@ -112,20 +89,11 @@ body {
     transition: width .3s;
 }
 
-.closeBtn {
-    color: var(--white-color);
-    display: none!important;
-}
-
 
 /*==== NAVBAR ADMINISTRATIVO =====*/
 
 .navbar-color-bg {
     background-color: var(--first-blue-color);
-}
-
-#navbar {
-    margin-left: 250px;
 }
 
 #navbar img {
@@ -138,10 +106,6 @@ body {
 
 .wrapper {
     display: flex;
-}
-
-#main {
-    margin-left: 250px;
 }
 
 .non-space {
@@ -172,6 +136,71 @@ body {
     color: var(--yellow-color);
 }
 
+.form-inline label {
+    display: block;
+}
+
+.form-inline {
+    display: block;
+}
+
+
+/*====AJUSTE INPUT CATEGORIA====*/
+
+.select-category {
+    display: block;
+    margin-bottom: 30px;
+}
+
+
+/*==== AJUSTE MODAL DE VIEW DO PRODUTO ====*/
+
+.view-product-container {
+    height: 50vh;
+    width: auto;
+    display: inline-block;
+}
+
+.view-product-container img {
+    width: 400px;
+}
+
+.view-product-admin h1 {
+    color: #139fe0;
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+.view-product-admin h5 {
+    color: #000000;
+    font-size: 20px;
+}
+
+.view-product-admin h6 {
+    color: #000000;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.formulario-produto-admin h5 {
+    margin-top: 20px;
+}
+
+
+/*==== AJUSTES FUNÇOES DA TABELA ====*/
+
+tbody button {
+    display: inline-block!important;
+}
+
+
+/*==== AJUSTE DE TAMANHO DAS COLUNAS =====*/
+
+td {
+    max-width: 200px;
+    text-align: center;
+}
+
 
 /*==== MEDIA ====*/
 
@@ -179,6 +208,19 @@ body {
     #main {
         overflow: hidden;
     }
+}
+
+.closeBtn {
+    color: var(--white-color);
+    display: none !important;
+}
+
+.btn {
+    display: block;
+}
+
+.btn-menu {
+    display: none !important;
 }
 
 @media (max-width: 1000px) {
@@ -190,7 +232,14 @@ body {
     }
     #sidenav {
         width: 0;
-        max-width: 250px;
+    }
+    .closeBtn {
+        display: block!important;
+        text-align: center!important;
+        margin-top: -50px;
+    }
+    .btn-menu {
+        display: block !important;
     }
 }
 
@@ -231,26 +280,15 @@ html {
 
 .index-destaques {
     margin-bottom: 30px;
-    animation-name: efeito-subir;
-    animation-duration: 2s;
 }
 
 .index-destaques h2 {
     color: #1496d2;
     font-family: 'Miniver', cursive;
     font-size: 36px;
-}
-
-.index-promo {
+    margin-left: 120px;
     animation-name: efeito-subir;
     animation-duration: 2s;
-}
-
-.index-promo h2 {
-    margin-top: 30px;
-    color: #1496d2;
-    font-family: 'Miniver', cursive;
-    font-size: 36px;
 }
 
 .container {
@@ -1215,14 +1253,15 @@ i:hover {
     width: 750px;
 }
 
-.card-img {
-    height: 100%;
+.produtos-cards img {
     width: 100%;
+    min-height: 300px;
+    max-height: 300px;
 }
 
 .produtos-paginas a {
     background-color: #e7e7e7!important;
-    color: #777474!important;
+    color: #1f1717!important;
     margin-right: 5px;
     margin-left: 5px;
     transition: .2s all;
@@ -1282,7 +1321,6 @@ i:hover {
 .visualizar-produto-main {
     margin-right: 120px;
     margin-left: 120px;
-    margin-bottom: 60px;
 }
 
 .visualizar-produto-nav {
@@ -1308,7 +1346,6 @@ i:hover {
 }
 
 .visualizar-produto-img {
-    margin-bottom: 100px;
     text-align: center;
     margin-top: 50px;
     animation-name: efeito-subir;
@@ -1340,7 +1377,7 @@ i:hover {
     font-size: 40px;
 }
 
-.visualizar-produto-inf h6 {
+.visualizar-produto-inf h3 {
     font-size: 16px;
     margin-bottom: 50px;
 }
@@ -1622,6 +1659,16 @@ i:hover {
 
 button:hover {
     transition: 1s;
+}
+
+.col-md-3 {
+    display: inline-block;
+    margin-left: -4px;
+}
+
+.col-md-3 img {
+    width: 100%;
+    height: auto;
 }
 
 @media only screen and (max-width: 865px) {
