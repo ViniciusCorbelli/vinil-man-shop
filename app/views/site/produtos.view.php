@@ -98,11 +98,11 @@ require('app/views/partials/head.php');
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
+                        <span class="sr-only">Anterior</span>
                     </a>
                     <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
+                        <span class="sr-only">Proximo</span>
                     </a>
                 </div>
 
@@ -110,18 +110,18 @@ require('app/views/partials/head.php');
 
                     <?php foreach ($produtos as $produto): ?>
                     <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                        <a href="produtos/<?= $produto->id ?>">
+                        <a href="produtos?id=<?= $produto->id ?>">
                             <div class="card h-100">
                                 <img class="card-img-top card-img" src="<?= $produto->image; ?>" alt="Vinil">
                                 <div class="card-body">
                                     <h4 class="card-title produtos-cards-titulo">
-                                        <a class="produtos-cards-titulo" href="produtos/<?= $produto->id ?>"><?= $produto->name ?></a>
+                                        <a class="produtos-cards-titulo" href="produtos?id=<?= $produto->id ?>"><?= $produto->name ?></a>
                                     </h4>
-                                    <h5><?= $produto->price ?></h5>
+                                    <h5>R$ <?= $produto->price ?></h5>
                                     <p class="card-text"><?= $produto->description ?></p>
                                 </div>
                                 <div class="card-footer">
-                                    <small class="text-muted"><?= $produto->stock ?></small>
+                                    <small class="text-muted"><?= $produto->stock ?> unid. disponível</small>
                                 </div>
                             </div>
                         </a>
