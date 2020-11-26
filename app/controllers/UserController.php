@@ -31,6 +31,7 @@ class UserController
         {
             $mensagem = " Todos os campos são obrigatórios";
             $flag = true;
+            
             return redirect('admin/usuarios',[
                 'mensagem' => $mensagem,
                 'flag' => $flag
@@ -40,6 +41,7 @@ class UserController
         {
             $mensagem = " Todos os campos são obrigatórios";
             $flag = true;
+
             return redirect('admin/usuarios',[
                 'mensagem' => $mensagem,
                 'flag' => $flag
