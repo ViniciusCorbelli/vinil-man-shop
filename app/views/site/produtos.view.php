@@ -33,7 +33,7 @@ require('app/views/partials/head.php');
                             <a class="btn btn-secondary dropdown-toggle produtos-relevantes-background" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Estilo</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <?php foreach ($categorias as $categoria) : ?>
-                                    <a class="dropdown-item" href="#"><?= $categoria->name ?></a>
+                                    <a class="dropdown-item" href="/produtos?category=<?= $categoria->name ?>"><?= $categoria->name ?></a>
                                 <?php endforeach ?>
                             </div>
                         </div>
@@ -64,7 +64,7 @@ require('app/views/partials/head.php');
                             </div>
                         </div>
                         <h6>Estilos</h6>
-                        <?php foreach ($categorias as $categoria) : ?> <a class="dropdown-item" href="#"><?= $categoria->name ?></a>
+                        <?php foreach ($categorias as $categoria) : ?> <a class="dropdown-item" href="/produtos?category=<?= $categoria->name ?>"><?= $categoria->name ?></a>
                         <?php endforeach ?>
                         <h6>Preço</h6>
                         <form>
@@ -83,17 +83,13 @@ require('app/views/partials/head.php');
                     <ol class="carousel-indicators">
                         <li data-target="" data-slide-to="0" class="active"></li>
                         <li data-target="" data-slide-to="1"></li>
-                        <li data-target="" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner produtos-carrosel-animation" role="listbox">
                         <div class="carousel-item active">
-                            <img class="d-block img-fluid produtos-carrosel" src="http://placehold.it/900x350" alt="Carossel de promoções">
+                            <img class="d-block img-fluid produtos-carrosel" src="/public/img/carrousel_1.jpg" alt="Carossel de promoções">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block img-fluid produtos-carrosel" src="http://placehold.it/900x350" alt="Carossel de promoções">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block img-fluid produtos-carrosel" src="http://placehold.it/900x350" alt="Carossel de promoções">
+                            <img class="d-block img-fluid produtos-carrosel" src="/public/img/carrousel_2.jpg" alt="Carossel de promoções">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
