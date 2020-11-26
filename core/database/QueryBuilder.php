@@ -23,6 +23,22 @@ class QueryBuilder
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
+    public function selectAllUsers()
+    {
+        try{
+        
+            $statement = $this->pdo->prepare("select id,name,email from users");
+
+            $statement->execute();
+
+            return $statement->fetchAll(PDO::FETCH_CLASS);
+
+        }catch(Exception $e)
+        {
+            $e->getMessage();
+        }
+    }
+
     public function insert($table, $parameters)
     {
         $sql = sprintf(

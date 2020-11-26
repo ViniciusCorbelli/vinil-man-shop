@@ -209,9 +209,11 @@
           <label>Nome</label>
           <input type="text" name="name" class="form-control" placeholder="Nome do Usuário"><br>
           <label>Email</label><br>
-          <input type="text" name="email" class="form-control" placeholder="exempo@exemplo.com"><br>
+          <input type="email" name="email" class="form-control" placeholder="exempo@exemplo.com"><br>
           <label>Password</label><br>
-          <input type="text" name="password" class="form-control" placeholder="*****">
+          <input type="password" name="password" class="form-control" placeholder="*****"><br>
+          <label>Confirme sua senha</label>
+          <input type="password" name="password-controller" class="form-control" placeholder="*****">
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             <button type="submit" class="btn btn-success" data-target="form">Criar novo Usuário</button>
