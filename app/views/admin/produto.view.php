@@ -6,19 +6,20 @@
 
         <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Adicionar Novo Produto</button>
 
-        <?php if ($novo == true) : ?>
+        <?php foreach ($sucessos as $sucesso) : ?>
             <div class="alert alert-success alert-dismissible fade show">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Sucesso!</strong> Produto criado com sucesso!
+                <strong>Sucesso!</strong> <?= $sucesso ?>
             </div>
-        <?php endif; ?>
+            <?php endforeach ?>
 
-        <?php if ($erro != "") : ?>
+        <?php foreach ($erros as $erro) : ?>
             <div class="alert alert-danger alert-dismissible fade show">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Erro!</strong> <?= $erro?>
+                <strong>Erro!</strong> <?= $erro ?>
             </div>
-        <?php endif; ?>
+        <?php endforeach ?>
+
 
 
         <div class="card mb-4 w-auto">
