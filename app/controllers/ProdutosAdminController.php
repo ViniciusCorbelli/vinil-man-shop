@@ -89,6 +89,7 @@ class ProdutosAdminController
 
         $category = App::get('database')->selectAll('category');
         $produtos = App::get('database')->selectAll('product');
+
         return view('/admin/produto', [
             'erros' => $erros,
             'sucessos' => $sucessos,
@@ -217,6 +218,5 @@ class ProdutosAdminController
             'categorias' => $category,
             'produtos' => $produtos,
         ]);
-        
     }
 }
