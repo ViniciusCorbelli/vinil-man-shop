@@ -1,16 +1,25 @@
-<?php
-
-use App\Core\App;
-
-$categorias = App::get('database')->selectAll('category');
-
-require('app/views/partials/head.admin.php') ?>
+<?php require('app/views/partials/head.admin.php') ?>
 
 <div id="main" class="container-fluid">
     <main>
         <h1 class="mt-4 mx-auto non-space">Listagem de produtos</h1>
 
         <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Adicionar Novo Produto</button>
+
+        <?php if ($novo == true) : ?>
+            <div class="alert alert-success alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Sucesso!</strong> Produto criado com sucesso!
+            </div>
+        <?php endif; ?>
+
+        <?php if ($erro != "") : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Erro!</strong> <?= $erro?>
+            </div>
+        <?php endif; ?>
+
 
         <div class="card mb-4 w-auto">
             <div class="card-header">
