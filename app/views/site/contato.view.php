@@ -14,24 +14,20 @@
 
             <div class="fundo">
                 <div class="form-group">
-                    <label for="exampleInputName1">Nome</label>
-                    <input type="name" class="digitos col-lg-6" id="exampleInputName1" placeholder="Insira o seu Nome"></input>
+                    <label>Nome</label>
+                    <input type="text" class="digitos col-lg-6" id="name" placeholder="Insira o seu Nome"></input>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="digitos col-lg-6" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email"></input>
+                    <label>Email</label>
+                    <input type="email" class="digitos col-lg-6" id="email" aria-describedby="emailHelp" placeholder="Seu email"></input>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputphonenumber1">Telefone</label>
-                    <input type="number" class="digitos col-lg-6" id="exampleInputphonenumber1" placeholder="(ddd) 9xxxx-xxxx"></input>
+                    <label>Assunto</label>
+                    <input type="text" class="digitos col-lg-6" id="subject" placeholder="Digite Aqui o Assunto"></input>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputTopic1">Assunto</label>
-                    <input type="assunto" class="digitos col-lg-6" id="exampleInputTopic1" placeholder="Digite Aqui o Assunto"></input>
-                </div>
-                <div class="form-group">
-                    <label for="comment">Mensagem</label>
-                    <textarea class="digitos col-lg-6" rows="5" id="exampleInputComment" placeholder="Digite Aqui a Mensagem"></textarea>
+                    <label>Mensagem</label>
+                    <textarea class="digitos col-lg-6" rows="5" id="text" placeholder="Digite Aqui a Mensagem"></textarea>
 
                     <center><button type="submit" class="btn btn-primary">Enviar</button></center>
 
