@@ -1259,6 +1259,17 @@ i:hover {
     max-height: 300px;
 }
 
+.produtos-cards p {
+    display: -webkit-box;
+    max-width: 400px;
+    height: 109.2px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.625;
+}
+
 .produtos-paginas a {
     background-color: #e7e7e7!important;
     color: #1f1717!important;
