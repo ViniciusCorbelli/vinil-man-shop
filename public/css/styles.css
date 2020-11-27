@@ -42,7 +42,20 @@ body {
     background-color: #e7e7e7;
 }
 
+<<<<<<< HEAD=======
+/*==== ESTILIZAÇÃO DO PHP ====*/
 
+.nome-php {
+    font-size: 25px;
+}
+
+.email-php {
+    font-size: 18px;
+    text-overflow: ellipsis!important;
+    white-space: nowrap;
+}
+
+>>>>>>>backend-visualizar-produto
 /*==== SIDENAVBAR ====*/
 
 #sidenav {
@@ -1332,6 +1345,7 @@ i:hover {
 .visualizar-produto-main {
     margin-right: 120px;
     margin-left: 120px;
+    margin-bottom: 60px;
 }
 
 .visualizar-produto-nav {
@@ -1357,6 +1371,7 @@ i:hover {
 }
 
 .visualizar-produto-img {
+    margin-bottom: 100px;
     text-align: center;
     margin-top: 50px;
     animation-name: efeito-subir;
@@ -1388,7 +1403,7 @@ i:hover {
     font-size: 40px;
 }
 
-.visualizar-produto-inf h3 {
+.visualizar-produto-inf h6 {
     font-size: 16px;
     margin-bottom: 50px;
 }

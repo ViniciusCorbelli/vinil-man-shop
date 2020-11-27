@@ -15,14 +15,6 @@
                 <img class="d-block w-100" src="/public/img/carrousel_2.jpg" alt="Slide de anuncio">
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Anterior</span>
-        </a>
-        <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Proximo</span>
-        </a>
     </div>
     <!--/.Carousel Wrapper-->
 

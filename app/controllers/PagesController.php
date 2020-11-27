@@ -51,4 +51,5 @@ class PagesController
     {
         return view('admin/home');
     }
+    
 }
