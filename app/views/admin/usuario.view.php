@@ -5,7 +5,7 @@ require('app/views/partials/head.admin.php') ?>
   <main>
     <h1 class="mt-4 mx-auto non-space">Listagem de Usuários</h1>
 
-    <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Criar Novo Usuário</button>
+    <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Adicionar Novo Usuário</button>
 
 
     <?php
