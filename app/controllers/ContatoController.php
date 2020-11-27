@@ -16,11 +16,11 @@ class ContatoController
     {
         try {
             
-            $destinatario = "";
+            $destinatario = "vinilmanshop@gmail.com";
             $nome = $_POST['name'];
             $email = $_POST['email'];
             $assunto = $_POST['subject'];
-            $mensagem = $_POST['text'];
+            $mensagem = $_POST['body'];
             
             $mail = new PHPMailer(); //Instanciando o PHPMailer
 
@@ -32,8 +32,8 @@ class ContatoController
             $mail->SMTPAuth = true; //Habilitando autenticação
             $mail->SMTPSecure = 'tls'; //Definindo a criptografia a ser utilizada
             /*Dados da conta para realizar o envio*/
-            $mail->Username = ''; 
-            $mail->Password = '';
+            $mail->Username = 'vinilmanshop@gmail.com'; 
+            $mail->Password = 'CODEtnv3';
 
             $mail->Port = 587; //Definindo a porta de envio
 
@@ -48,6 +48,7 @@ class ContatoController
             if(!$mail->send()) {    
                 echo 'Não foi possível enviar a mensagem.<br>';
                 echo 'Erro: ' . $mail->ErrorInfo;
+                return redirect('/site/contato');
             } else {
                 echo 'Mensagem enviada.';
                 return redirect('/site/contato');
