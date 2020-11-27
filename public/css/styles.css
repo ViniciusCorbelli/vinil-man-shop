@@ -42,17 +42,18 @@ body {
     background-color: #e7e7e7;
 }
 
+
 /*==== ESTILIZAÇÃO DO PHP ====*/
-.nome-php{
+
+.nome-php {
     font-size: 25px;
 }
 
-.email-php{
+.email-php {
     font-size: 18px;
     text-overflow: ellipsis!important;
     white-space: nowrap;
 }
-
 
 
 /*==== SIDENAVBAR ====*/
@@ -177,6 +178,27 @@ body {
     width: 400px;
 }
 
+.view-product-admin h1 {
+    color: #139fe0;
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+.view-product-admin h5 {
+    color: #000000;
+    font-size: 20px;
+}
+
+.view-product-admin h6 {
+    color: #000000;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.formulario-produto-admin h5 {
+    margin-top: 20px;
+}
+
 
 /*==== AJUSTES FUNÇOES DA TABELA ====*/
 
@@ -271,26 +293,15 @@ html {
 
 .index-destaques {
     margin-bottom: 30px;
-    animation-name: efeito-subir;
-    animation-duration: 2s;
 }
 
 .index-destaques h2 {
     color: #1496d2;
     font-family: 'Miniver', cursive;
     font-size: 36px;
-}
-
-.index-promo {
+    margin-left: 120px;
     animation-name: efeito-subir;
     animation-duration: 2s;
-}
-
-.index-promo h2 {
-    margin-top: 30px;
-    color: #1496d2;
-    font-family: 'Miniver', cursive;
-    font-size: 36px;
 }
 
 .container {
@@ -1255,14 +1266,26 @@ i:hover {
     width: 750px;
 }
 
-.card-img {
-    height: 100%;
+.produtos-cards img {
     width: 100%;
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.produtos-cards p {
+    display: -webkit-box;
+    max-width: 400px;
+    height: 109.2px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.625;
 }
 
 .produtos-paginas a {
     background-color: #e7e7e7!important;
-    color: #777474!important;
+    color: #1f1717!important;
     margin-right: 5px;
     margin-left: 5px;
     transition: .2s all;
@@ -1322,6 +1345,7 @@ i:hover {
 .visualizar-produto-main {
     margin-right: 120px;
     margin-left: 120px;
+    margin-bottom: 60px;
 }
 
 .visualizar-produto-nav {
@@ -1347,6 +1371,7 @@ i:hover {
 }
 
 .visualizar-produto-img {
+    margin-bottom: 100px;
     text-align: center;
     margin-top: 50px;
     animation-name: efeito-subir;
@@ -1378,7 +1403,7 @@ i:hover {
     font-size: 40px;
 }
 
-.visualizar-produto-inf h3 {
+.visualizar-produto-inf h6 {
     font-size: 16px;
     margin-bottom: 50px;
 }
@@ -1660,6 +1685,16 @@ i:hover {
 
 button:hover {
     transition: 1s;
+}
+
+.col-md-3 {
+    display: inline-block;
+    margin-left: -4px;
+}
+
+.col-md-3 img {
+    width: 100%;
+    height: auto;
 }
 
 @media only screen and (max-width: 865px) {

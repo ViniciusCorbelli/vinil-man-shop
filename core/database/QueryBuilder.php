@@ -52,8 +52,7 @@ class QueryBuilder
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute($parameters);
-        } catch (Exception $e) {
-            $e->getMessage();
+        } catch (\Exception $e) {
         }
     }
 
@@ -91,9 +90,10 @@ class QueryBuilder
         $sql = $sql . "where id = {$id}";
 
         try {
-            $statement = $this->pdo->prepare($sql);
+            $stmt = $this->pdo->prepare($sql);
 
-            $statement->execute();
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
         } catch (Exception $e) {
             $e->getMessage();
         }
@@ -109,8 +109,7 @@ class QueryBuilder
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute();
-        } catch (Exception $e) {
-            $e->getMessage();
+        } catch (\Exception $e) {
         }
     }
 
