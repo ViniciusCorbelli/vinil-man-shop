@@ -1,4 +1,6 @@
-<?php require('app/views/partials/head-adm.php') ?>
+<?php 
+session_start();
+require('app/views/partials/head-adm.php') ?>
 <div class="wrapper">
   <div id="sidenav" class="sidenav">
 
@@ -31,12 +33,30 @@
 
       <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Criar Novo Usuário</button>
 
-      <?php if($flag == true): ?>
+
+      <?php
+      if (isset($_SESSION['sucessos']))
+        foreach ($_SESSION['sucessos'] as $sucesso) : ?>
+        <div class="alert alert-success alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Sucesso!</strong> <?= $sucesso ?>
+        </div>
+      <?php endforeach ?>
+
+      <?php
+      if (isset($_SESSION['erros']))
+        foreach ($_SESSION['erros'] as $erro) : ?>
         <div class="alert alert-danger alert-dismissible fade show">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <strong>Aviso: </strong> <?= $mensagem ?>
+          <strong>Erro!</strong> <?= $erro ?>
         </div>
-      <?php endif;  ?>
+      <?php endforeach ?>
+
+      <?php
+      unset($_SESSION['sucessos']);
+      unset($_SESSION['erros']);
+      ?>
+
       <div class="card mb-4 w-auto">
         <div class="card-header">
           <div class="row mb-1">
