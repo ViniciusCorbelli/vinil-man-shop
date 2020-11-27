@@ -8,16 +8,10 @@ class ProdutosAdminController
 {
     public function index()
     {
-
         $category = App::get('database')->selectAll('category');
         $produtos = App::get('database')->selectAll('product');
 
-        $sucessos = ([]);
-        $erros = ([]);
-
         return view('/admin/produto', [
-            'erros' => $erros,
-            'sucessos' => $sucessos,
             'categorias' => $category,
             'produtos' => $produtos,
         ]);
@@ -25,8 +19,9 @@ class ProdutosAdminController
 
     public function create()
     {
-        $sucessos = ([]);
-        $erros = ([]);
+        session_start();
+        $_SESSION['sucessos'] = ([]);
+        $_SESSION['erros'] = ([]);
 
         $arquivo_tmp = $_FILES['item_image']['tmp_name'];
         $nome = $_FILES['item_image']['name'];
@@ -35,27 +30,27 @@ class ProdutosAdminController
         $extensao = strtolower($extensao);
 
         if (empty($_POST["item_name"])) {
-            $erros[] = "Você deve inserir um nome!";
+            $_SESSION['erros'][] = "Você deve inserir um nome!";
         }
         if (empty($_POST["item_description"])) {
-            $erros[] = "Você deve inserir uma descrição!";
+            $_SESSION['erros'][] = "Você deve inserir uma descrição!";
         }
         if (empty($_POST["item_price"])) {
-            $erros[] = "Você deve inserir um preço!";
+            $_SESSION['erros'][] = "Você deve inserir um preço!";
         } else {
             if (!(is_numeric($_POST["item_price"]))) {
-                $erros[] = "Você deve colocar preço com apenas números";
+                $_SESSION['erros'][] = "Você deve colocar preço com apenas números";
             }
         }
         if (empty($_POST["item_stock"])) {
-            $erros[] = "Você deve inserir uma quantidade em estoque!";
+            $_SESSION['erros'][] = "Você deve inserir uma quantidade em estoque!";
         } else {
             if (!(is_numeric($_POST["item_stock"]))) {
-                $erros[] = "Você deve colocar estoque com apenas números";
+                $_SESSION['erros'][] = "Você deve colocar estoque com apenas números";
             }
         }
         if (empty($_POST["item_category"])) {
-            $erros[] = "Você deve inserir uma categoria!";
+            $_SESSION['erros'][] = "Você deve inserir uma categoria!";
         }
 
         if (empty($erros)) {
@@ -77,29 +72,21 @@ class ProdutosAdminController
 
                     try {
                         App::get('database')->insert('product', $dados);
-                        $sucessos[] = "Produto criado com sucesso!";
+                        $_SESSION['sucessos'][] = "Produto criado com sucesso!";
                     } catch (Exception $e) {
-                        $erros[] = "Algo inesperado ocorreu!";
+                        $_SESSION['erros'][] = "Algo inesperado ocorreu!";
                     }
                 }
             }
         }
-
-        $category = App::get('database')->selectAll('category');
-        $produtos = App::get('database')->selectAll('product');
-
-        return view('/admin/produto', [
-            'erros' => $erros,
-            'sucessos' => $sucessos,
-            'categorias' => $category,
-            'produtos' => $produtos,
-        ]);
+        header('Location: /admin/produto');
     }
 
     public function edit()
     {
-        $sucessos = ([]);
-        $erros = ([]);
+        session_start();
+        $_SESSION['sucessos'] = ([]);
+        $_SESSION['erros'] = ([]);
 
         $arquivo_tmp = $_FILES['item_image']['tmp_name'];
         $nome = $_FILES['item_image']['name'];
@@ -108,27 +95,27 @@ class ProdutosAdminController
         $extensao = strtolower($extensao);
 
         if (empty($_POST["item_name"])) {
-            $erros[] = "Você deve inserir um nome!";
+            $_SESSION['erros'][] = "Você deve inserir um nome!";
         }
         if (empty($_POST["item_description"])) {
-            $erros[] = "Você deve inserir uma descrição!";
+            $_SESSION['erros'][] = "Você deve inserir uma descrição!";
         }
         if (empty($_POST["item_price"])) {
-            $erros[] = "Você deve inserir um preço!";
+            $_SESSION['erros'][] = "Você deve inserir um preço!";
         } else {
             if (!(is_numeric($_POST["item_price"]))) {
-                $erros[] = "Você deve colocar preço com apenas números";
+                $_SESSION['erros'][] = "Você deve colocar preço com apenas números";
             }
         }
         if (empty($_POST["item_stock"])) {
-            $erros[] = "Você deve inserir uma quantidade em estoque!";
+            $_SESSION['erros'][] = "Você deve inserir uma quantidade em estoque!";
         } else {
             if (!(is_numeric($_POST["item_stock"]))) {
-                $erros[] = "Você deve colocar estoque com apenas números";
+                $_SESSION['erros'][] = "Você deve colocar estoque com apenas números";
             }
         }
         if (empty($_POST["item_category"])) {
-            $erros[] = "Você deve inserir uma categoria!";
+            $_SESSION['erros'][] = "Você deve inserir uma categoria!";
         }
 
         if (empty($erros)) {
@@ -150,9 +137,9 @@ class ProdutosAdminController
 
                     try {
                         App::get('database')->insert('product', $dados);
-                        $sucessos[] = "Produto editado com sucesso!";
+                        $_SESSION['sucessos'][] = "Produto editado com sucesso!";
                     } catch (Exception $e) {
-                        $erros[] = "Algo inesperado ocorreu!";
+                        $_SESSION['erros'][] = "Algo inesperado ocorreu!";
                     }
 
                     $destino = $_SERVER['DOCUMENT_ROOT'] . $_POST['foto'];
@@ -172,34 +159,27 @@ class ProdutosAdminController
 
                 try {
                     App::get('database')->insert('product', $dados);
-                    $sucessos[] = "Produto editado com sucesso!";
+                    $_SESSION['sucessos'][] = "Produto editado com sucesso!";
                 } catch (Exception $e) {
-                    $erros[] = "Algo inesperado ocorreu!";
+                    $_SESSION['erros'][] = "Algo inesperado ocorreu!";
                 }
             }
         }
 
-        $category = App::get('database')->selectAll('category');
-        $produtos = App::get('database')->selectAll('product');
-        return view('/admin/produto', [
-            'erros' => $erros,
-            'sucessos' => $sucessos,
-            'categorias' => $category,
-            'produtos' => $produtos,
-        ]);
+        header('Location: /admin/produto');
     }
 
     public function delete()
     {
-
-        $sucessos = ([]);
-        $erros = ([]);
+        session_start();
+        $_SESSION['sucessos'] = ([]);
+        $_SESSION['erros'] = ([]);
 
         try {
             App::get('database')->delete('product', $_POST['id']);
-            $sucessos[] = "Produto deletado com sucesso!";
+            $_SESSION['sucessos'][] = "Produto deletado com sucesso!";
         } catch (Exception $e) {
-            $erros[] = "Algo inesperado ocorreu!";
+            $_SESSION['erros'][] = "Algo inesperado ocorreu!";
         }
 
         $destino = $_SERVER['DOCUMENT_ROOT'] . $_POST['foto'];
@@ -211,11 +191,6 @@ class ProdutosAdminController
         $category = App::get('database')->selectAll('category');
         $produtos = App::get('database')->selectAll('product');
 
-        return view('/admin/produto', [
-            'erros' => $erros,
-            'sucessos' => $sucessos,
-            'categorias' => $category,
-            'produtos' => $produtos,
-        ]);
+        header('Location: /admin/produto');
     }
 }
