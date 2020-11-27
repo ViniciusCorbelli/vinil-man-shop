@@ -6,6 +6,21 @@
 
         <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Adicionar Nova Categoria</button>
 
+
+        <?php foreach ($sucessos as $sucesso) : ?>
+            <div class="alert alert-success alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Sucesso!</strong> <?= $sucesso ?>
+            </div>
+        <?php endforeach ?>
+
+        <?php foreach ($erros as $erro) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Erro!</strong> <?= $erro ?>
+            </div>
+        <?php endforeach ?>
+
         <div class="card mb-4 w-auto">
             <div class="card-header">
                 <div class="row mb-1">
