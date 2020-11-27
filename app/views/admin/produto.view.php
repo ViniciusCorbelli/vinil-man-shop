@@ -3,7 +3,7 @@ require('app/views/partials/head.admin.php') ?>
 
 <div id="main" class="container-fluid">
     <main>
-        <h1 class="mt-4 mx-auto non-space">Listagem de produtos</h1>
+        <h1 class="mt-4 mx-auto non-space">Listagem de Produtos</h1>
 
         <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Adicionar Novo Produto</button>
 
