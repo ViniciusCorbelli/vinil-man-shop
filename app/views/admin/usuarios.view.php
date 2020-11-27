@@ -1,6 +1,5 @@
 <?php require('app/views/partials/head.admin.php') ?>
 
-
 <div id="main" class="container-fluid">
   <main>
     <h1 class="mt-4 mx-auto non-space">Listagem de Usuários</h1>

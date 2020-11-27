@@ -49,7 +49,7 @@ require('app/views/partials/head.admin.php') ?>
                     </div>
                     <div class="col-sm-8">
                         <div class="form-inline">
-                            <label style="font-size: larger;" for="">Pesquisar</h5>
+                            <label style="font-size: larger;" for="">Pesquisar
                                 <input type="text" class="ml-3 mt-1 mb-1 form-control form-control w-75">
                         </div>
                     </div>
