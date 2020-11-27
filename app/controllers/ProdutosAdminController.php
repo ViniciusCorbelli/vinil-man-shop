@@ -53,7 +53,7 @@ class ProdutosAdminController
             $_SESSION['erros'][] = "Você deve inserir uma categoria!";
         }
 
-        if (empty($erros)) {
+        if (empty($_SESSION['erros'])) {
             if (strstr('.jpg;.jpeg;.gif;.png', $extensao)) {
                 $novoNome = uniqid(time()) . '.' . $extensao;
 
@@ -118,7 +118,7 @@ class ProdutosAdminController
             $_SESSION['erros'][] = "Você deve inserir uma categoria!";
         }
 
-        if (empty($erros)) {
+        if (empty($_SESSION['erros'])) {
             if (strstr('.jpg;.jpeg;.gif;.png', $extensao)) {
                 $novoNome = uniqid(time()) . '.' . $extensao;
 
