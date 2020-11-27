@@ -13,7 +13,7 @@
         <form>
 
             <div class="fundo">
-                <div class="form-group" action="/contato/send-message" method="POST">
+                <form class="form-group" action="/contato/send-message" method="POST">
                     <label>Nome</label>
                     <input type="text" class="digitos col-lg-6" name="name" placeholder="Insira o seu Nome"></input>
                     <label>Email</label>
@@ -23,7 +23,7 @@
                     <label>Mensagem</label>
                     <textarea class="digitos col-lg-6" rows="5" name="text" placeholder="Digite Aqui a Mensagem"></textarea>
                     <center><button type="submit" class="btn btn-primary">Enviar</button></center>
-                </div>
+                </form>
 
                 <div class="contato1 ">
 

@@ -14,7 +14,6 @@ class ContatoController
 
     public function sendMail()
     {
-        $mail = new PHPMailer; //Instanciando o PHPMailer
         try {
             
             $destinatario = "";
@@ -22,10 +21,12 @@ class ContatoController
             $email = $_POST['email'];
             $assunto = $_POST['subject'];
             $mensagem = $_POST['text'];
+            
+            $mail = new PHPMailer(); //Instanciando o PHPMailer
 
             $mail->CharSet = 'UTF-8';
 
-            
+            //$mail->SMTPDebug = SMTP::DEBUG_SERVER;            
             $mail->isSMTP(true); //Informando o protocolo de envio
             $mail->Host = 'smtp.gmail.com'; //Endereço de servidor do Gmail
             $mail->SMTPAuth = true; //Habilitando autenticação
