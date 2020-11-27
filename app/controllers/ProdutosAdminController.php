@@ -11,8 +11,6 @@ class ProdutosAdminController
 
         $category = App::get('database')->selectAll('category');
         $produtos = App::get('database')->selectAll('product');
-        $category = App::get('database')->selectAll('category');
-        $produtos = App::get('database')->selectAll('product');
 
         $sucessos = ([]);
         $erros = ([]);
