@@ -48,10 +48,10 @@ class ContatoController
             if(!$mail->send()) {    
                 echo 'Não foi possível enviar a mensagem.<br>';
                 echo 'Erro: ' . $mail->ErrorInfo;
-                return redirect('/site/contato');
+                return redirect('contato');
             } else {
                 echo 'Mensagem enviada.';
-                return redirect('/site/contato');
+                return redirect('contato');
             }
 
         } catch (Exception $e) {
