@@ -8,27 +8,21 @@ class CategoryAdminController
 {
     public function index()
     {
-
-        $sucessos = ([]);
-        $erros = ([]);
-
         $category = App::get('database')->selectAll('category');
 
         return view('/admin/category', [
-            'erros' => $erros,
-            'sucessos' => $sucessos,
             'category' => $category,
         ]);
     }
 
     public function create()
     {
-
-        $sucessos = ([]);
-        $erros = ([]);
+        session_start();
+        $_SESSION['sucessos'] = ([]);
+        $_SESSION['erros'] = ([]);
 
         if (empty($_POST["name"])) {
-            $erros[] = "Você deve inserir um nome!";
+            $_SESSION['erros'][] = "Você deve inserir um nome!";
         }
 
         if (empty($erros)) {
@@ -38,29 +32,23 @@ class CategoryAdminController
 
             try {
                 App::get('database')->insert('category', $parameters);
-                $sucessos[] = "Categoria criado com sucesso!";
+                $_SESSION['sucessos'][] = "Categoria criado com sucesso!";
             } catch (Exception $e) {
-                $erros[] = "Algo inesperado ocorreu!";
+                $_SESSION['erros'][] = "Algo inesperado ocorreu!";
             }
         }
 
-        $category = App::get('database')->selectAll('category');
-
-        return view('/admin/category', [
-            'erros' => $erros,
-            'sucessos' => $sucessos,
-            'category' => $category,
-        ]);
+        header('Location: /admin/categoria');
     }
 
     public function edit()
     {
-
-        $sucessos = ([]);
-        $erros = ([]);
+        session_start();
+        $_SESSION['sucessos'] = ([]);
+        $_SESSION['erros'] = ([]);
 
         if (empty($_POST["name"])) {
-            $erros[] = "Você deve inserir um nome!";
+            $_SESSION['erros'][] = "Você deve inserir um nome!";
         }
 
         if (empty($erros)) {
@@ -72,40 +60,28 @@ class CategoryAdminController
 
             try {
                 App::get('database')->edit('category', $parameters, $_POST['id']);
-                $sucessos[] = "Categoria editada com sucesso!";
+                $_SESSION['sucessos'][] = "Categoria editada com sucesso!";
             } catch (Exception $e) {
-                $erros[] = "Algo inesperado ocorreu!";
+                $_SESSION['erros'][] = "Algo inesperado ocorreu!";
             }
         }
 
-        $category = App::get('database')->selectAll('category');
-
-        return view('/admin/category', [
-            'erros' => $erros,
-            'sucessos' => $sucessos,
-            'category' => $category,
-        ]);
+        header('Location: /admin/categoria');
     }
 
     public function delete()
     {
-
-        $sucessos = ([]);
-        $erros = ([]);
+        session_start();
+        $_SESSION['sucessos'] = ([]);
+        $_SESSION['erros'] = ([]);
 
         try {
             App::get('database')->delete('category', $_POST['id']);
-            $sucessos[] = "Categoria deletado com sucesso!";
+            $_SESSION['sucessos'][] = "Categoria deletado com sucesso!";
         } catch (Exception $e) {
-            $erros[] = "Algo inesperado ocorreu!";
+            $_SESSION['erros'][] = "Algo inesperado ocorreu!";
         }
 
-        $category = App::get('database')->selectAll('category');
-
-        return view('/admin/category', [
-            'erros' => $erros,
-            'sucessos' => $sucessos,
-            'category' => $category,
-        ]);
+        header('Location: /admin/categoria');
     }
 }
