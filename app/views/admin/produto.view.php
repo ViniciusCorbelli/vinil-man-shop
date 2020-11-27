@@ -11,7 +11,7 @@
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong>Sucesso!</strong> <?= $sucesso ?>
             </div>
-            <?php endforeach ?>
+        <?php endforeach ?>
 
         <?php foreach ($erros as $erro) : ?>
             <div class="alert alert-danger alert-dismissible fade show">

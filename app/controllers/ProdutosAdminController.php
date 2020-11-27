@@ -212,6 +212,9 @@ class ProdutosAdminController
 
         $category = App::get('database')->selectAll('category');
         $produtos = App::get('database')->selectAll('product');
+
+        var_dump($erros);
+
         return view('/admin/produto', [
             'erros' => $erros,
             'sucessos' => $sucessos,
