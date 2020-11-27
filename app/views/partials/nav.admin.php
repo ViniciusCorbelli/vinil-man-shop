@@ -24,7 +24,7 @@
             <i class="fas fa-home"></i>
             <span class="ml-1">Home</span>
         </a>
-        <a class="cool-link mb-2" href="/admin/usuario">
+        <a class="cool-link mb-2" href="/admin/usuarios">
             <i class="fas fa-users"></i>
             <span class="ml-1">Usuários</span>
         </a>
