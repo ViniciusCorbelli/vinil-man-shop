@@ -25,7 +25,7 @@ class CategoryAdminController
             $_SESSION['erros'][] = "Você deve inserir um nome!";
         }
 
-        if (empty($erros)) {
+        if (empty($_SESSION['erros'])) {
             $parameters = ([
                 'name' => $_POST['name']
             ]);
@@ -51,7 +51,7 @@ class CategoryAdminController
             $_SESSION['erros'][] = "Você deve inserir um nome!";
         }
 
-        if (empty($erros)) {
+        if (empty($_SESSION['erros'])) {
 
             $parameters = ([
                 'name' => $_POST['name']
