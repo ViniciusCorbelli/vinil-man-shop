@@ -178,27 +178,6 @@
             </section>
             <!--\Sobre-->
         </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> CRUD-gerenciamento-categoria
-
-
-    </div>
-=======
->>>>>>> backend-home
 </main>
 
-<<<<<<< HEAD
 <?php require('app/views/partials/footer.php') ?>
-=======
-<?php require('app/views/partials/footer.php') ?>
-=======
-    </main>
-
-<?php 
-    include ('partials/footer.php');
-?>
->>>>>>> 96c864d206c260b701fd0d77c5e17fbe386ddccf
->>>>>>> CRUD-gerenciamento-categoria
