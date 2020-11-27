@@ -13,24 +13,16 @@
         <form>
 
             <div class="fundo">
-                <div class="form-group">
+                <div class="form-group" action="/contato/send-message" method="POST">
                     <label>Nome</label>
-                    <input type="text" class="digitos col-lg-6" id="name" placeholder="Insira o seu Nome"></input>
-                </div>
-                <div class="form-group">
+                    <input type="text" class="digitos col-lg-6" name="name" placeholder="Insira o seu Nome"></input>
                     <label>Email</label>
-                    <input type="email" class="digitos col-lg-6" id="email" aria-describedby="emailHelp" placeholder="Seu email"></input>
-                </div>
-                <div class="form-group">
+                    <input type="email" class="digitos col-lg-6" name="email" aria-describedby="emailHelp" placeholder="Seu email"></input>
                     <label>Assunto</label>
-                    <input type="text" class="digitos col-lg-6" id="subject" placeholder="Digite Aqui o Assunto"></input>
-                </div>
-                <div class="form-group">
+                    <input type="text" class="digitos col-lg-6" name="subject" placeholder="Digite Aqui o Assunto"></input>
                     <label>Mensagem</label>
-                    <textarea class="digitos col-lg-6" rows="5" id="text" placeholder="Digite Aqui a Mensagem"></textarea>
-
+                    <textarea class="digitos col-lg-6" rows="5" name="text" placeholder="Digite Aqui a Mensagem"></textarea>
                     <center><button type="submit" class="btn btn-primary">Enviar</button></center>
-
                 </div>
 
                 <div class="contato1 ">

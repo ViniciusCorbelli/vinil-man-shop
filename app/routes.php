@@ -20,5 +20,8 @@ $router->get('quem-somos', 'PagesController@quemsomos');
 $router->get('produtos', 'PagesController@produtos');
 $router->get('login', 'PagesController@login');
 
+/*Rota para o envio do email*/
+$router->post('/contato/send-message', 'ContatoController@sendMail');
+
 
 

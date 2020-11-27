@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Controllers;
-
-use App\Core\App;
+use app\core\App;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -15,15 +14,14 @@ class ContatoController
 
     public function sendMail()
     {
+        $mail = new PHPMailer; //Instanciando o PHPMailer
         try {
-
+            
             $destinatario = "";
             $nome = $_POST['name'];
             $email = $_POST['email'];
             $assunto = $_POST['subject'];
             $mensagem = $_POST['text'];
-
-            $mail = new PHPMailer(); //Instanciando o PHPMailer
 
             $mail->CharSet = 'UTF-8';
 
@@ -45,8 +43,8 @@ class ContatoController
             $mail->isHTML(true);
             $mail->Subject = $assunto;
             $mail->Body = $mensagem;
-
-            if(!$mail->send()) {
+            
+            if(!$mail->send()) {    
                 echo 'Não foi possível enviar a mensagem.<br>';
                 echo 'Erro: ' . $mail->ErrorInfo;
             } else {
