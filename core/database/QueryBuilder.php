@@ -23,6 +23,22 @@ class QueryBuilder
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
+    public function selectAllUsers()
+    {
+        try{
+        
+            $statement = $this->pdo->prepare("select id,name,email from users");
+
+            $statement->execute();
+
+            return $statement->fetchAll(PDO::FETCH_CLASS);
+
+        }catch(Exception $e)
+        {
+            $e->getMessage();
+        }
+    }
+
     public function insert($table, $parameters)
     {
         $sql = sprintf(
@@ -36,31 +52,7 @@ class QueryBuilder
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute($parameters);
-        } catch (Exception $e) {
-            $e->getMessage();
-        }
-    }
-
-    public function search($table,$parameters)
-    {
-        $tamanho = count(array_keys($parameters));
-
-        $sql = "select * from {$table} where ";
-        for ($i = 0; $i < ($tamanho); $i++) 
-        {   
-            $sql = $sql . (array_keys($parameters)[$i] ). '=' . "'" . (array_values($parameters)[$i]) . "'";
-            if($i < $tamanho-1)
-                $sql = $sql . ' and ';
-        }     
-
-        try {
-            $statement = $this->pdo->prepare($sql);
-
-            $statement->execute();
-
-            return $statement->fetchAll(PDO::FETCH_CLASS);
-        } catch (Exception $e) {
-            $e->getMessage();
+        } catch (\Exception $e) {
         }
     }
 
@@ -83,7 +75,7 @@ class QueryBuilder
         }
     }
 
-    public function edit($table, $field, $value, $id)
+    public function edit($table, $parameters, $id)
     {
         $last = end($parameters);
 
@@ -98,9 +90,10 @@ class QueryBuilder
         $sql = $sql . "where id = {$id}";
 
         try {
-            $statement = $this->pdo->prepare($sql);
+            $stmt = $this->pdo->prepare($sql);
 
-            $statement->execute();
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
         } catch (Exception $e) {
             $e->getMessage();
         }
@@ -116,6 +109,28 @@ class QueryBuilder
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute();
+        } catch (\Exception $e) {
+        }
+    }
+
+    public function search($table,$parameters)
+    {
+        $tamanho = count(array_keys($parameters));
+
+        $sql = "select * from {$table} where ";
+        for ($i = 0; $i < ($tamanho); $i++) 
+        {   
+            $sql = $sql . (array_keys($parameters)[$i] ). '=' . "'" . (array_values($parameters)[$i]) . "'";
+            if($i < $tamanho-1)
+                $sql = $sql . ' and ';
+        }     
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute();
+
+            return $statement->fetchAll(PDO::FETCH_CLASS);
         } catch (Exception $e) {
             $e->getMessage();
         }

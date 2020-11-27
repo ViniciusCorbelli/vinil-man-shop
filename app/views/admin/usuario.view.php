@@ -1,11 +1,35 @@
-<?php require('app/views/partials/head.admin.php') ?>
-
-
+<?php
+session_start();
+require('app/views/partials/head.admin.php') ?>
 <div id="main" class="container-fluid">
   <main>
     <h1 class="mt-4 mx-auto non-space">Listagem de Usuários</h1>
 
     <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Criar Novo Usuário</button>
+
+
+    <?php
+    if (isset($_SESSION['sucessos']))
+      foreach ($_SESSION['sucessos'] as $sucesso) : ?>
+      <div class="alert alert-success alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Sucesso!</strong> <?= $sucesso ?>
+      </div>
+    <?php endforeach ?>
+
+    <?php
+    if (isset($_SESSION['erros']))
+      foreach ($_SESSION['erros'] as $erro) : ?>
+      <div class="alert alert-danger alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Erro!</strong> <?= $erro ?>
+      </div>
+    <?php endforeach ?>
+
+    <?php
+    unset($_SESSION['sucessos']);
+    unset($_SESSION['erros']);
+    ?>
 
     <div class="card mb-4 w-auto">
       <div class="card-header">
@@ -83,7 +107,7 @@
                         <p>Esta ação é irrevessível</p>
                       </div>
                       <div class="modal-footer">
-                        <form action="/admin/usuarios/delete" method="POST">
+                        <form action="/admin/usuario/delete" method="POST">
                           <input type="hidden" name="id" value="<?= $user->id ?>">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                           <button type="submit" class="btn btn-danger">Confirmar</button>
@@ -104,7 +128,8 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                        <form action="/admin/usuarios/edit" method="POST" class="form-group">
+                        <form action="/admin/usuario/edit" method="POST" class="form-group">
+                          <input type="hidden" name="id" value="<?= $user->id; ?>">
                           <label>Nome</label>
                           <input type="text" name="name" class="form-control" value="<?= $user->name ?>"><br>
                           <label>Email</label><br>
@@ -180,13 +205,15 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="form" class="form-group"  method="POST" action="/admin/usuarios/create">
+        <form id="form" class="form-group" action="/admin/usuario/create" method="POST">
           <label>Nome</label>
           <input type="text" name="name" class="form-control" placeholder="Nome do Usuário"><br>
           <label>Email</label><br>
-          <input type="text" name="email" class="form-control" placeholder="exempo@exemplo.com"><br>
+          <input type="email" name="email" class="form-control" placeholder="exempo@exemplo.com"><br>
           <label>Password</label><br>
-          <input type="text" name="password" class="form-control" placeholder="*****">
+          <input type="password" name="password" class="form-control" placeholder="*****"><br>
+          <label>Confirme sua senha</label>
+          <input type="password" name="password-controller" class="form-control" placeholder="*****">
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             <button type="submit" class="btn btn-success" data-target="form">Criar novo Usuário</button>
@@ -196,5 +223,6 @@
     </div>
   </div>
 </div>
+
 
 <?php require('app/views/partials/footer.admin.php') ?>

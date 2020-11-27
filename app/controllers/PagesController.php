@@ -8,9 +8,10 @@ use App\Core\App;
 class PagesController
 {
 
-    public function home()
+    public function index()
     {
-        return view('/site/index');
+        $produtos = App::get('database')->selectAll('product');
+        return view('/site/index', compact('produtos'));
     }
 
     public function contato()
@@ -41,6 +42,19 @@ class PagesController
         ]);
     }
 
+    public function produto()
+    {
+        $produtosID = App::get('database')->read('product', $_GET['id']);
+        $produtos = App::get('database')->selectAll('product');
+        $categorias = App::get('database')->selectAll('category');
+
+        return view('/site/visualizar-produtos', [
+            'produtosID' => $produtosID,
+            'produtos' => $produtos,
+            'categorias' => $categorias,
+        ]);
+    }
+
     public function login()
     {
         return view('/site/login');
@@ -51,4 +65,5 @@ class PagesController
     {
         return view('admin/home');
     }
+    
 }
