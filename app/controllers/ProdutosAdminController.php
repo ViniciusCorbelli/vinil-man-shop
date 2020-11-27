@@ -188,9 +188,6 @@ class ProdutosAdminController
             unlink($destino);
         }
 
-        $category = App::get('database')->selectAll('category');
-        $produtos = App::get('database')->selectAll('product');
-
         header('Location: /admin/produto');
     }
 }
