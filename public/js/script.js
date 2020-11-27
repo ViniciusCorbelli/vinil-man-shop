@@ -9,17 +9,17 @@ var secondLine = document.getElementById('second-line'); //Elemento para esconde
 /* === Funções ==== */
 
 function toggleButton() {
-    
+
     /* === Primeiro verificamos o tamanho da tela ===*/
-    if(window.matchMedia("(min-width: 1000px)").matches){
+    if (window.matchMedia("(min-width: 1000px)").matches) {
         //A sidebar estará aberta
 
-        if(toggled == true){
+        if (toggled == true) {
             toggled = false;
             btn.style.width = "0";
             navbar.style.marginLeft = "0";
             main.style.marginLeft = "0";
-        } else if(toggled == false){
+        } else if (toggled == false) {
             toggled = true;
             btn.style.width = "250px";
             btn.style.maxWidth = "250px";
@@ -27,10 +27,10 @@ function toggleButton() {
             main.style.marginLeft = "250px";
         }
 
-    } else if(window.matchMedia("(min-width: 415px)").matches) { //Ipad, Ipad X
+    } else if (window.matchMedia("(min-width: 415px)").matches) { //Ipad, Ipad X
         // A sidebar inicialmente está fechada
 
-        if(toggled == false){
+        if (toggled == false) {
             toggled = true;
             btn.style.width = "250px";
             btn.style.maxWidth = "250px";
@@ -41,7 +41,7 @@ function toggleButton() {
                 singOut.style.display = 'none';
                 secondLine.style.display = 'none';
             }
-        } else if(toggled == true){
+        } else if (toggled == true) {
             toggled = false;
             btn.style.width = "0";
             navbar.style.marginLeft = "0";
@@ -49,9 +49,9 @@ function toggleButton() {
             singOut.style.display = 'block';
             secondLine.style.display = 'flex';
         }
-    } else if(window.matchMedia("(max-width: 414px)").matches){
+    } else if (window.matchMedia("(max-width: 414px)").matches) {
         /*A partir daqui a sidebar deverá cobrir toda a tela ao ser aberta */
-        if(toggled == true){
+        if (toggled == true) {
             toggled = false;
             btn.style.width = "100%";
             btn.style.maxWidth = "736px";
@@ -62,9 +62,9 @@ function toggleButton() {
 };
 
 /*
-* Função para fechar a sidenav em dispositivos menores que 414px
-*/
-function closeBtn(){
+ * Função para fechar a sidenav em dispositivos menores que 414px
+ */
+function closeBtn() {
     toggled = true;
     btn.style.width = "0";
     navbar.style.marginLeft = "0";

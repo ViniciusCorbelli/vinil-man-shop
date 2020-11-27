@@ -46,4 +46,34 @@
                 </ul>
             </div>
         </div>
-    </nav>
+        <!-- NAV -->
+        <div>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link item-navbar" href="/">Home<span class="sr-only">(página atual)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link item-navbar" href="quem-somos">Quem Somos</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle item-navbar" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Produtos
+                    </a>
+                    <div class="dropdown-menu menu-suspenso" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="produtos">Ofertas</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="produtos">Lançamentos</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="produtos">Mais comprados</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link item-navbar" href="contato">Contato</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link item-navbar" href="login"><i class="fas fa-users-cog"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Controllers;
+
 use app\core\App;
 
-class UserController{
+class UserController
+{
 
     public function index()
     {
@@ -22,8 +24,13 @@ class UserController{
             'password' => $hash
         ]);
 
-        App::get('database')->insert('users',$parameters);
+        $dados = ([
+            'name' => $_POST['name'],
+            'email' => $_POST['email'],
+            'password' => $hash
+        ]);
 
+        App::get('database')->insert('users', $dados);
         header('Location: /admin/usuarios');
     }
 
@@ -35,7 +42,4 @@ class UserController{
 
         header('Location: /admin/usuarios');
     }
-
 }
-
-?>

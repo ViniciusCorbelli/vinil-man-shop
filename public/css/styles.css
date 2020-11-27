@@ -42,18 +42,6 @@ body {
     background-color: #e7e7e7;
 }
 
-/*==== ESTILIZAÇÃO DO PHP ====*/
-.nome-php{
-    font-size: 25px;
-}
-
-.email-php{
-    font-size: 18px;
-    text-overflow: ellipsis!important;
-    white-space: nowrap;
-}
-
-
 
 /*==== SIDENAVBAR ====*/
 
@@ -198,13 +186,6 @@ body {
     margin-top: 20px;
 }
 
-<<<<<<< HEAD
-.alerta-admin {
-    background-color: brown;
-}
-
-=======
->>>>>>> CRUD-gerenciamento-categoria
 
 /*==== AJUSTES FUNÇOES DA TABELA ====*/
 
@@ -299,38 +280,17 @@ html {
 
 .index-destaques {
     margin-bottom: 30px;
-<<<<<<< HEAD
-    animation-name: efeito-subir;
-    animation-duration: 2s;
-=======
->>>>>>> CRUD-gerenciamento-categoria
 }
 
 .index-destaques h2 {
     color: #1496d2;
     font-family: 'Miniver', cursive;
     font-size: 36px;
-<<<<<<< HEAD
-}
-
-.index-promo {
-=======
     margin-left: 120px;
->>>>>>> CRUD-gerenciamento-categoria
     animation-name: efeito-subir;
     animation-duration: 2s;
 }
 
-<<<<<<< HEAD
-.index-promo h2 {
-    margin-top: 30px;
-    color: #1496d2;
-    font-family: 'Miniver', cursive;
-    font-size: 36px;
-}
-
-=======
->>>>>>> CRUD-gerenciamento-categoria
 .container {
     margin-top: 50px;
 }
@@ -1297,6 +1257,17 @@ i:hover {
     width: 100%;
     min-height: 300px;
     max-height: 300px;
+}
+
+.produtos-cards p {
+    display: -webkit-box;
+    max-width: 400px;
+    height: 109.2px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.625;
 }
 
 .produtos-paginas a {

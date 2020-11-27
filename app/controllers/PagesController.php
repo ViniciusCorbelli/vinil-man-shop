@@ -6,9 +6,11 @@ use App\Core\App;
 
 class PagesController
 {
-    public function home()
+
+    public function index()
     {
-        return view('/site/index');
+        $produtos = App::get('database')->selectAll('product');
+        return view('/site/index', compact('produtos'));
     }
 
     public function contato()
