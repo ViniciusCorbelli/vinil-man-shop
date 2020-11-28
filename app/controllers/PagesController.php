@@ -11,30 +11,42 @@ class PagesController
     public function index()
     {
         $produtos = App::get('database')->selectAll('product');
-        return view('/site/index', compact('produtos'));
+
+        
+        $titulo = 'Ínicio';
+        return view('/site/index', [
+            'titulo' => $titulo,
+            'produtos' => $produtos,
+        ]);
     }
 
     public function contato()
     {
-        return view('/site/contato');
+        $titulo = 'Contato';
+        return view('/site/contato', [
+            'titulo' => $titulo,
+        ]);
     }
 
     public function quemsomos()
     {
-        return view('/site/quem-somos');
+        $titulo = 'Quem somos';
+        return view('/site/quem-somos', [
+            'titulo' => $titulo,
+        ]);
     }
 
     public function produtos()
     {
         $categorias = App::get('database')->selectAll('category'); //Pega todas as categorias disponíveis
-        
+
         $totalDeColunas = App::get('database')->getTotalRows('product'); //Pega o número de linhas
         $linhasPorPaginas = 9; //Exibir o número máximo entra na próxima sprint de paginação
-        
+
         $produtos = App::get('database')->selectAll('product');
 
-        $titulo = 'produtos';
-        return view('/site/produtos',[
+        $titulo = 'Produtos';
+        return view('/site/produtos', [
             'categorias' => $categorias,
             'produtos' => $produtos,
             'titulo' => $titulo,
@@ -48,7 +60,9 @@ class PagesController
         $produtos = App::get('database')->selectAll('product');
         $categorias = App::get('database')->selectAll('category');
 
+        $titulo = 'Produto';
         return view('/site/visualizar-produtos', [
+            'titulo' => $titulo,
             'produtosID' => $produtosID,
             'produtos' => $produtos,
             'categorias' => $categorias,
@@ -65,5 +79,4 @@ class PagesController
     {
         return view('admin/home');
     }
-    
 }

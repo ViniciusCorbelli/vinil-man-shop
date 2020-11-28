@@ -137,7 +137,7 @@ class ProdutosAdminController
                     ]);
 
                     try {
-                        App::get('database')->insert('product', $dados);
+                        App::get('database')->edit('product', $dados, $_POST['item_id']);
                         $_SESSION['sucessos'][] = "Produto editado com sucesso!";
                     } catch (Exception $e) {
                         $_SESSION['erros'][] = "Algo inesperado ocorreu!";
@@ -159,7 +159,7 @@ class ProdutosAdminController
                 ]);
 
                 try {
-                    App::get('database')->insert('product', $dados);
+                    App::get('database')->edit('product', $dados, $_POST['item_id']);
                     $_SESSION['sucessos'][] = "Produto editado com sucesso!";
                 } catch (Exception $e) {
                     $_SESSION['erros'][] = "Algo inesperado ocorreu!";

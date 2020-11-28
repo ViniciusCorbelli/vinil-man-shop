@@ -106,12 +106,12 @@ require('app/views/partials/head.php');
 
                     <?php foreach ($produtos as $produto): ?>
                     <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                        <a href="produtos?id=<?= $produto->id ?>">
+                        <a href="produto?id=<?= $produto->id ?>">
                             <div class="card h-100">
                                 <img class="card-img-top card-img" src="<?= $produto->image; ?>" alt="Vinil">
                                 <div class="card-body">
                                     <h4 class="card-title produtos-cards-titulo">
-                                        <a class="produtos-cards-titulo" href="produtos?id=<?= $produto->id ?>"><?= $produto->name ?></a>
+                                        <a class="produtos-cards-titulo" href="produto?id=<?= $produto->id ?>"><?= $produto->name ?></a>
                                     </h4>
                                     <h5>R$ <?= $produto->price ?></h5>
                                     <p class="card-text"><?= $produto->description ?></p>

@@ -1,4 +1,7 @@
-<?php require('app/views/partials/head.php') ?>
+<?php
+$nomePage = $titulo;
+require('app/views/partials/head.php');
+?>
 
 <?php foreach ($produtosID as $produtoID) : ?>
     <?php
@@ -57,7 +60,7 @@
                 $i = 0;
                 foreach ($produtos as $produto) : ?>
                     <?php if ($i <= 3) : ?>
-                        <div class="col-sm-3 visualizar-produto-cards">
+                        <div class="col-xs-3 col-sm-3 col-md-3 produtos-cards produto-listagem-margin">
                             <a href="/produto?id=<?= $produto->id ?>">
                                 <div class="card h-100 ">
                                     <img class="card-img-top card-img " src="<?= $produto->image; ?>" alt="Vinil ">
@@ -66,6 +69,7 @@
                                             <a class="visualizar-produto-cards-titulo " href="/produto?id=<?= $produto->id ?>"><?= $produto->name; ?></a>
                                         </h4>
                                         <h5>R$ <?= $produto->price; ?></h5>
+                                        <p class="card-text"><?= $produto->description; ?></p>
                                     </div>
                                     <div class="card-footer ">
                                         <small class="text-muted "><?= $produto->stock ?> unid. disponível</small>

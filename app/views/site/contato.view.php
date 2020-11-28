@@ -1,4 +1,7 @@
-<?php require('app/views/partials/head.php') ?>
+<?php
+$nomePage = $titulo;
+require('app/views/partials/head.php');
+?>
 
 <div class="quem-somos-cabecalho">
     <img src="/public/img/background.jpg">

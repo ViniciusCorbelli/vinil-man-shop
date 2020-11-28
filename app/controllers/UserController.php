@@ -32,7 +32,7 @@ class UserController{
 
         App::get('database')->insert('users',$parameters);
 
-        header('Location: /admin/usuario');
+        header('Location: /admin/usuarios');
         }
     }
 
@@ -45,7 +45,7 @@ class UserController{
 
         App::get('database')->edit('users', $parameters, $_POST['id']);
 
-        header('Location: /admin/usuario');
+        header('Location: /admin/usuarios');
     }
 
     public function delete()
@@ -55,7 +55,7 @@ class UserController{
         try{
             App::get('database')->delete('users', $id);
 
-            header('Location: /admin/usuario');
+            header('Location: /admin/usuarios');
         }catch(Exception $e)
         {
             $e->getMessage();
