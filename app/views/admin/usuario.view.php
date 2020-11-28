@@ -1,60 +1,60 @@
-<?php
-session_start();
+<?php session_start();
 require('app/views/partials/head.admin.php') ?>
+
 <div id="main" class="container-fluid">
-  <main>
-    <h1 class="mt-4 mx-auto non-space">Listagem de Usuários</h1>
+    <main>
+        <h1 class="mt-4 mx-auto non-space">Listagem de Usúarios</h1>
 
-    <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Adicionar Novo Usuário</button>
+        <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Adicionar Novo Usúario</button>
 
-
-    <?php
-    if (isset($_SESSION['sucessos']))
-      foreach ($_SESSION['sucessos'] as $sucesso) : ?>
-      <div class="alert alert-success alert-dismissible fade show">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Sucesso!</strong> <?= $sucesso ?>
-      </div>
-    <?php endforeach ?>
-
-    <?php
-    if (isset($_SESSION['erros']))
-      foreach ($_SESSION['erros'] as $erro) : ?>
-      <div class="alert alert-danger alert-dismissible fade show">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Erro!</strong> <?= $erro ?>
-      </div>
-    <?php endforeach ?>
-
-    <?php
-    unset($_SESSION['sucessos']);
-    unset($_SESSION['erros']);
-    ?>
-
-    <div class="card mb-4 w-auto">
-      <div class="card-header">
-        <div class="row mb-1">
-          <div class="col-sm-12">
-            <h4 class="ml-2 non-space">Categorias</h4>
-          </div>
-        </div>
-        <div id="second-line" class="row">
-          <div class="col-sm-4">
-            <form class="form-inline">
-              <label style="font-size: larger;" for="">Exibir</label>
-              <select class="ml-2 custom-select custom-select">
-                <option selected>Seven</option>
-              </select>
-            </form>
-          </div>
-          <div class="col-sm-8">
-            <div class="form-inline">
-              <label style="font-size: larger;" for="">Seach</label>
-              <input type="text" class="ml-3 mt-1 mb-1 form-control form-control w-75">
+        <?php
+        if (isset($_SESSION['sucessos']))
+            foreach ($_SESSION['sucessos'] as $sucesso) : ?>
+            <div class="alert alert-success alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Sucesso!</strong> <?= $sucesso ?>
             </div>
-          </div>
-        </div>
-      </div>
+        <?php endforeach ?>
+
+        <?php
+        if (isset($_SESSION['erros']))
+            foreach ($_SESSION['erros'] as $erro) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Erro!</strong> <?= $erro ?>
+            </div>
+        <?php endforeach ?>
+
+        <?php
+        unset($_SESSION['sucessos']);
+        unset($_SESSION['erros']);
+        ?>
+
+
+        <div class="card mb-4 w-auto">
+            <div class="card-header">
+                <div class="row mb-1">
+                    <div class="col-sm-12">
+                        <h4 class="ml-2 non-space">Usúarios</h4>
+                    </div>
+                </div>
+                <div id="second-line" class="row">
+                    <div class="col-sm-4">
+                        <form class="form-inline">
+                            <label style="font-size: larger;" for="">Exibir
+                                <select class="ml-2 custom-select">
+                                    <option selected>Seven</option>
+                                </select>
+                        </form>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="form-inline">
+                            <label style="font-size: larger;" for="">Pesquisar
+                                <input type="text" class="ml-3 mt-1 mb-1 form-control form-control w-75">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
       <div class="card-body non-space">
         <div class="table-responsive">
