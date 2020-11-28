@@ -24,7 +24,7 @@
                     <label>Mensagem</label>
                     <textarea id="editor" name="body"></textarea>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="copiaEmail" id="enviarCopia">
+                        <input class="form-check-input" type="checkbox" name="copiaEmail" value="on" id="enviarCopia">
                         <label class="form-check-label" for="enviarCopia">Envie-me uma cópia</label>
                     </div>
 

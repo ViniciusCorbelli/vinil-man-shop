@@ -16,11 +16,14 @@ class ContatoController
     {
         try {
             
+            $_POST['copiaEmail'] = ( isset($_POST['copiaEmail']) ) ? true : null;
+
             $destinatario = "vinilmanshop@gmail.com";
             $nome = $_POST['name'];
             $email = $_POST['email'];
             $assunto = $_POST['subject'];
             $mensagem = $_POST['body'];
+            $copiaEmail = $_POST['copiaEmail'];
             
             $mail = new PHPMailer(); //Instanciando o PHPMailer
 
@@ -44,6 +47,8 @@ class ContatoController
             $mail->isHTML(true);
             $mail->Subject = $assunto;
             $mail->Body = $mensagem;
+
+            $mailCC = $mail; // Possivel Cópia para o email
             
             if(!$mail->send()) {    
                 echo 'Não foi possível enviar a mensagem.<br>';
@@ -51,6 +56,21 @@ class ContatoController
                 return redirect('contato');
             } else {
                 echo 'Mensagem enviada.';
+
+                if($copiaEmail)
+                {
+                    $mailCC->setFrom('vinilmanshop@gmail.com','Vinilman Shop');
+                    $mailCC->addReplyTo('vinilmanshop@gmail.com','Vinilman Shop');
+
+                    $mailCC->addAddress($email,$nome);
+
+                    $mailCC->Subject = "Cópia de - {$assunto}";
+                    $mailCC->Body = $mensagem;
+
+                    $mailCC->isHTML(true);
+                    $mailCC->send();
+                }
+
                 return redirect('contato');
             }
 
