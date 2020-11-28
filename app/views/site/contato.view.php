@@ -23,6 +23,11 @@
                     <input type="text" class="digitos col-lg form-control" name="subject" placeholder="Digite Aqui o Assunto"></input>
                     <label>Mensagem</label>
                     <textarea id="editor" name="body"></textarea>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="copiaEmail" id="enviarCopia">
+                        <label class="form-check-label" for="enviarCopia">Envie-me uma cópia</label>
+                    </div>
+
                     <center><button type="submit" class="btn btn-primary">Enviar</button></center>
                 </form>
 
