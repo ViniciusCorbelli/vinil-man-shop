@@ -1,6 +1,9 @@
 <?php
 
 /*Administrativas */
+
+use App\Controllers\PagesController;
+
 $router->get('admin','PagesController@administrativo'); //Home do Administrativo
 $router->get('admin/usuarios','UserController@index'); //Home de Controle de usuários
 $router->get('admin/produto', 'ProdutosAdminController@index'); //Home de Controle de Produtos
@@ -23,10 +26,13 @@ $router->get('contato', 'PagesController@contato');
 $router->get('quem-somos', 'PagesController@quemsomos');
 $router->get('produtos', 'PagesController@produtos');
 $router->get('login', 'PagesController@login');
-
+$router->get('produto', 'PagesController@produto');
 /*Rota para o envio do email*/
 $router->post('contato/send-message', 'ContatoController@sendMail');
 
+/*Rota para o Login */
+$router->get('login', 'PagesController@login');
+$router->get('logout', 'PagesController@');
+$router->post('login-alert', 'PagesController@');
+$router->post('login-acess', 'PagesController@makeLogin');
 
-
-$router->get('produto', 'PagesController@produto');

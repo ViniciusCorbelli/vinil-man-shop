@@ -16,6 +16,14 @@
 
 <body class="paginas-site">
 
+    <?php
+    if (isset($_SESSION['erros']))
+        foreach ($_SESSION['erros'] as $erro) : ?>
+        <div class="alert alert-danger alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Erro!</strong> <?= $erro ?>
+        </div>
+    <?php endforeach ?>
 
     <div class="content">
         <div class="row">
@@ -27,11 +35,11 @@
                 </div>
             </div>
             <div class="col-sm">
-                <form class="form">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email">
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
-                    <button type="button" class="btn btn-primary">Continuar</button>
-                    <a href="">esqueceu sua senha?</a>
+                <form class="form" method="POST" action="/login-acess">
+                    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Seu email">
+                    <input type="password" class="form-control" name="password" placeholder="Senha">
+                    <button type="submit" class="btn btn-primary">Continuar</button>
+                    <a href="#">esqueceu sua senha?</a>
                 </form>
             </div>
         </div>
