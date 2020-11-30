@@ -24,16 +24,16 @@ require('app/views/partials/head.php');
                             <a class="btn btn-secondary dropdown-toggle produtos-relevantes-background" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Estilo</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <?php foreach ($categorias as $categoria) : ?>
-                                    <a class="dropdown-item" href="/produtos?category=<?= $categoria->name ?>"><?= $categoria->name ?></a>
+                                    <a class="dropdown-item" href="/produtos?Categoria=<?= $categoria->name ?>"><?= $categoria->name ?></a>
                                 <?php endforeach ?>
                             </div>
                         </div>
                     </div>
                     <div class="produto-config-computador">
-                        <h1><?=$pesquisa?></h1>
-                        <h2><?=$quantidade?> resultados</h2>
+                        <h1><?= $pesquisa ?></h1>
+                        <h2><?= $quantidade ?> resultados</h2>
                         <h6>Estilos</h6>
-                        <?php foreach ($categorias as $categoria) : ?> <a class="dropdown-item" href="/produtos?category=<?= $categoria->name ?>"><?= $categoria->name ?></a>
+                        <?php foreach ($categorias as $categoria) : ?> <a class="dropdown-item" href="/produtos?Categoria=<?= $categoria->name ?>"><?= $categoria->name ?></a>
                         <?php endforeach ?>
                     </div>
                 </div>

@@ -70,6 +70,22 @@ class QueryBuilder
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
+    public function pesquisaCategoria($table, $parameters)
+    {
+        $sql = "select * from {$table} where ";
+        $categorias = App::get('database')->selectAll('category');
+        foreach ($categorias as $categoria) {
+            if ($categoria->name == $parameters) {
+                $sql = $sql . " id_category LIKE '%" . $categoria->id . "%'";
+            }
+        }
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
+    }
+
 
     public function insert($table, $parameters)
     {

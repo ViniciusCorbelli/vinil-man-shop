@@ -48,7 +48,9 @@ class PagesController
         if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
             $pesquisa = $_GET['Pesquisa'];
             $produtos = App::get('database')->pesquisa('product', $pesquisa);
-            $pesquisa = $_GET['Pesquisa'];
+        } else if (isset($_GET['Categoria']) && !empty($_GET['Categoria'])) {
+            $pesquisa = $_GET['Categoria'];
+            $produtos = App::get('database')->pesquisaCategoria('product', $pesquisa);
         } else {
             $pesquisa = 'Todos';
             $produtos = App::get('database')->selectAll('product');
