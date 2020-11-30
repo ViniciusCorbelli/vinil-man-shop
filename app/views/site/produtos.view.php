@@ -30,7 +30,9 @@ require('app/views/partials/head.php');
                         </div>
                     </div>
                     <div class="produto-config-computador">
+                        <h3>Pesquisa por: </h3>
                         <h1><?= $pesquisa ?></h1>
+                        <h3>Resultados: </h3>
                         <h2><?= $quantidade ?> resultados</h2>
                         <h6>Estilos</h6>
                         <?php foreach ($categorias as $categoria) : ?> <a class="dropdown-item" href="/produtos?Categoria=<?= $categoria->name ?>"><?= $categoria->name ?></a>

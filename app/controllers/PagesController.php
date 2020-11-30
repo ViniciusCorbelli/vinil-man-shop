@@ -52,11 +52,11 @@ class PagesController
             $pesquisa = $_GET['Categoria'];
             $produtos = App::get('database')->pesquisaCategoria('product', $pesquisa);
         } else {
-            $pesquisa = 'Todos';
+            $pesquisa = 'Nenhum';
             $produtos = App::get('database')->selectAll('product');
         }
 
-        $quantidade = '10';
+        $quantidade = count($produtos);
 
         return view('/site/produtos', [
             'pesquisa' => $pesquisa,
