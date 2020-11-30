@@ -35,7 +35,14 @@ require('app/views/partials/head.php');
                         <h3>Resultados: </h3>
                         <h2><?= $quantidade ?> resultados</h2>
                         <h6>Estilos</h6>
-                        <?php foreach ($categorias as $categoria) : ?> <a class="dropdown-item" href="/produtos?Categoria=<?= $categoria->name ?>"><?= $categoria->name ?></a>
+                        <?php foreach ($categorias as $categoria) : ?>
+                            
+                            <?php if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) : ?>
+                                <a class="dropdown-item" href="/produtos?Pesquisa=<?=str_replace(" ", "+", $_GET['Pesquisa'])?>&Categoria=<?= $categoria->name ?>"><?= $categoria->name ?></a>
+                            <?php else : ?>
+                                <a class="dropdown-item" href="/produtos?Categoria=<?= $categoria->name ?>"><?= $categoria->name ?></a>
+                            <?php endif; ?>
+                            
                         <?php endforeach ?>
                     </div>
                 </div>

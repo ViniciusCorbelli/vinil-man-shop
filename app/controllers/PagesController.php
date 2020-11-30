@@ -45,7 +45,16 @@ class PagesController
         $totalDeColunas = App::get('database')->getTotalRows('product'); //Pega o número de linhas
         $linhasPorPaginas = 9; //Exibir o número máximo entra na próxima sprint de paginação
 
-        if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
+        if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa']) && isset($_GET['Categoria']) && !empty($_GET['Categoria'])) {
+            $pesquisa = $_GET['Pesquisa'];
+            $category = $_GET['Categoria'];
+
+            $pesquisas = App::get('database')->pesquisa('product', $pesquisa);
+            $category = App::get('database')->pesquisaCategoria('product', $category);
+
+            $produtos = array_merge($pesquisas, $category);
+
+        } else if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
             $pesquisa = $_GET['Pesquisa'];
             $produtos = App::get('database')->pesquisa('product', $pesquisa);
         } else if (isset($_GET['Categoria']) && !empty($_GET['Categoria'])) {
