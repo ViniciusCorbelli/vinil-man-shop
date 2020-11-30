@@ -10,11 +10,11 @@
     <div class="collapse navbar-collapse barra-navegacao" id="conteudoNavbarSuportado">
         <!-- Barra de pesquisa -->
         <div class="mr-auto barra-pesquisa">
-            <form class="form-group form-navbar">
+            <form action="/produtos" method="GET" class="form-group form-navbar">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Pesquisar">
+                    <input type="text" name="Pesquisa" class="form-control" placeholder="Pesquisar">
                     <div class="input-group-append">
-                        <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
+                        <button type="submit" class="btn btn-secondary"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
             </form>

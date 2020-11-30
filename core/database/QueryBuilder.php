@@ -4,6 +4,7 @@ namespace App\Core\Database;
 
 use PDO;
 use Exception;
+use App\Core\App;
 
 class QueryBuilder
 {
@@ -25,19 +26,40 @@ class QueryBuilder
 
     public function selectAllUsers()
     {
-        try{
-        
+        try {
+
             $statement = $this->pdo->prepare("select id,name,email from users");
 
             $statement->execute();
 
             return $statement->fetchAll(PDO::FETCH_CLASS);
-
-        }catch(Exception $e)
-        {
+        } catch (Exception $e) {
             $e->getMessage();
         }
     }
+
+    public function pesquisa($table, $parameters)
+    {
+        $sql = "select * from {$table} where " ;
+        $categorias = App::get('database')->selectAll('category');
+        foreach ($categorias as $categoria) {
+            if ($categoria->name == $parameters) {
+                $sql = $sql . " id_category LIKE '%" . $categoria->id . "%'";
+            }
+        }
+
+        if ($sql == "select * from {$table} where ") {
+            $sql = $sql . " name LIKE '%" . $parameters . "%'";
+        } else {
+            $sql = $sql . " or name LIKE '%" . $parameters . "%'";
+        }
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
+    }
+
 
     public function insert($table, $parameters)
     {
@@ -113,17 +135,16 @@ class QueryBuilder
         }
     }
 
-    public function search($table,$parameters)
+    public function search($table, $parameters)
     {
         $tamanho = count(array_keys($parameters));
 
         $sql = "select * from {$table} where ";
-        for ($i = 0; $i < ($tamanho); $i++) 
-        {   
-            $sql = $sql . (array_keys($parameters)[$i] ). '=' . "'" . (array_values($parameters)[$i]) . "'";
-            if($i < $tamanho-1)
+        for ($i = 0; $i < ($tamanho); $i++) {
+            $sql = $sql . (array_keys($parameters)[$i]) . '=' . "'" . (array_values($parameters)[$i]) . "'";
+            if ($i < $tamanho - 1)
                 $sql = $sql . ' and ';
-        }     
+        }
 
         try {
             $statement = $this->pdo->prepare($sql);
@@ -143,15 +164,14 @@ class QueryBuilder
     {
         $sql = "SELECT COUNT(*) FROM {$table}";
 
-        try{
+        try {
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute();
 
             $cont = $statement->fetch();
             return $cont;
-        }catch(Exception $e)
-        {
+        } catch (Exception $e) {
             $e->getMessage();
         }
     }
