@@ -1,5 +1,4 @@
-<?php session_start();
-require('app/views/partials/head.admin.php') ?>
+<?php require('app/views/partials/head.admin.php') ?>
 
 <div id="main" class="container-fluid">
   <main>

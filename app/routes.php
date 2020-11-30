@@ -32,7 +32,7 @@ $router->post('contato/send-message', 'ContatoController@sendMail');
 
 /*Rota para o Login */
 $router->get('login', 'PagesController@login');
-$router->get('logout', 'PagesController@');
-$router->post('login-alert', 'PagesController@');
+$router->post('logout', 'LoginController@makeLogout');
+$router->get('login-alert', 'PagesController@loginAlert');
 $router->post('login-acess', 'PagesController@makeLogin');
 

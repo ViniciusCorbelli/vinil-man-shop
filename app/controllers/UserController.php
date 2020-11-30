@@ -5,11 +5,14 @@ namespace App\Controllers;
 use app\core\App;
 use Exception;
 
-class UserController
+class UserController extends LoginController
 {
 
     public function index()
     {
+        session_start();
+        $this->verifyLogged();
+
         $users = App::get('database')->selectAllUsers();
 
         return view('admin/usuario',[
