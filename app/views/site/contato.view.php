@@ -1,13 +1,11 @@
 <?php require('app/views/partials/head.php') ?>
 
-<body>
-
-    <div class="quem-somos-cabecalho">
-        <img src="/public/img/background.jpg">
-        <div class="quem-somos-titulo">
-            <h1>Entre em contato preenchendo o formulário abaixo</h1>
-        </div>
+<div class="quem-somos-cabecalho">
+    <img src="/public/img/background.jpg">
+    <div class="quem-somos-titulo">
+        <h1>Entre em contato preenchendo o formulário abaixo</h1>
     </div>
+</div>
 
     <div class="contato">
 

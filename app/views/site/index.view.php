@@ -1,117 +1,175 @@
 <?php require('app/views/partials/head.php') ?>
 <!--Page Content-->
 <main class="view-home">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <!--Carousel Wrapper-->
+    <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-1z" data-slide-to="1"></li>
         </ol>
-        <div class="carousel-inner">
+        <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="/public/img/carrousel_1.jpg" alt="Carrousel">
+                <img class="d-block w-100" src="/public/img/carrousel_1.jpg" alt="Slide de anuncio">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/public/img/carrousel_2.jpg" alt="Slide de anuncio">
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    </div>
+    <!--/.Carousel Wrapper-->
+
+    <div class="index-destaques">
+        <hr width=“2” size=“100”>
+        <h2>Produtos em destaques</h2>
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+
+            <div class="container carousel-inner no-padding index-destaques">
+                <div class="carousel-item active">
+
+                    <?php
+                    $i = 0;
+                    foreach ($produtos as $produto) :
+                    ?>
+                        <?php if ($i <= 3) : ?>
+                            <div class="col-xs-3 col-sm-3 col-md-3 produtos-cards produto-listagem-margin">
+                                <a href="/produto?id=<?= $produto->id; ?>">
+                                    <div class="card h-100">
+                                        <img class="card-img-top card-img" src="<?= $produto->image; ?>" alt="Vinil">
+                                        <div class="card-body">
+                                            <h4 class="card-title produtos-cards-titulo">
+                                                <a href="/produto?id=<?= $produto->id; ?>"><?= $produto->name; ?></a>
+                                            </h4>
+                                            <h5>R$ <?= $produto->price; ?></h5>
+                                            <p class="card-text"><?= $produto->description; ?></p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <small class="text-muted"><?= $produto->stock; ?> unid. disponível</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if ($i == 3) : ?>
+                </div>
+                <div class="carousel-item">
+                <?php endif; ?>
+
+                <?php if ($i > 3 && $i <= 7) : ?>
+                    <div class="col-xs-3 col-sm-3 col-md-3 produtos-cards produto-listagem-margin">
+                        <a href="/produto?id=<?= $produto->id; ?>">
+                            <div class="card h-100">
+                                <img class="card-img-top" src="<?= $produto->image; ?>" alt="Vinil">
+                                <div class="card-body">
+                                    <h4 class="card-title produtos-cards-titulo">
+                                        <a href="/produto?id=<?= $produto->id; ?>"><?= $produto->name; ?></a>
+                                    </h4>
+                                    <h5>R$ <?= $produto->price; ?></h5>
+                                    <p class="card-text"><?= $produto->description; ?></p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted"><?= $produto->stock; ?> unid. disponível</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($i == 7) : ?>
+                </div>
+                <div class="carousel-item">
+                <?php endif; ?>
+
+                <?php if ($i > 7 && $i <= 11) : ?>
+                    <div class="col-xs-3 col-sm-3 col-md-3 produtos-cards produto-listagem-margin">
+                        <a href="/produto?id=<?= $produto->id; ?>">
+                            <div class="card h-100">
+                                <img class="card-img-top card-img" src="<?= $produto->image; ?>" alt="Vinil">
+                                <div class="card-body">
+                                    <h4 class="card-title produtos-cards-titulo">
+                                        <a href="/produto?id=<?= $produto->id; ?>"><?= $produto->name; ?></a>
+                                    </h4>
+                                    <h5>R$ <?= $produto->price; ?></h5>
+                                    <p class="card-text"><?= $produto->description; ?></p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted"><?= $produto->stock; ?> unid. disponível</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($i == 11) : ?>
+                </div>
+            <?php endif; ?>
+
+
+            <?php $i++ ?>
+        <?php endforeach; ?>
+            </div>
+
+        <a class="carousel-control-prev" href="#demo" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Anterior</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#demo" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Próximo</span>
+            <span class="sr-only">Proximo</span>
         </a>
-    </div>
-
-    <div class="container">
-        <!--Slogan-->
-        <section id="slogan" class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <section>
-                    <h3>Sintonize na vinil man.</h3>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </section>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <div id="animation">
-                    <div class="vitrola-base"></div>
-                    <div class="disco">
-                        <div class="agulha"></div>
-                    </div>
-                    <div class="furo"></div>
-                </div>
-            </div>
-        </section>
-        <!--\Slogan-->
+        </div>
 
-        <!--Sobre-->
-        <section id="sobre" class="mt-5 mb-5">
-            <div class="row">
+
+        <div class="container">
+            <!--Slogan-->
+            <section id="slogan" class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                    <div id="viniman" class="d-flex justify-content-center">
-                        <img src="/public/img/vini-profile.jpg" alt="Foto de Viniman">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
                     <section>
-                        <h4>Quem é Viniman?</h4>
+                        <h3>SINTONIZE NA VINIL MAN</h3>
                         <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </section>
                 </div>
-            </div>
-        </section>
-        <!--\Sobre-->
-
-        <div class="index-destaques">
-            <hr width=“2” size=“100”>
-            <h2>Produtos em destaques</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4 produtos-cards produto-listagem-margin">
-                    <a href="#">
-                        <div class="card h-100">
-                            <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                            <div class="card-body">
-                                <h4 class="card-title produtos-cards-titulo">
-                                    <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                                </h4>
-                                <h5>R$ 230,00</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">5 unid. disponível</small>
-                            </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div id="animation">
+                        <div class="vitrola-base"></div>
+                        <div class="disco">
+                            <div class="agulha"></div>
                         </div>
-                    </a>
+                        <div class="furo"></div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </section>
+            <!--\Slogan-->
 
-        <div class="index-promo">
-            <hr width=“2” size=“100”>
-            <h2>Promoções</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4 produtos-cards produto-listagem-margin">
-                    <a href="#">
-                        <div class="card h-100">
-                            <img class="card-img-top card-img" src="http://placehold.it/750x450" alt="Vinil">
-                            <div class="card-body">
-                                <h4 class="card-title produtos-cards-titulo">
-                                    <a class="produtos-cards-titulo" href="#">Nome do vinil</a>
-                                </h4>
-                                <h5>R$ 230,00</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">5 unid. disponível</small>
-                            </div>
+            <!--Sobre-->
+            <section id="sobre" class="mt-5 mb-5">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div id="viniman" class="d-flex justify-content-center">
+                            <img src="/public/img/vini-profile.jpg" alt="Foto de Viniman">
                         </div>
-                    </a>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                        <section>
+                            <h4>CONHEÇA A VINIL MAN SHOP</h4>
+                            <p>Somos uma empresa de vendas de vinil que tem como objetivo democratizar o comércio oferecendo a melhor plataforma e os serviços necessários para que pessoas e empresas possam comprar com a qualidade Vinil Man Shop.
+                            </p>
+                            <p>Nascemos em 2020, no Brasil, e atualmente fazemos entrega para os quatro cantos do Brasil. Nosso marketplace - vinilmanshop.com.br - foi desenolvido por Trainee do processo seletivo da empresa júnior da Faculdade Federal de Juiz de
+                                Fora, CodeJR.</p>
+                        </section>
+                    </div>
                 </div>
-            </div>
+            </section>
+            <!--\Sobre-->
         </div>
-
-
-    </div>
 </main>
-<!--\Page Content-->
 
 <?php require('app/views/partials/footer.php') ?>

@@ -23,6 +23,22 @@ class QueryBuilder
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
+    public function selectAllUsers()
+    {
+        try{
+        
+            $statement = $this->pdo->prepare("select id,name,email from users");
+
+            $statement->execute();
+
+            return $statement->fetchAll(PDO::FETCH_CLASS);
+
+        }catch(Exception $e)
+        {
+            $e->getMessage();
+        }
+    }
+
     public function insert($table, $parameters)
     {
         $sql = sprintf(
@@ -36,8 +52,7 @@ class QueryBuilder
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute($parameters);
-        } catch (Exception $e) {
-            $e->getMessage();
+        } catch (\Exception $e) {
         }
     }
 
@@ -60,20 +75,25 @@ class QueryBuilder
         }
     }
 
-    public function edit($table, $field, $value, $id)
+    public function edit($table, $parameters, $id)
     {
-        $sql = sprintf(
-            'update %s set %s = %s where id = %s',
-            $table,
-            $field,
-            $value,
-            $id
-        );
+        $last = end($parameters);
+
+        $sql = "update {$table} set ";
+        foreach ($parameters as $item => $val) {
+            if ($val == "$last") {
+                $sql = $sql . "$item = '{$val}' ";
+            } else {
+                $sql = $sql . "$item = '{$val}', ";
+            }
+        };
+        $sql = $sql . "where id = {$id}";
 
         try {
-            $statement = $this->pdo->prepare($sql);
+            $stmt = $this->pdo->prepare($sql);
 
-            $statement->execute();
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
         } catch (Exception $e) {
             $e->getMessage();
         }
@@ -89,7 +109,49 @@ class QueryBuilder
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute();
+        } catch (\Exception $e) {
+        }
+    }
+
+    public function search($table,$parameters)
+    {
+        $tamanho = count(array_keys($parameters));
+
+        $sql = "select * from {$table} where ";
+        for ($i = 0; $i < ($tamanho); $i++) 
+        {   
+            $sql = $sql . (array_keys($parameters)[$i] ). '=' . "'" . (array_values($parameters)[$i]) . "'";
+            if($i < $tamanho-1)
+                $sql = $sql . ' and ';
+        }     
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute();
+
+            return $statement->fetchAll(PDO::FETCH_CLASS);
         } catch (Exception $e) {
+            $e->getMessage();
+        }
+    }
+
+    /**
+     * Função que conta o número de linhas
+     */
+    public function getTotalRows($table)
+    {
+        $sql = "SELECT COUNT(*) FROM {$table}";
+
+        try{
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute();
+
+            $cont = $statement->fetch();
+            return $cont;
+        }catch(Exception $e)
+        {
             $e->getMessage();
         }
     }
