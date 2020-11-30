@@ -39,7 +39,7 @@
                     <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Seu email">
                     <input type="password" class="form-control" name="password" placeholder="Senha">
                     <button type="submit" class="btn btn-primary">Continuar</button>
-                    <a href="#">esqueceu sua senha?</a>
+                    <a href="/">Voltar para a pagina inicial</a>
                 </form>
             </div>
         </div>
