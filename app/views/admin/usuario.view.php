@@ -86,6 +86,7 @@
                   <td>
                     <button type="button" class="btn" data-toggle="modal" data-target="#view-user-<?= $user->id ?>"><i class="fas fa-eye"></i></button>
                     <button type="button" class="btn" data-toggle="modal" data-target="#edit-<?= $user->id ?>"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn" data-toggle="modal" data-target="#edit-password-<?= $user->id ?>"><i class="fas fa-user-lock"></i></button>
                     <button type="button" class="btn" data-toggle="modal" data-target="#delete-<?= $user->id ?>"><i class="fas fa-trash"></i></button>
                   </td>
                 </tr>
@@ -133,6 +134,35 @@
                           <input type="text" name="name" class="form-control" value="<?= $user->name ?>"><br>
                           <label>Email</label><br>
                           <input type="text" name="email" class="form-control" value="<?= $user->email ?>"><br>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-success">Editar</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Mudar a senha-->
+                <div class="modal" id="edit-password-<?= $user->id ?>" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Editar senha de <?= $user->name ?></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form action="/admin/usuario/change-password" method="POST" class="form-group">
+                          <input type="hidden" name="id" value="<?= $user->id; ?>">
+                          <label>Antiga Senha</label>
+                          <input type="password" name="oldPassword" class="form-control"><br>
+                          <label>Nova Senha</label><br>
+                          <input type="password" name="newPassword" class="form-control"><br>
+                          <label>Confirme a nova senha</label><br>
+                          <input type="password" name="newPasswordCheck" class="form-control"><br>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                             <button type="submit" class="btn btn-success">Editar</button>

@@ -88,11 +88,11 @@ class LoginController{
 
             session_destroy();
     
-            redirect('');
+            return redirect('');
         }catch(Exception $e)
         {
             $e->getMessage();
-            redirect('/admin');
+            return redirect('/admin');
         }
         
     }

@@ -113,6 +113,9 @@ body {
     height: 45px;
 }
 
+#sign-out i:hover{
+
+}
 
 /*===== MAIN ADMINISTRATIVO =====*/
 
@@ -854,11 +857,6 @@ h3 {
     align-items: center;
     text-align: center;
     margin-left: 5px;
-}
-
-i:hover {
-    transition: 1s;
-    color: #1496d2;
 }
 
 @media (max-width: 710px) {

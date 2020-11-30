@@ -5,7 +5,7 @@
     <button class="btn mb-2 mr-auto ml-3 button-admin" type="button" onclick="toggleButton()">
         <i class="fas fa-bars"></i>
     </button>
-    <form action="logout" method="POST">
+    <form action="/logout" method="POST">
         <button id="sign-out" class="btn mb-2 ml-auto mr-3 button-admin" type="submit">
             <i class="fas fa-sign-out-alt fa-lg"></i>
         </button>

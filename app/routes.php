@@ -19,6 +19,7 @@ $router->post('admin/produto/edit', 'ProdutosAdminController@edit');
 $router->post('admin/categoria/create', 'CategoryAdminController@create');
 $router->post('admin/categoria/delete', 'CategoryAdminController@delete');
 $router->post('admin/categoria/edit', 'CategoryAdminController@edit');
+$router->post('admin/usuario/change-password', 'UserController@changePassword');
 
 /*Publicas*/
 $router->get('', 'PagesController@index');
