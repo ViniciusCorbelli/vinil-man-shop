@@ -10,7 +10,12 @@ class UserController
 
     public function index()
     {
-        $users = App::get('database')->selectAllUsers();
+        if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
+            $pesquisa = $_GET['Pesquisa'];
+            $users = App::get('database')->pesquisaName('users', $pesquisa);
+        } else {
+            $users = App::get('database')->selectAllUsers();
+        }
 
         return view('admin/usuario',[
             'users' => $users

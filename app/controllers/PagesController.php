@@ -48,23 +48,22 @@ class PagesController
         if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
             $pesquisa = $_GET['Pesquisa'];
             $produtos = App::get('database')->pesquisa('product', $pesquisa);
-
-            return view('/site/produtos', [
-                'categorias' => $categorias,
-                'produtos' => $produtos,
-                'titulo' => $titulo,
-                'totalDeColunas' => $totalDeColunas[0]
-            ]);
+            $pesquisa = $_GET['Pesquisa'];
         } else {
+            $pesquisa = 'Todos';
             $produtos = App::get('database')->selectAll('product');
-
-            return view('/site/produtos', [
-                'categorias' => $categorias,
-                'produtos' => $produtos,
-                'titulo' => $titulo,
-                'totalDeColunas' => $totalDeColunas[0]
-            ]);
         }
+
+        $quantidade = '10';
+
+        return view('/site/produtos', [
+            'pesquisa' => $pesquisa,
+            'quantidade' => $quantidade,
+            'categorias' => $categorias,
+            'produtos' => $produtos,
+            'titulo' => $titulo,
+            'totalDeColunas' => $totalDeColunas[0]
+        ]);
     }
 
     public function produto()

@@ -40,7 +40,7 @@ class QueryBuilder
 
     public function pesquisa($table, $parameters)
     {
-        $sql = "select * from {$table} where " ;
+        $sql = "select * from {$table} where ";
         $categorias = App::get('database')->selectAll('category');
         foreach ($categorias as $categoria) {
             if ($categoria->name == $parameters) {
@@ -53,6 +53,16 @@ class QueryBuilder
         } else {
             $sql = $sql . " or name LIKE '%" . $parameters . "%'";
         }
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
+    }
+
+    public function pesquisaName($table, $parameters)
+    {
+        $sql = "select * from {$table} where name LIKE '%" . $parameters . "%'";
 
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();

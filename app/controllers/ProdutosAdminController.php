@@ -9,8 +9,14 @@ class ProdutosAdminController
 {
     public function index()
     {
+        if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
+            $pesquisa = $_GET['Pesquisa'];
+            $produtos = App::get('database')->pesquisaName('product', $pesquisa);
+        } else {
+            $produtos = App::get('database')->selectAll('product');
+        }
+
         $category = App::get('database')->selectAll('category');
-        $produtos = App::get('database')->selectAll('product');
 
         return view('/admin/produto', [
             'categorias' => $category,

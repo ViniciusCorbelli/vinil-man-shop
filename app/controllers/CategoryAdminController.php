@@ -9,7 +9,12 @@ class CategoryAdminController
 {
     public function index()
     {
-        $category = App::get('database')->selectAll('category');
+        if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
+            $pesquisa = $_GET['Pesquisa'];
+            $category = App::get('database')->pesquisaName('category', $pesquisa);
+        } else {
+            $category = App::get('database')->selectAll('category');
+        }
 
         return view('/admin/category', [
             'category' => $category,
