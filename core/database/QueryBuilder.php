@@ -4,6 +4,7 @@ namespace App\Core\Database;
 
 use PDO;
 use Exception;
+use App\Core\App;
 
 class QueryBuilder
 {
@@ -39,13 +40,26 @@ class QueryBuilder
 
     public function pesquisa($table, $parameters)
     {
-        $statement = $this->pdo->prepare("select * from {$table} WHERE name LIKE '%$parameters%'");
+        $sql = "select * from {$table} where " ;
+        $categorias = App::get('database')->selectAll('category');
+        foreach ($categorias as $categoria) {
+            if ($categoria->name == $parameters) {
+                $sql = $sql . " id_category LIKE '%" . $categoria->id . "%'";
+            }
+        }
 
-        $statement->execute();
+        if ($sql == "select * from {$table} where ") {
+            $sql = $sql . " name LIKE '%" . $parameters . "%'";
+        } else {
+            $sql = $sql . " or name LIKE '%" . $parameters . "%'";
+        }
 
-        return $statement->fetchAll(PDO::FETCH_CLASS);
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
-    
+
 
     public function insert($table, $parameters)
     {
