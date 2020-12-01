@@ -97,12 +97,19 @@ class PagesController
         $categorias = App::get('database')->selectAll('category');
 
         $titulo = 'Produto';
-        return view('/site/visualizar-produtos', [
-            'titulo' => $titulo,
-            'produtosID' => $produtosID,
-            'produtos' => $produtos,
-            'categorias' => $categorias,
-        ]);
+
+        if (count($produtosID) > 0) {
+            return view('/site/visualizar-produtos', [
+                'titulo' => $titulo,
+                'produtosID' => $produtosID,
+                'produtos' => $produtos,
+                'categorias' => $categorias,
+            ]);
+        } else {
+            return view('/site/erro', [
+                'titulo' => $titulo,
+            ]);
+        }
     }
 
     public function login()

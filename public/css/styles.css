@@ -1112,6 +1112,27 @@ i:hover {
     font-size: 100px;
 }
 
+.erro {
+    margin-top: 100px;
+    margin-bottom: 40px;
+    background-color: white;
+    animation-name: efeito-subir;
+    animation-duration: 2s;
+    padding: 60px;
+    text-align: center;
+}
+
+.erro h1 {
+    color: #1496d2;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.erro i {
+    font-size: 100px;
+    margin-bottom: 25px;
+}
+
 .produtos-main {
     margin-left: 120px;
     margin-right: 120px;

@@ -28,11 +28,16 @@
                 <li class="nav-item">
                     <a class="nav-link item-navbar" href="quem-somos">Quem Somos</a>
                 </li>
+                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle item-navbar" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Categorias
                     </a>
                     <div class="dropdown-menu menu-suspenso" aria-labelledby="navbarDropdown">
+
+                        <a class="dropdown-item" href="produtos">Todos os produtos</a>
+                        <div class="dropdown-divider"></div>
+
                         <?php
 
                         use App\Core\App;
@@ -41,7 +46,6 @@
 
                         foreach ($category as $categoria) : ?>
                             <a class="dropdown-item" href="produtos?Categoria=<?= $categoria->name; ?>"><?= $categoria->name; ?></a>
-                            <div class="dropdown-divider"></div>
                         <?php endforeach ?>
                     </div>
                 </li>
