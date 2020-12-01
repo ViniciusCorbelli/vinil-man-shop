@@ -60,6 +60,24 @@ class QueryBuilder
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
+    public function selectLimit($table,$parameters)
+    {
+        $sql = "select * from {$table} limit ";
+        $sql = $sql . sprintf('%s ',implode(", ",array_values($parameters)));
+
+        //die(var_dump($sql));
+        try{
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute();
+
+
+            return $statement->fetchAll(PDO::FETCH_CLASS);
+        }catch(Exception $e)
+        {
+            $e->getMessage();
+        }
+    }
+
 
     public function insert($table, $parameters)
     {

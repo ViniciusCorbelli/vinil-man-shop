@@ -42,9 +42,16 @@ class PagesController
 
         $categorias = App::get('database')->selectAll('category'); //Pega todas as categorias disponíveis
 
-        $totalDeColunas = App::get('database')->getTotalRows('product'); //Pega o número de linhas
-        $linhasPorPaginas = 9; //Exibir o número máximo entra na próxima sprint de paginação
+        $totalDeColunas = App::get('database')->getTotalRows('product'); //Pega o número de linhas 
+        //die($totalDeColunas["COUNT(*)"]);
+        $totalDeColunas = intval($totalDeColunas["COUNT(*)"]);
+        //die(var_dump($totalDeColunas));
+        $totalDeRegistros = 9; //Exibir o número máximo
+        $totalLinks = ceil($totalDeColunas / $totalDeRegistros);
+        //die(var_dump($totalLinks));
 
+        $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
+        //die(var_dump($pagina));
         if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
             $pesquisa = $_GET['Pesquisa'];
             $produtos = App::get('database')->pesquisa('product', $pesquisa);
@@ -53,16 +60,23 @@ class PagesController
                 'categorias' => $categorias,
                 'produtos' => $produtos,
                 'titulo' => $titulo,
-                'totalDeColunas' => $totalDeColunas[0]
+                'totalDeLinks' => $totalLinks
             ]);
         } else {
-            $produtos = App::get('database')->selectAll('product');
+            $begin = ($pagina-1)*$totalDeRegistros;
 
+            $produtos = App::get('database')->selectLimit('product', [
+                'begin' => $begin,
+                'quantidade' => $totalDeRegistros
+            ]);
+
+            //die(var_dump($produtos));
             return view('/site/produtos', [
                 'categorias' => $categorias,
                 'produtos' => $produtos,
                 'titulo' => $titulo,
-                'totalDeColunas' => $totalDeColunas[0]
+                'totalDeLinks' => $totalLinks,
+                'pagina' => $pagina
             ]);
         }
     }
