@@ -57,7 +57,8 @@ class PagesController
         //die(var_dump($pagina));
         if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
             $pesquisa = $_GET['Pesquisa'];
-            $produtos = App::get('database')->pesquisa('product', $pesquisa);
+            
+            $produtos = App::get('database')->pesquisa('product',$pesquisa);
 
             return view('/site/produtos', [
                 'categorias' => $categorias,
@@ -66,13 +67,82 @@ class PagesController
                 'totalDeLinks' => $totalLinks,
                 'pagina' => $pagina
             ]);
-        } else {
+        } if (isset($_GET['category']) && !empty($_GET['category'])){
+
+            $categoria = $_GET['category'];
+            $produtos = App::get('database')->pesquisa('product',$categoria);
+
+            return view('/site/produtos', [
+                'categorias' => $categorias,
+                'produtos' => $produtos,
+                'titulo' => $titulo,
+                'totalDeLinks' => $totalLinks,
+                'pagina' => $pagina
+            ]);
+
+        } if (isset($_GET['order']) && !empty($_GET['order'])){
+            
+            $begin = ($pagina-1)*$totalDeRegistros;
+            
+            if($_GET['order'] == 'menorpreco')
+            {
+                $produtos = App::get('database')->selectLimit('product', [
+                    'begin' => $begin,
+                    'quantidade' => $totalDeRegistros
+                ], [
+                    'asc' => 'price'
+                ]);
+
+                //die(var_dump($produtos));
+                return view('/site/produtos', [
+                    'categorias' => $categorias,
+                    'produtos' => $produtos,
+                    'titulo' => $titulo,
+                    'totalDeLinks' => $totalLinks,
+                    'pagina' => $pagina
+                ]);
+            } else if($_GET['order'] == 'maiorpreco')
+            {
+                $produtos = App::get('database')->selectLimit('product', [
+                    'begin' => $begin,
+                    'quantidade' => $totalDeRegistros
+                ], [
+                    'desc' => 'price'
+                ]);
+
+                //die(var_dump($produtos));
+                return view('/site/produtos', [
+                    'categorias' => $categorias,
+                    'produtos' => $produtos,
+                    'titulo' => $titulo,
+                    'totalDeLinks' => $totalLinks,
+                    'pagina' => $pagina
+                ]);
+            } else if ($_GET['order'] == 'recentes')
+            {
+                $produtos = App::get('database')->selectLimit('product', [
+                    'begin' => $begin,
+                    'quantidade' => $totalDeRegistros
+                ], [
+                    'asc' => 'id'
+                ]);
+
+                //die(var_dump($produtos));
+                return view('/site/produtos', [
+                    'categorias' => $categorias,
+                    'produtos' => $produtos,
+                    'titulo' => $titulo,
+                    'totalDeLinks' => $totalLinks,
+                    'pagina' => $pagina
+                ]);
+            }
+        }else {
             $begin = ($pagina-1)*$totalDeRegistros;
 
             $produtos = App::get('database')->selectLimit('product', [
                 'begin' => $begin,
                 'quantidade' => $totalDeRegistros
-            ]);
+            ], []);
 
             //die(var_dump($produtos));
             return view('/site/produtos', [

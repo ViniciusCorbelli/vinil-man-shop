@@ -21,9 +21,9 @@
                          <div class="dropdown show produtos-relevantes">
                              <a class="btn btn-secondary dropdown-toggle produtos-relevantes-background" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ordenar anúncios</a>
                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                 <a class="dropdown-item" href="#">Mais relevantes</a>
-                                 <a class="dropdown-item" href="#">Menor preço</a>
-                                 <a class="dropdown-item" href="#">Maior preço</a>
+                                 <a class="dropdown-item" href="/produtos?order=recentes">Mais relevantes</a>
+                                 <a class="dropdown-item" href="/produtos?order=menorpreco">Menor preço</a>
+                                 <a class="dropdown-item" href="/produtos?order=maiorpreco">Maior preço</a>
                              </div>
                          </div>
 
@@ -38,19 +38,8 @@
                              </div>
                          </div>
 
-                         <div class="dropdown show produtos-relevantes">
-                             <a class="btn btn-secondary dropdown-toggle produtos-relevantes-background" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Preço</a>
-                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                 <a class="dropdown-item" href="#">Até R$ 35 (204.889)</a>
-                                 <a class="dropdown-item" href="#">R$ 35 a R$ 65 (204.889)</a>
-                                 <a class="dropdown-item" href="#">Mais R$ 65 (204.889)</a>
-                             </div>
-                         </div>
                      </div>
                      <div class="produto-config-computador">
-                         <h3>Tipo de produto</h3>
-                         <h1>Pesquisa</h1>
-                         <h2>1.0245.245 resultados</h2>
                          <h4>Ordenar anúncios</h4>
                          <div class="dropdown show produtos-relevantes">
                              <a class="btn btn-secondary dropdown-toggle produtos-relevantes-background" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,20 +47,15 @@
                              </a>
 
                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                 <a class="dropdown-item" href="#">Mais relevantes</a>
-                                 <a class="dropdown-item" href="#">Menor preço</a>
-                                 <a class="dropdown-item" href="#">Maior preço</a>
+                                 <a class="dropdown-item" href="/produtos?order=recentes">Mais recentes</a>
+                                 <a class="dropdown-item" href="/produtos?order=menorpreco">Menor preço</a>
+                                 <a class="dropdown-item" href="/produtos?order=maiorpreco">Maior preço</a>
                              </div>
                          </div>
                          <h6>Estilos</h6>
                          <?php foreach ($categorias as $categoria) : ?> <a class="dropdown-item" href="/produtos?category=<?= $categoria->name ?>"><?= $categoria->name ?></a>
                          <?php endforeach ?>
-                         <h6>Preço</h6>
-                         <form>
-                             <div class="form-group">
-                                 <input type="range" class="form-control-range" id="formControlRange">
-                             </div>
-                         </form>
+      
                      </div>
                  </div>
              </div>
