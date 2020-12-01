@@ -30,14 +30,19 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle item-navbar" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Produtos
+                        Categorias
                     </a>
                     <div class="dropdown-menu menu-suspenso" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="produtos">Ofertas</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="produtos">Lançamentos</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="produtos">Mais comprados</a>
+                        <?php
+
+                        use App\Core\App;
+
+                        $category = App::get('database')->selectAll('category');
+
+                        foreach ($category as $categoria) : ?>
+                            <a class="dropdown-item" href="produtos?Categoria=<?= $categoria->name; ?>"><?= $categoria->name; ?></a>
+                            <div class="dropdown-divider"></div>
+                        <?php endforeach ?>
                     </div>
                 </li>
                 <li class="nav-item">
