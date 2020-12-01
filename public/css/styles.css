@@ -1094,6 +1094,24 @@ i:hover {
 
 /* Produtos */
 
+.produtos-vazio {
+    margin-top: 100px;
+    margin-bottom: 40px;
+    background-color: white;
+    animation-name: efeito-subir;
+    animation-duration: 2s;
+    padding: 60px;
+}
+
+.produtos-vazio h1 {
+    color: #1496d2;
+    font-size: 24px;
+}
+
+.produtos-vazio i {
+    font-size: 100px;
+}
+
 .produtos-main {
     margin-left: 120px;
     margin-right: 120px;

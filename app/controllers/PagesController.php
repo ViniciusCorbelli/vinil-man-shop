@@ -52,8 +52,15 @@ class PagesController
             $pesquisas = App::get('database')->pesquisa('product', $pesquisa);
             $category = App::get('database')->pesquisaCategoria('product', $category);
 
-            $produtos = array_merge($pesquisas, $category);
+            $produtos = ([]);
 
+            foreach ($pesquisas as $x) {
+                foreach ($category as $y) {
+                    if ($x == $y) {
+                        $produtos[] = $x;
+                    }
+                }
+            }
         } else if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
             $pesquisa = $_GET['Pesquisa'];
             $produtos = App::get('database')->pesquisa('product', $pesquisa);
@@ -67,14 +74,20 @@ class PagesController
 
         $quantidade = count($produtos);
 
-        return view('/site/produtos', [
-            'pesquisa' => $pesquisa,
-            'quantidade' => $quantidade,
-            'categorias' => $categorias,
-            'produtos' => $produtos,
-            'titulo' => $titulo,
-            'totalDeColunas' => $totalDeColunas[0]
-        ]);
+        if ($quantidade > 0) {
+            return view('/site/produtos', [
+                'pesquisa' => $pesquisa,
+                'quantidade' => $quantidade,
+                'categorias' => $categorias,
+                'produtos' => $produtos,
+                'titulo' => $titulo,
+                'totalDeColunas' => $totalDeColunas[0]
+            ]);
+        } else {
+            return view('site/produtos.vazio', [
+                'titulo' => $titulo
+            ]);
+        }
     }
 
     public function produto()
