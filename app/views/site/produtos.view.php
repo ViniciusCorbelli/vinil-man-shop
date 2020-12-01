@@ -36,13 +36,24 @@ require('app/views/partials/head.php');
                         <h2><?= $quantidade ?> resultados</h2>
                         <h6>Estilos</h6>
                         <?php foreach ($categorias as $categoria) : ?>
-                            
-                            <?php if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) : ?>
-                                <a class="dropdown-item" href="/produtos?Pesquisa=<?=str_replace(" ", "+", $_GET['Pesquisa'])?>&Categoria=<?= $categoria->name ?>"><?= $categoria->name ?></a>
+
+                            <?php if (isset($_GET) && !empty($_GET) && isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) :
+                                $url =  "{$_SERVER['REQUEST_URI']}";
+                                $escaped_url = htmlspecialchars($url, ENT_QUOTES, 'UTF-8');
+
+                                $parsed = parse_url($escaped_url);
+                                $query = $parsed['query'];
+
+                                parse_str($query, $params);
+
+                                unset($params['Categoria']);
+                                $string = http_build_query($params);
+                            ?>
+                                <a class="dropdown-item" href="/produtos?<?= $string ?>&Categoria=<?= $categoria->name ?>"><?= $categoria->name ?></a>
                             <?php else : ?>
                                 <a class="dropdown-item" href="/produtos?Categoria=<?= $categoria->name ?>"><?= $categoria->name ?></a>
                             <?php endif; ?>
-                            
+
                         <?php endforeach ?>
                     </div>
                 </div>
