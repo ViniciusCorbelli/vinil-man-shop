@@ -51,6 +51,9 @@ class PagesController
         //die(var_dump($totalLinks));
 
         $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
+
+        if($pagina == 0)
+                $pagina = 1;
         //die(var_dump($pagina));
         if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
             $pesquisa = $_GET['Pesquisa'];
@@ -60,7 +63,8 @@ class PagesController
                 'categorias' => $categorias,
                 'produtos' => $produtos,
                 'titulo' => $titulo,
-                'totalDeLinks' => $totalLinks
+                'totalDeLinks' => $totalLinks,
+                'pagina' => $pagina
             ]);
         } else {
             $begin = ($pagina-1)*$totalDeRegistros;
