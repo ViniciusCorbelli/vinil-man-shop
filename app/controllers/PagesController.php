@@ -138,7 +138,6 @@ class PagesController extends LoginController
     public function login()
     {
         session_start();
-        $_SESSION['erros'] = ([]);
 
         //die(var_dump($_SESSION));
         if (isset($_SESSION) && isset($_SESSION['logged'])) {
