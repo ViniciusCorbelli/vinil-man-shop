@@ -11,7 +11,6 @@ class PagesController
     {
         $produtos = App::get('database')->selectAll('product');
 
-
         $titulo = 'Ínicio';
         return view('/site/index', [
             'titulo' => $titulo,
@@ -37,7 +36,6 @@ class PagesController
 
     public function produtos()
     {
-
         $titulo = 'Produtos';
 
         $categorias = App::get('database')->selectAll('category'); //Pega todas as categorias disponíveis

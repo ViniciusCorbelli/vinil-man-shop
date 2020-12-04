@@ -31,7 +31,7 @@
                 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle item-navbar" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Categorias
+                        Produtos
                     </a>
                     <div class="dropdown-menu menu-suspenso" aria-labelledby="navbarDropdown">
 
