@@ -86,10 +86,7 @@ class PagesController extends LoginController
             $produtos = App::get('database')->pesquisaCategoria('product', $pesquisa);
         } else {
             $pesquisa = 'Nenhum';
-            $produtos = App::get('database')->selectLimit('product', [
-                'begin' => $begin,
-                'quantidade' => $totalDeRegistros
-            ], []);
+            $produtos = App::get('database')->selectAll('product');
         }
 
         $quantidade = count($produtos);

@@ -43,7 +43,6 @@ class QueryBuilder
         $sql = "select * from {$table} where ";
         $categorias = App::get('database')->selectAll('category');
         foreach ($categorias as $categoria) {
-            
             if ($categoria->name == $parameters) {
                 $sql = $sql . " id_category LIKE '%" . $categoria->id . "%'";
             }
@@ -60,31 +59,7 @@ class QueryBuilder
 
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
-    
 
-    public function selectLimit($table, $parameters,$act)
-    {
-        $sql = "select * from {$table}";
-
-        if(isset($act) && !empty($act))
-        {
-            $sql = $sql . sprintf(' ORDER BY %s',implode(", ", array_values($act)));
-            $sql = $sql . sprintf(' %s', implode(array_keys($act)));
-        }
-
-        $sql = $sql . sprintf(' limit %s ', implode(", ", array_values($parameters)));
-
-        //die(var_dump($sql));
-        try {
-            $statement = $this->pdo->prepare($sql);
-            $statement->execute();
-
-
-            return $statement->fetchAll(PDO::FETCH_CLASS);
-        } catch (Exception $e) {
-            $e->getMessage();
-        }
-    }
     public function pesquisaName($table, $parameters)
     {
         $sql = "select * from {$table} where name LIKE '%" . $parameters . "%'";
