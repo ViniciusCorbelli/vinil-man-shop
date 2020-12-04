@@ -25,9 +25,9 @@ class LoginController{
                 $user = App::get('database')->search('users', ['email' => $_POST['email']]);
                 
                 if (count(array_keys($user)) == 0) {
-                    die(var_dump($user));
+                    //die(var_dump($user));
                     $_SESSION['erros'][] = "Não existe usuário cadastrado com este email";
-                    return view('login');
+                    return redirect('login');
                 } else {
 
                     $user = $user[0];
