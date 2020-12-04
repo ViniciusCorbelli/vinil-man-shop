@@ -72,7 +72,7 @@ class PagesController extends LoginController
     {
         session_start();
         $_SESSION['erros'] = ([]);
-        
+
         return view('/site/login');
     }
 

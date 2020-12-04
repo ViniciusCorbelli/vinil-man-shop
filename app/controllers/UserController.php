@@ -145,7 +145,9 @@ class UserController extends LoginController
                 {
                     if($_POST['newPassword'] == $_POST['newPasswordCheck'])
                     {
-                        App::get('database')->edit('users',['password'=>$_POST['newPassword']],$_POST['id']);
+                        $hash = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
+                        
+                        App::get('database')->edit('users',['password'=>$hash],$_POST['id']);
                         $_SESSION['sucessos'][] = "Senha alterada com sucesso.";
 
                         return redirect('admin/usuarios');
