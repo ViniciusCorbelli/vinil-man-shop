@@ -44,22 +44,25 @@ class PagesController extends LoginController
         $categorias = App::get('database')->selectAll('category'); //Pega todas as categorias disponíveis
 
         $totalDeColunas = App::get('database')->getTotalRows('product'); //Pega o número de linhas 
-        
+
         $totalDeColunas = intval($totalDeColunas["COUNT(*)"]);
-        
+
         $totalDeRegistros = 9; //Exibir o número máximo
         $totalLinks = ceil($totalDeColunas / $totalDeRegistros);
-        
+
 
         $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
 
-        if($pagina == 0)
-                $pagina = 1;
-        
+        if ($pagina == 0)
+            $pagina = 1;
+
+        $begin = ($pagina - 1) * $totalDeRegistros;
+
         if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
             $pesquisa = $_GET['Pesquisa'];
-            
-            $produtos = App::get('database')->pesquisa('product',$pesquisa);
+            die(var_dump($pesquisa));
+            $produtos = App::get('database')->pesquisa('product', $pesquisa);
+            $quantidade = count($produtos);
 
             return view('/site/produtos', [
                 'categorias' => $categorias,
@@ -68,13 +71,12 @@ class PagesController extends LoginController
                 'totalDeLinks' => $totalLinks,
                 'pagina' => $pagina
             ]);
-
         }
 
         if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa']) && isset($_GET['Categoria']) && !empty($_GET['Categoria'])) {
             $pesquisa = $_GET['Pesquisa'];
             $category = $_GET['Categoria'];
-
+            //die(var_dump($pesquisa));
             $pesquisas = App::get('database')->pesquisa('product', $pesquisa);
             $category = App::get('database')->pesquisaCategoria('product', $category);
 
@@ -89,13 +91,18 @@ class PagesController extends LoginController
             }
         } else if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
             $pesquisa = $_GET['Pesquisa'];
+            //die(var_dump($pesquisa));
             $produtos = App::get('database')->pesquisa('product', $pesquisa);
         } else if (isset($_GET['Categoria']) && !empty($_GET['Categoria'])) {
             $pesquisa = $_GET['Categoria'];
+            //die(var_dump($pesquisa));
             $produtos = App::get('database')->pesquisaCategoria('product', $pesquisa);
         } else {
             $pesquisa = 'Nenhum';
-            $produtos = App::get('database')->selectAll('product');
+            $produtos = App::get('database')->selectLimit('product', [
+                'begin' => $begin,
+                'quantidade' => $totalDeRegistros
+            ], []);
         }
 
         $quantidade = count($produtos);
@@ -144,17 +151,15 @@ class PagesController extends LoginController
     {
         session_start();
         $_SESSION['erros'] = ([]);
-        
+
         //die(var_dump($_SESSION));
-        if(isset($_SESSION) && isset($_SESSION['logged']))
-        {
-            if($_SESSION['logged'])
-            {
+        if (isset($_SESSION) && isset($_SESSION['logged'])) {
+            if ($_SESSION['logged']) {
                 return redirect('admin');
             }
             //die(var_dump($_SESSION));
         }
-            
+
 
         return view('/site/login');
     }
