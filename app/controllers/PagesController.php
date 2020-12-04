@@ -48,7 +48,6 @@ class PagesController extends LoginController
         $totalDeColunas = intval($totalDeColunas["COUNT(*)"]);
 
         $totalDeRegistros = 9; //Exibir o número máximo
-        $totalLinks = ceil($totalDeColunas / $totalDeRegistros);
 
 
         $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
@@ -94,6 +93,7 @@ class PagesController extends LoginController
         }
 
         $quantidade = count($produtos);
+        $totalLinks = ceil($quantidade / $totalDeRegistros);
 
         if ($quantidade > 0) {
             return view('/site/produtos', [
