@@ -40,6 +40,10 @@
 
                      </div>
                      <div class="produto-config-computador">
+                         <h3>Pesquisa por: </h3>
+                         <h1><?= $pesquisa ?></h1>
+                         <h3>Resultados: </h3>
+                         <h2><?= $quantidade ?> resultados</h2>
                          <h4>Ordenar anúncios</h4>
                          <div class="dropdown show produtos-relevantes">
                              <a class="btn btn-secondary dropdown-toggle produtos-relevantes-background" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,7 +59,7 @@
                          <h6>Estilos</h6>
                          <?php foreach ($categorias as $categoria) : ?> <a class="dropdown-item" href="/produtos?category=<?= $categoria->name ?>"><?= $categoria->name ?></a>
                          <?php endforeach ?>
-      
+
                      </div>
                  </div>
              </div>
@@ -127,13 +131,13 @@
                  <?php endif ?>
 
                  <?php for ($i = 0; $i < $totalDeLinks; $i++) { ?>
-                     <li class="page-item produtos-paginas-clicado"><a class="page-link produtos-paginas-clicado" href="produtos?pagina=<?= $i ?>"><?= $i + 1 ?></a></li>
+                     <li class="page-item produtos-paginas-clicado"><a class="page-link produtos-paginas-clicado" href="produtos?pagina=<?= $i+1 ?>"><?= $i + 1 ?></a></li>
                  <?php } ?>
 
-                 <?php if($posterior <= $totalDeLinks): ?>
-                 <li class="page-item produtos-paginas">
-                     <a class="page-link" href="produtos?pagina=<?= $posterior ?>">Próxima <i class="fas fa-arrow-right"></i></a>
-                 </li>
+                 <?php if ($posterior <= $totalDeLinks) : ?>
+                     <li class="page-item produtos-paginas">
+                         <a class="page-link" href="produtos?pagina=<?= $posterior ?>">Próxima <i class="fas fa-arrow-right"></i></a>
+                     </li>
                  <?php endif ?>
 
              </ul>
