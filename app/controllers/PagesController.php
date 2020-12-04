@@ -9,6 +9,7 @@ class PagesController extends LoginController
 {
     public function index()
     {
+        session_start();
         $produtos = App::get('database')->selectAll('product');
 
 
@@ -21,6 +22,7 @@ class PagesController extends LoginController
 
     public function contato()
     {
+        session_start();
         $titulo = 'Contato';
         return view('/site/contato', [
             'titulo' => $titulo,
@@ -29,6 +31,7 @@ class PagesController extends LoginController
 
     public function quemsomos()
     {
+        session_start();
         $titulo = 'Quem somos';
         return view('/site/quem-somos', [
             'titulo' => $titulo,
@@ -37,6 +40,7 @@ class PagesController extends LoginController
 
     public function produtos()
     {
+        session_start();
         $categorias = App::get('database')->selectAll('category'); //Pega todas as categorias disponíveis
 
         $totalDeColunas = App::get('database')->getTotalRows('product'); //Pega o número de linhas
@@ -55,6 +59,7 @@ class PagesController extends LoginController
 
     public function produto()
     {
+        session_start();
         $produtosID = App::get('database')->read('product', $_GET['id']);
         $produtos = App::get('database')->selectAll('product');
         $categorias = App::get('database')->selectAll('category');
@@ -72,6 +77,17 @@ class PagesController extends LoginController
     {
         session_start();
         $_SESSION['erros'] = ([]);
+        
+        //die(var_dump($_SESSION));
+        if(isset($_SESSION) && isset($_SESSION['logged']))
+        {
+            if($_SESSION['logged'])
+            {
+                return redirect('admin');
+            }
+            //die(var_dump($_SESSION));
+        }
+            
 
         return view('/site/login');
     }

@@ -68,7 +68,7 @@ class LoginController{
     public function verifyLogged()
     {
         $check = md5($_SERVER['REMOTE_ADDR']);
-
+        
         if(!isset($_SESSION))
         {
             session_start();
