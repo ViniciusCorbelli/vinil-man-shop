@@ -53,30 +53,13 @@ class PagesController extends LoginController
 
         $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
 
-<<<<<<< HEAD
         if($pagina == 0)
                 $pagina = 1;
-=======
         if ($pagina == 0)
             $pagina = 1;
 
         $begin = ($pagina - 1) * $totalDeRegistros;
 
-        if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
-            $pesquisa = $_GET['Pesquisa'];
-            die(var_dump($pesquisa));
-            $produtos = App::get('database')->pesquisa('product', $pesquisa);
-            $quantidade = count($produtos);
-
-            return view('/site/produtos', [
-                'categorias' => $categorias,
-                'produtos' => $produtos,
-                'titulo' => $titulo,
-                'totalDeLinks' => $totalLinks,
-                'pagina' => $pagina
-            ]);
-        }
->>>>>>> 8fe6503237427064323f8c00f94d4fd22152407d
 
         if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa']) && isset($_GET['Categoria']) && !empty($_GET['Categoria'])) {
             $pesquisa = $_GET['Pesquisa'];
