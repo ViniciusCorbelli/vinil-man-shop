@@ -142,7 +142,6 @@ require('app/views/partials/head.php');
 
                  <?php for ($i = 0; $i < $totalDeLinks; $i++) { ?>
                     <?php if (isset($_GET) && !empty($_GET) && ((isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) || (isset($_GET['Pagina']) && !empty($_GET['Pagina'])))) {
-                                
                                 $url = unset_uri_var('produtos', basename($_SERVER['REQUEST_URI']));
                     ?>
                      <?php } else { ?>
