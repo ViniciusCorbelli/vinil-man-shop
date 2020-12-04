@@ -42,7 +42,6 @@ body {
     background-color: #e7e7e7;
 }
 
-
 /*==== ESTILIZAÇÃO DO PHP ====*/
 
 .nome-php {
@@ -114,6 +113,9 @@ body {
     height: 45px;
 }
 
+#sign-out i:hover{
+
+}
 
 /*===== MAIN ADMINISTRATIVO =====*/
 
@@ -857,11 +859,6 @@ h3 {
     margin-left: 5px;
 }
 
-i:hover {
-    transition: 1s;
-    color: #1496d2;
-}
-
 @media (max-width: 710px) {
     .map-adress-footer {
         margin-top: auto;
@@ -1093,6 +1090,45 @@ i:hover {
 
 
 /* Produtos */
+
+.produtos-vazio {
+    margin-top: 100px;
+    margin-bottom: 40px;
+    background-color: white;
+    animation-name: efeito-subir;
+    animation-duration: 2s;
+    padding: 60px;
+}
+
+.produtos-vazio h1 {
+    color: #1496d2;
+    font-size: 24px;
+}
+
+.produtos-vazio i {
+    font-size: 100px;
+}
+
+.erro {
+    margin-top: 100px;
+    margin-bottom: 40px;
+    background-color: white;
+    animation-name: efeito-subir;
+    animation-duration: 2s;
+    padding: 60px;
+    text-align: center;
+}
+
+.erro h1 {
+    color: #1496d2;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.erro i {
+    font-size: 100px;
+    margin-bottom: 25px;
+}
 
 .produtos-main {
     margin-left: 120px;

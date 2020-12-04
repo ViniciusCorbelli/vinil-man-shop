@@ -41,13 +41,14 @@ class Router
                 ...explode('@', $this->routes[$requestType][$uri])
             );
         } else {
-            try{
+            try {
                 throw new Exception("No route defined for this URI");
-            }catch(Exception $e)
-            {
-                $e->getMessage();
+            } catch (Exception $e) {
+                $titulo = 'Página não encontrada';
+                return view('/site/erro', [
+                    'titulo' => $titulo,
+                ]);
             }
-            
         }
     }
     protected function callAction($controller, $action)

@@ -1,60 +1,55 @@
-<?php session_start();
-require('app/views/partials/head.admin.php') ?>
+<?php require('app/views/partials/head.admin.php') ?>
 
 <div id="main" class="container-fluid">
-    <main>
-        <h1 class="mt-4 mx-auto non-space">Listagem de Usúarios</h1>
+  <main>
+    <h1 class="mt-4 mx-auto non-space">Listagem de Usúarios</h1>
 
-        <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Adicionar Novo Usúario</button>
+    <button class="mt-4 mb-4 btn btn-warning btn-lg non-space" data-toggle="modal" data-target="#new">Adicionar Novo Usúario</button>
 
-        <?php
-        if (isset($_SESSION['sucessos']))
-            foreach ($_SESSION['sucessos'] as $sucesso) : ?>
-            <div class="alert alert-success alert-dismissible fade show">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Sucesso!</strong> <?= $sucesso ?>
-            </div>
-        <?php endforeach ?>
+    <?php
+    if (isset($_SESSION['sucessos']))
+      foreach ($_SESSION['sucessos'] as $sucesso) : ?>
+      <div class="alert alert-success alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Sucesso!</strong> <?= $sucesso ?>
+      </div>
+    <?php endforeach ?>
 
-        <?php
-        if (isset($_SESSION['erros']))
-            foreach ($_SESSION['erros'] as $erro) : ?>
-            <div class="alert alert-danger alert-dismissible fade show">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Erro!</strong> <?= $erro ?>
-            </div>
-        <?php endforeach ?>
+    <?php
+    if (isset($_SESSION['erros']))
+      foreach ($_SESSION['erros'] as $erro) : ?>
+      <div class="alert alert-danger alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Erro!</strong> <?= $erro ?>
+      </div>
+    <?php endforeach ?>
 
-        <?php
-        unset($_SESSION['sucessos']);
-        unset($_SESSION['erros']);
-        ?>
+    <?php
+    unset($_SESSION['sucessos']);
+    unset($_SESSION['erros']);
+    ?>
 
 
-        <div class="card mb-4 w-auto">
-            <div class="card-header">
-                <div class="row mb-1">
-                    <div class="col-sm-12">
-                        <h4 class="ml-2 non-space">Usúarios</h4>
-                    </div>
+    <div class="card mb-4 w-auto">
+    <div class="card-header">
+        <div class="row mb-1">
+          <div class="col-sm-12">
+            <h4 class="ml-2 non-space">Usúarios</h4>
+          </div>
+        </div>
+        <div id="second-line" class="row">
+          <div class="col-sm-10">
+            <div class="mr-auto barra-pesquisa">
+              <form action="/admin/usuarios" method="GET" class="form-group form-navbar">
+                <div class="input-group">
+                  <input type="text" name="Pesquisa" class="form-control" placeholder="Pesquisar">
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-secondary"><i class="fa fa-search"></i></button>
+                  </div>
                 </div>
-                <div id="second-line" class="row">
-                    <div class="col-sm-4">
-                        <form class="form-inline">
-                            <label style="font-size: larger;" for="">Exibir
-                                <select class="ml-2 custom-select">
-                                    <option selected>Seven</option>
-                                </select>
-                        </form>
-                    </div>
-                    <div class="col-sm-8">
-                        <div class="form-inline">
-                            <label style="font-size: larger;" for="">Pesquisar
-                                <input type="text" class="ml-3 mt-1 mb-1 form-control form-control w-75">
-                        </div>
-                    </div>
-                </div>
+              </form>
             </div>
+          </div>
 
       <div class="card-body non-space">
         <div class="table-responsive">
@@ -87,6 +82,7 @@ require('app/views/partials/head.admin.php') ?>
                   <td>
                     <button type="button" class="btn" data-toggle="modal" data-target="#view-user-<?= $user->id ?>"><i class="fas fa-eye"></i></button>
                     <button type="button" class="btn" data-toggle="modal" data-target="#edit-<?= $user->id ?>"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn" data-toggle="modal" data-target="#edit-password-<?= $user->id ?>"><i class="fas fa-user-lock"></i></button>
                     <button type="button" class="btn" data-toggle="modal" data-target="#delete-<?= $user->id ?>"><i class="fas fa-trash"></i></button>
                   </td>
                 </tr>
@@ -134,6 +130,35 @@ require('app/views/partials/head.admin.php') ?>
                           <input type="text" name="name" class="form-control" value="<?= $user->name ?>"><br>
                           <label>Email</label><br>
                           <input type="text" name="email" class="form-control" value="<?= $user->email ?>"><br>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-success">Editar</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Mudar a senha-->
+                <div class="modal" id="edit-password-<?= $user->id ?>" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Editar senha de <?= $user->name ?></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form action="/admin/usuario/change-password" method="POST" class="form-group">
+                          <input type="hidden" name="id" value="<?= $user->id; ?>">
+                          <label>Antiga Senha</label>
+                          <input type="password" name="oldPassword" class="form-control"><br>
+                          <label>Nova Senha</label><br>
+                          <input type="password" name="newPassword" class="form-control"><br>
+                          <label>Confirme a nova senha</label><br>
+                          <input type="password" name="newPasswordCheck" class="form-control"><br>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                             <button type="submit" class="btn btn-success">Editar</button>

@@ -5,11 +5,20 @@ namespace App\Controllers;
 use App\Core\App;
 use Exception;
 
-class CategoryAdminController
+class CategoryAdminController extends LoginController
 {
     public function index()
     {
+        session_start();
+        $this->verifyLogged();
+
         $category = App::get('database')->selectAll('category');
+        if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
+            $pesquisa = $_GET['Pesquisa'];
+            $category = App::get('database')->pesquisaName('category', $pesquisa);
+        } else {
+            $category = App::get('database')->selectAll('category');
+        }
 
         return view('/admin/category', [
             'category' => $category,
@@ -19,6 +28,8 @@ class CategoryAdminController
     public function create()
     {
         session_start();
+        $this->verifyLogged();
+
         $_SESSION['sucessos'] = ([]);
         $_SESSION['erros'] = ([]);
 
@@ -45,6 +56,8 @@ class CategoryAdminController
     public function edit()
     {
         session_start();
+        $this->verifyLogged();
+
         $_SESSION['sucessos'] = ([]);
         $_SESSION['erros'] = ([]);
 
@@ -73,6 +86,8 @@ class CategoryAdminController
     public function delete()
     {
         session_start();
+        $this->verifyLogged();
+        
         $_SESSION['sucessos'] = ([]);
         $_SESSION['erros'] = ([]);
 

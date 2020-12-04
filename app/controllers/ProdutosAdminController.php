@@ -5,12 +5,20 @@ namespace App\Controllers;
 use App\Core\App;
 use Exception;
 
-class ProdutosAdminController
+class ProdutosAdminController extends LoginController
 {
     public function index()
     {
+        session_start();
+        $this->verifyLogged();
+        if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
+            $pesquisa = $_GET['Pesquisa'];
+            $produtos = App::get('database')->pesquisaName('product', $pesquisa);
+        } else {
+            $produtos = App::get('database')->selectAll('product');
+        }
+
         $category = App::get('database')->selectAll('category');
-        $produtos = App::get('database')->selectAll('product');
 
         return view('/admin/produto', [
             'categorias' => $category,
@@ -21,6 +29,8 @@ class ProdutosAdminController
     public function create()
     {
         session_start();
+        $this->verifyLogged();
+
         $_SESSION['sucessos'] = ([]);
         $_SESSION['erros'] = ([]);
 
@@ -86,6 +96,8 @@ class ProdutosAdminController
     public function edit()
     {
         session_start();
+        $this->verifyLogged();
+
         $_SESSION['sucessos'] = ([]);
         $_SESSION['erros'] = ([]);
 
@@ -173,6 +185,8 @@ class ProdutosAdminController
     public function delete()
     {
         session_start();
+        $this->verifyLogged();
+
         $_SESSION['sucessos'] = ([]);
         $_SESSION['erros'] = ([]);
 

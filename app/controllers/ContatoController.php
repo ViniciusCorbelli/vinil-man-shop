@@ -1,15 +1,13 @@
 <?php
 
 namespace App\Controllers;
-use app\core\App;
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
-class ContatoController
+class ContatoController 
 {
 
     public function sendMail()
