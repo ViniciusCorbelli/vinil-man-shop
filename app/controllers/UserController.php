@@ -10,19 +10,16 @@ class UserController extends LoginController
 
     public function index()
     {
-<<<<<<< HEAD
         session_start();
         $this->verifyLogged();
 
         $users = App::get('database')->selectAllUsers();
-=======
         if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
             $pesquisa = $_GET['Pesquisa'];
             $users = App::get('database')->pesquisaName('users', $pesquisa);
         } else {
             $users = App::get('database')->selectAllUsers();
         }
->>>>>>> Pesquisa
 
         return view('admin/usuario', [
             'users' => $users

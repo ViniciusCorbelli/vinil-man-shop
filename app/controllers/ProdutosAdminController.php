@@ -9,17 +9,14 @@ class ProdutosAdminController extends LoginController
 {
     public function index()
     {
-<<<<<<< HEAD
         session_start();
         $this->verifyLogged();
-=======
         if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
             $pesquisa = $_GET['Pesquisa'];
             $produtos = App::get('database')->pesquisaName('product', $pesquisa);
         } else {
             $produtos = App::get('database')->selectAll('product');
         }
->>>>>>> Pesquisa
 
         $category = App::get('database')->selectAll('category');
 

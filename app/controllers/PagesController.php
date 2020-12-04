@@ -5,21 +5,13 @@ namespace App\Controllers;
 use App\Core\App;
 use Exception;
 
-<<<<<<< HEAD
 class PagesController extends LoginController
-=======
-class PagesController
->>>>>>> Pesquisa
 {
     public function index()
     {
         session_start();
         $produtos = App::get('database')->selectAll('product');
 
-<<<<<<< HEAD
-
-=======
->>>>>>> Pesquisa
         $titulo = 'Ínicio';
         return view('/site/index', [
             'titulo' => $titulo,
@@ -47,12 +39,8 @@ class PagesController
 
     public function produtos()
     {
-<<<<<<< HEAD
         session_start();
-=======
         $titulo = 'Produtos';
-
->>>>>>> Pesquisa
         $categorias = App::get('database')->selectAll('category'); //Pega todas as categorias disponíveis
 
         $totalDeColunas = App::get('database')->getTotalRows('product'); //Pega o número de linhas
