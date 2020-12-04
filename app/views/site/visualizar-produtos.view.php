@@ -29,7 +29,7 @@ require('app/views/partials/head.php');
         <a class="nav-link disabled visualizar-produto-caminho"></a>
         <a class="nav-link visualizar-produto-caminho" href="/produtos">Vinil</a>
         <a class="nav-link disabled visualizar-produto-caminho"></a>
-        <a class=" nav-link visualizar-produto-caminho" href="/produtos?category=<?= $categoria  ?>"><?= $categoria  ?></a>
+        <a class=" nav-link visualizar-produto-caminho" href="/produtos?Categoria=<?= $categoria  ?>"><?= $categoria  ?></a>
     </nav>
 
     <div class="row visualizar-produto-pagina">

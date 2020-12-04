@@ -18,60 +18,58 @@ require('app/views/partials/head.php');
 
                 <div class="list-group produtos-buscador">
                     <div class="produto-config-celular">
-                        <div class="dropdown show produtos-relevantes">
-                            <a class="btn btn-secondary dropdown-toggle produtos-relevantes-background" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ordenar anúncios</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Mais relevantes</a>
-                                <a class="dropdown-item" href="#">Menor preço</a>
-                                <a class="dropdown-item" href="#">Maior preço</a>
-                            </div>
-                        </div>
-
 
 
                         <div class="dropdown show produtos-relevantes ">
                             <a class="btn btn-secondary dropdown-toggle produtos-relevantes-background" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Estilo</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <?php foreach ($categorias as $categoria) : ?>
-                                    <a class="dropdown-item" href="/produtos?category=<?= $categoria->name ?>"><?= $categoria->name ?></a>
+                                    <a class="dropdown-item" href="/produtos?Categoria=<?= $categoria->name ?>"><?= $categoria->name ?></a>
                                 <?php endforeach ?>
-                            </div>
-                        </div>
-
-                        <div class="dropdown show produtos-relevantes">
-                            <a class="btn btn-secondary dropdown-toggle produtos-relevantes-background" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Preço</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Até R$ 35 (204.889)</a>
-                                <a class="dropdown-item" href="#">R$ 35 a R$ 65 (204.889)</a>
-                                <a class="dropdown-item" href="#">Mais R$ 65 (204.889)</a>
                             </div>
                         </div>
                     </div>
                     <div class="produto-config-computador">
-                        <h3>Tipo de produto</h3>
-                        <h1>Pesquisa</h1>
-                        <h2>1.0245.245 resultados</h2>
-                        <h4>Ordenar anúncios</h4>
-                        <div class="dropdown show produtos-relevantes">
-                            <a class="btn btn-secondary dropdown-toggle produtos-relevantes-background" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                mais relevantes
-                            </a>
-
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Mais relevantes</a>
-                                <a class="dropdown-item" href="#">Menor preço</a>
-                                <a class="dropdown-item" href="#">Maior preço</a>
-                            </div>
-                        </div>
+                        <h3>Pesquisa por: </h3>
+                        <h1><?= $pesquisa ?></h1>
+                        <h3>Resultados: </h3>
+                        <h2><?= $quantidade ?> resultados</h2>
                         <h6>Estilos</h6>
-                        <?php foreach ($categorias as $categoria) : ?> <a class="dropdown-item" href="/produtos?category=<?= $categoria->name ?>"><?= $categoria->name ?></a>
+
+                        <?php
+
+                        function unset_uri_var($variable, $uri)
+                        {
+                            $parseUri = parse_url($uri);
+                            $arrayUri = array();
+                            parse_str($parseUri['query'], $arrayUri);
+                            unset($arrayUri[$variable]);
+                            $newUri = http_build_query($arrayUri);
+                            $newUri = $parseUri['path'] . '?' . $newUri;
+                            return $newUri;
+                        }
+
+                        ?>
+
+                        <?php foreach ($categorias as $categoria) : ?>
+
+                            <?php if (isset($_GET) && !empty($_GET) && ((isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) || (isset($_GET['Pagina']) && !empty($_GET['Pagina'])))) :
+                                $url = unset_uri_var('Categoria', basename($_SERVER['REQUEST_URI']));
+                            ?>
+                                <?php if (isset($_GET['Categoria']) && !empty($_GET['Categoria']) && $_GET['Categoria'] == $categoria->name) : ?>
+                                    <span class="thisPage dropdown-item"><?= $categoria->name ?></span>
+                                <?php else : ?>
+                                    <a class="dropdown-item" href="<?= $url ?>&Categoria=<?= $categoria->name ?>"><?= $categoria->name ?></a>
+                                <?php endif; ?>
+                            <?php else : ?>
+                                <?php if (isset($_GET['Categoria']) && !empty($_GET['Categoria']) && $_GET['Categoria'] == $categoria->name) : ?>
+                                    <span class="thisPage dropdown-item"><?= $categoria->name ?></span>
+                                <?php else : ?>
+                                    <a class="dropdown-item" href="/produtos?Categoria=<?= $categoria->name ?>"><?= $categoria->name ?></a>
+                                <?php endif; ?>
+                            <?php endif; ?>
+
                         <?php endforeach ?>
-                        <h6>Preço</h6>
-                        <form>
-                            <div class="form-group">
-                                <input type="range" class="form-control-range" id="formControlRange">
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -104,24 +102,24 @@ require('app/views/partials/head.php');
 
                 <div class="row produto-listagem-margin">
 
-                    <?php foreach ($produtos as $produto): ?>
-                    <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
-                        <a href="produto?id=<?= $produto->id ?>">
-                            <div class="card h-100">
-                                <img class="card-img-top card-img" src="<?= $produto->image; ?>" alt="Vinil">
-                                <div class="card-body">
-                                    <h4 class="card-title produtos-cards-titulo">
-                                        <a class="produtos-cards-titulo" href="produto?id=<?= $produto->id ?>"><?= $produto->name ?></a>
-                                    </h4>
-                                    <h5>R$ <?= $produto->price ?></h5>
-                                    <p class="card-text"><?= $produto->description ?></p>
+                    <?php foreach ($produtos as $produto) : ?>
+                        <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
+                            <a href="produto?id=<?= $produto->id ?>">
+                                <div class="card h-100">
+                                    <img class="card-img-top card-img" src="<?= $produto->image; ?>" alt="Vinil">
+                                    <div class="card-body">
+                                        <h4 class="card-title produtos-cards-titulo">
+                                            <a class="produtos-cards-titulo" href="produto?id=<?= $produto->id ?>"><?= $produto->name ?></a>
+                                        </h4>
+                                        <h5>R$ <?= $produto->price ?></h5>
+                                        <p class="card-text"><?= $produto->description ?></p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted"><?= $produto->stock ?> unid. disponível</small>
+                                    </div>
                                 </div>
-                                <div class="card-footer">
-                                    <small class="text-muted"><?= $produto->stock ?> unid. disponível</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
                     <?php endforeach ?>
 
                 </div>

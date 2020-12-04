@@ -9,10 +9,19 @@ class CategoryAdminController extends LoginController
 {
     public function index()
     {
+<<<<<<< HEAD
         session_start();
         $this->verifyLogged();
 
         $category = App::get('database')->selectAll('category');
+=======
+        if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
+            $pesquisa = $_GET['Pesquisa'];
+            $category = App::get('database')->pesquisaName('category', $pesquisa);
+        } else {
+            $category = App::get('database')->selectAll('category');
+        }
+>>>>>>> Pesquisa
 
         return view('/admin/category', [
             'category' => $category,

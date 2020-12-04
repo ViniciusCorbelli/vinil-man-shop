@@ -10,11 +10,11 @@
     <div class="collapse navbar-collapse barra-navegacao" id="conteudoNavbarSuportado">
         <!-- Barra de pesquisa -->
         <div class="mr-auto barra-pesquisa">
-            <form class="form-group form-navbar">
+            <form action="/produtos" method="GET" class="form-group form-navbar">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Pesquisar">
+                    <input type="text" name="Pesquisa" class="form-control" placeholder="Pesquisar">
                     <div class="input-group-append">
-                        <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
+                        <button type="submit" class="btn btn-secondary"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
             </form>
@@ -28,16 +28,25 @@
                 <li class="nav-item">
                     <a class="nav-link item-navbar" href="quem-somos">Quem Somos</a>
                 </li>
+                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle item-navbar" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Produtos
                     </a>
                     <div class="dropdown-menu menu-suspenso" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="produtos">Ofertas</a>
+
+                        <a class="dropdown-item" href="produtos">Todos os produtos</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="produtos">Lançamentos</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="produtos">Mais comprados</a>
+
+                        <?php
+
+                        use App\Core\App;
+
+                        $category = App::get('database')->selectAll('category');
+
+                        foreach ($category as $categoria) : ?>
+                            <a class="dropdown-item" href="produtos?Categoria=<?= $categoria->name; ?>"><?= $categoria->name; ?></a>
+                        <?php endforeach ?>
                     </div>
                 </li>
                 <li class="nav-item">

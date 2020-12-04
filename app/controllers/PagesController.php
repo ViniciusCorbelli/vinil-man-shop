@@ -5,14 +5,21 @@ namespace App\Controllers;
 use App\Core\App;
 use Exception;
 
+<<<<<<< HEAD
 class PagesController extends LoginController
+=======
+class PagesController
+>>>>>>> Pesquisa
 {
     public function index()
     {
         session_start();
         $produtos = App::get('database')->selectAll('product');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> Pesquisa
         $titulo = 'Ínicio';
         return view('/site/index', [
             'titulo' => $titulo,
@@ -40,21 +47,60 @@ class PagesController extends LoginController
 
     public function produtos()
     {
+<<<<<<< HEAD
         session_start();
+=======
+        $titulo = 'Produtos';
+
+>>>>>>> Pesquisa
         $categorias = App::get('database')->selectAll('category'); //Pega todas as categorias disponíveis
 
         $totalDeColunas = App::get('database')->getTotalRows('product'); //Pega o número de linhas
         $linhasPorPaginas = 9; //Exibir o número máximo entra na próxima sprint de paginação
 
-        $produtos = App::get('database')->selectAll('product');
+        if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa']) && isset($_GET['Categoria']) && !empty($_GET['Categoria'])) {
+            $pesquisa = $_GET['Pesquisa'];
+            $category = $_GET['Categoria'];
 
-        $titulo = 'Produtos';
-        return view('/site/produtos', [
-            'categorias' => $categorias,
-            'produtos' => $produtos,
-            'titulo' => $titulo,
-            'totalDeColunas' => $totalDeColunas[0]
-        ]);
+            $pesquisas = App::get('database')->pesquisa('product', $pesquisa);
+            $category = App::get('database')->pesquisaCategoria('product', $category);
+
+            $produtos = ([]);
+
+            foreach ($pesquisas as $x) {
+                foreach ($category as $y) {
+                    if ($x == $y) {
+                        $produtos[] = $x;
+                    }
+                }
+            }
+        } else if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) {
+            $pesquisa = $_GET['Pesquisa'];
+            $produtos = App::get('database')->pesquisa('product', $pesquisa);
+        } else if (isset($_GET['Categoria']) && !empty($_GET['Categoria'])) {
+            $pesquisa = $_GET['Categoria'];
+            $produtos = App::get('database')->pesquisaCategoria('product', $pesquisa);
+        } else {
+            $pesquisa = 'Nenhum';
+            $produtos = App::get('database')->selectAll('product');
+        }
+
+        $quantidade = count($produtos);
+
+        if ($quantidade > 0) {
+            return view('/site/produtos', [
+                'pesquisa' => $pesquisa,
+                'quantidade' => $quantidade,
+                'categorias' => $categorias,
+                'produtos' => $produtos,
+                'titulo' => $titulo,
+                'totalDeColunas' => $totalDeColunas[0]
+            ]);
+        } else {
+            return view('site/produtos.vazio', [
+                'titulo' => $titulo
+            ]);
+        }
     }
 
     public function produto()
@@ -65,12 +111,19 @@ class PagesController extends LoginController
         $categorias = App::get('database')->selectAll('category');
 
         $titulo = 'Produto';
-        return view('/site/visualizar-produtos', [
-            'titulo' => $titulo,
-            'produtosID' => $produtosID,
-            'produtos' => $produtos,
-            'categorias' => $categorias,
-        ]);
+
+        if (count($produtosID) > 0) {
+            return view('/site/visualizar-produtos', [
+                'titulo' => $titulo,
+                'produtosID' => $produtosID,
+                'produtos' => $produtos,
+                'categorias' => $categorias,
+            ]);
+        } else {
+            return view('/site/erro', [
+                'titulo' => $titulo,
+            ]);
+        }
     }
 
     public function login()
