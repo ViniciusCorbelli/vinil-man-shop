@@ -772,7 +772,6 @@ footer {
     height: 350px;
     display: grid;
     justify-content: center;
-    grid-template-columns: 32% 32% 32%;
     align-items: center;
 }
 
@@ -876,12 +875,12 @@ h3 {
         text-align: center;
     }
     .contato-footer h1 {
-        font-size: 60%;
+        font-size: 90%;
         color: #ffffff;
     }
     .contato-footer h2,
     h3 {
-        font-size: 40%;
+        font-size: 60%;
         align-items: center;
         justify-content: center;
         color: #ffffff;
@@ -897,7 +896,7 @@ h3 {
     }
     .redes-sociais-footer h1 {
         color: #ffffff;
-        font-size: 55%;
+        font-size: 80%;
         justify-content: center;
         align-items: center;
         text-align: center;
