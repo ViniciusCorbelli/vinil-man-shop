@@ -92,19 +92,16 @@ require('app/views/partials/head.php');
                     <img src="/public/img/quem-somos-perfil.jpg">
                     <h1>Gabriel Cabanez</h1>
                     <h3>Desenvolvedor</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
                 </div>
                 <div class="col-sm quem-somos-integrates">
                     <img src="/public/img/quem-somos-perfil.jpg">
                     <h1>Leonardo Neves</h1>
                     <h3>Desenvolvedor</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
                 </div>
                 <div class="col-sm quem-somos-integrates">
                     <img src="/public/img/quem-somos-perfil.jpg">
                     <h1>Pedro Alexandre</h1>
                     <h3>Desenvolvedor</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
                 </div>
             </div>
             <div class="row quem-somos-linhas">
@@ -112,19 +109,16 @@ require('app/views/partials/head.php');
                     <img src="/public/img/quem-somos-perfil.jpg">
                     <h1>Renan Nunes</h1>
                     <h3>Desenvolvedor</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
                 </div>
                 <div class="col-sm quem-somos-integrates">
                     <img src="/public/img/quem-somos-perfil.jpg">
                     <h1>Vinicius Carlos</h1>
                     <h3>Scrum Master</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
                 </div>
                 <div class="col-sm quem-somos-integrates">
                     <img src="/public/img/quem-somos-perfil.jpg">
                     <h1>Vinícius Corbelli</h1>
                     <h3>Desenvolvedor</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
                 </div>
             </div>
             <div class="row quem-somos-linhas">

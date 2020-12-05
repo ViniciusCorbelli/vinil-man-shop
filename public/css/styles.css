@@ -1349,22 +1349,31 @@ h3 {
 
 .produtos-paginas a {
     background-color: #e7e7e7!important;
-    color: #1f1717!important;
+    color: #000000!important;
     margin-right: 5px;
     margin-left: 5px;
     transition: .2s all;
+}
+
+.produtos-paginas a:hover {
+    background-color: #d1d0d0!important;
 }
 
 .produtos-paginas-clicado a {
     background-color: #d1d0d0!important;
     margin-right: 5px;
     margin-left: 5px;
+    font-weight: bold;
 }
 
 .produtos-navigation {
     margin-top: 50px;
     animation-name: efeito-subir;
     animation-duration: 2s;
+}
+
+.esta-categoria {
+    font-weight: bold;
 }
 
 @media (max-width: 1000px) {
