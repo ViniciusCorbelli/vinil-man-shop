@@ -150,7 +150,21 @@ require('app/views/partials/head.php');
 
                 <?php endif ?>
 
-                <?php for ($i = 0; $i < $totalDeLinks; $i++) { ?>
+                <?php
+
+                if ($pagina > 2) {
+                    $i = $pagina - 3;
+                } else {
+                    $i = $pagina - 2;
+                }
+
+                if ($totalDeLinks - $i > 10) {
+                    $total = $i + 10;
+                } else {
+                    $total = $totalDeLinks;
+                }
+
+                for ($i = $i; $i < $total; $i++) { ?>
 
                     <?php if (isset($_GET) && !empty($_GET) && ((isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) || (isset($_GET['Categoria']) && !empty($_GET['Categoria'])))) :
                         $url = unset_uri_var('pagina', basename($_SERVER['REQUEST_URI']));
