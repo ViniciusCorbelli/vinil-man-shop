@@ -152,20 +152,20 @@ require('app/views/partials/head.php');
 
                 <?php
 
-                if ($pagina > 5) {
-                    $i = $pagina - 6;
+                if ($pagina > 4) {
+                    $i = $pagina - 5;
                 } else if ($pagina > 2) {
                     $i = $pagina - 3;
                 } else {
                     $i = $pagina - 1;
                 }
 
-                if ($totalDeLinks - $i > 10) {
-                    $total = $i + 10;
+                if ($totalDeLinks - $i > 8) {
+                    $total = $i + 8;
                 } else {
                     $total = $totalDeLinks;
                     $i = $total;
-                    for ($k = 0; $k < 10; $k++) {
+                    for ($k = 0; $k < 8; $k++) {
                         if ($i > 0) {
                             $i--;
                         }

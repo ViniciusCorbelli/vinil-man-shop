@@ -126,9 +126,11 @@ require('app/views/partials/head.php');
         <section id="slogan" class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 <section>
-                    <h3>SINTONIZE NA VINIL MAN</h3>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h3>Conheça a Vinil Man Shop</h3>
+                        <p>Somos uma empresa de vendas de vinil que tem como objetivo democratizar o comércio oferecendo a melhor plataforma e os serviços necessários para que pessoas e empresas possam comprar com a qualidade Vinil Man Shop.
+                        </p>
+                        <p>Nascemos em 2020, no Brasil, e atualmente fazemos entrega para os quatro cantos do Brasil. Nosso marketplace - vinilmanshop.com.br - foi desenolvido por Trainee do processo seletivo da empresa júnior da Faculdade Federal de Juiz de
+                            Fora, CodeJR.</p>
                 </section>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -153,7 +155,7 @@ require('app/views/partials/head.php');
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
                     <section>
-                        <h4>CONHEÇA A VINIL MAN SHOP</h4>
+                        <h4>Conheça o Viniman</h4>
                         <p>Somos uma empresa de vendas de vinil que tem como objetivo democratizar o comércio oferecendo a melhor plataforma e os serviços necessários para que pessoas e empresas possam comprar com a qualidade Vinil Man Shop.
                         </p>
                         <p>Nascemos em 2020, no Brasil, e atualmente fazemos entrega para os quatro cantos do Brasil. Nosso marketplace - vinilmanshop.com.br - foi desenolvido por Trainee do processo seletivo da empresa júnior da Faculdade Federal de Juiz de

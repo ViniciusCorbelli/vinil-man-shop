@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,300&display=swap" rel="stylesheet">
 
-    <title>Entre ou crie sua conta | Vinil Man Shop</title>
+    <title>Login | Vinil Man Shop</title>
     <link rel="icon" type="image/png" href="/public/img/logo.png">
 </head>
 
