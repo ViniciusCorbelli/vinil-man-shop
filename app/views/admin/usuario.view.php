@@ -81,7 +81,7 @@
                           <p><?= $user->name ?></p>
                         </td>
                         <td>
-                          <p class="email-php"><?= $user->email ?></p>
+                          <p class="email-php non-space"><?= $user->email ?></p>
                         </td>
                         <td>
                           <button type="button" class="btn" data-toggle="modal" data-target="#view-user-<?= $user->id ?>"><i class="fas fa-eye"></i></button>
