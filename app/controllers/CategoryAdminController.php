@@ -20,8 +20,21 @@ class CategoryAdminController extends LoginController
             $category = App::get('database')->selectAll('category');
         }
 
+        $totalDeRegistros = 9;
+        $quantidade = count($category);
+        $totalLinks = ceil($quantidade / $totalDeRegistros);
+
+        $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
+
+        if ($pagina == 0)
+            $pagina = 1;
+        if ($pagina == 0)
+            $pagina = 1;
+
         return view('/admin/category', [
             'category' => $category,
+            'pagina' => $pagina,
+            'totalDeLinks' => $totalLinks
         ]);
     }
 

@@ -19,7 +19,7 @@ class ProdutosAdminController extends LoginController
         }
 
         $category = App::get('database')->selectAll('category');
-        $totalDeRegistros = 10;
+        $totalDeRegistros = 9;
         $quantidade = count($produtos);
         $totalLinks = ceil($quantidade / $totalDeRegistros);
 

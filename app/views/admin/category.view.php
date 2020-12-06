@@ -67,18 +67,23 @@
                 </tfoot>
                 <tbody>
 
-                  <?php foreach ($category as $categoria) : ?>
+                  <?php
+                  $categoriaQNT = 0;
+                  foreach ($category as $categoria) :
+                    if ($categoriaQNT < $pagina * 9 &&  $categoriaQNT >= ($pagina - 1) * 9) :
+                  ?>
 
-                    <tr>
-                      <td><?= $categoria->name; ?></td>
+                      <tr>
+                        <td><?= $categoria->name; ?></td>
 
-                      <td>
-                        <button type="button" class="btn" data-toggle="modal" data-target="#view-category-<?= $categoria->id; ?>"><i class="fas fa-eye"></i></button>
-                        <button type="button" class="btn" data-toggle="modal" data-target="#edit-<?= $categoria->id; ?>"><i class="fas fa-edit"></i></button>
-                        <button type="button" class="btn" data-toggle="modal" data-target="#delete-<?= $categoria->id; ?>"><i class="fas fa-trash"></i></button>
-                      </td>
-                    </tr>
-
+                        <td>
+                          <button type="button" class="btn" data-toggle="modal" data-target="#view-category-<?= $categoria->id; ?>"><i class="fas fa-eye"></i></button>
+                          <button type="button" class="btn" data-toggle="modal" data-target="#edit-<?= $categoria->id; ?>"><i class="fas fa-edit"></i></button>
+                          <button type="button" class="btn" data-toggle="modal" data-target="#delete-<?= $categoria->id; ?>"><i class="fas fa-trash"></i></button>
+                        </td>
+                      </tr>
+                    <?php endif;
+                    $categoriaQNT++; ?>
 
                     <!--MODAIS DO BOOTSTRAP-->
                     <!--deletar-->
@@ -162,13 +167,25 @@
                   <?php endforeach; ?>
                 </tbody>
               </table>
+              <?php
+              //Anterior e posterior
+              $anterior = $pagina - 1;
+              $posterior = $pagina + 1;
+              ?>
+
               <nav class="nav justify-content-end">
                 <ul class="pagination">
-                  <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">Proximo</a></li>
+                  <?php if ($anterior != 0) : ?>
+                    <a class="page-link produtos-paginas" href="/admin/categoria?&pagina=<?= $anterior ?>" tabindex="-1"><i class="fas fa-arrow-left"></i> Anterior</a>
+                  <?php endif ?>
+
+                  <?php for ($i = 0; $i < $totalDeLinks; $i++) { ?>
+                    <li class="page-item produtos-paginas-clicado"><a class="page-link produtos-paginas-clicado" href="/admin/categoria?pagina=<?= $i + 1 ?>"><?= $i + 1 ?></a></li>
+                  <?php } ?>
+
+                  <?php if ($posterior <= $totalDeLinks) : ?>
+                    <a class="page-link produtos-paginas" href="/admin/categoria?&pagina=<?= $posterior ?>" tabindex="-1">Próxima<i class="fas fa-arrow-right"></i></a>
+                  <?php endif ?>
                 </ul>
               </nav>
             </div>
