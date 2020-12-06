@@ -1318,7 +1318,7 @@ h3 {
     line-height: 1.625;
 }
 
-.card-body h4 {
+.card-produto h4 {
     display: -webkit-box;
     max-width: 800px;
     height: 130px;
@@ -1329,7 +1329,7 @@ h3 {
     line-height: 1.625;
 }
 
-.card-body h5 {
+.card-produto h5 {
     display: -webkit-box;
     max-width: 100px;
     height: 30px;
