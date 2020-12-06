@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Core\App;
-use Exception;
 
 class PagesController extends LoginController
 {
@@ -52,12 +51,8 @@ class PagesController extends LoginController
 
         $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
 
-        if($pagina == 0)
-                $pagina = 1;
         if ($pagina == 0)
             $pagina = 1;
-
-        $begin = ($pagina - 1) * $totalDeRegistros;
 
 
         if (isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa']) && isset($_GET['Categoria']) && !empty($_GET['Categoria'])) {

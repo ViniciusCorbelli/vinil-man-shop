@@ -57,13 +57,13 @@ require('app/views/partials/head.php');
                                 $url = unset_uri_var('Categoria', basename($_SERVER['REQUEST_URI']));
                             ?>
                                 <?php if (isset($_GET['Categoria']) && !empty($_GET['Categoria']) && $_GET['Categoria'] == $categoria->name) : ?>
-                                    <span class="thisPage dropdown-item"><?= $categoria->name ?></span>
+                                    <a class="dropdown-item esta-categoria" href="<?= $url ?>&Categoria=<?= $categoria->name ?>"><?= $categoria->name ?></a>
                                 <?php else : ?>
                                     <a class="dropdown-item" href="<?= $url ?>&Categoria=<?= $categoria->name ?>"><?= $categoria->name ?></a>
                                 <?php endif; ?>
                             <?php else : ?>
                                 <?php if (isset($_GET['Categoria']) && !empty($_GET['Categoria']) && $_GET['Categoria'] == $categoria->name) : ?>
-                                    <span class="thisPage dropdown-item"><?= $categoria->name ?></span>
+                                    <a class="dropdown-item esta-categoria" href="<?= $url ?>&Categoria=<?= $categoria->name ?>"><?= $categoria->name ?></a>
                                 <?php else : ?>
                                     <a class="dropdown-item" href="/produtos?Categoria=<?= $categoria->name ?>"><?= $categoria->name ?></a>
                                 <?php endif; ?>
@@ -104,7 +104,7 @@ require('app/views/partials/head.php');
                     <?php
                     $produtoQNT = 0;
                     foreach ($produtos as $produto) :
-                        if ($produtoQNT < $pagina * 9 && $produtoQNT >= ($pagina-1) * 9):?>
+                        if ($produtoQNT < $pagina * 9 && $produtoQNT >= ($pagina - 1) * 9) : ?>
                             <div class="col-lg-4 col-md-6 mb-4 produtos-cards">
                                 <a href="produto?id=<?= $produto->id ?>">
                                     <div class="card h-100">
@@ -140,22 +140,46 @@ require('app/views/partials/head.php');
             <ul class="pagination justify-content-center produtos-navigation">
                 <?php if ($anterior != 0) : ?>
 
-                    <?php if (isset($_GET) && !empty($_GET) && ((isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) || (isset($_GET['pagina']) && !empty($_GET['pagina'])))) :
+                    <?php if (isset($_GET) && !empty($_GET) && ((isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) || (isset($_GET['Categoria']) && !empty($_GET['Categoria'])))) :
                         $url = unset_uri_var('pagina', basename($_SERVER['REQUEST_URI']));
                     ?>
-                        <a class="page-link produtos-paginas" href="<?= $url ?>&pagina=<?= $anterior ?>" tabindex="-1"><i class="fas fa-arrow-left"></i> Anterior</a>
+                        <li class="page-item produtos-paginas"><a class="page-link produtos-paginas" href="<?= $url ?>&pagina=<?= $anterior ?>" tabindex="-1"><i class="fas fa-arrow-left"></i> Anterior</a></li>
+                    <?php else : ?>
+                        <li class="page-item produtos-paginas"><a class="page-link produtos-paginas" href="/produtos?pagina=<?= $anterior ?>" tabindex="-1"><i class="fas fa-arrow-left"></i> Anterior</a></li>
                     <?php endif; ?>
 
                 <?php endif ?>
 
-                <?php for ($i = 0; $i < $totalDeLinks; $i++) { ?>
+                <?php
 
-                    <?php if (isset($_GET) && !empty($_GET) && ((isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) || (isset($_GET['pagina']) && !empty($_GET['pagina'])))) :
+                if ($pagina > 4) {
+                    $i = $pagina - 5;
+                } else if ($pagina > 2) {
+                    $i = $pagina - 3;
+                } else {
+                    $i = $pagina - 1;
+                }
+
+                if ($totalDeLinks - $i > 8) {
+                    $total = $i + 8;
+                } else {
+                    $total = $totalDeLinks;
+                    $i = $total;
+                    for ($k = 0; $k < 8; $k++) {
+                        if ($i > 0) {
+                            $i--;
+                        }
+                    }
+                }
+
+                for ($i = $i; $i < $total; $i++) { ?>
+
+                    <?php if (isset($_GET) && !empty($_GET) && ((isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) || (isset($_GET['Categoria']) && !empty($_GET['Categoria'])))) :
                         $url = unset_uri_var('pagina', basename($_SERVER['REQUEST_URI']));
                     ?>
-                        <li class="page-item produtos-paginas-clicado"><a class="page-link produtos-paginas-clicado" href="<?= $url ?>&pagina=<?= $i + 1 ?>"><?= $i + 1 ?></a></li>
+                        <li class="page-item produtos-paginas <?php if (($i + 1) == $pagina) : ?> produtos-paginas-clicado <?php endif ?>"><a class="page-link produtos-paginas <?php if (($i + 1) == $pagina) : ?> produtos-paginas-clicado <?php endif ?>" href="<?= $url ?>&pagina=<?= $i + 1 ?>"><?= $i + 1 ?></a></li>
                     <?php else : ?>
-                        <li class="page-item produtos-paginas-clicado"><a class="page-link produtos-paginas-clicado" href="/produtos?pagina=<?= $i + 1 ?>"><?= $i + 1 ?></a></li>
+                        <li class="page-item produtos-paginas <?php if (($i + 1) == $pagina) : ?> produtos-paginas-clicado <?php endif ?>"><a class="page-link produtos-paginas <?php if (($i + 1) == $pagina) : ?> produtos-paginas-clicado <?php endif ?>" href="/produtos?pagina=<?= $i + 1 ?>"><?= $i + 1 ?></a></li>
                     <?php endif; ?>
 
                 <?php } ?>
@@ -163,12 +187,12 @@ require('app/views/partials/head.php');
                 <?php if ($posterior <= $totalDeLinks) : ?>
 
 
-                    <?php if (isset($_GET) && !empty($_GET) && ((isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) || (isset($_GET['pagina']) && !empty($_GET['pagina'])))) :
+                    <?php if (isset($_GET) && !empty($_GET) && ((isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) || (isset($_GET['Categoria']) && !empty($_GET['Categoria'])))) :
                         $url = unset_uri_var('pagina', basename($_SERVER['REQUEST_URI']));
                     ?>
-                        <a class="page-link produtos-paginas" href="<?= $url ?>&pagina=<?= $posterior ?>" tabindex="-1">Próxima<i class="fas fa-arrow-right"></i></a>
+                        <li class="page-item produtos-paginas"><a class="page-link produtos-paginas" href="<?= $url ?>&pagina=<?= $posterior ?>" tabindex="-1">Próxima <i class="fas fa-arrow-right"></i></a></li>
                     <?php else : ?>
-                        <a class="page-link produtos-paginas" href="/produtos?&pagina=<?= $posterior ?>" tabindex="-1">Próxima<i class="fas fa-arrow-right"></i></a>
+                        <li class="page-item produtos-paginas"><a class="page-link produtos-paginas" href="/produtos?pagina=<?= $posterior ?>" tabindex="-1">Próxima <i class="fas fa-arrow-right"></i></a></li>
                     <?php endif; ?>
 
                 <?php endif ?>
