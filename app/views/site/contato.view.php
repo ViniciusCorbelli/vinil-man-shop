@@ -24,7 +24,7 @@ require('app/views/partials/head.php');
                 <input type="text" class="digitos col-lg form-control" name="subject" placeholder="Digite Aqui o Assunto"></input>
                 <label>Mensagem</label>
                 <textarea id="editor" name="body"></textarea>
-                <div class="form-check form-check-inline">
+                <div id="ccopia" class="form-check-inline">
                     <input class="form-check-input" type="checkbox" name="copiaEmail" value="on" id="enviarCopia">
                     <label class="form-check-label" for="enviarCopia">Envie-me uma cópia</label>
                 </div>

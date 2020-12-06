@@ -134,7 +134,7 @@ require('app/views/partials/head.php');
                     <h3>ENVIE SEU CURRÍCULO</h3>
                     <h4>Faça parte da nossa equipe, confira as vagas</h4>
                     <h4>disponíveis e venha crescer com a gente.</h4>
-                    <a href="#" class="btn btn-primary btn-lg" role="button" aria-disabled="true">Envie seu cúrriculo</a>
+                    <a href="/contato" class="btn btn-primary btn-lg" role="button" aria-disabled="true">Envie seu cúrriculo</a>
                 </div>
             </div>
         </div>
