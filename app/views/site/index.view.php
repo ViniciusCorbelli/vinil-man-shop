@@ -127,10 +127,10 @@ require('app/views/partials/head.php');
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                 <section>
                     <h3>Conheça a Vinil Man Shop</h3>
-                        <p>Somos uma empresa de vendas de vinil que tem como objetivo democratizar o comércio oferecendo a melhor plataforma e os serviços necessários para que pessoas e empresas possam comprar com a qualidade Vinil Man Shop.
-                        </p>
-                        <p>Nascemos em 2020, no Brasil, e atualmente fazemos entrega para os quatro cantos do Brasil. Nosso marketplace - vinilmanshop.com.br - foi desenolvido por Trainee do processo seletivo da empresa júnior da Faculdade Federal de Juiz de
-                            Fora, CodeJR.</p>
+                    <p>Somos uma empresa de vendas de vinil que tem como objetivo democratizar o comércio oferecendo a melhor plataforma e os serviços necessários para que pessoas e empresas possam comprar com a qualidade Vinil Man Shop.
+                    </p>
+                    <p>Nascemos em 2020, no Brasil, e atualmente fazemos entrega para os quatro cantos do Brasil. Nosso marketplace - vinilmanshop.com.br - foi desenolvido por Trainee do processo seletivo da empresa júnior da Faculdade Federal de Juiz de
+                        Fora, CodeJR.</p>
                 </section>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -155,11 +155,9 @@ require('app/views/partials/head.php');
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
                     <section>
-                        <h4>Conheça o Viniman</h4>
-                        <p>Somos uma empresa de vendas de vinil que tem como objetivo democratizar o comércio oferecendo a melhor plataforma e os serviços necessários para que pessoas e empresas possam comprar com a qualidade Vinil Man Shop.
-                        </p>
-                        <p>Nascemos em 2020, no Brasil, e atualmente fazemos entrega para os quatro cantos do Brasil. Nosso marketplace - vinilmanshop.com.br - foi desenolvido por Trainee do processo seletivo da empresa júnior da Faculdade Federal de Juiz de
-                            Fora, CodeJR.</p>
+                        <h4>Conheça a equipe</h4>
+                        <p>Ao longo dos anos, investimos em uma equipe multidisciplinar com especialistas altamente qualificados (Administradores, Analistas de Sistemas e Negócios, Desenvolvedores, Programadores, Gerente de Projetos e Gestão Empresarial), formando
+                            um núcleo com sólidos conhecimentos nas diversas áreas de atuação, necessário ao padrão de qualidade exigido pelo mercado.</p>
                     </section>
                 </div>
             </div>
