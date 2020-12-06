@@ -21,8 +21,21 @@ class UserController extends LoginController
             $users = App::get('database')->selectAllUsers();
         }
 
+        $totalDeRegistros = 9;
+        $quantidade = count($users);
+        $totalLinks = ceil($quantidade / $totalDeRegistros);
+
+        $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
+
+        if ($pagina == 0)
+            $pagina = 1;
+        if ($pagina == 0)
+            $pagina = 1;
+
         return view('admin/usuario', [
-            'users' => $users
+            'users' => $users,
+            'pagina' => $pagina,
+            'totalDeLinks' => $totalLinks
         ]);
     }
 
@@ -145,15 +158,13 @@ class UserController extends LoginController
                 return redirect('admin/usuarios');
             } else {
 
-                $user = App::get('database')->read('users',$_POST['id']);
-                
-                if(!password_verify($_POST['oldPassword'],$user->password))
-                {
-                    if($_POST['newPassword'] == $_POST['newPasswordCheck'])
-                    {
+                $user = App::get('database')->read('users', $_POST['id']);
+
+                if (!password_verify($_POST['oldPassword'], $user->password)) {
+                    if ($_POST['newPassword'] == $_POST['newPasswordCheck']) {
                         $hash = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
-                        
-                        App::get('database')->edit('users',['password'=>$hash],$_POST['id']);
+
+                        App::get('database')->edit('users', ['password' => $hash], $_POST['id']);
                         $_SESSION['sucessos'][] = "Senha alterada com sucesso.";
 
                         return redirect('admin/usuarios');
@@ -167,9 +178,7 @@ class UserController extends LoginController
 
                     return redirect('admin/usuarios');
                 }
-
             }
-
         } catch (Exception $e) {
             $e->getMessage();
 
