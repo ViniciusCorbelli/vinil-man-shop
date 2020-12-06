@@ -72,29 +72,33 @@
                                 </tfoot>
                                 <tbody>
 
-                                    <?php foreach ($produtos as $produto) : ?>
+                                    <?php
+                                    $produtoQNT = 0;
+                                    foreach ($produtos as $produto) :
+                                    ?>
+                                        <?php if ($produtoQNT < $pagina * 9 && $produtoQNT >= ($pagina - 1) * 9) : ?>
+                                            <tr>
+                                                <td><?= $produto->name; ?></td>
+                                                <td><?= $produto->price; ?></td>
 
-                                        <tr>
-                                            <td><?= $produto->name; ?></td>
-                                            <td><?= $produto->price; ?></td>
+                                                <td>
+                                                    <?php
+                                                    foreach ($categorias as $categoria) : ?>
 
-                                            <td>
-                                                <?php
-                                                foreach ($categorias as $categoria) : ?>
+                                                        <?php if ($categoria->id == $produto->id_category) : ?>
+                                                            <?= $categoria->name; ?>
+                                                        <?php endif; ?>
+                                                    <?php endforeach; ?>
+                                                </td>
 
-                                                    <?php if ($categoria->id == $produto->id_category) : ?>
-                                                        <?= $categoria->name; ?>
-                                                    <?php endif; ?>
-                                                <?php endforeach; ?>
-                                            </td>
-
-                                            <td>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#view-product-<?= $produto->id; ?>"><i class="fas fa-eye"></i></button>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#edit-<?= $produto->id; ?>"><i class="fas fa-edit"></i></button>
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#delete-<?= $produto->id; ?>"><i class="fas fa-trash"></i></button>
-                                            </td>
-                                        </tr>
-
+                                                <td>
+                                                    <button type="button" class="btn" data-toggle="modal" data-target="#view-product-<?= $produto->id; ?>"><i class="fas fa-eye"></i></button>
+                                                    <button type="button" class="btn" data-toggle="modal" data-target="#edit-<?= $produto->id; ?>"><i class="fas fa-edit"></i></button>
+                                                    <button type="button" class="btn" data-toggle="modal" data-target="#delete-<?= $produto->id; ?>"><i class="fas fa-trash"></i></button>
+                                                </td>
+                                            </tr>
+                                        <?php endif;
+                                        $produtoQNT++; ?>
 
                                         <!--MODAIS DO BOOTSTRAP-->
                                         <!--deletar-->
@@ -233,13 +237,25 @@
                                         <?php endforeach; ?>
                                 </tbody>
                             </table>
+                            <?php
+                            //Anterior e posterior
+                            $anterior = $pagina - 1;
+                            $posterior = $pagina + 1;
+                            ?>
+
                             <nav class="nav justify-content-end">
                                 <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Proximo</a></li>
+                                    <?php if ($anterior != 0) : ?>
+                                        <a class="page-link produtos-paginas" href="/admin/produto?&pagina=<?= $anterior ?>" tabindex="-1"><i class="fas fa-arrow-left"></i> Anterior</a>
+                                    <?php endif ?>
+
+                                    <?php for ($i = 0; $i < $totalDeLinks; $i++) { ?>
+                                        <li class="page-item produtos-paginas-clicado"><a class="page-link produtos-paginas-clicado" href="/admin/produto?pagina=<?= $i + 1 ?>"><?= $i + 1 ?></a></li>
+                                    <?php } ?>
+
+                                    <?php if ($posterior <= $totalDeLinks) : ?>
+                                        <a class="page-link produtos-paginas" href="/admin/produto?&pagina=<?= $posterior ?>" tabindex="-1">Próxima<i class="fas fa-arrow-right"></i></a>
+                                    <?php endif ?>
                                 </ul>
                             </nav>
                         </div>

@@ -19,10 +19,22 @@ class ProdutosAdminController extends LoginController
         }
 
         $category = App::get('database')->selectAll('category');
+        $totalDeRegistros = 10;
+        $quantidade = count($produtos);
+        $totalLinks = ceil($quantidade / $totalDeRegistros);
+
+        $pagina = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
+
+        if ($pagina == 0)
+            $pagina = 1;
+        if ($pagina == 0)
+            $pagina = 1;
 
         return view('/admin/produto', [
             'categorias' => $category,
             'produtos' => $produtos,
+            'pagina' => $pagina,
+            'totalDeLinks' => $totalLinks
         ]);
     }
 
