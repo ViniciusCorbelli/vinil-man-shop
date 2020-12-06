@@ -168,29 +168,90 @@
                 </tbody>
               </table>
               <?php
+
+              function unset_uri_var($variable, $uri)
+              {
+                $parseUri = parse_url($uri);
+                $arrayUri = array();
+                parse_str($parseUri['query'], $arrayUri);
+                unset($arrayUri[$variable]);
+                $newUri = http_build_query($arrayUri);
+                $newUri = $parseUri['path'] . '?' . $newUri;
+                return $newUri;
+              }
+
               //Anterior e posterior
               $anterior = $pagina - 1;
               $posterior = $pagina + 1;
               ?>
 
               <nav class="nav justify-content-end">
-                <ul class="pagination">
-                  <?php if ($anterior != 0) : ?>
-                    <a class="page-link produtos-paginas" href="/admin/categoria?&pagina=<?= $anterior ?>" tabindex="-1"><i class="fas fa-arrow-left"></i> Anterior</a>
-                  <?php endif ?>
+                <?php if ($anterior != 0) : ?>
 
-                  <?php for ($i = 0; $i < $totalDeLinks; $i++) { ?>
-                    <li class="page-item produtos-paginas-clicado"><a class="page-link produtos-paginas-clicado" href="/admin/categoria?pagina=<?= $i + 1 ?>"><?= $i + 1 ?></a></li>
-                  <?php } ?>
+                  <?php if (isset($_GET) && !empty($_GET) && ((isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) || (isset($_GET['Categoria']) && !empty($_GET['Categoria'])))) :
+                    $url = unset_uri_var('pagina', basename($_SERVER['REQUEST_URI']));
+                  ?>
+                    <li class="page-item"><a class="page-link produtos-paginas" href="<?= $url ?>&pagina=<?= $anterior ?>" tabindex="-1"><i class="fas fa-arrow-left"></i> Anterior</a></li>
+                  <?php else : ?>
+                    <li class="page-item"><a class="page-link produtos-paginas" href="/admin/produto?pagina=<?= $anterior ?>" tabindex="-1"><i class="fas fa-arrow-left"></i> Anterior</a></li>
+                  <?php endif; ?>
 
-                  <?php if ($posterior <= $totalDeLinks) : ?>
-                    <a class="page-link produtos-paginas" href="/admin/categoria?&pagina=<?= $posterior ?>" tabindex="-1">Próxima<i class="fas fa-arrow-right"></i></a>
-                  <?php endif ?>
+                <?php endif ?>
+
+                <?php
+
+                if ($pagina > 4) {
+                  $i = $pagina - 5;
+                } else if ($pagina > 2) {
+                  $i = $pagina - 3;
+                } else {
+                  $i = $pagina - 1;
+                }
+
+                if ($totalDeLinks - $i > 8) {
+                  $total = $i + 8;
+                } else {
+                  $total = $totalDeLinks;
+                  $i = $total;
+                  for ($k = 0; $k < 8; $k++) {
+                    if ($i > 0) {
+                      $i--;
+                    }
+                  }
+                }
+
+                for ($i = $i; $i < $total; $i++) { ?>
+
+                  <?php if (isset($_GET) && !empty($_GET) && ((isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) || (isset($_GET['Categoria']) && !empty($_GET['Categoria'])))) :
+                    $url = unset_uri_var('pagina', basename($_SERVER['REQUEST_URI']));
+                  ?>
+                    <li class="page-item <?php if (($i + 1) == $pagina) : ?> produtos-paginas-clicado <?php endif ?>"><a class="page-link produtos-paginas <?php if (($i + 1) == $pagina) : ?> produtos-paginas-clicado <?php endif ?>" href="<?= $url ?>&pagina=<?= $i + 1 ?>"><?= $i + 1 ?></a></li>
+                  <?php else : ?>
+                    <li class="page-item <?php if (($i + 1) == $pagina) : ?> produtos-paginas-clicado <?php endif ?>"><a class="page-link produtos-paginas <?php if (($i + 1) == $pagina) : ?> produtos-paginas-clicado <?php endif ?>" href="/admin/produto?pagina=<?= $i + 1 ?>"><?= $i + 1 ?></a></li>
+                  <?php endif; ?>
+
+                <?php } ?>
+
+                <?php if ($posterior <= $totalDeLinks) : ?>
+
+
+                  <?php if (isset($_GET) && !empty($_GET) && ((isset($_GET['Pesquisa']) && !empty($_GET['Pesquisa'])) || (isset($_GET['Categoria']) && !empty($_GET['Categoria'])))) :
+                    $url = unset_uri_var('pagina', basename($_SERVER['REQUEST_URI']));
+                  ?>
+                    <li class="page-item"><a class="page-link" href="<?= $url ?>&pagina=<?= $posterior ?>" tabindex="-1">Próxima <i class="fas fa-arrow-right"></i></a></li>
+                  <?php else : ?>
+                    <li class="page-item"><a class="page-link" href="/admin/produto?pagina=<?= $posterior ?>" tabindex="-1">Próxima <i class="fas fa-arrow-right"></i></a></li>
+                  <?php endif; ?>
+
+                <?php endif ?>
+
                 </ul>
               </nav>
             </div>
           </div>
         </div>
+      </div>
+    </div>
   </main>
 </div>
 
